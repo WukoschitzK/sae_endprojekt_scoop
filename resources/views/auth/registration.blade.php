@@ -4,40 +4,41 @@
 
 @section('container')
 
-	<div class="card mt-4">
-		<div class="card-body">
 
-			<form method="post" action="{{ route('auth.postRegistration') }}" autocomplete="off">
+    <div class="wrapper">
+        <div class="h1 heading-line d-inline-block">Registration</div>
 
-				@csrf
+        <p class="text-center margin-bottom-30 font-20-px w-md-40">Create your <span class="text-black">scoop</span> account and be part of an awesome community</p>
 
-                <div class="form-group">
+        <div>
+            <form class="containers shadow" method="post" action="{{ route('auth.postRegistration') }}" autocomplete="off">
+                @csrf
+
+                <div>
                     <label for="input_name">Name:</label>
-                    <input type="text" name="name" value="" class="form-control" id="input_name">
+                    <input type="text" name="name" value="" class="form-control" id="input_name" placeholder="Enter name">
                 </div>
 
-				<div class="form-group">
-					<label for="input_email">Email:</label>
-					<input type="email" name="email" value="" class="form-control" id="input_email">
-				</div>
+                <div>
+                    <label for="input_email">Email:</label>
+                    <input type="email" name="email" value="" class="form-control" id="input_email">
+                </div>
 
-				<div class="form-group">
-					<label for="input_password">Password:</label>
-					<input type="password" name="password" value="" class="form-control" id="input_password">
-				</div>
+                <div>
+                    <label for="input_password">Password:</label>
+                    <input type="password" name="password" value="" class="form-control" id="input_password">
+                </div>
 
-				<div class="form-group">
-					<input type="checkbox" name="remember_me" id="input_remember">
-					<label for="input_remember">Remember me</label>
-				</div>
+                {{--            <div>--}}
+                {{--                <input type="checkbox" name="remember_me" id="input_remember">--}}
+                {{--                <label for="input_remember">Remember me</label>--}}
+                {{--            </div>--}}
 
-				<button type="submit" class="btn btn-primary">
-					<i class="fa fa-check"></i> Sign up
-				</button>
-
-			</form>
-
-		</div>
-	</div>
+                <button type="submit">
+                    Sign up
+                </button>
+            </form>
+        </div>
+    </div>
 
 @endsection

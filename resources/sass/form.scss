@@ -1,0 +1,376 @@
+
+/***************MOBILE***************/
+
+textarea,input {
+  font-family: "Lato", sans-serif
+}
+
+//Cta Button
+
+.cta-btn-wrapper {
+  position:relative;
+}
+
+.cta-btn {
+  text-align:center;
+  padding-top: 13px;
+  color: $mainColorPurple;
+  font-weight: 700;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.cta-btn:before {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  background-color: $mainColorLightCyan;
+  z-index: -1;
+  height: 50px;
+  transition: 0.3s;
+}
+
+.cta-btn:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 5px;
+  left: 0;
+  border-radius: 30px;
+  background-color: $mainColorCyan;
+  transition: .3s;
+  z-index: -2;
+  pointer-events: none;
+  height: 50px;
+}
+
+.cta-btn:hover::before {
+    background-color: $mainColorCyan;
+    transition: 0.3s;
+}
+
+.cta-btn:hover::after {
+  background-color: $mainColorPurple;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+    color: white;
+    transition: 0.3s;
+}
+
+.cta-btn-wrapper-sm {
+  @extend .cta-btn-wrapper;
+  width: 45%;
+}
+
+.cta-btn-sm {
+  @extend .cta-btn;
+  padding-top: 8px;
+
+}
+.cta-btn-sm:before {
+  height: 40px;
+}
+
+.cta-btn-sm:after {
+  height: 40px;
+}
+
+.cta-btn-right {
+  display: flex;
+  justify-content: flex-end;
+
+  div {
+    margin: 0;
+  }
+}
+
+.cta-btn-unfollow{
+  .cta-btn-sm:before {
+    background-color: $mainColorLightGrey;
+  }
+
+  .cta-btn-sm:after {
+    background-color: $mainColorGrey;
+  }
+}
+
+//Recipe Form
+
+.form-recipe {
+
+  .form-recipe-input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 18px;
+    border: 1px solid $mainColorLightPurple;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .form-recipe-input:focus {
+    border: 0.5px solid $mainColorLightPurple;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+    outline: none;
+    transition: 0.2s;
+  }
+
+  .form-recipe-wrapper-input {
+    margin-bottom: 30px;
+  }
+
+  label {
+    font-weight: 700;
+  }
+
+  label.publish {
+    font-weight: 400;
+  }
+
+  .form-character-counter {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .add-step {
+    font-size:30px;
+    padding: 0 5px;
+  }
+}
+
+.steps-count {
+  background-color: $mainColorCyan;
+  width:27px;
+  height: 27px;
+  padding: 6px ;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+
+//Comment Form
+
+.rating-wrapper-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating-stars {
+  color: $mainColorYellow;
+  svg {
+    margin-left: 5px;
+    width: 15px;
+    height: 15px;
+  }
+  svg:first-child{
+    margin-left: 0;
+  }
+}
+
+//Search Form
+
+.search-form-relative {
+  position:relative;
+  width: 100%;
+}
+
+.search-form {
+
+  .search-input {
+    border-radius: 30px;
+    flex-grow: 2;
+    //border-right-width: 0;
+    //border-top-right-radius: 0;
+    //border-bottom-right-radius: 0;
+    border-color: transparent;
+    border: 1px solid transparent;
+    padding: 20px 0px;
+    background-color: $mainColorLightCyan;
+    width: 100%;
+    font-size: 18px;
+  }
+  .search-input::placeholder {
+    font-size: 18px;
+    color: $mainColorLightPurple;
+  }
+  .search-input:focus {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+    outline: none;
+  }
+
+  button {
+    border-radius: 30px;
+    border-left-width: 0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: $mainColorPink;
+    color: white;
+    padding:18px 20px;
+    border-color: transparent;
+    position: absolute;
+    right: -2px;
+    top: 0px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  button:focus {
+    outline: none;
+  }
+}
+
+//Edit Profile Form
+
+.wrapper-edit-profile-image {
+  display: flex;
+  align-items: center;
+
+  .edit-profile-image {
+    margin-left: 20px;
+  }
+}
+
+.form-edit-profile {
+  width: 100%;
+
+  .form-edit-profile-wrapper-input {
+    margin-bottom: 30px;
+
+    label {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $mainColorPurple;
+      padding: 10px 15px;
+      font-size: 18px;
+      color:$mainColorDarkPurple;
+    }
+
+    input:focus {
+      outline: none;
+      border-bottom: 2px solid $mainColorDarkPurple;
+      transition: 0.2s;
+    }
+  }
+}
+
+/***************TABLET***************/
+
+@media (min-width: $Tablet) {
+  .cta-btn-wrapper {
+    max-width: 150px;
+    margin: 0 auto;
+  }
+
+  .form-edit-profile {
+    width:80%;
+    margin: 0 auto;
+  }
+
+  //RecipeForm
+
+  .form-recipe {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .form-recipe-input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 18px;
+      border: 1px solid $mainColorLightPurple;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .form-recipe-input:focus {
+      border: 0.5px solid $mainColorLightPurple;
+      box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .form-recipe-wrapper-input {
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: 700;
+    }
+
+    label.publish {
+      font-weight: 400;
+    }
+
+    .form-character-counter {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .add-step {
+      font-size:30px;
+      padding: 0 5px;
+    }
+  }
+
+  .steps-count {
+    background-color: $mainColorCyan;
+    padding: 6px ;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 15px;
+  }
+}
+
+
+/***************DESKTOP***************/
+
+@media (min-width: $Desktop) {
+
+  .form-edit-profile {
+    width:60%;
+    margin: 0 auto;
+  }
+
+  .cta-btn {
+    font-size: 22px;
+  }
+
+  .search-form-relative {
+    width: 50%;
+  }
+
+  .form-recipe {
+    margin: 0;
+  }
+}
+
+/***************DESKTOP LG***************/
+
+@media (min-width: $Desktop-Lg) {
+
+  .form-edit-profile {
+    width:40%;
+    margin: 0 auto;
+  }
+
+  .search-form-relative {
+    width: 35%;
+  }
+}

@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             AllergenSeeder::class,
-            UserSeeder::class,
+//            UserSeeder::class,
             CategorySeeder::class,
-            RecipeSeeder::class
+//            RecipeSeeder::class
         ]);
     }
 }

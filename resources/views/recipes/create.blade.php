@@ -4,18 +4,20 @@
 
 @section('container')
 
-	<div class="card mt-4">
-		<div class="card-body">
+    <div class="wrapper">
 
-			<form method="post" action="{{ route('recipes.store') }}" enctype="multipart/form-data" autocomplete="off">
+        <div class="h1 heading-line d-inline-block">New Recipe</div>
 
-				@csrf
 
-				@include('recipes._form')
+        <form method="post" action="{{ route('recipes.store') }}" enctype="multipart/form-data" autocomplete="off">
+            @csrf
 
-			</form>
+            @include('recipes._form')
 
-		</div>
-	</div>
+        </form>
+
+
+
+    </div>
 
 @endsection

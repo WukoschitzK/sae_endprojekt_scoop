@@ -1,0 +1,131 @@
+
+
+.profile-information-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+  .profile-information-text-wrapper {
+    width: 100%;
+    margin-left: 15px;
+  }
+
+  .profile-information-user-name {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .profile-information-allergens {
+    display: flex;
+
+    div {
+      padding: 0 5px 0 0;
+    }
+  }
+
+  .profile-information-details {
+    display: flex;
+
+    div {
+      margin-right: 20px;
+    }
+    //justify-content: space-between;
+
+  }
+}
+
+.profile-information-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius:50%;
+}
+
+.edit-profile-link {
+  color: $mainColorPurple;
+}
+
+.following-list {
+  width: 120px;
+  height: 120px;
+}
+
+.following-list-profile-wrapper {
+  display: flex;
+  align-items: center;
+
+  div {
+    padding-left: 25px;
+  }
+}
+
+/***************TABLET***************/
+
+@media (min-width: $Tablet) {
+
+  .profile-information-section {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom:80px;
+
+    .cta-btn-wrapper, .cta-btn-wrapper-sm {
+      margin: 0;
+    }
+  }
+
+  .profile-information-wrapper {
+  margin-bottom: 0;
+    img {
+      width: 180px;
+      height: 180px;
+    }
+
+    .profile-information-text-wrapper {
+      margin-left: 40px;
+    }
+  }
+}
+
+/***************Desktop***************/
+
+@media (min-width: $Desktop) {
+
+  .following-list-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    li {
+      width:25%;
+      margin-right: 20px;
+
+    }
+  }
+
+  .profile-information-section {
+    width: 45%;
+  }
+
+  .profile-information-section {
+    //width: 40%;
+    margin: 0 0 80px 80px;
+
+    .cta-btn-wrapper, .cta-btn-wrapper-sm {
+      margin: 0;
+    }
+  }
+
+  .profile-information-wrapper .profile-information-user-name {
+    font-size:22px;
+  }
+}
+
+
+/***************Desktop LG***************/
+
+@media (min-width: $Desktop-Lg) {
+
+  .profile-information-section {
+    width: 30%;
+  }
+}

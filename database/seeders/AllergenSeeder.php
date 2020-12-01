@@ -14,8 +14,26 @@ class AllergenSeeder extends Seeder
      */
     public function run()
     {
-        Allergen::create([
-            'name' => 'Breakfast'
-        ]);
+        Allergen::create(
+            ['name' => 'lactose-free']
+        );
+        Allergen::create(
+            ['name' => 'gluten-free']
+        );
+        Allergen::create(
+            ['name' => 'histamine-free']
+        );
+        Allergen::create(
+            ['name' => 'nut-free']
+        );
+        Allergen::create(
+            ['name' => 'vegetarian']
+        );
+        Allergen::create(
+            ['name' => 'vegan']
+        );
+        Allergen::create(
+            ['name' => 'undefined']
+        );
     }
 }

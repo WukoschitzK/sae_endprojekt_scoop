@@ -1,0 +1,23 @@
+.allergen-tiles-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  li {
+    border: 1px solid $mainColorCyan;
+    border-radius: 18px;
+    padding: 5px 10px 7px 10px;
+    margin: 8px 5px;
+    line-height: 20px;
+    color: $mainColorCyan;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  li.active {
+    background-color:$mainColorCyan;
+    color: white;
+    transition: 0.5s;
+  }
+}

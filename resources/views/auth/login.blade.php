@@ -4,35 +4,41 @@
 
 @section('container')
 
-	<div class="card mt-4">
-		<div class="card-body">
+    <div class="wrapper">
 
-			<form method="post" action="{{ route('auth.postLogin') }}" autocomplete="off">
+        <div class="h1 heading-line d-inline-block">Login</div>
+        <p class="text-center margin-bottom-30 font-20-px w-md-40">Login to your <span className="text-black">scoop</span> account</p>
 
-				@csrf
 
-				<div class="form-group">
-					<label for="input_email">Email:</label>
-					<input type="email" name="email" value="" class="form-control" id="input_email">
-				</div>
+        <div>
+            <form class="containers" method="post" action="{{ route('auth.postLogin') }}" autocomplete="off">
+                @csrf
 
-				<div class="form-group">
-					<label for="input_password">Password:</label>
-					<input type="password" name="password" value="" class="form-control" id="input_password">
-				</div>
+                <div>
+                    <label for="input_email">Email:</label>
+                    <input type="email" name="email" value="" id="input_email" placeholder="Enter email">
+                </div>
 
-				<div class="form-group">
-					<input type="checkbox" name="remember_me" id="input_remember">
-					<label for="input_remember">Remember me</label>
-				</div>
+                <div>
+                    <label for="input_password">Password:</label>
+                    <input type="password" name="password" value="" id="input_password" placeholder="Enter password">
+                </div>
 
-				<button type="submit" class="btn btn-primary">
-					<i class="fa fa-check"></i> Login
-				</button>
 
-			</form>
+                <button class="text-center mb-4">
+                    Sign In
+                </button>
+            </form>
+        </div>
 
-		</div>
-	</div>
+    </div>
+
+
+
+
+
+
+
+
 
 @endsection

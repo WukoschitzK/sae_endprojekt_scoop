@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Recipe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -16,12 +18,14 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::with('user')->get();
+//        $recipes = Recipe::with('user')->get();
+        $recipes = Recipe::all();
+        $categories = Category::all();
 
         //return view('recipes.index', compact('recipes'));
 
 //        return response()->json($recipes);
-        return view('recipes.index', compact('recipes'));
+        return view('recipes.index', compact('recipes', 'categories'));
     }
 
     /**
@@ -61,12 +65,12 @@ class RecipeController extends Controller
         $recipe->is_public = $request->has('is_public');
         $recipe->user_id = auth()->id();
 
-        if ($image = $request->file('image')) {
-
-            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
-            $image->storePubliclyAs('public/images', $name);
-            $recipe->image_path = $name;
-        }
+//        if ($image = $request->file('image')) {
+//
+//            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
+//            $image->storePubliclyAs('public/images', $name);
+//            $recipe->image_path = $name;
+//        }
 
         $recipe->save();
         return redirect()->route('recipes.index')->with('success', 'Recipes created!!!');
@@ -83,6 +87,9 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::find($id);
+//        $user_id = $recipe->user_id;
+
+//        $user = User::find($user_id);
 
         return view('recipes.show', compact('recipe'));
 

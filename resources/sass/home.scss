@@ -1,0 +1,215 @@
+
+//hero-section
+
+.home-image {
+  width:100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.home-hero-section {
+  margin-bottom:50px;
+}
+
+.home-hero-section-text {
+  p {
+    font-size: 23px;
+  }
+  p:first-child {
+    font-size: 34px;
+    line-height: 35px;
+    margin-bottom: 15px;
+  }
+}
+
+//list how-it-works
+
+ol.home-list-how-it-works {
+  list-style: none;
+  counter-reset: how-it-works-counter;
+}
+
+ol.home-list-how-it-works li {
+  counter-increment: how-it-works-counter;
+}
+
+ol.home-list-how-it-works li::before {
+  content: counter(how-it-works-counter);
+  color: $mainColorCyan;
+  font-weight: bold;
+  font-size: 50px;
+  padding-left:0;
+}
+
+ol.home-list-how-it-works li h2,
+ol.home-list-how-it-works li p{
+  padding-left: 30px;
+}
+
+.how-it-works-video-section {
+  background-color: $mainColorBgGrey;
+  padding: 30px;
+}
+
+.how-it-works-video-placeholder {
+  //width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 8px 8px 15px 0px rgba(119,105,136,0.27);
+}
+
+a.link {
+  //display: flex;
+  //justify-content: center;
+  //display:inline-block;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 2px solid $mainColorPink;
+  width:70px;
+  line-height: 25px;
+}
+
+a.link:hover {
+  font-weight: 700;
+}
+
+/***************TABLET***************/
+
+@media (min-width: $Tablet)  {
+
+  h1.home-h1 {
+    margin-bottom: 60px;
+  }
+
+  .home-hero-section {
+    display:flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom:50px;
+
+    .home-hero-text-wrapper {
+      width: 40%;
+    }
+
+    img {
+      width:50%;
+      margin: 0;
+    }
+  }
+
+  .home-hero-section-text {
+    p {
+      font-size:21px;
+    }
+    p:first-child {
+      font-size:35px;
+
+    }
+  }
+
+  .home-list-how-it-works {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .how-it-works-video-section {
+    padding: 50px 100px;
+  }
+
+  .list-recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  a.link {
+    //width: 80px;
+    display:flex;
+    justify-content: center;
+  }
+}
+
+
+/***************DESKTOP***************/
+
+@media (min-width: $Desktop) {
+
+  .home-recommended.recipe-cards-wrapper-flex {
+    justify-content: center;
+  }
+
+  .how-it-works-video-placeholder-desktop {
+    width: 75%;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .home-hero-section {
+    margin-bottom:100px;
+
+    .home-hero-text-wrapper {
+      width: 43%;
+
+
+      .cta-btn-wrapper {
+        margin:0;
+      }
+    }
+
+    img {
+      width:50%;
+    }
+  }
+
+  .home-hero-section-text {
+    margin-bottom: 60px;
+
+    p {
+      font-size: 30px;
+      line-height: 45px;
+    }
+    p:first-child {
+      font-size: 55px;
+      line-height: 65px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .home-list-how-it-works {
+    margin-bottom: 50px;
+  }
+
+  ol.home-list-how-it-works li {
+    width: 30%;
+  }
+
+  ol.home-list-how-it-works li::before {
+    line-height:60px;
+  }
+
+  ol.home-list-how-it-works li h2,
+  ol.home-list-how-it-works li p {
+    padding-left: 45px;
+  }
+}
+
+
+@media (min-width: 1900px) {
+
+  .how-it-works-video-placeholder-desktop {
+    width: 60%;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .home-list-how-it-works {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+
+}

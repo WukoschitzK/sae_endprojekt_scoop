@@ -32,17 +32,21 @@ Route::middleware('auth')->group(function() {
     Route::get('/profile/{id}', 'UserProfileController@show')->name('profile.show');
     Route::post('/profile/{id}/follow', 'UserProfileController@follow')->name('profile.follow');
     Route::post('/profile/{id}/unfollow', 'UserProfileController@unfollow')->name('profile.unfollow');
+    Route::get('/user-profile/{id}', 'UserProfileController@showOtherProfile')->name('profile.showOtherProfile');
+    Route::get('/profile/{id}/edit', 'UserProfileController@edit')->name('profile.edit');
+    Route::put('/profile/{id}', 'UserProfileController@update')->name('profile.update');
 });
 
 
 // == Recipes
 
 Route::get('/recipes', 'RecipeController@index')->name('recipes.index');
+Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show');
 
 Route::middleware('auth')->group(function() {
     Route::get('/recipes/create', 'RecipeController@create')->name('recipes.create');
     Route::post('/recipes', 'RecipeController@store')->name('recipes.store');
-    Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show'); // ->middleware('auth');
+     // ->middleware('auth');
     Route::get('/recipes/{id}/edit', 'RecipeController@edit')->name('recipes.edit');
     Route::put('/recipes/{id}', 'RecipeController@update')->name('recipes.update');
     Route::delete('/recipes/{id}', 'RecipeController@destroy')->name('recipes.destroy');

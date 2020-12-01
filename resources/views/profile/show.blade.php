@@ -4,50 +4,60 @@
 
 @section('container')
 
-	<div class="card mt-4">
-		<div class="card-body">
 
-			<h2>{{ $user->name }}</h2>
+    <div class="wrapper">
 
-			@if($user->description)
-				<p>{{ $user->description }}</p>
-			@endif
+        <div class="margin-bottom-30 profile-information-section">
 
-			@if($user->image_url)
-				<img class="w-50" src="{{ $user->image_url }}">
-			@endif
+            <div class="profile-information-wrapper">
 
+                @if($user->image_url)
+                    <img class="profile-information-image" src="{{ $user->image_url }}">
+                @endif
 
-
-
-
-
-
-
-
-			<form method="post" action="{{ route('profile.follow', $user->id) }}" autocomplete="off")">
-
-
-				@csrf
-
-				<button type="follow" class="btn btn-info mt-2">
-					Follow
-				</button>
-
-			</form>
-
-            <form method="post" action="{{ route('profile.unfollow', $user->id) }}" autocomplete="off")">
+                <img class="profile-information-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
+                <div class="profile-information-text-wrapper">
+                    <div class="profile-information-user-name">{{ $user->name }}</div>
+                    <div class="profile-information-allergens font-16-px margin-bottom-10">
+                        <div>preferred content</div>
+                    </div>
+                    <div class="profile-information-details">
+                        <div class="font-14-px">
+                            <div>{{$recipes->count()}}</div>
+                            <div>Recipes</div>
+                        </div>
+                        <div class="font-14-px">
+                            <div>{{$followers->count()}}</div>
+                            <div>Follower</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-                @csrf
+            <a href="{{ url('/profile/' . auth()->user()->id) . '/edit' }}">
+                <div class="text-right edit-profile-link font-16-px">
+                    <i class="fas fa-pencil-alt"></i> Edit Profile
+                </div>
+            </a>
+        </div>
 
-                <button type="unfollow" class="btn btn-warning mt-2">
-                    Unfollow
-                </button>
+        <div class="h1 heading-line d-inline-block">Newsfeed</div>
 
-            </form>
+        <div class="recipe-cards-wrapper-flex">
+            <div class="margin-bottom-50 recipe-element">
+{{--                partial recipecard--}}
+            </div>
 
-		</div>
-	</div>
+            <div class="margin-bottom-50 recipe-element">
+                {{--                partial recipecard--}}
+            </div>
+
+            <div class="margin-bottom-50 recipe-element">
+                {{--                partial recipecard--}}
+            </div>
+        </div>
+
+    </div>
 
 @endsection

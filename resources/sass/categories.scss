@@ -1,0 +1,48 @@
+.categories-wrapper {
+  margin-left: 10px;
+
+  li {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  li.active {
+    font-weight: 700;
+  }
+}
+
+.categories-desktop {
+  .categories-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+    margin: 0 auto;
+    font-size: 22px;
+    height:42px;
+
+    li {
+      transition: 0.3s ease-in-out;
+    }
+
+    li.active {
+      font-weight:700;
+      padding-bottom: 3px;
+      border-bottom: 2px solid $mainColorPink;
+    }
+
+    li:hover {
+      font-weight: 700;
+      transition: 0.3s ease-in-out;
+    }
+  }
+}
+
+.filter-desktop {
+  //width:30%;
+  //margin: 0 auto;
+  margin-bottom: 20px;
+
+  .wrapper-filter {
+
+  }
+}

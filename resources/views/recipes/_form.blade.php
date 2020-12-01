@@ -5,6 +5,11 @@
 </div>
 
 <div class="form-group">
+    <label for="input_description">Description:</label>
+    <input type="text" name="description" value="{{ $recipe->description }}" class="form-control" id="input_description">
+</div>
+
+<div class="form-group">
     <label for="input_ingredients">Ingredients:</label>
     <textarea name="ingredients" class="form-control" id="input_ingredients">{{ $recipe->ingredients }}</textarea>
 </div>

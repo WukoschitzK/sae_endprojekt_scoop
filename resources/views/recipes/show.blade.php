@@ -25,14 +25,16 @@
 				<img class="w-50" src="{{ $recipe->image_url }}">
 			@endif
 
-			@if($recipe->user)
-				<p>User: {{ $recipe->user->name }}</p>
-			@endif
+
+{{--				<p>User: {{ $user->name }}</p>--}}
+
 
 			<p>
 				<i class="fa fa-thumbs-up"></i> {{ $recipe->like_count }}
 				<i class="fa fa-thumbs-down ml-2"></i> {{ $recipe->dislike_count }}
 			</p>
+
+            <p></p>
 
 {{--			<p>{{ nice_date($recipe->created_at) }}</p>--}}
 

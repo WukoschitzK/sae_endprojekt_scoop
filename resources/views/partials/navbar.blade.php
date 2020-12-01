@@ -1,51 +1,126 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<header>
+    <nav>
+{{--        desktop:--}}
 
-    <a class="navbar-brand" href="/">sae-laravel</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <div class="navigation-desktop">
+            <div class='navigation-desktop-flex'>
+                <div class="navigation-desktop-flex-left">
+                    <div>
+                        <a href="/"><img src="images/svg/logo_scoop.svg" alt="Logo" class="logo"/></a>
+                    </div>
+                    <div>
+                        <ul class="navigation-desktop-flex-left-links">
 
-    <div class="collapse navbar-collapse justify-content-between" id="navbar">
-
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/passioncoder/sae-laravel" target="_blank"><i class="fa fa-github"></i> GitHub</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://laravel.com/docs/7.x" target="_blank"><i class="fa fa-modx"></i> Laravel</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://vuejs.org/v2/guide/" target="_blank"><i class="fa fa-modx"></i> Vue.js</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">more</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="https://github.com/laravel/framework" target="_blank">Read the code</a>
-                    <a class="dropdown-item" href="https://laracasts.com" target="_blank">Watch Laracasts</a>
-                    <a class="dropdown-item" href="https://packagist.org" target="_blank">Find 3rd-party packages</a>
-                    <a class="dropdown-item" href="http://stackoverflow.com/questions/tagged/laravel" target="_blank">Ask your questions</a>
+                            <li>
+                                <a href="{{ route('recipes.index') }}">All Recipes</a>
+                            </li>
+                            @if(!auth()->check())
+                            <li>
+                                <a href="{{ route('auth.getRegistration') }}">Sign Up</a>
+                            </li>
+                            @endif
+                        </ul>
+                    </div>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('recipes.index') }}" class="nav-link">Recipes</a>
-            </li>
-        </ul>
+                <div class="navigation-desktop-flex-right">
+                    <ul class='navigation-desktop-profile-navigation-points-container'>
+                        <li>
+                            @if(auth()->check())
+                                <a class="navigation-desktop-profile-navigation-points" href="{{ url('/profile/' . auth()->user()->id) }}">
+                                    {{auth()->user()->name}}
+                                </a><i class="fas fa-caret-down js-toggle-icon"></i>
 
-        <ul class="navbar-nav ml-auto">
-            @if(auth()->check())
-                <li class="nav-item">
-                    <a href="#" class="nav-link">{{ auth()->user()->name }}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('auth.logout') }}" class="nav-link">Logout</a>
-                </li>
-            @else
-                <li class="nav-item">
-                    <a href="{{ route('auth.getLogin') }}" class="nav-link">Login</a>
-                </li>
-            @endif
-        </ul>
+                                <ul class="open-user-navigation-points js-open-navigation-points">
+                                    <li>
+                                        <a href="{{ route('recipes.index') }}">Newsfeed</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('recipes.index') }}">My Recipes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('recipes.index') }}">Favorites</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('recipes.index') }}">Following</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('auth.logout') }}">Logout</a>
+                                    </li>
+                                </ul>
+                            @else
+                                <a href="{{ route('auth.getLogin') }}" class="nav-link">Login</a>
+                            @endif
+                        </li>
+                        <li>
+                            <a href="/search"><img src="images/svg/searchIcon.svg" alt="Search Icon" class="icon search-icon" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    </div>
 
-</nav>
+{{--        mobile:--}}
+
+{{--        <div class="">--}}
+{{--            <div class="navigation-mobile-flex">--}}
+
+{{--                <div class="">--}}
+{{--                    <div class="menu-btn__burger"></div>--}}
+{{--                </div>--}}
+
+{{--            <div>--}}
+{{--                <a href="/"><img src="" alt="Logo" class="logo"/></a>--}}
+{{--            </div>--}}
+
+{{--            <div>--}}
+
+{{--                <a href="/search"><img src="" alt="Search Icon" class="icon" /></a>--}}
+
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <div class="navigation-mobile-open-navpoints">--}}
+{{--            <ul>--}}
+{{--                <li>--}}
+{{--                    <a href="/all-recipes">All Recipes</a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a href="/sign-up">Sign Up</a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a href="/login">Login</a>--}}
+{{--                </li>--}}
+
+{{--                <li>--}}
+
+{{--                    <a href="/newsfeed"--}}
+{{--                    class="navigation-desktop-profile-navigation-points">Jody Johnson</a>--}}
+
+{{--                    <ul class="open-user-navigation-points">--}}
+{{--                        <li>--}}
+{{--                            <a href="/newsfeed">Newsfeed</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="/my-recipes">My Recipes</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="/favorites">Favorites</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="/following">Following</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="/logout">Logout</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+
+
+{{--                </li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+
+{{--        </div>--}}
+
+    </nav>
+</header>
