@@ -131,7 +131,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -143,11 +143,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/profile" />
+      <recent name="$PROJECT_DIR$/resources/views/recipes" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/views/partials" />
-      <recent name="$PROJECT_DIR$/resources/views/profile" />
       <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -164,7 +164,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606683472509</updated>
-      <workItem from="1606683473631" duration="29900000" />
+      <workItem from="1606683473631" duration="42829000" />
     </task>
     <servers />
   </component>
@@ -176,14 +176,20 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="1042" y="334" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1606767107697" />
-    <state x="2869" y="281" width="641" height="735" key="find.popup" timestamp="1606857799810">
+    <state x="2372" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606944508221">
       <screen x="1792" y="-12" width="1920" height="1057" />
     </state>
-    <state x="1005" y="327" width="598" height="490" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1606693996013" />
+    <state x="2372" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1606944508221" />
+    <state x="2869" y="281" width="641" height="529" key="find.popup" timestamp="1606944781838">
+      <screen x="1792" y="-12" width="1920" height="1057" />
+    </state>
+    <state x="1005" y="327" width="598" height="548" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1606935344748" />
     <state x="2869" y="281" width="641" height="735" key="find.popup/1792.-12.1920.1057/3712.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1606857799810" />
-    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1606685769216">
-      <screen x="0" y="23" width="1792" height="1097" />
+    <state x="2869" y="281" width="641" height="529" key="find.popup/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1606944781838" />
+    <state x="2393" y="224" width="718" height="652" key="search.everywhere.popup" timestamp="1606938346541">
+      <screen x="1792" y="-12" width="1920" height="1057" />
     </state>
     <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1606685769216" />
+    <state x="2393" y="224" width="718" height="652" key="search.everywhere.popup/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1606938346541" />
   </component>
 </project>

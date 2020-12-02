@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Allergen;
 use App\Models\Category;
 use App\Models\Recipe;
 use App\Models\User;
@@ -21,11 +22,12 @@ class RecipeController extends Controller
 //        $recipes = Recipe::with('user')->get();
         $recipes = Recipe::all();
         $categories = Category::all();
+        $allergens = Allergen::all();
 
         //return view('recipes.index', compact('recipes'));
 
 //        return response()->json($recipes);
-        return view('recipes.index', compact('recipes', 'categories'));
+        return view('recipes.index', compact('recipes', 'categories', 'allergens'));
     }
 
     /**
@@ -38,9 +40,9 @@ class RecipeController extends Controller
         $recipe = new Recipe();
         $recipe->fill($request->old());
 
-        return view('recipes.create', compact('recipe'));
+        $allergens = Allergen::all();
 
-        //todo json response
+        return view('recipes.create', compact('recipe','allergens'));
     }
 
     /**
@@ -65,17 +67,16 @@ class RecipeController extends Controller
         $recipe->is_public = $request->has('is_public');
         $recipe->user_id = auth()->id();
 
-//        if ($image = $request->file('image')) {
-//
-//            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
-//            $image->storePubliclyAs('public/images', $name);
-//            $recipe->image_path = $name;
-//        }
+        if ($image = $request->file('image')) {
+
+            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
+            $image->storePubliclyAs('public/images/recipe_images', $name);
+            $recipe->image_path = $name;
+        }
 
         $recipe->save();
         return redirect()->route('recipes.index')->with('success', 'Recipes created!!!');
 
-//        return response()->json($recipe);
     }
 
     /**
@@ -87,13 +88,11 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::find($id);
-//        $user_id = $recipe->user_id;
+        $user_id = $recipe->user_id;
 
-//        $user = User::find($user_id);
+        $user = User::find($user_id);
 
-        return view('recipes.show', compact('recipe'));
-
-//        return response()->json($recipe);
+        return view('recipes.show', compact('recipe', 'user'));
     }
 
     /**
@@ -106,8 +105,9 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::find($id);
         $recipe->fill($request->old());
+        $allergens = Allergen::all();
 
-        return view('recipes.edit', compact('recipe'));
+        return view('recipes.edit', compact('recipe','allergens'));
     }
 
     /**
@@ -123,6 +123,7 @@ class RecipeController extends Controller
 
             'title' => 'required|min:3|max:192',
             'text' => 'nullable',
+            'image' => 'nullable|mimes:jpeg,png'
         ]);
 
         $recipe = Recipe::find($id);
@@ -152,5 +153,21 @@ class RecipeController extends Controller
         $recipe->delete();
 
         return redirect()->route('recipes.index')->with('success', 'Recipes deleted!');
+    }
+
+    public function showMyRecipes($user_id) {
+
+
+        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
+
+        return view('recipes.showMyRecipes', compact('recipes'));
+
+    }
+
+    public function showLatestRecipes() {
+
+        $recipes = Recipe::query()->orderBy('created_at', 'desc')->take(3)->get();
+//dd($recipes);
+        return view('welcome', compact('recipes'));
     }
 }

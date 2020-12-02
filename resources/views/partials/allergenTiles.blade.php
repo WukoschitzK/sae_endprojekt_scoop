@@ -1,15 +1,11 @@
 <div>
     <div>
         <ul class="allergen-tiles-wrapper">
-            <li class="">
-                Allergentile
+            @foreach($allergens as $allergen)
+            <li class="js-allergen-tile">
+                {{$allergen->name}}
             </li>
-            <li class="">
-                Allergentile
-            </li>
-            <li class="">
-                Allergentile
-            </li>
+            @endforeach
         </ul>
     </div>
 </div>

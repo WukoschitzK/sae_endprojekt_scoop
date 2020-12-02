@@ -1,11 +1,13 @@
 @extends('layouts.master')
 
-@section('title', $recipe->title)
+{{--@section('title', $recipe->title)--}}
 
 @section('container')
 
 	<div class="card mt-4">
 		<div class="card-body">
+
+
 
 			<h2>{{ $recipe->title }}</h2>
 
@@ -21,20 +23,12 @@
                 <p>{{ $recipe->steps }}</p>
             @endif
 
-			@if($recipe->image_url)
+			@if($recipe->image_path)
 				<img class="w-50" src="{{ $recipe->image_url }}">
 			@endif
 
 
-{{--				<p>User: {{ $user->name }}</p>--}}
-
-
-			<p>
-				<i class="fa fa-thumbs-up"></i> {{ $recipe->like_count }}
-				<i class="fa fa-thumbs-down ml-2"></i> {{ $recipe->dislike_count }}
-			</p>
-
-            <p></p>
+            <a href="{{ url('/user-profile/' . $user->id)}}"><p>User: {{ $user->name }}</p></a>
 
 {{--			<p>{{ nice_date($recipe->created_at) }}</p>--}}
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
-    protected $fillable = ['title','ingredients','steps','description','is_public'];
+    protected $fillable = ['title','ingredients','steps','description','is_public','image_path'];
 
     public function user()
     {
@@ -22,5 +22,11 @@ class Recipe extends Model
     public function allergens()
     {
         return $this->belongsToMany(Allergen::class);
+    }
+
+    public function getImageUrlAttribute() {
+
+        return $this->image_path ? asset('storage/images/' . $this->image_path) : null;
+
     }
 }

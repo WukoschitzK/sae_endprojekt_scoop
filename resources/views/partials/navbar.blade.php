@@ -35,13 +35,13 @@
                                         <a href="{{ route('recipes.index') }}">Newsfeed</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('recipes.index') }}">My Recipes</a>
+                                        <a href="{{ url('/recipes/' . auth()->user()->id) . '/showMyRecipes'}}">My Recipes</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('recipes.index') }}">Favorites</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('recipes.index') }}">Following</a>
+                                        <a href="{{ url('/profile/' . auth()->user()->id) . '/showMyFollowing'}}">Following</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('auth.logout') }}">Logout</a>

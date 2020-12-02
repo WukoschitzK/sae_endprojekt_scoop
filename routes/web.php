@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'RecipeController@showLatestRecipes')->name('welcome');
 
 // == Auth
 
@@ -35,19 +37,20 @@ Route::middleware('auth')->group(function() {
     Route::get('/user-profile/{id}', 'UserProfileController@showOtherProfile')->name('profile.showOtherProfile');
     Route::get('/profile/{id}/edit', 'UserProfileController@edit')->name('profile.edit');
     Route::put('/profile/{id}', 'UserProfileController@update')->name('profile.update');
+    Route::get('/profile/{id}/showMyFollowing', 'UserProfileController@showMyFollowing')->name('profile.showMyFollowing');
 });
 
 
 // == Recipes
 
 Route::get('/recipes', 'RecipeController@index')->name('recipes.index');
-Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show');
 
 Route::middleware('auth')->group(function() {
     Route::get('/recipes/create', 'RecipeController@create')->name('recipes.create');
     Route::post('/recipes', 'RecipeController@store')->name('recipes.store');
-     // ->middleware('auth');
     Route::get('/recipes/{id}/edit', 'RecipeController@edit')->name('recipes.edit');
     Route::put('/recipes/{id}', 'RecipeController@update')->name('recipes.update');
     Route::delete('/recipes/{id}', 'RecipeController@destroy')->name('recipes.destroy');
+    Route::get('/recipes/{id}/showMyRecipes', 'RecipeController@showMyRecipes')->name('recipes.showMyRecipes');
 });
+Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show');

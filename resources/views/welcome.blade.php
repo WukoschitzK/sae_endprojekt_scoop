@@ -73,15 +73,31 @@
 
 
             <div class="margin-bottom-30 recipe-cards-wrapper-flex home-recommended">
+                @foreach($recipes as $recipe)
+
                 <div class="margin-bottom-50 recipe-element">
-{{--                    <RecipeCard />--}}
+                    <div class="recipe-card-wrapper">
+                        <div class="recipe-card">
+                            <a href="{{ route('recipes.show', $recipe->id) }}">
+                                @if($recipe->image_path)
+                                    <img src="" alt="Picture of Recipe" />
+                                @else
+                                    <img src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
+                                @endif
+
+                                <div class="recipe-card-text">
+
+                                    <h2>{{$recipe->title}}</h2>
+                                    <p>{{$recipe->description}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="margin-bottom-50 recipe-element">
-{{--                    <RecipeCard />--}}
-                </div>
-                <div class="margin-bottom-50 recipe-element">
-{{--                    <RecipeCard />--}}
-                </div>
+
+
+                @endforeach
+
             </div>
 
 

@@ -27,6 +27,15 @@ $(document).ready(function() {
             $openNavigationPoints.hide();
         }
     });
+
+    $allergenTile = $('.js-allergen-tile');
+
+    $allergenTile.each(function() {
+        $(this).on("click", function(){
+            $(this).toggleClass('active');
+        });
+    });
+
 });
 
 

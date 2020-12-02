@@ -29,53 +29,53 @@
 {{--All Recipes--}}
 
     <div class="wrapper">
-        <div class="h1 heading-line d-inline-block">All Recipes</div>
+        <div class="h1 heading-line d-inline-block">My Recipes</div>
 
-        <a href="{{route('recipes.create')}}">New Recipe!</a>
+{{--        <a href="{{route('recipes.create')}}">New Recipe!</a>--}}
 
 
-        <div class="filter-desktop margin-bottom-30">
-            <div>
-                <div class="wrapper-filter">
-                    <h3>Filter<span class="filter-counter">(3)</span><i class="fas fa-caret-down"></i></h3>
-                </div>
-            </div>
+{{--        <div class="filter-desktop margin-bottom-30">--}}
+{{--            <div>--}}
+{{--                <div class="wrapper-filter">--}}
+{{--                    <h3>Filter<span class="filter-counter">(3)</span><i class="fas fa-caret-down"></i></h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-            @include('partials.allergenTiles')
+{{--            @include('partials.allergenTiles')--}}
 
-        </div>
+{{--        </div>--}}
 
 
 
 {{--        if desktop:--}}
 
-        <div class="categories-desktop margin-bottom-30">
-            <ul class="categories-wrapper">
-                @foreach($categories as $category)
-                    <li class="category-item">
-                        {{$category->name}}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+{{--        <div class="categories-desktop margin-bottom-30">--}}
+{{--            <ul class="categories-wrapper">--}}
+{{--                @foreach($categories as $category)--}}
+{{--                    <li class="category-item">--}}
+{{--                        {{$category->name}}--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
 
 {{--        else:--}}
-        <div class="margin-bottom-30">
-            <div class="wrapper-categories">
-                <div class="wrapper-categories-dropdown">
-                    <h3>Category <i class="fas fa-caret-down"></i></h3>
-                    <div>
-                        <ul class="categories-wrapper">
-                            @foreach($categories as $category)
-                            <li class="category-item">
-                                {{$category->name}}
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="margin-bottom-30">--}}
+{{--            <div class="wrapper-categories">--}}
+{{--                <div class="wrapper-categories-dropdown">--}}
+{{--                    <h3>Category <i class="fas fa-caret-down"></i></h3>--}}
+{{--                    <div>--}}
+{{--                        <ul class="categories-wrapper">--}}
+{{--                            @foreach($categories as $category)--}}
+{{--                            <li class="category-item">--}}
+{{--                                {{$category->name}}--}}
+{{--                            </li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
 
         {{--        Recipe cards--}}

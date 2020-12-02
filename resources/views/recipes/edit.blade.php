@@ -4,9 +4,9 @@
 
 @section('container')
 
-	<div class="card mt-4">
-		<div class="card-body">
+    <div class="wrapper">
 
+        <div class="h1 heading-line d-inline-block">Edit Recipe</div>
 			<form method="post" action="{{ route('recipes.update', $recipe->id) }}" enctype="multipart/form-data" autocomplete="off">
 
 				@method('put')
@@ -16,7 +16,7 @@
 
 			</form>
 
-		</div>
+
 	</div>
 
 @endsection
