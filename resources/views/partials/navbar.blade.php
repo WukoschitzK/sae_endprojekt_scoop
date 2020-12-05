@@ -32,13 +32,13 @@
 
                                 <ul class="open-user-navigation-points js-open-navigation-points">
                                     <li>
-                                        <a href="{{ route('recipes.index') }}">Newsfeed</a>
+                                        <a href="{{ url('/profile/' . auth()->user()->id) . '/newsfeed'}}">Newsfeed</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/recipes/' . auth()->user()->id) . '/showMyRecipes'}}">My Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('recipes.index') }}">Favorites</a>
+                                        <a href="{{ url('/recipes/' . auth()->user()->id) . '/showMyFavorites'}}">Favorites</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/profile/' . auth()->user()->id) . '/showMyFollowing'}}">Following</a>

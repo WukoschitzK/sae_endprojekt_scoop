@@ -9,9 +9,9 @@
 
 			<h2>Following</h2>
 
-{{--			@foreach($followings as $following)--}}
-{{--                <div>{{$following->id}}</div>--}}
-{{--            @endforeach--}}
+			@foreach($followings as $following)
+                <div>{{$following->name}}</div>
+            @endforeach
 
 
 

@@ -24,19 +24,30 @@ class Recipe extends Model
         return $this->belongsTo(Category::class);
     }
 
-//    public function allergens()
-//    {
-//        return $this->belongsToMany(Allergen::class);
-//    }
+    public function allergens()
+    {
+        return $this->belongsToMany(Allergen::class);
+    }
 
 //    public function allergens()
 //    {
 //        return $this->belongsToMany(Allergen::class, 'allergen_recipe', 'allergen_id', 'following_user_id');
 //    }
 
+//    public function allergens()
+//    {
+//        return $this->belongsToMany(Allergen::class, 'allergen_recipe', 'recipe_id', 'allergen_id');
+//    }
+
     public function getImageUrlAttribute() {
 
         return $this->image_path ? asset('storage/images/' . $this->image_path) : null;
 
+    }
+
+
+    public function userFavorite()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'recipe_id', 'user_id');
     }
 }

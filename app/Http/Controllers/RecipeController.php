@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Recipe;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -66,10 +68,8 @@ class RecipeController extends Controller
         $recipe->fill($request->old());
 
         $allergens = Allergen::all();
-        $categories = Category::all();
-//        todo: not "all" category in list
+        $categories = Category::select('*')->where('name', '!=', "All")->get();
 
-//        dd($recipe->ingredients);
 
         return view('recipes.create', compact('recipe','allergens', 'categories'));
     }
@@ -114,7 +114,11 @@ class RecipeController extends Controller
 //        }
 
         $recipe->ingredients = $request->get('ingredient');
-        $recipe->steps = $request->get('steps');
+        $recipe->steps = $request->get('steps'); //oder step?
+
+        $recipe->category_id = $request->get('category');
+
+//        DB::insert('INSERT INTO categories ()')
 
 //        dd($ingredients);
 
@@ -141,7 +145,16 @@ class RecipeController extends Controller
 //            DB::table('posts')->update();
 //        });
 
+
+
         $recipe->save();
+
+        //        ------allergens------
+
+        foreach ($request->get('allergens') as $allergen) {
+            DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+        }
+
 
         return redirect()->route('recipes.index')->with('success', 'Recipes created!!!');
 
@@ -160,13 +173,9 @@ class RecipeController extends Controller
 
         $user = User::find($user_id);
 
-//        $ingredients = serialize(['a','b','c']);
-//        dump($recipe->ingredients);
-//        dd($recipe->ingredients);
+        $allergens = $recipe->allergens()->get();
 
-
-
-        return view('recipes.show', compact('recipe', 'user'));
+        return view('recipes.show', compact('recipe', 'user', 'allergens'));
     }
 
     /**
@@ -180,6 +189,8 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         $recipe->fill($request->old());
         $allergens = Allergen::all();
+
+//        dd($recipe->ingredients);
 
         return view('recipes.edit', compact('recipe','allergens'));
     }
@@ -203,11 +214,30 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         $recipe->fill($request->all());
         $recipe->is_public = $request->has('is_public');
+
+
+
+//        ------ingredients------
+
+//        $recipe->ingredients = $request->get('ingredient');
+        $recipe->steps = $request->get('steps'); //oder step?
+
+
+        $newIngredients = $request->get('ingredient');
+        $oldIngredients  = $recipe->ingredients;
+
+        $newArray = array_merge($oldIngredients, $newIngredients);
+
+        $recipe->ingredients = $newArray;
+
+//        todo: remove specific item of array
+
+
+
+
         $recipe->save();
 
         return redirect()->route('recipes.show', $id)->with('success', 'Recipes updated!');
-
-//        return response()->json($recipe);
     }
 
     /**
@@ -232,7 +262,8 @@ class RecipeController extends Controller
     public function showMyRecipes($user_id) {
 
 
-        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
+//        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
+        $recipes = Recipe::query()->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
 
         return view('recipes.showMyRecipes', compact('recipes'));
 
@@ -243,5 +274,50 @@ class RecipeController extends Controller
         $recipes = Recipe::query()->orderBy('created_at', 'desc')->take(3)->get();
 //dd($recipes);
         return view('welcome', compact('recipes'));
+    }
+
+    public function showMyFavorites($user_id) {
+
+
+//        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
+//        $recipes = Recipe::query()->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
+
+//        todo:
+
+        $user_id = Auth::user();
+        $recipes = $user_id->favoriteRecipe()->get();
+
+
+        return view('recipes.showMyFavorites', compact('recipes'));
+
+    }
+
+
+    public function addFavorite($id) {
+        $user = auth()->user()->id;
+        $user = User::find($user);
+        $user_id = Auth::user();
+
+        $recipe = Recipe::find($id);
+        $recipe_id = $recipe->id;
+
+        $user_id->favoriteRecipe()->attach($recipe_id);
+//        $recipe_id->userFavorite()->attach($user_id);
+
+        return redirect()->back()->with('success', 'Successfully added as Favorite!');
+    }
+
+    public function removeFavorite($id) {
+//        $user = auth()->user()->id;
+//        $user = User::find($user);
+        $user_id = Auth::user();
+
+        $recipe = Recipe::find($id);
+        $recipe_id = $recipe->id;
+
+        $user_id->favoriteRecipe()->detach($recipe_id);
+//        $recipe_id->userFavorite()->attach($user_id);
+
+        return redirect()->back()->with('success', 'Successfully removed from Favorites!');
     }
 }

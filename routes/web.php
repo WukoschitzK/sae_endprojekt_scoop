@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/profile/{id}/edit', 'UserProfileController@edit')->name('profile.edit');
     Route::put('/profile/{id}', 'UserProfileController@update')->name('profile.update');
     Route::get('/profile/{id}/showMyFollowing', 'UserProfileController@showMyFollowing')->name('profile.showMyFollowing');
+    Route::get('/profile/{id}/newsfeed', 'UserProfileController@newsfeed')->name('profile.newsfeed');
 });
 
 
@@ -52,5 +53,8 @@ Route::middleware('auth')->group(function() {
     Route::put('/recipes/{id}', 'RecipeController@update')->name('recipes.update');
     Route::delete('/recipes/{id}', 'RecipeController@destroy')->name('recipes.destroy');
     Route::get('/recipes/{id}/showMyRecipes', 'RecipeController@showMyRecipes')->name('recipes.showMyRecipes');
+    Route::post('/recipes/{id}/addFavorite', 'RecipeController@addFavorite')->name('recipes.addFavorite');
+    Route::post('/recipes/{id}/removeFavorite', 'RecipeController@removeFavorite')->name('recipes.removeFavorite');
+    Route::get('/recipes/{id}/showMyFavorites', 'RecipeController@showMyFavorites')->name('recipes.showMyFavorites');
 });
 Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show');

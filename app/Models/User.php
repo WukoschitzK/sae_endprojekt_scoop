@@ -62,4 +62,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'following', 'following_user_id', 'leading_user_id');
     }
+
+
+    public function favoriteRecipe()
+    {
+        return $this->belongsToMany(Recipe::class, 'favorites', 'user_id', 'recipe_id');
+    }
 }

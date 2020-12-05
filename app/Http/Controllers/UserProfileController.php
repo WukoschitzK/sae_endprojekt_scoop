@@ -95,9 +95,10 @@ class UserProfileController extends Controller
 //        $followings = User::find($followingsId);
 
         $user = User::find($userId);
-        $followers = $user->followers()->lists('following_user_id');
+        $followings = $user->followers()->get();
+//        $followers = $user->followers()->lists('following_user_id');
 
-        dd($followers);
+//        dd($followings);
 
         //todo: help!
 
@@ -107,11 +108,25 @@ class UserProfileController extends Controller
     public function newsfeed($userId) {
 //        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
 
-        DB::table('recipes')
-            ->join('following', 'users.id', '=', 'following.following_user_id')
-            ->join('orders', 'users.id', '=', 'orders.user_id')
-            ->select('users.id', 'contacts.phone', 'orders.price')
-            ->get();
+        $user = Auth::user();
+        $followings = $user->followers()->get();
+
+        dd($followings);
+
+        $recipes = Recipe::query()->where('user_id', $followings->id)->orderBy('created_at', 'desc')->get();
+        dd($recipes);
+        return view('recipes.showMyRecipes', compact('recipes'));
+
+        $recipes = $followings;
+
+
+//        todo: zuerst die followings holen, danach ihre rezepte anzeigen ordered by desc
+
+//        DB::table('recipes')
+//            ->join('following', 'users.id', '=', 'following.following_user_id')
+//            ->join('orders', 'users.id', '=', 'orders.user_id')
+//            ->select('users.id', 'contacts.phone', 'orders.price')
+//            ->get();
 //
 //        return view('recipes.showMyRecipes', compact('recipes'));
     }
