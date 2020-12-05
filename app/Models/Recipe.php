@@ -9,6 +9,11 @@ class Recipe extends Model
 {
     protected $fillable = ['title','ingredients','steps','description','is_public','image_path'];
 
+    protected $casts = [
+        'ingredients' => 'array',
+        'steps' => 'array'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -19,10 +24,15 @@ class Recipe extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function allergens()
-    {
-        return $this->belongsToMany(Allergen::class);
-    }
+//    public function allergens()
+//    {
+//        return $this->belongsToMany(Allergen::class);
+//    }
+
+//    public function allergens()
+//    {
+//        return $this->belongsToMany(Allergen::class, 'allergen_recipe', 'allergen_id', 'following_user_id');
+//    }
 
     public function getImageUrlAttribute() {
 

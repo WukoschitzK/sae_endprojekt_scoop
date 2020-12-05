@@ -11,15 +11,26 @@
 </div>
 
 <div class="form-recipe-wrapper-input">
-    <label for="input_ingredients">Ingredients:</label>
-    <input name="ingredients" value="{{ $recipe->ingredients }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">
-    <div class="text-right add-step">+</div>
+    <div class="js-wrapper-ingredients-input">
+{{--        @foreach($recipe->ingredients as $ingredient)--}}
+            <div class="wrapper-ingredients">
+                <label for="input_ingredient">Ingredients:</label>
+                <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredient">
+            </div>
+{{--        @endforeach--}}
+    </div>
+    <div class="text-right add-ingredient">+</div>
 </div>
 
+
 <div class="form-recipe-wrapper-input">
-    <label for="input_steps">Steps:</label>
-    <div class="steps-count">1</div>
-    <input rows="6" cols="150" name="steps" value="{{ $recipe->steps }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+    <div class="js-wrapper-steps-input">
+        <div class="wrapper-steps">
+            <label for="input_steps">Steps:</label>
+            <div class="steps-count">1</div>
+            <input rows="6" cols="150" name="steps[]" value="{{ $recipe->steps }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+        </div>
+    </div>
     <div class="text-right add-step">+</div>
 </div>
 
@@ -36,13 +47,26 @@
         @foreach($allergens as $allergen)
             <li class="js-allergen-tile">
                 {{--                                <input type="checkbox" value="">--}}
-                {{$allergen->name}}
+                <label for="input_">{{$allergen->name}}</label>
+                <input type="checkbox" name="input_vegan" value="{{$allergen->id}}" id="input_vegan">
+
             </li>
         @endforeach
     </ul>
 </div>
 
-{{--categories!--}}
+<div class="form-recipe-wrapper-input">
+    <div class="text-bold margin-bottom-10">Categories</div>
+    <ul class="allergen-tiles-wrapper">
+        @foreach($categories as $category)
+            <li class="js-allergen-tile">
+                {{--                                <input type="checkbox" value="">--}}
+                {{$category->name}}
+            </li>
+        @endforeach
+    </ul>
+</div>
+
 
 <div class="form-recipe-wrapper-input">
     <div class="text-bold margin-bottom-10">Publish</div>

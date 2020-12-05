@@ -28,6 +28,10 @@
                     <label for="input_password">Password:</label>
                     <input type="password" name="password" value="" class="form-control" id="input_password">
                 </div>
+{{--                <div>--}}
+{{--                    <label for="input_password">Password repeat:</label>--}}
+{{--                    <input type="password" name="password" value="" class="form-control" id="input_password">--}}
+{{--                </div>--}}
 
                 {{--            <div>--}}
                 {{--                <input type="checkbox" name="remember_me" id="input_remember">--}}

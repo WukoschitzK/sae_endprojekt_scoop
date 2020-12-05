@@ -36,6 +36,34 @@ $(document).ready(function() {
         });
     });
 
+
+    // add ingredient input field
+
+    $('.add-ingredient').click(function() {
+        $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" +
+            "        <input name=\"ingredient[]\" value=\"{{ $recipe->ingredient }}\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" +
+            "    </div>");
+    });
+
+
+    // add step input field
+
+    var count = 1;
+
+    $('.add-step').click(function() {
+        count+=1;
+        $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" +
+            "<div class=\"steps-count\">" + count + "</div>\n" +
+            "<input rows=\"6\" cols=\"150\" name=\"steps[]\" value=\"{{ $recipe->steps }}\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\">\n" +
+            "    </div>");
+    });
+
+
+    //recipe tabs
+
+
+
+
 });
 
 

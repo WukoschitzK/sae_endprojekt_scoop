@@ -53,7 +53,8 @@
             <ul class="categories-wrapper">
                 @foreach($categories as $category)
                     <li class="category-item">
-                        {{$category->name}}
+{{--                        {{$category->name}}--}}
+                        <a href="{{ url('/recipes/?category=' . $category->id)}}">{{$category->name}}</a>
                     </li>
                 @endforeach
             </ul>
@@ -68,7 +69,8 @@
                         <ul class="categories-wrapper">
                             @foreach($categories as $category)
                             <li class="category-item">
-                                {{$category->name}}
+                                <a href="{{ url('/recipes/?category=' . $category->name)}}">{{$category->name}}</a>
+
                             </li>
                             @endforeach
                         </ul>
@@ -103,6 +105,8 @@
                     </div>
                 @endforeach
         </div>
+
+{{--        {{ $recipes->links() }}--}}
     </div>
 
 @endsection

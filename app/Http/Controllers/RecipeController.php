@@ -20,13 +20,38 @@ class RecipeController extends Controller
     public function index()
     {
 //        $recipes = Recipe::with('user')->get();
-        $recipes = Recipe::all();
+        $recipes = Recipe::orderBy('created_at','desc')->paginate(9); //;
         $categories = Category::all();
         $allergens = Allergen::all();
 
         //return view('recipes.index', compact('recipes'));
 
 //        return response()->json($recipes);
+
+//        if (request()->has('5')) {
+//            $recipes = Recipe::where('category_id', request('5'))->paginate(9)->appends('5', request('5'));
+//        } else {
+//            $recipes = Recipe::orderBy('created_at','desc')->paginate(9);
+//        }
+
+
+
+//        $recipes = Recipe::all();
+        $queries = [];
+
+        $columns = [
+          'category_id',
+//          'allergen_id',
+        ];
+
+        foreach($columns as $column) {
+            if(request()->has($column)) {
+                $recipes = $recipes->where($column, request($column)); //orderBy('created_at','desc')->paginate(9);
+                $queries[$column] = request($column);
+            }
+        }
+
+
         return view('recipes.index', compact('recipes', 'categories', 'allergens'));
     }
 
@@ -41,8 +66,12 @@ class RecipeController extends Controller
         $recipe->fill($request->old());
 
         $allergens = Allergen::all();
+        $categories = Category::all();
+//        todo: not "all" category in list
 
-        return view('recipes.create', compact('recipe','allergens'));
+//        dd($recipe->ingredients);
+
+        return view('recipes.create', compact('recipe','allergens', 'categories'));
     }
 
     /**
@@ -67,14 +96,53 @@ class RecipeController extends Controller
         $recipe->is_public = $request->has('is_public');
         $recipe->user_id = auth()->id();
 
-        if ($image = $request->file('image')) {
+//      $ingredients = $request->get('ingredients');
 
-            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
-            $image->storePubliclyAs('public/images/recipe_images', $name);
-            $recipe->image_path = $name;
-        }
+//        $ingredients = [];
+
+//        for ($i = 0; $i < count($request->get('ingredient')); $i++) {
+//            $ingredients = $ingredients.push($request->get(ingredient)[$i]);
+//        }
+
+//        $requestIngredients = $request->get('ingredient');
+
+//        dd($request->get('ingredient'));
+
+//        foreach ($requestIngredients as $ingredient) {
+////            $ingredients->push($ingredient);
+//            dd($ingredient);
+//        }
+
+        $recipe->ingredients = $request->get('ingredient');
+        $recipe->steps = $request->get('steps');
+
+//        dd($ingredients);
+
+
+//        $recipe->ingredients = $ingredients);
+//
+//        if ($image = $request->file('image')) {
+//
+//            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
+//            $image->storePubliclyAs('public/images/recipe_images', $name);
+//            $recipe->image_path = $name;
+//        }
+
+
+//        for ($i=0; $i<count($request->ingredient); ++$i){
+//            $ingredient_id = Ingredient::firstorCreate(['name' => $request->ingredient[$i]])->id;
+//
+//            $recipe->ingredients()->attach($ingredient_id);
+//        }
+//        DB::transaction(function()
+//        {
+//            DB::table('users')->update(['votes' => 1]);
+//
+//            DB::table('posts')->update();
+//        });
 
         $recipe->save();
+
         return redirect()->route('recipes.index')->with('success', 'Recipes created!!!');
 
     }
@@ -91,6 +159,12 @@ class RecipeController extends Controller
         $user_id = $recipe->user_id;
 
         $user = User::find($user_id);
+
+//        $ingredients = serialize(['a','b','c']);
+//        dump($recipe->ingredients);
+//        dd($recipe->ingredients);
+
+
 
         return view('recipes.show', compact('recipe', 'user'));
     }
