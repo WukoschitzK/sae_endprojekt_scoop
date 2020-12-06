@@ -61,23 +61,23 @@
         </div>
 
 {{--        else:--}}
-        <div class="margin-bottom-30">
-            <div class="wrapper-categories">
-                <div class="wrapper-categories-dropdown">
-                    <h3>Category <i class="fas fa-caret-down"></i></h3>
-                    <div>
-                        <ul class="categories-wrapper">
-                            @foreach($categories as $category)
-                            <li class="category-item">
-                                <a href="{{ url('/recipes/?category=' . $category->name)}}">{{$category->name}}</a>
+{{--        <div class="margin-bottom-30">--}}
+{{--            <div class="wrapper-categories">--}}
+{{--                <div class="wrapper-categories-dropdown">--}}
+{{--                    <h3>Category <i class="fas fa-caret-down"></i></h3>--}}
+{{--                    <div>--}}
+{{--                        <ul class="categories-wrapper">--}}
+{{--                            @foreach($categories as $category)--}}
+{{--                            <li class="category-item">--}}
+{{--                                <a href="{{ url('/recipes/?category=' . $category->name)}}">{{$category->name}}</a>--}}
 
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--                            </li>--}}
+{{--                            @endforeach--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
 
         {{--        Recipe cards--}}

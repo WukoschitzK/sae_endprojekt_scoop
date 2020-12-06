@@ -22,7 +22,7 @@ class RecipeController extends Controller
     public function index()
     {
 //        $recipes = Recipe::with('user')->get();
-        $recipes = Recipe::orderBy('created_at','desc')->paginate(9); //;
+        $recipes = Recipe::where('is_public', true)->orderBy('created_at','desc')->paginate(9); //;
         $categories = Category::all();
         $allergens = Allergen::all();
 
@@ -175,7 +175,23 @@ class RecipeController extends Controller
 
         $allergens = $recipe->allergens()->get();
 
-        return view('recipes.show', compact('recipe', 'user', 'allergens'));
+        $allergenArray = [];
+
+        foreach($allergens as $allergen) {
+            array_push($allergenArray, $allergen->id);
+        }
+
+        $query = DB::table("allergens");
+        foreach($allergenArray as $allergenArrayItem){
+//            dd($allergenArrayItem);
+            $query->where("id",'!=','$allergenArrayItem');
+        }
+//        dd($query);
+
+//        todo: bugfixing
+        $allAllergens = $query->get();
+
+        return view('recipes.show', compact('recipe', 'user', 'allergens','allAllergens'));
     }
 
     /**
@@ -216,7 +232,6 @@ class RecipeController extends Controller
         $recipe->is_public = $request->has('is_public');
 
 
-
 //        ------ingredients------
 
 //        $recipe->ingredients = $request->get('ingredient');
@@ -224,15 +239,110 @@ class RecipeController extends Controller
 
 
         $newIngredients = $request->get('ingredient');
-        $oldIngredients  = $recipe->ingredients;
 
-        $newArray = array_merge($oldIngredients, $newIngredients);
+//        $oldIngredients = $recipe->ingredients;
 
-        $recipe->ingredients = $newArray;
+        //        $newArray = array_merge($oldIngredients, $newIngredients);
+
+//        $diff = array_diff($oldIngredients,$newIngredients);
+
+        //1. check if newIngredients is not null => new items added => merge arrays
+        //2. if old ingredients are not the same as before, but no more or less => change old items
+        //3. new ingredients and old one changed =>
+
+
+//       $oldRequest = $recipe->fill($request->old());
+
+        $oldRecipe = DB::table('recipes')->where('id', $recipe->id)->get()->first();
+
+        $ingre = $oldRecipe->ingredients;
+
+        $ingre = ltrim($ingre, '[');
+        $ingre = ltrim($ingre, ']');
+
+        $removeBracets = str_replace(array('[',']'), '',$ingre);
+        $trimmedArray = str_replace(' ', '',$removeBracets);
+        $noArray = str_replace(array('"','"'), '',$trimmedArray);
+
+        $ingreArray = explode(',', $noArray);
+
+
+
+
+//        $oldIngredients = $oldRecipe[0]->ingredients;
+//        $result = array_diff($ingreArray, $request->ingredients);
+//        dd(array_diff($ingreArray, $request->ingredients));
+
+        $lengthOldArray = count($ingreArray);
+        $lengthNewArray = count($request->ingredients);
+        $newArray = $request->ingredients;
+
+//        dd($ingreArray, $newArray);
+
+        if($newIngredients != null && $lengthOldArray != $lengthNewArray) {
+
+//            dd($newArray);
+            $newArray = array_merge($ingreArray, $newIngredients);
+            $recipe->ingredients = $newArray;
+
+        } else if ($newIngredients == null && $lengthOldArray == $lengthNewArray) {
+
+            $recipe->ingredients = $newArray;
+
+//            dd($recipe->ingredients);
+
+//            for ($i = 0; $i < count($ingreArray); $i++) {
+////                dd($ingreArray[$i] === $newArray[$i]);
+//
+//
+//
+//
+//                if(!($ingreArray[$i] === $newArray[$i])) {
+//                    dd("hiier");
+//
+//
+//                    $newArray = array_merge($ingreArray, $newIngredients);
+//                    $recipe->ingredients = $newArray;
+//                }
+//            }
+        } else if ($newIngredients != null) {
+
+            for ($i = 0; $i < count($ingreArray); $i++) {
+//                dd($ingreArray[$i] === $newArray[$i]);
+
+                if(!($ingreArray[$i] === $newArray[$i])) {
+//                    dd("hiier");
+
+                    //newArray hat die geänderten Daten, aber keine neuen, $newIngredients hat die neuen
+//                    dd($newArray, $newIngredients);
+
+                    $finalArray = array_merge($newArray, $newIngredients);
+//                    dd($finalArray);
+                    $recipe->ingredients = $finalArray;
+                }
+            }
+
+//            $newArray = array_merge($ingreArray, $newIngredients);
+
+//            $recipe->ingredients = $newArray;
+
+        }
+//        dd('määp');
+
+
+
+
+//
+//        $recipe->ingredients = $newArray;
 
 //        todo: remove specific item of array
 
+//        compare old with new
 
+//        $oldArray = $recipe->ingredients;
+//        $newArray = array_merge($oldIngredients, $newIngredients);
+//        $diff = array_intersect($oldArray,$newArray);
+////        dd($diff);
 
 
         $recipe->save();

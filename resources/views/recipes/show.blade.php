@@ -61,6 +61,8 @@
         {{--desktop--}}
         <div class="recipe-detail-wrapper margin-bottom-50">
             <div class="recipe-detail-wrapper-flex">
+
+
                 @if($recipe->image_path)
                     <img class="recipe-detail-img" src="{{ $recipe->image_url }}" alt="Picture of Recipe" />
                 @else
@@ -70,6 +72,13 @@
                     <div class="rating-stars">
 
                     </div>
+
+                    @if($recipe->user_id == auth()->user()->id)
+                        <div>
+                            <a href="{{ url('recipes/' . $recipe->id . '/edit') }}">
+                            Edit Recipe</a>
+                        </div>
+                    @endif
 
 {{--                    addforivite--}}
                     <form method="post" action="{{ route('recipes.addFavorite', $recipe->id) }}" autocomplete="off">
@@ -187,13 +196,23 @@
 
             <div class="width-50 margin-bottom-50">
                 <h2>Allergens</h2>
-                @foreach($allergens as $allergen)
-                    <p>{{ $allergen->name }}</p>
-                @endforeach
 
-{{--                @foreach ($recipe->allergens() as $allergen)--}}
-{{--                    <li>{{ $allergen->name }}</li> // assuming you have name on the quality table--}}
-{{--                @endforeach--}}
+                <div class="form-recipe-wrapper-input">
+                        <ul class="allergen-tiles-wrapper">
+                            @foreach($allergens as $allergen)
+                                <li class="active">
+                                    <div>{{ $allergen->name }}</div>
+                                </li>
+                            @endforeach
+                            @foreach($allAllergens as $allAllergen)
+                                    <li>
+                                        <div>{{ $allAllergen->name }}</div>
+                                    </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="width-50 margin-bottom-50">
