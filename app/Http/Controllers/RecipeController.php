@@ -6,6 +6,7 @@ use App\Models\Allergen;
 use App\Models\Category;
 use App\Models\Recipe;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,22 +20,93 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 //        $recipes = Recipe::with('user')->get();
         $recipes = Recipe::where('is_public', true)->orderBy('created_at','desc')->paginate(9); //;
         $categories = Category::all();
         $allergens = Allergen::all();
 
-        //return view('recipes.index', compact('recipes'));
 
-//        return response()->json($recipes);
+//        dd($recipes);
+
+        if (isset($request->cat) && isset($request->allergens)) {
+
+
+            $allergen_ids = $request->allergens;
+            $category_ids = $request->cat;
+
+            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
+                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
+            })->whereIn('category_id', explode( ',', $category_ids ))->get();
+
+
+            response()->json($recipes); //return to ajax
+            return view('recipes.index', compact('recipes','allergens','categories'));
+
+        } else if (isset($request->cat)){
+
+
+            if($request->cat === 4) {
+                $recipes = Recipe::all();
+
+                response()->json($recipes); //return to ajax
+                return view('recipes.index', compact('recipes'));
+            }
+
+            $category_ids = $request->cat; //categories
+
+            $recipes = Recipe::whereIn('category_id', explode( ',', $category_ids ))->get();
+
+//            $recipesAllergens = Recipe::whereHas('allergens', function (Builder $query) {
+//                $query->whereIn('allergen_id',  $allergen_ids);
+//            })->get();
+
+            response()->json($recipes); //return to ajax
+            return view('recipes.index', compact('recipes','allergens','categories'));
+
+        } else if (isset($request->allergens)){
+
+//            if($request->allergen === 4) {
+//                $recipes = Recipe::all();
+//
+//                response()->json($recipes); //return to ajax
+//                return view('recipes.index', compact('recipes'));
+//            }
+
+             //allergens
+
+
+            $allergen_ids = $request->allergens;
+
+            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
+                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
+            })->get();
+
+//            $allergen_ids = [];
+//            array_push($allergen_ids,$request->allergens);
+
+
+//            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
+//                $query->whereIn('allergen_id',  $allergen_ids);
+//            })->get();
+
+            response()->json($recipes); //return to ajax
+            return view('recipes.index', compact('recipes','allergens','categories'));
+        }
+
+
 
 //        if (request()->has('5')) {
 //            $recipes = Recipe::where('category_id', request('5'))->paginate(9)->appends('5', request('5'));
 //        } else {
 //            $recipes = Recipe::orderBy('created_at','desc')->paginate(9);
 //        }
+
+//        $recipe_with_category = $recipes->category(8)->get();
+
+//        $recipe_with_category = Recipe::where('category_id', 8);
+//        dd($recipe_with_category);
 
 
 
@@ -56,6 +128,8 @@ class RecipeController extends Controller
 
         return view('recipes.index', compact('recipes', 'categories', 'allergens'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -125,12 +199,17 @@ class RecipeController extends Controller
 
 //        $recipe->ingredients = $ingredients);
 //
-//        if ($image = $request->file('image')) {
-//
-//            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
-//            $image->storePubliclyAs('public/images/recipe_images', $name);
-//            $recipe->image_path = $name;
-//        }
+        if ($image = $request->file('image')) {
+
+            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
+            $image->storePubliclyAs('public/images/recipe_images', $name);
+            $recipe->image_path = $name;
+
+//            dd($recipe->image_url);
+
+        }
+
+//        http://scoop_webapp.local/storage/images/recipe_images/lqHazmDXroMWHA8J.jpg
 
 
 //        for ($i=0; $i<count($request->ingredient); ++$i){
@@ -327,7 +406,7 @@ class RecipeController extends Controller
 //            $recipe->ingredients = $newArray;
 
         }
-//        dd('määp');
+
 
 
 
@@ -382,7 +461,7 @@ class RecipeController extends Controller
     public function showLatestRecipes() {
 
         $recipes = Recipe::query()->orderBy('created_at', 'desc')->take(3)->get();
-//dd($recipes);
+
         return view('welcome', compact('recipes'));
     }
 
@@ -392,7 +471,7 @@ class RecipeController extends Controller
 //        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
 //        $recipes = Recipe::query()->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
 
-//        todo:
+
 
         $user_id = Auth::user();
         $recipes = $user_id->favoriteRecipe()->get();

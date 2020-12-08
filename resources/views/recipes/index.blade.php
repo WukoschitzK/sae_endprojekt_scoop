@@ -41,24 +41,48 @@
                 </div>
             </div>
 
-            @include('partials.allergenTiles')
+
+            <div class="form-recipe-wrapper-input">
+                <div class="text-bold margin-bottom-10">Allergens</div>
+                <ul class="allergen-tiles-wrapper">
+                    @foreach($allergens as $allergen)
+                        <li class="js-allergen-tile">
+                            <label for="input_allergen">{{$allergen->name}}</label>
+                            <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen" class="tryAllergen">
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 
         </div>
+
+
+
+
+{{--test--}}
+        @foreach($categories as $category)
+            <li class="brandLi">
+                <input type="checkbox" id="brandId" value="{{$category->id}}" class="try"/>
+                <div>  {{$category->name}}</div>
+            </li>
+        @endforeach
+{{--endtest--}}
+
 
 
 
 {{--        if desktop:--}}
 
-        <div class="categories-desktop margin-bottom-30">
-            <ul class="categories-wrapper">
-                @foreach($categories as $category)
-                    <li class="category-item">
+{{--        <div class="categories-desktop margin-bottom-30">--}}
+{{--            <ul class="categories-wrapper">--}}
+{{--                @foreach($categories as $category)--}}
+{{--                    <li class="category-item">--}}
 {{--                        {{$category->name}}--}}
-                        <a href="{{ url('/recipes/?category=' . $category->id)}}">{{$category->name}}</a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+{{--                        <a href="{{ url('/recipes/?category=' . $category->id)}}">{{$category->name}}</a>--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
 
 {{--        else:--}}
 {{--        <div class="margin-bottom-30">--}}
@@ -105,6 +129,7 @@
                     </div>
                 @endforeach
         </div>
+
 
 {{--        {{ $recipes->links() }}--}}
     </div>

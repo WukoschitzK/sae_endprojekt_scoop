@@ -59,10 +59,64 @@ $(document).ready(function() {
     });
 
 
-    //recipe tabs
+    //filter recipe category
 
+    $('.try').click(function() {
+        var category;
 
+        $('.try').each(function() {
+            if($(this).is(":checked")) {
+                category = $(this).val();
+            }
+        });
+        finalcategories = category;
+        // console.log(finalcategories);
 
+        $.ajax({
+            type:'GET',
+            dataType:'html',
+            url:'',
+            data: "cat=" + finalcategories,
+            success: function (data) {
+                var result = $('<div />').append(data).find('.recipe-cards-wrapper-flex').html();
+                $('.recipe-cards-wrapper-flex').html(result);
+            },
+            // success: function(response) {
+            //     console.log(response);
+            //     $('#updateDiv').append(response);
+            // }
+        });
+    })
+
+    //filter recipe allergens
+
+    $('.tryAllergen').click(function() {
+        var allergens = [];
+
+        $('.tryAllergen').each(function() {
+            if($(this).is(":checked")) {
+                allergens.push($(this).val());
+            }
+        });
+        finalAllergens = allergens.toString();
+        console.log(finalAllergens);
+
+        $.ajax({
+            type:'GET',
+            dataType:'html',
+            url:'',
+            data: "allergens=" + finalAllergens,
+            success: function (data) {
+                var result = $('<div />').append(data).find('.recipe-cards-wrapper-flex').html();
+                $('.recipe-cards-wrapper-flex').html(result);
+            },
+            // success: function(response) {
+            //     console.log(response);
+            //     return;
+            //     $('#updateDiv').append(response);
+            // }
+        });
+    })
 
 });
 

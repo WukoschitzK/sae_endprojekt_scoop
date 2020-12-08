@@ -50,4 +50,12 @@ class Recipe extends Model
     {
         return $this->belongsToMany(User::class, 'favorites', 'recipe_id', 'user_id');
     }
+
+
+//    Scopes
+
+    public function scopeCategory($query,$category)
+    {
+        return $query->where('category_id', $category);
+    }
 }

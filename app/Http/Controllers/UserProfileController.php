@@ -106,4 +106,25 @@ class UserProfileController extends Controller
     }
 
 
+    public function newsfeed() {
+
+        $user = Auth::user();
+        $followings = $user->leaders()->get();
+
+
+        //get recipes from all the people i'm following
+
+        $followingArray = [];
+
+        foreach($followings as $followingUser) {
+            array_push($followingArray, $followingUser->id);
+        }
+
+        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
+
+        return view('profile.newsfeed', compact('recipes'));
+
+    }
+
+
 }

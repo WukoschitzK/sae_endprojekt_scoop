@@ -64,7 +64,7 @@
 
 
                 @if($recipe->image_path)
-                    <img class="recipe-detail-img" src="{{ $recipe->image_url }}" alt="Picture of Recipe" />
+                    <img class="recipe-detail-img" src="/storage/images/recipe_images/{{ $recipe->image_path }}" alt="Picture of Recipe" />
                 @else
                     <img class="recipe-detail-img" src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
                 @endif
