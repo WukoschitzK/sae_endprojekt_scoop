@@ -9,6 +9,14 @@ textarea,input {
 
 .cta-btn-wrapper {
   position:relative;
+
+    button {
+        border: none;
+        background-color: transparent;
+        font-size: 22px;
+        color: $mainColorPurple;
+        font-weight: 700;
+    }
 }
 
 .cta-btn {
@@ -62,6 +70,10 @@ textarea,input {
 .cta-btn:hover {
     color: white;
     transition: 0.3s;
+
+    button {
+        color:white;
+    }
 }
 
 .cta-btn-wrapper-sm {
@@ -146,8 +158,8 @@ textarea,input {
 
 .steps-count {
   background-color: $mainColorCyan;
-  width:27px;
-  height: 27px;
+  width:32px;
+  height: 32px;
   padding: 6px ;
   border-radius: 50%;
   color: white;
@@ -268,13 +280,23 @@ textarea,input {
   }
 }
 
+.form-edit-profile-wrapper-flex {
+    display:flex;
+    flex-direction: column;
+}
+
 /***************TABLET***************/
 
 @media (min-width: $Tablet) {
   .cta-btn-wrapper {
-    max-width: 150px;
     margin: 0 auto;
   }
+    .cta-btn-wrapper {
+        max-width: 277px;
+    }
+    .cta-btn-wrapper.cta-btn-small {
+        max-width: 150px;
+    }
 
   .form-edit-profile {
     width:80%;

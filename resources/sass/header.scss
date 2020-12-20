@@ -209,7 +209,7 @@ svg.fa-times, svg.fa-bars {
     }
 
     .navigation-desktop-flex {
-      width: 86%;
+      width: 100%;
     }
   }
 
@@ -301,8 +301,11 @@ svg.fa-times, svg.fa-bars {
       ul {
         display: flex;
         justify-content: space-between;
-        width: 200px;
         height: 35px;
+
+          li {
+              margin-right: 40px;
+          }
       }
     }
   }

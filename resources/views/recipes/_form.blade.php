@@ -10,22 +10,15 @@
     <div class="form-character-counter text-right">max 150 characters</div>
 </div>
 
-
-
-
-
 <div class="form-recipe-wrapper-input">
     <div class="js-wrapper-ingredients-input">
-        {{--        @foreach($recipe->ingredients as $ingredient)--}}
         <div class="wrapper-ingredients">
             <label for="input_ingredient">Ingredients:</label>
             <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredient">
         </div>
-        {{--        @endforeach--}}
     </div>
     <div class="text-right add-ingredient">+</div>
 </div>
-
 
 <div class="form-recipe-wrapper-input">
     <div class="js-wrapper-steps-input">
@@ -39,32 +32,6 @@
 </div>
 
 
-{{--<div class="form-recipe-wrapper-input">--}}
-{{--    <div class="js-wrapper-ingredients-input">--}}
-{{--        @foreach($recipe->ingredients as $ingredient)--}}
-{{--            <div class="wrapper-ingredients">--}}
-{{--                <label for="input_ingredients">Ingredients:</label>--}}
-{{--                <input name="ingredients" value="{{ $ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">--}}
-{{--            </div>--}}
-{{--        @endforeach--}}
-{{--    </div>--}}
-{{--    <div class="text-right add-ingredient">+</div>--}}
-{{--</div>--}}
-
-
-{{--<div class="form-recipe-wrapper-input">--}}
-{{--    <div class="js-wrapper-steps-input">--}}
-{{--        @foreach($recipe->steps as $step)--}}
-{{--            <div class="wrapper-steps">--}}
-{{--                <label for="input_steps">Steps:</label>--}}
-{{--                <input name="steps" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">--}}
-{{--            </div>--}}
-{{--        @endforeach--}}
-{{--    </div>--}}
-{{--    <div class="text-right add-step">+</div>--}}
-{{--</div>--}}
-
-
 <div class="form-recipe-wrapper-input">
     <label for="input_image" class="text-bold margin-bottom-10">Images</label>
     <input type="file" name="image" class="form-control" id="input_image">
@@ -76,39 +43,23 @@
     <ul class="allergen-tiles-wrapper">
         @foreach($allergens as $allergen)
             <li class="js-allergen-tile">
-                {{--                                <input type="checkbox" value="">--}}
-                <label for="input_allergen">{{$allergen->name}}</label>
-                <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen">
-
+                <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>
+                <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">
             </li>
         @endforeach
     </ul>
 </div>
-
-{{--<div class="form-recipe-wrapper-input">--}}
-{{--    <div class="js-wrapper-steps-input">--}}
-{{--        <div class="wrapper-steps">--}}
-{{--            <label for="input_steps">Steps:</label>--}}
-{{--            <div class="steps-count">1</div>--}}
-{{--            <input rows="6" cols="150" name="steps[]" value="{{ $recipe->steps }}" class="form-recipe-input margin-bottom-10" id="input_steps">--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="text-right add-step">+</div>--}}
-{{--</div>--}}
-
-
 
 <div class="form-recipe-wrapper-input">
     <div class="text-bold margin-bottom-10">Categories</div>
     <ul class="allergen-tiles-wrapper">
         @foreach($categories as $category)
             <label for="{{$category->id}}">{{$category->name}}</label>
-            <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}">
+            <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" >
 
-            <li class="js-allergen-tile">
-                {{--                                <input type="checkbox" value="">--}}
-                {{$category->name}}
-            </li>
+{{--            <li class="js-allergen-tile">--}}
+{{--                {{$category->name}}--}}
+{{--            </li>--}}
         @endforeach
     </ul>
 </div>
@@ -125,7 +76,7 @@
 <div class="cta-btn-wrapper margin-bottom-50">
     <div class="cta-btn">
         <button type="submit">
-            Save
+            save
         </button>
     </div>
 </div>

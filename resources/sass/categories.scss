@@ -9,6 +9,14 @@
   li.active {
     font-weight: 700;
   }
+
+    input[type="checkbox"] {
+        display:none;
+    }
+}
+
+.category-radio-btn {
+    display: none;
 }
 
 .categories-desktop {

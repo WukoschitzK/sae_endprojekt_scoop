@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'RecipeController@showLatestRecipes')->name('welcome');
 
+
 // == Auth
 
 Route::get('/registration', 'AuthController@getRegistration')->name('auth.getRegistration');
@@ -38,7 +39,6 @@ Route::middleware('auth')->group(function() {
     Route::get('/profile/{id}/edit', 'UserProfileController@edit')->name('profile.edit');
     Route::put('/profile/{id}', 'UserProfileController@update')->name('profile.update');
     Route::get('/profile/{id}/showMyFollowing', 'UserProfileController@showMyFollowing')->name('profile.showMyFollowing');
-    Route::get('/profile/{id}/newsfeed', 'UserProfileController@newsfeed')->name('profile.newsfeed');
 });
 
 
@@ -56,5 +56,6 @@ Route::middleware('auth')->group(function() {
     Route::post('/recipes/{id}/addFavorite', 'RecipeController@addFavorite')->name('recipes.addFavorite');
     Route::post('/recipes/{id}/removeFavorite', 'RecipeController@removeFavorite')->name('recipes.removeFavorite');
     Route::get('/recipes/{id}/showMyFavorites', 'RecipeController@showMyFavorites')->name('recipes.showMyFavorites');
+    Route::post('recipes/{id}/postReview', 'ReviewController@postReview')->name('recipes.postReview');
 });
 Route::get('/recipes/{id}', 'RecipeController@show')->name('recipes.show');

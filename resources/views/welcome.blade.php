@@ -16,7 +16,7 @@
                     </div>
 
                     <a href="{{ route('auth.getRegistration') }}">
-                        <div class="cta-btn-wrapper">
+                        <div class="cta-btn-wrapper cta-btn-small">
                             <div class="cta-btn">
                                sign up
                             </div>
@@ -54,7 +54,7 @@
 
             <div class="margin-bottom-50 md-margin-bottom-80">
             <a href="{{ route('auth.getRegistration') }}">
-                <div class="cta-btn-wrapper">
+                <div class="cta-btn-wrapper cta-btn-small">
                     <div class="cta-btn">
                         sign up
                     </div>
@@ -62,15 +62,7 @@
             </a>
             </div>
 
-{{--            <Link to="/sign-up">--}}
-{{--            <div className="margin-bottom-50 md-margin-bottom-80">--}}
-{{--                <CtaButton name="get started!"/>--}}
-{{--            </div>--}}
-{{--            </Link>--}}
-
             <h2 class="text-center heading-line margin-bottom-30">Highly recommended</h2>
-
-
 
             <div class="margin-bottom-30 recipe-cards-wrapper-flex home-recommended">
                 @foreach($recipes as $recipe)
@@ -80,9 +72,9 @@
                         <div class="recipe-card">
                             <a href="{{ route('recipes.show', $recipe->id) }}">
                                 @if($recipe->image_path)
-                                    <img src="" alt="Picture of Recipe" />
+                                    <img class="recipe-detail-img" src="/storage/images/recipe_images/{{ $recipe->image_path }}" alt="Picture of Recipe" />
                                 @else
-                                    <img src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
+                                    <img class="recipe-detail-img" src="/images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
                                 @endif
 
                                 <div class="recipe-card-text">
@@ -94,13 +86,8 @@
                         </div>
                     </div>
                 </div>
-
-
                 @endforeach
-
             </div>
-
-
 
 <a class="link" href="{{ route('recipes.index') }}">View All</a>
 

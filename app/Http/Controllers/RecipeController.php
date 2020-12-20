@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
+
 class RecipeController extends Controller
 {
     /**
@@ -22,23 +23,32 @@ class RecipeController extends Controller
      */
     public function index(Request $request)
     {
-//        $recipes = Recipe::with('user')->get();
         $recipes = Recipe::where('is_public', true)->orderBy('created_at','desc')->paginate(9); //;
         $categories = Category::all();
         $allergens = Allergen::all();
 
-
-//        dd($recipes);
-
         if (isset($request->cat) && isset($request->allergens)) {
 
-
             $allergen_ids = $request->allergens;
-            $category_ids = $request->cat;
+            $category_id = $request->cat;
+
+            $recipesArray = [];
+
+
+//            $recipes = Recipe::where($recipesArray)->get();
+
+//            $recipes = Recipe::where('allergens', function (Builder $query) use ($allergen_ids) {
+//                foreach($allergen_ids as $id) {
+//                    $query->where('allergen_id','=',  $id);
+//                }
+//            })->get();
+
 
             $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
                 $query->whereIn('allergen_id',  explode(',', $allergen_ids));
-            })->whereIn('category_id', explode( ',', $category_ids ))->get();
+            })->get();
+
+            $recipes->where('category_id', $category_id )->get();
 
 
             response()->json($recipes); //return to ajax
@@ -58,9 +68,6 @@ class RecipeController extends Controller
 
             $recipes = Recipe::whereIn('category_id', explode( ',', $category_ids ))->get();
 
-//            $recipesAllergens = Recipe::whereHas('allergens', function (Builder $query) {
-//                $query->whereIn('allergen_id',  $allergen_ids);
-//            })->get();
 
             response()->json($recipes); //return to ajax
             return view('recipes.index', compact('recipes','allergens','categories'));
@@ -77,53 +84,23 @@ class RecipeController extends Controller
              //allergens
 
 
-            $allergen_ids = $request->allergens;
 
+            $allergen_ids = $request->allergens;
+//
             $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
                 $query->whereIn('allergen_id',  explode(',', $allergen_ids));
             })->get();
 
-//            $allergen_ids = [];
-//            array_push($allergen_ids,$request->allergens);
-
-
-//            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
-//                $query->whereIn('allergen_id',  $allergen_ids);
+//            $recipes = Recipe::where('allergens', function (Builder $query) use ($allergen_ids) {
+//                foreach($allergen_ids as $id) {
+//                    $query->where('allergen_id','=',  $id);
+//                }
 //            })->get();
 
             response()->json($recipes); //return to ajax
             return view('recipes.index', compact('recipes','allergens','categories'));
         }
 
-
-
-//        if (request()->has('5')) {
-//            $recipes = Recipe::where('category_id', request('5'))->paginate(9)->appends('5', request('5'));
-//        } else {
-//            $recipes = Recipe::orderBy('created_at','desc')->paginate(9);
-//        }
-
-//        $recipe_with_category = $recipes->category(8)->get();
-
-//        $recipe_with_category = Recipe::where('category_id', 8);
-//        dd($recipe_with_category);
-
-
-
-//        $recipes = Recipe::all();
-        $queries = [];
-
-        $columns = [
-          'category_id',
-//          'allergen_id',
-        ];
-
-        foreach($columns as $column) {
-            if(request()->has($column)) {
-                $recipes = $recipes->where($column, request($column)); //orderBy('created_at','desc')->paginate(9);
-                $queries[$column] = request($column);
-            }
-        }
 
 
         return view('recipes.index', compact('recipes', 'categories', 'allergens'));
@@ -145,7 +122,7 @@ class RecipeController extends Controller
         $categories = Category::select('*')->where('name', '!=', "All")->get();
 
 
-        return view('recipes.create', compact('recipe','allergens', 'categories'));
+        return view('recipes.create', compact('recipe', 'categories','allergens'));
     }
 
     /**
@@ -157,80 +134,38 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-
-            'title' => 'required|min:3|max:192',
-            //'text' => 'nullable',
+            'title' => 'required|min:3|max:35',
+            'description' => 'required|min:3|max:150',
             'image' => 'nullable|mimes:jpeg,png',
+            'ingredient' => 'required|min:1',
+            'steps' => 'required|min:1',
         ]);
 
         $recipe = new Recipe();
         $recipe->fill($request->all());
-        // $posting->title = $request->get('title');
-        // $posting->text = $request->get('text');
         $recipe->is_public = $request->has('is_public');
         $recipe->user_id = auth()->id();
 
-//      $ingredients = $request->get('ingredients');
-
-//        $ingredients = [];
-
-//        for ($i = 0; $i < count($request->get('ingredient')); $i++) {
-//            $ingredients = $ingredients.push($request->get(ingredient)[$i]);
-//        }
-
-//        $requestIngredients = $request->get('ingredient');
-
-//        dd($request->get('ingredient'));
-
-//        foreach ($requestIngredients as $ingredient) {
-////            $ingredients->push($ingredient);
-//            dd($ingredient);
-//        }
 
         $recipe->ingredients = $request->get('ingredient');
-        $recipe->steps = $request->get('steps'); //oder step?
+        $recipe->steps = $request->get('steps');
 
         $recipe->category_id = $request->get('category');
 
-//        DB::insert('INSERT INTO categories ()')
 
-//        dd($ingredients);
-
-
-//        $recipe->ingredients = $ingredients);
-//
         if ($image = $request->file('image')) {
 
             $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
             $image->storePubliclyAs('public/images/recipe_images', $name);
             $recipe->image_path = $name;
-
-//            dd($recipe->image_url);
-
         }
-
-//        http://scoop_webapp.local/storage/images/recipe_images/lqHazmDXroMWHA8J.jpg
-
-
-//        for ($i=0; $i<count($request->ingredient); ++$i){
-//            $ingredient_id = Ingredient::firstorCreate(['name' => $request->ingredient[$i]])->id;
-//
-//            $recipe->ingredients()->attach($ingredient_id);
-//        }
-//        DB::transaction(function()
-//        {
-//            DB::table('users')->update(['votes' => 1]);
-//
-//            DB::table('posts')->update();
-//        });
-
-
 
         $recipe->save();
 
         //        ------allergens------
 
         foreach ($request->get('allergens') as $allergen) {
+
             DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
         }
 
@@ -250,7 +185,22 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         $user_id = $recipe->user_id;
 
+        $isAuthUser = false;
+
+
+        if(Auth::user() != null) {
+            $authUser_id = Auth::user()->id;
+
+            if($authUser_id == $recipe->user_id) {
+                $isAuthUser = true;
+            }
+        }
+
+        $reviews = $recipe->reviews()->get();
         $user = User::find($user_id);
+
+
+        //        todo: bugfixing
 
         $allergens = $recipe->allergens()->get();
 
@@ -262,15 +212,12 @@ class RecipeController extends Controller
 
         $query = DB::table("allergens");
         foreach($allergenArray as $allergenArrayItem){
-//            dd($allergenArrayItem);
-            $query->where("id",'!=','$allergenArrayItem');
+            $query->where("id",'!=',$allergenArrayItem);
         }
-//        dd($query);
 
-//        todo: bugfixing
         $allAllergens = $query->get();
 
-        return view('recipes.show', compact('recipe', 'user', 'allergens','allAllergens'));
+        return view('recipes.show', compact('recipe', 'user', 'allergens','allAllergens', 'reviews','isAuthUser'));
     }
 
     /**
@@ -285,7 +232,22 @@ class RecipeController extends Controller
         $recipe->fill($request->old());
         $allergens = Allergen::all();
 
-//        dd($recipe->ingredients);
+//        $allergens = $recipe->allergens()->get();
+
+//        $allergenArray = [];
+//
+//        foreach($allergens as $allergen) {
+//            array_push($allergenArray, $allergen->id);
+//        }
+//
+//        $query = DB::table("allergens");
+//        foreach($allergenArray as $allergenArrayItem){
+//            $query->where("id",'!=','$allergenArrayItem');
+//        }
+//
+////        todo: bugfixing
+//        $allAllergens = $query->get();
+
 
         return view('recipes.edit', compact('recipe','allergens'));
     }
@@ -300,10 +262,11 @@ class RecipeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-
-            'title' => 'required|min:3|max:192',
-            'text' => 'nullable',
-            'image' => 'nullable|mimes:jpeg,png'
+            'title' => 'required|min:3|max:35',
+            'description' => 'required|min:3|max:150',
+            'image' => 'nullable|mimes:jpeg,png',
+            'ingredient' => 'required|min:1',
+            'steps' => 'required|min:1',
         ]);
 
         $recipe = Recipe::find($id);
@@ -311,13 +274,44 @@ class RecipeController extends Controller
         $recipe->is_public = $request->has('is_public');
 
 
-//        ------ingredients------
+//        ------ingredients and steps------
 
-//        $recipe->ingredients = $request->get('ingredient');
         $recipe->steps = $request->get('steps'); //oder step?
+        $recipe->ingredients = $request->get('ingredient');
+
+        $recipe->save();
+
+//        ------allergens------
+
+        $prevAllergens = $recipe->allergens()->get();
 
 
-        $newIngredients = $request->get('ingredient');
+        //add new allergen to recipe
+
+//        todo: bugfixing
+
+        if($request->get('allergens') != null) {
+
+//            dd($request->get('allergens'));
+//            dd($prevAllergens);
+
+//            foreach ($request->get('allergens') as $allergen) {
+//
+//                if($prevAllergens->where('allergen_id','=', $allergen)) {
+//                    dd('vorhanden');
+//                } else {
+//                    dd("neues allergen");
+//                }
+////                DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+//            }
+        }
+
+
+        //remove allergen
+
+
+
+//        $newIngredients = $request->get('ingredient');
 
 //        $oldIngredients = $recipe->ingredients;
 
@@ -332,83 +326,78 @@ class RecipeController extends Controller
 
 //       $oldRequest = $recipe->fill($request->old());
 
-        $oldRecipe = DB::table('recipes')->where('id', $recipe->id)->get()->first();
-
-        $ingre = $oldRecipe->ingredients;
-
-        $ingre = ltrim($ingre, '[');
-        $ingre = ltrim($ingre, ']');
-
-        $removeBracets = str_replace(array('[',']'), '',$ingre);
-        $trimmedArray = str_replace(' ', '',$removeBracets);
-        $noArray = str_replace(array('"','"'), '',$trimmedArray);
-
-        $ingreArray = explode(',', $noArray);
-
-
+//        $oldRecipe = DB::table('recipes')->where('id', $recipe->id)->get()->first();
+//
+//        $ingre = $oldRecipe->ingredients;
+//
+//        $ingre = ltrim($ingre, '[');
+//        $ingre = ltrim($ingre, ']');
+//
+//        $removeBracets = str_replace(array('[',']'), '',$ingre);
+//        $trimmedArray = str_replace(' ', '',$removeBracets);
+//        $noArray = str_replace(array('"','"'), '',$trimmedArray);
+//
+//        $ingreArray = explode(',', $noArray);
 
 
 //        $oldIngredients = $oldRecipe[0]->ingredients;
 //        $result = array_diff($ingreArray, $request->ingredients);
 //        dd(array_diff($ingreArray, $request->ingredients));
 
-        $lengthOldArray = count($ingreArray);
-        $lengthNewArray = count($request->ingredients);
-        $newArray = $request->ingredients;
+//        $lengthOldArray = count($ingreArray);
+//        $lengthNewArray = count($request->ingredients);
+//        $newArray = $request->ingredients;
 
 //        dd($ingreArray, $newArray);
 
-        if($newIngredients != null && $lengthOldArray != $lengthNewArray) {
-
-//            dd($newArray);
-            $newArray = array_merge($ingreArray, $newIngredients);
-            $recipe->ingredients = $newArray;
-
-        } else if ($newIngredients == null && $lengthOldArray == $lengthNewArray) {
-
-            $recipe->ingredients = $newArray;
-
-//            dd($recipe->ingredients);
-
+//        if($newIngredients != null && $lengthOldArray != $lengthNewArray) {
+//
+////            dd($newArray);
+//            $newArray = array_merge($ingreArray, $newIngredients);
+//            $recipe->ingredients = $newArray;
+//
+//        } else if ($newIngredients == null && $lengthOldArray == $lengthNewArray) {
+//
+//            $recipe->ingredients = $newArray;
+//
+////            dd($recipe->ingredients);
+//
+////            for ($i = 0; $i < count($ingreArray); $i++) {
+//////                dd($ingreArray[$i] === $newArray[$i]);
+////
+////
+////
+////
+////                if(!($ingreArray[$i] === $newArray[$i])) {
+////                    dd("hiier");
+////
+////
+////                    $newArray = array_merge($ingreArray, $newIngredients);
+////                    $recipe->ingredients = $newArray;
+////                }
+////            }
+//        } else if ($newIngredients != null) {
+//
 //            for ($i = 0; $i < count($ingreArray); $i++) {
 ////                dd($ingreArray[$i] === $newArray[$i]);
 //
-//
-//
-//
 //                if(!($ingreArray[$i] === $newArray[$i])) {
-//                    dd("hiier");
+////                    dd("hiier");
 //
+//                    //newArray hat die geänderten Daten, aber keine neuen, $newIngredients hat die neuen
+////                    dd($newArray, $newIngredients);
 //
-//                    $newArray = array_merge($ingreArray, $newIngredients);
-//                    $recipe->ingredients = $newArray;
+//                    $finalArray = array_merge($newArray, $newIngredients);
+////                    dd($finalArray);
+//                    $recipe->ingredients = $finalArray;
 //                }
 //            }
-        } else if ($newIngredients != null) {
-
-            for ($i = 0; $i < count($ingreArray); $i++) {
-//                dd($ingreArray[$i] === $newArray[$i]);
-
-                if(!($ingreArray[$i] === $newArray[$i])) {
-//                    dd("hiier");
-
-                    //newArray hat die geänderten Daten, aber keine neuen, $newIngredients hat die neuen
-//                    dd($newArray, $newIngredients);
-
-                    $finalArray = array_merge($newArray, $newIngredients);
-//                    dd($finalArray);
-                    $recipe->ingredients = $finalArray;
-                }
-            }
-
-//            $newArray = array_merge($ingreArray, $newIngredients);
-
-//            $recipe->ingredients = $newArray;
-
-        }
-
-
-
+//
+////            $newArray = array_merge($ingreArray, $newIngredients);
+//
+////            $recipe->ingredients = $newArray;
+//
+//        }
 
 
 //
@@ -424,7 +413,7 @@ class RecipeController extends Controller
 ////        dd($diff);
 
 
-        $recipe->save();
+//        $recipe->save();
 
         return redirect()->route('recipes.show', $id)->with('success', 'Recipes updated!');
     }
@@ -437,10 +426,12 @@ class RecipeController extends Controller
      */
     public function destroy($id)
     {
+//        todo: bugfixing
+
         $recipe = Recipe::find($id);
 
         if($recipe->image_path) {
-            Storage::delete('public/images/'.$recipe>image_path);
+            Storage::delete('public/images/recipe_images'.$recipe->image_path);
         }
 
         $recipe->delete();
@@ -450,8 +441,6 @@ class RecipeController extends Controller
 
     public function showMyRecipes($user_id) {
 
-
-//        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
         $recipes = Recipe::query()->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
 
         return view('recipes.showMyRecipes', compact('recipes'));
@@ -467,18 +456,10 @@ class RecipeController extends Controller
 
     public function showMyFavorites($user_id) {
 
-
-//        $recipes = Recipe::query()->where('user_id', $user_id)->pluck('following_user_id')->orderBy('created_at', 'desc')->get();
-//        $recipes = Recipe::query()->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
-
-
-
         $user_id = Auth::user();
         $recipes = $user_id->favoriteRecipe()->get();
 
-
         return view('recipes.showMyFavorites', compact('recipes'));
-
     }
 
 
@@ -491,21 +472,17 @@ class RecipeController extends Controller
         $recipe_id = $recipe->id;
 
         $user_id->favoriteRecipe()->attach($recipe_id);
-//        $recipe_id->userFavorite()->attach($user_id);
 
         return redirect()->back()->with('success', 'Successfully added as Favorite!');
     }
 
     public function removeFavorite($id) {
-//        $user = auth()->user()->id;
-//        $user = User::find($user);
         $user_id = Auth::user();
 
         $recipe = Recipe::find($id);
         $recipe_id = $recipe->id;
 
         $user_id->favoriteRecipe()->detach($recipe_id);
-//        $recipe_id->userFavorite()->attach($user_id);
 
         return redirect()->back()->with('success', 'Successfully removed from Favorites!');
     }

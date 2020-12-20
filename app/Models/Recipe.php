@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recipe extends Model
 {
+
     protected $fillable = ['title','ingredients','steps','description','is_public','image_path'];
 
     protected $casts = [
         'ingredients' => 'array',
         'steps' => 'array'
     ];
+
+    // Relationships
 
     public function user()
     {
@@ -27,6 +30,11 @@ class Recipe extends Model
     public function allergens()
     {
         return $this->belongsToMany(Allergen::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
 //    public function allergens()

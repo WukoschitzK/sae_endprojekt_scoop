@@ -7,8 +7,6 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex,nofollow">
 
-{{--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">--}}
-
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 
@@ -17,8 +15,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-
-{{--    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>--}}
     <script type="text/javascript" src="/js/app.js"></script>
 
 </head>

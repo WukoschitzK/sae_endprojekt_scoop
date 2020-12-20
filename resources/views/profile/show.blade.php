@@ -11,11 +11,14 @@
 
             <div class="profile-information-wrapper">
 
-                @if($user->image_url)
-                    <img class="profile-information-image" src="{{ $user->image_url }}">
+                @if($user->image_path)
+                    <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">
+
+                @else
+                    <img class="profile-information-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
                 @endif
 
-                <img class="profile-information-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
+
                 <div class="profile-information-text-wrapper">
                     <div class="profile-information-user-name">{{ $user->name }}</div>
                     <div class="profile-information-allergens font-16-px margin-bottom-10">
@@ -23,11 +26,11 @@
                     </div>
                     <div class="profile-information-details">
                         <div class="font-14-px">
-                            <div>{{$recipes->count()}}</div>
+                            <div>{{$user->recipes()->count()}}</div>
                             <div>Recipes</div>
                         </div>
                         <div class="font-14-px">
-                            <div>{{$followers->count()}}</div>
+                            <div>{{$user->followers()->count()}}</div>
                             <div>Follower</div>
                         </div>
                     </div>
@@ -45,19 +48,43 @@
         <div class="h1 heading-line d-inline-block">Newsfeed</div>
 
         <div class="recipe-cards-wrapper-flex">
-            <div class="margin-bottom-50 recipe-element">
-{{--                partial recipecard--}}
-            </div>
+            @foreach($recipes as $recipe)
+                <div class="margin-bottom-50 recipe-element">
+                    <div class="recipe-card-wrapper">
+                        <a href="{{ route('recipes.show', $recipe->id) }}">
+                            <div class="recipe-card">
+                                <div>
 
-            <div class="margin-bottom-50 recipe-element">
-                {{--                partial recipecard--}}
-            </div>
+                                    @if($recipe->image_path)
+                                        <img class="recipe-detail-img" src="/storage/images/recipe_images/{{ $recipe->image_path }}" alt="Picture of Recipe" />
+                                    @else
+                                        <img class="recipe-detail-img" src="/images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
+                                    @endif
+                                </div>
+                                <div class="recipe-card-text">
+                                    <h2>{{ $recipe->title }}</h2>
+                                    <p>{{ $recipe->description }}</p>
+                                </div>
 
-            <div class="margin-bottom-50 recipe-element">
-                {{--                partial recipecard--}}
-            </div>
+
+{{--                                todo: get User of Recipe--}}
+{{--                                <div class="recipe-card-profile-info">--}}
+{{--                                    @if($recipe->user->image_path)--}}
+{{--                                        <img class="profile-image" src="/storage/images/profile_images/{{ $user->image_path }}">--}}
+{{--                                    @else--}}
+{{--                                        <img class="profile-image" src="/images/profile-image-placeholder.jpg" alt="Profile Image" />--}}
+{{--                                    @endif--}}
+{{--                                    <div>--}}
+{{--                                        {{ $recipe->user->id }}--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
         </div>
-
     </div>
 
 @endsection

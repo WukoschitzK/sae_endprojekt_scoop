@@ -4,59 +4,6 @@
 
 @section('container')
 
-{{--	<div class="card mt-4">--}}
-{{--		<div class="card-body">--}}
-
-
-
-{{--			<h2>{{ $recipe->title }}</h2>--}}
-
-{{--			@if($recipe->is_public)--}}
-{{--				<div class="alert alert-info">public!</div>--}}
-{{--			@endif--}}
-
-{{--			@if($recipe->ingredients)--}}
-{{--				<p>{{ $recipe->ingredients }}</p>--}}
-{{--			@endif--}}
-
-{{--            @if($recipe->steps)--}}
-{{--                <p>{{ $recipe->steps }}</p>--}}
-{{--            @endif--}}
-
-{{--			@if($recipe->image_path)--}}
-{{--				<img class="w-50" src="{{ $recipe->image_url }}">--}}
-{{--			@endif--}}
-
-
-{{--            <a href="{{ url('/user-profile/' . $user->id)}}"><p>User: {{ $user->name }}</p></a>--}}
-
-{{--			<p>{{ nice_date($recipe->created_at) }}</p>--}}
-
-{{--			<a href="{{ route('recipes.index') }}" class="btn btn-outline-primary">--}}
-{{--				<i class="fa fa-chevron-left"></i> Back--}}
-{{--			</a>--}}
-
-{{--			<a href="{{ route('recipes.edit', $recipe->id) }}" class="btn btn-primary">--}}
-{{--				<i class="fa fa-pencil"></i> Edit--}}
-{{--			</a>--}}
-
-{{--			<form method="post" action="{{ route('recipes.destroy', $recipe->id) }}" autocomplete="off" onsubmit="return confirm('Are you sure?')">--}}
-
-{{--				@method('delete')--}}
-{{--				@csrf--}}
-
-{{--				<button type="submit" class="btn btn-outline-danger mt-2">--}}
-{{--					<i class="fa fa-trash"></i> Delete--}}
-{{--				</button>--}}
-
-{{--			</form>--}}
-
-{{--		</div>--}}
-{{--	</div>--}}
-
-
-
-
     <div>
         {{--desktop--}}
         <div class="recipe-detail-wrapper margin-bottom-50">
@@ -68,39 +15,45 @@
                 @else
                     <img class="recipe-detail-img" src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
                 @endif
-                <div class="recipe-detail-text">
-                    <div class="rating-stars">
+                <div class="recipe-detail-text wrapper">
 
-                    </div>
-
-                    @if($recipe->user_id == auth()->user()->id)
-                        <div>
-                            <a href="{{ url('recipes/' . $recipe->id . '/edit') }}">
+{{--                    todo: rating stars--}}
+{{--                    <div class="rating-stars"></div>--}}
+                    @if($isAuthUser == true)
+                        <div class="text-right">
+                            <a href="{{ url('recipes/' . $recipe->id . '/edit') }}" class="font-14-px">
                             Edit Recipe</a>
                         </div>
                     @endif
 
-{{--                    addforivite--}}
-                    <form method="post" action="{{ route('recipes.addFavorite', $recipe->id) }}" autocomplete="off">
-                    @csrf
+{{--                    add or remove favorite--}}
+                    <div class="recipe-detail-cta-favorite text-right">
+                        @if(auth()->check())
+                            @if(Auth::user()->favoriteRecipe()->where('id', '=', $recipe->id)->count() > 0)
+                                <form method="post" action="{{ route('recipes.removeFavorite', $recipe->id) }}" autocomplete="off">
+                                    @csrf
 
-                    <button type="submit" class="btn btn-info mt-2">
-                        add favorite
-                    </button>
+                                    <button type="submit" class="btn btn-info mt-2 no-btn-style">
+                                        <img src="/images/svg/heart_filled.svg" alt="heart icon for remove the recipe from favorites"/>
+                                    </button>
 
-                    </form>
-                    {{--                    removeFavorite--}}
-                    <form method="post" action="{{ route('recipes.removeFavorite', $recipe->id) }}" autocomplete="off">
-                        @csrf
+                                </form>
+                            @else()
+                                <form method="post" action="{{ route('recipes.addFavorite', $recipe->id) }}" autocomplete="off">
+                                    @csrf
 
-                        <button type="submit" class="btn btn-info mt-2">
-                            remove favorite
-                        </button>
+                                    <button type="submit" class="add-favorite-btn no-btn-style">
 
-                    </form>
+                                        <img src="/images/svg/heart.svg" alt="heart icon for remove the recipe from favorites"/>
+                                    </button>
+
+                                </form>
+                            @endif
+                        @endif
+                    </div>
 
                     <div class="recipe-detail-text-section">
-                        <div class="h1">
+                        <div class="h1 heading-line d-inline-block">
                             {{ $recipe->title }}
                         </div>
                         <p class="margin-bottom-30">
@@ -108,46 +61,7 @@
                         </p>
                     </div>
 
-
-{{--                    <div class="form-recipe-wrapper-input">--}}
-{{--                        <div class="js-wrapper-ingredients-input">--}}
-{{--                            @foreach($recipe->ingredients as $ingredient)--}}
-{{--                                <div class="wrapper-ingredients">--}}
-{{--                                    <label for="input_ingredients">Ingredients:</label>--}}
-{{--                                    <input name="ingredients" value="{{ $ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">--}}
-{{--                                </div>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="form-recipe-wrapper-input">--}}
-{{--                        <div class="js-wrapper-steps-input">--}}
-{{--                            @foreach($recipe->steps as $step)--}}
-{{--                                <div class="wrapper-steps">--}}
-{{--                                    <label for="input_steps">Steps:</label>--}}
-{{--                                    <input name="steps" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">--}}
-{{--                                </div>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
-
-{{--                    @foreach($recipe->ingredients as $ingredient)--}}
-{{--                        <div class="wrapper-ingredients">--}}
-{{--                            <label for="input_ingredients">Ingredients:</label>--}}
-{{--                            <input name="ingredients" value="{{ $ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-
-{{--                    @foreach($recipe->steps as $step)--}}
-{{--                        <div class="wrapper-steps">--}}
-{{--                            <label for="input_steps">Steps:</label>--}}
-{{--                            <input name="steps" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-
-
-                    <div>
+                    <div class="recipe-detail-text-user">
                         <a href="{{ url('/user-profile/' . $user->id)}}">
                             <div class="recipe-card-profile-info">
 
@@ -167,7 +81,8 @@
 
 
         <div class="wrapper">
-            <div class="recipe-detail-ingredient-step-flex margin-bottom-50">
+{{--            desktop--}}
+            <div class="recipe-detail-ingredient-step-flex margin-bottom-50 desktop-ingr-steps">
                 <div class="recipe-detail-ingredient-step-item">
                     <h2 class="heading-line d-inline-block">
                         Ingredients
@@ -187,14 +102,49 @@
                     </h2>
                     <ol class="steps-list">
                         @foreach($recipe->steps as $step)
-                            <div class="steps-count">{{ $loop->iteration}}</div>
-                            <p>{{ $step }}</p>
+                            <li class="step-list-item margin-bottom-30">
+                                <div class="steps-count">{{ $loop->iteration}}</div>
+                                <p>{{ $step }}</p>
+                            </li>
                         @endforeach
                     </ol>
                 </div>
             </div>
 
-            <div class="width-50 margin-bottom-50">
+{{--            desktop end--}}
+
+{{--            mobile--}}
+        <div class="mobile-ingr-steps">
+            <ul class="recipe-tabs margin-bottom-30">
+                <li class="recipe-tab-active" id="js-tab-ingr">Ingredients</li>
+                <li class="" id="js-tab-steps">Steps</li>
+            </ul>
+
+            <div class="margin-bottom-30">
+                <ul class="ingredients-list js-list-ingr">
+                    @foreach($recipe->ingredients as $ingredient)
+                        <li class="ingredients-list-item">
+                            {{ $ingredient }}
+                        </li>
+                    @endforeach
+                </ul>
+
+
+
+                <ol class="steps-list js-list-steps">
+                    @foreach($recipe->steps as $step)
+                        <li class="step-list-item margin-bottom-30">
+                            <div class="steps-count">{{ $loop->iteration}}</div>
+                            <p>{{ $step }}</p>
+                        </li>
+                    @endforeach
+                </ol>
+            </div>
+        </div>
+
+{{--            mobile end--}}
+
+            <div class="margin-bottom-50">
                 <h2>Allergens</h2>
 
                 <div class="form-recipe-wrapper-input">
@@ -206,228 +156,86 @@
                             @endforeach
                             @foreach($allAllergens as $allAllergen)
                                     <li>
-                                        <div>{{ $allAllergen->name }}</div>
+                                        {{ $allAllergen->name }}
                                     </li>
                             @endforeach
 
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="width-50 margin-bottom-50">
-                <h2 class="margin-bottom-30">Comments</h2>
-                {{--                <AllergenTiles />--}}
-            </div>
 
-            <div class="comments-flex-wrap">
-                <div class="comment-wrapper">
-                    <div class="margin-bottom-20">
-                        <a href="{{ url('/user-profile/' . $user->id)}}">
-                            <div class="recipe-card-profile-info">
-
-                                @if($user->image_url)
-                                    <img class="profile-image" alt="Profile Image" src="{{ $user->image_url }}">
-                                @else
-                                    <img class="profile-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
-                                @endif
-
-                                <div class="font-14-px">{{ $user->name }}</div>
+                <div class="margin-bottom-50">
+                    <h2 class="margin-bottom-30">Leave a Reply</h2>
+                    <div class="txt-center">
+                        <form class="form-recipe" action="{{route('recipes.postReview', $recipe->id)}}" method="post">
+                            @csrf
+                            <div class="rating">
+                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                <label for="star1">☆</label>
+                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                <label for="star2" >☆</label>
+                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                <label for="star3" >☆</label>
+                                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                                <label for="star4" >☆</label>
+                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                                <label for="star5" >☆</label>
                             </div>
-                        </a>
+
+                            <div>
+                                <label for="input_comment">Comment:</label>
+                                <textarea rows="6" cols="150" type="text" class="form-recipe-input" name="comment" value="" id="input_comment"></textarea>
+                            </div>
+
+                            <div class="cta-btn-wrapper cta-btn-small margin-bottom-50">
+                                <div class="cta-btn">
+                                    <button type="submit">
+                                        save
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
 
-                    <div class="rating-stars margin-bottom-10">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-
-                    <p>Absolutely the BEST meatloaf I’ve ever had!!! My son mentioned that he thought it was better than what my mom used to make. No more searching for a good recipe cause I found the best.</p>
                 </div>
 
-                <div class="comment-wrapper">
+                <div class="width-50 margin-bottom-50">
+                    <h2 class="margin-bottom-30">Comments</h2>
+                    <div class="comments-flex-wrap">
 
-                    <div class="margin-bottom-20">
-                        <a href="{{ url('/user-profile/' . $user->id)}}">
-                            <div class="recipe-card-profile-info">
+                        @foreach($reviews as $review)
+                            <div class="comment-wrapper">
+                                <div class="margin-bottom-20">
+                                    <a href="{{ url('/user-profile/' . $review->user_id)}}">
+                                        <div class="recipe-card-profile-info">
 
-                                @if($user->image_url)
-                                    <img class="profile-image" alt="Profile Image" src="{{ $user->image_url }}">
-                                @else
-                                    <img class="profile-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
-                                @endif
+                                            @if($review->user->image_url)
+                                                <img class="profile-image" alt="Profile Image" src="{{ $review->user->image_url }}">
+                                            @else
+                                                <img class="profile-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
+                                            @endif
 
-                                <div class="font-14-px">{{ $user->name }}</div>
+                                            <div class="font-14-px">{{ $review->user->name }}</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="rating-stars margin-bottom-10">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+
+                                <p>{{$review->comment}}</p>
                             </div>
-                        </a>
-                    </div>
+                        @endforeach()
 
-                    <div class="rating-stars margin-bottom-10">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
                     </div>
-
-                    <p>Absolutely the BEST meatloaf I’ve ever had!!! My son mentioned that he thought it was better than what my mom used to make. No more searching for a good recipe cause I found the best.</p>
                 </div>
-            </div>
         </div>
-
-        {{--end desktop--}}
-
-
-        {{--mobile--}}
-
-{{--        <div class="wrapper">--}}
-{{--            <div class="margin-bottom-20">--}}
-{{--                <div>--}}
-{{--                    <a href="{{ url('/user-profile/' . $user->id)}}">--}}
-{{--                        <div class="recipe-card-profile-info">--}}
-
-{{--                            @if($user->image_url)--}}
-{{--                                <img class="profile-image" alt="Profile Image" src="{{ $user->image_url }}">--}}
-{{--                            @else--}}
-{{--                                <img class="profile-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />--}}
-{{--                            @endif--}}
-{{--                            <div class="font-14-px">{{$user->name}}</div>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="h1 heading-line d-inline-block">English Meatloaf</div>--}}
-
-{{--            <p>Candy chups apple pie b canes chupa chups apple pie biscuit chups apple pie b canes chupa chups apple pie biscuit.</p>--}}
-{{--        </div>--}}
-
-{{--        @if($recipe->image_path)--}}
-{{--            <img class="recipe-image" src="{{ $recipe->image_url }}" alt="Picture of Recipe" />--}}
-{{--        @else--}}
-{{--            <img class="recipe-image" src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />--}}
-{{--        @endif--}}
-
-{{--        <div class="wrapper">--}}
-{{--            <ul class="recipe-tabs margin-bottom-30">--}}
-{{--                <li class="recipe-tab-active">Ingredients</li>--}}
-{{--                <li class="">Steps</li>--}}
-{{--            </ul>--}}
-
-{{--            <div class="margin-bottom-30">--}}
-{{--                <ul class="ingredients-list">--}}
-{{--                    <li class="ingredients-list-item">250gr Flour</li>--}}
-{{--                    <li class="ingredients-list-item">2 large carrots</li>--}}
-{{--                    <li class="ingredients-list-item">400g can chopped tomatoes</li>--}}
-{{--                    <li class="ingredients-list-item">410g can green lentils</li>--}}
-{{--                    <li class="ingredients-list-item">85g vegetarian mature cheddar</li>--}}
-{{--                    <li class="ingredients-list-item">1 tbsp olive oil</li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-
-{{--            <div class="margin-bottom-30">--}}
-{{--                <ol class="steps-list">--}}
-{{--                    <li class="step-list-item margin-bottom-30">--}}
-{{--                        <div class="steps-count">1</div>--}}
-{{--                        <p>Put all the wet ingredients into a bowl.</p>--}}
-{{--                    </li><li class="step-list-item margin-bottom-30">--}}
-{{--                        <div class="steps-count">2</div>--}}
-{{--                        <p>In a large bowl, add the beef, bread crumbs, onion, milk, egg, 2 tablespoons ketchup, worcestershire sauce, parsley, salt, garlic powder, and pepper. Use your hands to mush and mix these ingredients together until well combined.</p>--}}
-{{--                    </li>--}}
-{{--                    <li class="step-list-item margin-bottom-30">--}}
-{{--                        <div class="steps-count">3</div>--}}
-{{--                        <p>Add the meat mixture to a loaf pan. Pat the meat down into an even layer.</p>--}}
-{{--                    </li>--}}
-{{--                    <li class="step-list-item margin-bottom-30">--}}
-{{--                        <div class="steps-count">4</div>--}}
-{{--                        <p>In a small bowl, add 1/4 cup ketchup, the brown sugar, and vinegar. Stir to combine. Pour the sauce on top of the meatloaf and spread it into an even layer.</p>--}}
-{{--                    </li>--}}
-{{--                    <li class="step-list-item margin-bottom-30">--}}
-{{--                        <div class="steps-count">5</div>--}}
-{{--                        <p>Bake uncovered for 55 minutes.  Let the meatloaf rest for 8-10 minutes before serving (or it may fall apart).</p>--}}
-{{--                    </li>--}}
-{{--                </ol>--}}
-{{--            </div>--}}
-
-{{--            <div class="margin-bottom-30">--}}
-{{--                <h2>Allergens</h2>--}}
-{{--                <div>--}}
-{{--                    <ul class="allergen-tiles-wrapper">--}}
-{{--                        <li class="">gluten-free</li>--}}
-{{--                        <li class="">histamine-free</li>--}}
-{{--                        <li class="">vegan</li>--}}
-{{--                        <li class="">vegetarian</li>--}}
-{{--                        <li class="">nut-free</li>--}}
-{{--                        <li class="">lactose-free</li>--}}
-{{--                        <li class="">undefined</li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="margin-bottom-30">--}}
-{{--                <h2>Leave a Reply</h2>--}}
-{{--                <div>--}}
-{{--                    <form class="form-recipe">--}}
-{{--                        <div class="rating-wrapper-flex margin-bottom-20">--}}
-{{--                            <div>Recipe Rating</div>--}}
-{{--                            <div class="rating-stars">--}}
-{{--                                <i class="fas fa-star"></i>--}}
-{{--                                <i class="fas fa-star"></i>--}}
-{{--                                <i class="fas fa-star"></i>--}}
-{{--                                <i class="fas fa-star"></i>--}}
-{{--                                <i class="fas fa-star"></i>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="margin-bottom-20">--}}
-{{--                            <label>Comment</label>--}}
-{{--                            <textarea rows="6" cols="150" type="text" class="form-recipe-input"></textarea>--}}
-{{--                        </div>--}}
-{{--                        <div class="margin-bottom-50">--}}
-{{--                            <div class="cta-btn-wrapper">--}}
-{{--                                <div class="cta-btn">save</div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="margin-bottom-30">--}}
-{{--                <h2>Comments</h2>--}}
-{{--                <div>--}}
-{{--                    <div class="comment-wrapper">--}}
-{{--                        <div>--}}
-{{--                            <a href="{{ url('/user-profile/' . $user->id)}}">--}}
-{{--                                <div class="recipe-card-profile-info">--}}
-{{--                                    @if($user->image_url)--}}
-{{--                                        <img class="profile-image" alt="Profile Image" src="{{ $user->image_url }}">--}}
-{{--                                    @else--}}
-{{--                                        <img class="profile-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />--}}
-{{--                                    @endif--}}
-
-{{--                                    <div class="font-14-px">--}}
-{{--                                        {{$user->name}}--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                        <div class="rating-stars margin-bottom-10">--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                            <i class="fas fa-star"></i>--}}
-{{--                        </div>--}}
-{{--                        <p>Absolutely the BEST meatloaf I’ve ever had!!! My son mentioned that he thought it was better than what my mom used to make. No more searching for a good recipe cause I found the best.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-        {{--end mobile--}}
-
     </div>
 
 @endsection
