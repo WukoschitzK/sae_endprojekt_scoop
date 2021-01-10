@@ -73,12 +73,12 @@
             <div class="form-recipe-wrapper-input">
                 <div class="text-bold margin-bottom-10">Allergens</div>
                 <ul class="allergen-tiles-wrapper">
-                    @foreach($allergens as $allergen)
-                        <li class="js-allergen-tile">
-                            <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>
-                            <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">
-                        </li>
-                    @endforeach
+{{--                    @foreach($allergens as $allergen)--}}
+{{--                        <li class="js-allergen-tile">--}}
+{{--                            <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>--}}
+{{--                            <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">--}}
+{{--                        </li>--}}
+{{--                    @endforeach--}}
 
 {{--                    todo: add / remove allergens--}}
 {{--                            @foreach($allAllergens as $allAllergen)--}}
@@ -94,6 +94,32 @@
 {{--                                    <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">--}}
 {{--                                </li>--}}
 {{--                            @endforeach--}}
+
+
+
+                    <div class="form-recipe-wrapper-input">
+                        <ul class="allergen-tiles-wrapper">
+                            @foreach($allergens as $allergen)
+                                <li class="active">
+                                    <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>
+                                    <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">
+{{--                                    <div>{{ $allergen->name }}</div>--}}
+                                </li>
+                            @endforeach
+                            @foreach($allAllergens as $allAllergen)
+                                <li>
+                                    <label for="input_allergen_{{$allAllergen->id}}">{{$allAllergen->name}}</label>
+                                    <input type="checkbox" name="allergens[]" value="{{$allAllergen->id}}" id="input_allergen_{{$allAllergen->id}}" class="tryAllergen">
+{{--                                    {{ $allAllergen->name }}--}}
+                                </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+
+
+
+
                 </ul>
             </div>
 

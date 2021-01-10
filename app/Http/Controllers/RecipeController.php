@@ -27,83 +27,115 @@ class RecipeController extends Controller
         $categories = Category::all();
         $allergens = Allergen::all();
 
-        if (isset($request->cat) && isset($request->allergens)) {
 
-            $allergen_ids = $request->allergens;
+        // todo: es soll nach mehrerer Allergene und einer Kategorie filterbar sein,
+        // oder nur nach allergenen (category ist dann "all") oder nur nach kategorie (keine allergenfilter gesetzt)
+
+
+        $recipes = Recipe::query();
+
+
+        if(isset($request->cat)) {
             $category_id = $request->cat;
 
-            $recipesArray = [];
+            $recipes = $recipes->where('category_id', $category_id );
+        }
 
+        if(isset($request->allergens)) {
+            $allergen_ids = $request->get('allergens');
 
-//            $recipes = Recipe::where($recipesArray)->get();
+            foreach(explode(',', $allergen_ids) as $id) {
 
-//            $recipes = Recipe::where('allergens', function (Builder $query) use ($allergen_ids) {
-//                foreach($allergen_ids as $id) {
-//                    $query->where('allergen_id','=',  $id);
-//                }
-//            })->get();
-
-
-            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
-                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
-            })->get();
-
-            $recipes->where('category_id', $category_id )->get();
-
-
-            response()->json($recipes); //return to ajax
-            return view('recipes.index', compact('recipes','allergens','categories'));
-
-        } else if (isset($request->cat)){
-
-
-            if($request->cat === 4) {
-                $recipes = Recipe::all();
-
-                response()->json($recipes); //return to ajax
-                return view('recipes.index', compact('recipes'));
+                $recipes = $recipes->whereHas('allergens', function ($query) use ($id) {
+                    $query->where('allergen_id',  $id);
+//                    return $query;
+                });
             }
+        }
+        $recipes = $recipes->get();
 
-            $category_ids = $request->cat; //categories
+        response()->json($recipes); //return to ajax
+        return view('recipes.index', compact('recipes','allergens','categories'));
 
-            $recipes = Recipe::whereIn('category_id', explode( ',', $category_ids ))->get();
 
-
-            response()->json($recipes); //return to ajax
-            return view('recipes.index', compact('recipes','allergens','categories'));
-
-        } else if (isset($request->allergens)){
-
-//            if($request->allergen === 4) {
+//        if (isset($request->cat) && isset($request->allergens)) {
+//
+//            $allergen_ids = $request->allergens;
+//            $category_id = $request->cat;
+//
+//            $recipesArray = [];
+//
+//
+////            $recipes = Recipe::where($recipesArray)->get();
+//
+////            $recipes = Recipe::where('allergens', function (Builder $query) use ($allergen_ids) {
+////                foreach($allergen_ids as $id) {
+////                    $query->where('allergen_id','=',  $id);
+////                }
+////            })->get();
+//
+//
+//            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
+//                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
+//            })->get();
+//
+//            $recipes->where('category_id', $category_id )->get();
+//
+//
+//            response()->json($recipes); //return to ajax
+//            return view('recipes.index', compact('recipes','allergens','categories'));
+//
+//        } else if (isset($request->cat)){
+//
+//
+//            if($request->cat === 4) {
 //                $recipes = Recipe::all();
 //
 //                response()->json($recipes); //return to ajax
 //                return view('recipes.index', compact('recipes'));
 //            }
-
-             //allergens
-
-
-
-            $allergen_ids = $request->allergens;
 //
-            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
-                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
-            })->get();
-
-//            $recipes = Recipe::where('allergens', function (Builder $query) use ($allergen_ids) {
+//            $category_ids = $request->cat; //categories
+//
+//            $recipes = Recipe::whereIn('category_id', explode( ',', $category_ids ))->get();
+//
+//
+//            response()->json($recipes); //return to ajax
+//            return view('recipes.index', compact('recipes','allergens','categories'));
+//
+//        } else if (isset($request->allergens)){
+//
+////            if($request->allergen === 4) {
+////                $recipes = Recipe::all();
+////
+////                response()->json($recipes); //return to ajax
+////                return view('recipes.index', compact('recipes'));
+////            }
+//
+//             //allergens
+//
+//
+//
+//            $allergen_ids = $request->allergens;
+////
+////            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
+////                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
+////            })->get();
+//
+//            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
 //                foreach($allergen_ids as $id) {
-//                    $query->where('allergen_id','=',  $id);
+//                    $query = $query->where('allergen_id','=',  $id);
 //                }
+//                return $query;
 //            })->get();
+//
+//            response()->json($recipes); //return to ajax
+//            return view('recipes.index', compact('recipes','allergens','categories'));
+//        }
 
-            response()->json($recipes); //return to ajax
-            return view('recipes.index', compact('recipes','allergens','categories'));
-        }
 
 
-
-        return view('recipes.index', compact('recipes', 'categories', 'allergens'));
+//        return view('recipes.index', compact('recipes', 'categories', 'allergens'));
     }
 
 
@@ -197,6 +229,7 @@ class RecipeController extends Controller
         }
 
         $reviews = $recipe->reviews()->get();
+
         $user = User::find($user_id);
 
 
@@ -230,26 +263,26 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::find($id);
         $recipe->fill($request->old());
-        $allergens = Allergen::all();
-
-//        $allergens = $recipe->allergens()->get();
-
-//        $allergenArray = [];
-//
-//        foreach($allergens as $allergen) {
-//            array_push($allergenArray, $allergen->id);
-//        }
-//
-//        $query = DB::table("allergens");
-//        foreach($allergenArray as $allergenArrayItem){
-//            $query->where("id",'!=','$allergenArrayItem');
-//        }
-//
-////        todo: bugfixing
-//        $allAllergens = $query->get();
+//        $allergens = Allergen::all();
 
 
-        return view('recipes.edit', compact('recipe','allergens'));
+        $allergens = $recipe->allergens()->get();
+
+        $allergenArray = [];
+
+        foreach($allergens as $allergen) {
+            array_push($allergenArray, $allergen->id);
+        }
+
+        $query = DB::table("allergens");
+        foreach($allergenArray as $allergenArrayItem){
+            $query->where("id",'!=',$allergenArrayItem);
+        }
+
+        $allAllergens = $query->get();
+
+
+        return view('recipes.edit', compact('recipe','allergens','allAllergens'));
     }
 
     /**
@@ -283,14 +316,92 @@ class RecipeController extends Controller
 
 //        ------allergens------
 
+
         $prevAllergens = $recipe->allergens()->get();
+
+        $prevAllergenArray = [];
+
+        foreach($prevAllergens as $prevAllergen) {
+            array_push($prevAllergenArray, $prevAllergen->id);
+        }
+
+        $query = DB::table("allergens");
+        foreach($prevAllergenArray as $allergenArrayItem){
+            $query->where("id",'!=',$allergenArrayItem);
+        }
+
+        $leftAllergens = $query->get();
+
+//        dd($leftAllergens);
+
+
+
+
+
+
+        $allergen_ids = $request->get('allergens');
+
 
 
         //add new allergen to recipe
+//        if ($request->get('allergens') != null) {
+//
+//            foreach($request->get('allergens') as $id) {
+//
+//                foreach($leftAllergens as $leftAllergen) {
+////                    dd($leftAllergen);
+//                    if ($leftAllergen == $id) {
+////                        dd($prevAllergen->get('id'));
+//                        dd('noch nicht vorhanden');
+//                    } else {
+////                        dd($prevAllergen->id());
+//                        dd("altes allergen");
+//                        //                    DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+//                    }
+//                }
+//                foreach($prevAllergens as $prevAllergen) {
+////                    dd($prevAllergen);
+//                    if ($prevAllergen->where('id', '=', $id)) {
+////                        dd($prevAllergen->get('id'));
+//                        dd('vorhanden');
+//                    } else {
+////                        dd($prevAllergen->id());
+//                        dd("neues allergen");
+//                        //                    DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+//                    }
+//                }
+//
+//
+//            }
+//
+//
+//
+//
+//            foreach ($request->get('allergens') as $allergen) {
+////                dd($prevAllergens->get('allergen_id'));
+//                foreach($prevAllergens as $prevAllergen) {
+////                    dd($prevAllergen->get('id'));
+//                    if ($prevAllergen->whereIn('id','=', $allergen)) {
+////                        dd($prevAllergen);
+//                        dd('vorhanden');
+//                    } else {
+//                        dd("neues allergen");
+//                        //                    DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+//                    }
+//                }
+//
+//            }
+//
+//        }
 
-//        todo: bugfixing
 
-        if($request->get('allergens') != null) {
+
+
+
+
+
+
+//        if($request->get('allergens') != null) {
 
 //            dd($request->get('allergens'));
 //            dd($prevAllergens);
@@ -304,7 +415,7 @@ class RecipeController extends Controller
 //                }
 ////                DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
 //            }
-        }
+//        }
 
 
         //remove allergen
@@ -415,6 +526,8 @@ class RecipeController extends Controller
 
 //        $recipe->save();
 
+
+
         return redirect()->route('recipes.show', $id)->with('success', 'Recipes updated!');
     }
 
@@ -449,7 +562,7 @@ class RecipeController extends Controller
 
     public function showLatestRecipes() {
 
-        $recipes = Recipe::query()->orderBy('created_at', 'desc')->take(3)->get();
+        $recipes = Recipe::query()->orderBy('rating_average', 'desc')->take(3)->get();
 
         return view('welcome', compact('recipes'));
     }
@@ -485,5 +598,21 @@ class RecipeController extends Controller
         $user_id->favoriteRecipe()->detach($recipe_id);
 
         return redirect()->back()->with('success', 'Successfully removed from Favorites!');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+
+
+
+        $recipes = Recipe::where('title','like','%'.$search.'%')
+            ->orWhere('description','like','%'.$search.'%')
+            ->orWhere('ingredients','like','%'.$search.'%')->get();
+
+//
+//        $recipes->setPath('suche');
+
+        return view('recipes.search', compact('recipes'));
     }
 }

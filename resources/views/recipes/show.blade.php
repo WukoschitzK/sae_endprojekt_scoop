@@ -65,10 +65,10 @@
                         <a href="{{ url('/user-profile/' . $user->id)}}">
                             <div class="recipe-card-profile-info">
 
-                                @if($user->image_url)
-                                    <img class="profile-image" alt="Profile Image" src="{{ $user->image_url }}">
+                                @if($user->image_path)
+                                    <img class="profile-image" alt="Profile Image" src="/storage/images/profile_images/{{ $user->image_path }}">
                                 @else
-                                    <img class="profile-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
+                                    <img class="profile-image" src="../images/avatar.png" alt="Profile Image" />
                                 @endif
 
                                 <div class="font-14-px">{{ $user->name }}</div>
@@ -171,16 +171,16 @@
                         <form class="form-recipe" action="{{route('recipes.postReview', $recipe->id)}}" method="post">
                             @csrf
                             <div class="rating">
-                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
-                                <label for="star1">☆</label>
-                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
-                                <label for="star2" >☆</label>
-                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
-                                <label for="star3" >☆</label>
+                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                                <label for="star5">☆</label>
                                 <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
                                 <label for="star4" >☆</label>
-                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
-                                <label for="star5" >☆</label>
+                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                <label for="star3" >☆</label>
+                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                <label for="star2" >☆</label>
+                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                <label for="star1" >☆</label>
                             </div>
 
                             <div>
@@ -232,6 +232,10 @@
                                 <p>{{$review->comment}}</p>
                             </div>
                         @endforeach()
+
+                        @if($reviews->isEmpty())
+                            <p>There are no comments yet.</p>
+                        @endif()
 
                     </div>
                 </div>

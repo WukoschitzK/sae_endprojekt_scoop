@@ -15,19 +15,19 @@
             @method('put')
             @csrf
 
-            <h3>Profile Information</h3>
             <div class="wrapper-edit-profile-image margin-bottom-30">
-                @if($user->image_path)
-                    <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">
 
-                @else
-                    <img class="profile-information-image" src="/images/profile-image-placeholder.jpg" alt="Profile Image" />
-                @endif
-                    <div class="">
-                        <label for="input_image" class="text-bold margin-bottom-10">Images</label>
-                        <input type="file" name="image" class="form-control" id="input_image">
-                        <div>Change Image</div>
+                    <div class="profile-image-upload">
+                        <div class="profile-image-edit">
+                            <input name="image" type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload"></label>
+                        </div>
+                        <div class="profile-image-preview">
+                            <div id="imagePreview" class="current-profile-image" style="background-image: url(/storage/images/profile_images/{{ $user->image_path }});">
+                            </div>
+                        </div>
                     </div>
+
             </div>
 
 
@@ -44,7 +44,7 @@
 
             <div class="form-edit-profile-wrapper-input">
                 <label for="input_password">Password:</label>
-                <input type="password" name="password" value="{{ $user->password }}" class="form-control" id="input_password">
+                <input type="password" name="password" value="" class="form-control" id="input_password">
             </div>
 
             <div class="margin-bottom-30">

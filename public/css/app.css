@@ -101,6 +101,11 @@ a.heading-line:after {
   display: block;
 }
 
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 /***************TABLET***************/
 
 @media (min-width: 768px) {
@@ -138,7 +143,13 @@ body {
 }
 
 .content-wrapper.main-wrapper {
-  min-height: 100%;
+  min-height: calc(100% - 216px);
+}
+
+.align-content-center {
+  min-height: calc(100vh - 216px);
+  display: flex;
+  align-items: center;
 }
 
 * {
@@ -204,6 +215,16 @@ a {
     margin-bottom: 50px;
   }
 
+  .content-wrapper.main-wrapper {
+    min-height: calc(100% - 261px);
+  }
+
+  .align-content-center {
+    min-height: calc(100vh - 261px);
+    display: flex;
+    align-items: center;
+  }
+
   h1 {
     font-size: 30px;
     margin: 0 0 20px 0;
@@ -240,6 +261,16 @@ a {
 
   header {
     margin-bottom: 0;
+  }
+
+  .content-wrapper.main-wrapper {
+    min-height: calc(100% - 240px);
+  }
+
+  .align-content-center {
+    min-height: calc(100vh - 240px);
+    display: flex;
+    align-items: center;
   }
 
   h1 {
@@ -568,7 +599,7 @@ svg.fa-bars {
     height: 35px;
   }
 
-  .navigation-desktop-flex .navigation-desktop-flex-right ul li {
+  .navigation-desktop-flex .navigation-desktop-flex-right ul li:first-child {
     margin-right: 40px;
   }
 }
@@ -597,7 +628,7 @@ svg.fa-bars {
 
 /***************TABLET***************/
 
-@media (min-width: 780px) {
+@media (min-width: 768px) {
   .footer {
     justify-content: center;
     margin-top: 50px;
@@ -1129,8 +1160,9 @@ a.link:hover {
   }
 
   .recipe-cards-wrapper-flex {
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
   }
 
@@ -1250,6 +1282,72 @@ a.link:hover {
 
 .filter-desktop {
   margin-bottom: 20px;
+}
+
+.profile-image-upload {
+  position: relative;
+  max-width: 205px;
+  margin: 50px auto;
+}
+
+.profile-image-upload .profile-image-edit {
+  position: absolute;
+  right: 12px;
+  z-index: 1;
+  top: 10px;
+}
+
+.profile-image-upload .profile-image-edit input {
+  display: none;
+}
+
+.profile-image-upload .profile-image-edit input + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+
+.profile-image-upload .profile-image-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+
+.profile-image-upload .profile-image-edit input + label:after {
+  content: "\F040";
+  font-family: "FontAwesome";
+  color: #757575;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+
+.profile-image-upload .profile-image-preview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid #F8F8F8;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image-upload .profile-image-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .profile-information-wrapper {
@@ -1673,12 +1771,12 @@ input {
 
   .cta-btn-wrapper,
   .cta-btn-wrapper-sm {
-    max-width: 277px;
+    width: 277px;
   }
 
   .cta-btn-wrapper.cta-btn-small,
   .cta-btn-small.cta-btn-wrapper-sm {
-    max-width: 150px;
+    width: 150px;
   }
 
   .form-edit-profile {
@@ -1756,10 +1854,6 @@ input {
 
   .search-form-relative {
     width: 50%;
-  }
-
-  .form-recipe {
-    margin: 0;
   }
 }
 

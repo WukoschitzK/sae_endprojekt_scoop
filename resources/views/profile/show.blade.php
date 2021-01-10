@@ -15,7 +15,7 @@
                     <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">
 
                 @else
-                    <img class="profile-information-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
+                    <img class="profile-information-image" src="../images/avatar.png" alt="Profile Image" />
                 @endif
 
 
@@ -46,6 +46,26 @@
         </div>
 
         <div class="h1 heading-line d-inline-block">Newsfeed</div>
+
+        @if($recipes->isEmpty())
+            <div class="home-hero-section">
+                <img class="home-image" src="/images/vektor_favorites.svg" alt="illustration of an women choosing between healty and unhealthy ingredients">
+
+                <div class="home-hero-text-wrapper">
+                    <div class="home-hero-section-text margin-bottom-30">
+                        <p>There's nothing in your newsfeed, start exploring!</p>
+                    </div>
+
+                    <a href="{{route('recipes.index')}}">
+                        <div class="cta-btn-wrapper cta-btn-small">
+                            <div class="cta-btn">
+                                explore
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        @endif()
 
         <div class="recipe-cards-wrapper-flex">
             @foreach($recipes as $recipe)

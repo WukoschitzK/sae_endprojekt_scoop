@@ -13,6 +13,17 @@
         <div>
             <form class="containers shadow form-edit-profile" method="post" action="{{ route('auth.postRegistration') }}" enctype="multipart/form-data" autocomplete="off">
                 @csrf
+                <div class="profile-image-upload">
+                    <div class="profile-image-edit">
+                        <input name="image" type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                        <label for="imageUpload"></label>
+                    </div>
+
+                    <div class="profile-image-preview">
+                        <div id="imagePreview" class="current-profile-image" style="background-image: url(/images/avatar.png);">
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-edit-profile-wrapper-input">
                     <label for="input_name">Name:</label>
@@ -27,11 +38,6 @@
                 <div class="form-edit-profile-wrapper-input">
                     <label for="input_password">Password:</label>
                     <input type="password" name="password" value="" class="form-control" id="input_password">
-                </div>
-
-                <div class="margin-bottom-50 form-edit-profile-wrapper-flex">
-                    <label for="input_image" class="text-bold margin-bottom-10">Profile Image</label>
-                    <input type="file" name="image" class="form-control" id="input_image">
                 </div>
 
                 <div class="cta-btn-wrapper margin-bottom-50">

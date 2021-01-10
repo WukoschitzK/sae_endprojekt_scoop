@@ -144,12 +144,9 @@ class UserProfileController extends Controller
 //    }
 
     public function showMyFollowing($userId) {
-//        $followingsId = DB::table('following')->where('following_user_id', $userId)->get();
-//        $followings = User::find($followingsId);
 
         $user = User::find($userId);
         $followings = $user->leaders()->get();
-//        $followers = $user->followers()->lists('following_user_id');
 
         return view('profile.showMyFollowing', compact('followings'));
     }

@@ -94,6 +94,23 @@
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+        $('#imagePreview').hide();
+        $('#imagePreview').fadeIn(650);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#imageUpload").change(function () {
+    readURL(this);
+  });
   $(window).scroll(function () {
     $navigationDestkop = $('.navigation-desktop');
     var scroll = $(window).scrollTop();
@@ -167,10 +184,48 @@ $(document).ready(function () {
 
   $('.js-remove-step').click(function () {
     $(this).parent().remove();
-  }); //filter recipe category
+  });
+  var category = "";
+  var allergens = []; //filter recipe allergens
+
+  $('.tryAllergen').click(function () {
+    $('.tryAllergen').each(function () {
+      if ($(this).is(":checked")) {
+        //add allergen only if it's not already in array
+        if (allergens.indexOf($(this).val()) < 0) {
+          allergens.push($(this).val());
+          $(this).parent().addClass('active');
+        }
+      } else {
+        $(this).parent().removeClass('active');
+        var index = allergens.indexOf($(this).val()); //remove unchecked items from array
+
+        if (index > -1) {
+          allergens.splice(index, 1);
+        }
+      }
+    }); // console.log(category);
+    // console.log(allergens);
+
+    $.ajax({
+      type: 'GET',
+      dataType: 'html',
+      url: '',
+      data: "allergens=" + allergens.toString() + "&" + "cat=" + category,
+      success: function success(data) {
+        var result = $('<div />').append(data).find('.recipe-cards-wrapper-flex').html();
+        $('.recipe-cards-wrapper-flex').html(result);
+      } // success: function(response) {
+      //     console.log(response);
+      //     return;
+      //     $('#updateDiv').append(response);
+      // }
+
+    });
+  });
+  $('.category-item').children().first().addClass('active'); //filter recipe category
 
   $('.js-select-category').click(function () {
-    var category;
     $('.js-select-category').each(function () {
       if ($(this).is(":checked")) {
         category = $(this).val();
@@ -181,44 +236,17 @@ $(document).ready(function () {
     });
     var finalcategories = category;
     console.log(finalcategories);
+    console.log(allergens);
     $.ajax({
       type: 'GET',
       dataType: 'html',
       url: '',
-      data: "cat=" + finalcategories,
+      data: "cat=" + finalcategories + "&" + "allergens=" + allergens.toString(),
       success: function success(data) {
         var result = $('<div />').append(data).find('.recipe-cards-wrapper-flex').html();
         $('.recipe-cards-wrapper-flex').html(result);
       } // success: function(response) {
       //     console.log(response);
-      //     $('#updateDiv').append(response);
-      // }
-
-    });
-  }); //filter recipe allergens
-
-  $('.tryAllergen').click(function () {
-    var allergens = [];
-    $('.tryAllergen').each(function () {
-      if ($(this).is(":checked")) {
-        allergens.push($(this).val());
-        $(this).parent().addClass('active');
-      } else {
-        $(this).parent().removeClass('active');
-      }
-    });
-    finalAllergens = allergens.toString();
-    $.ajax({
-      type: 'GET',
-      dataType: 'html',
-      url: '',
-      data: "allergens=" + finalAllergens,
-      success: function success(data) {
-        var result = $('<div />').append(data).find('.recipe-cards-wrapper-flex').html();
-        $('.recipe-cards-wrapper-flex').html(result);
-      } // success: function(response) {
-      //     console.log(response);
-      //     return;
       //     $('#updateDiv').append(response);
       // }
 

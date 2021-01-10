@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function() {
 // == Recipes
 
 Route::get('/recipes', 'RecipeController@index')->name('recipes.index');
+Route::get('/search', 'RecipeController@search')->name('recipes.search');
 
 Route::middleware('auth')->group(function() {
     Route::get('/recipes/create', 'RecipeController@create')->name('recipes.create');

@@ -124,6 +124,7 @@
       <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
       <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kyr3IhJxjUCkGdZlLAxJYVbW6F" />
@@ -134,7 +135,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/recipes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -147,11 +148,12 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/errors" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/profile" />
       <recent name="$PROJECT_DIR$/resources/views/recipes" />
+      <recent name="$PROJECT_DIR$/resources/views/profile" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/views/partials" />
       <recent name="$PROJECT_DIR$/resources" />
@@ -171,7 +173,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606683472509</updated>
-      <workItem from="1606683473631" duration="184508000" />
+      <workItem from="1606683473631" duration="211841000" />
     </task>
     <servers />
   </component>
@@ -183,10 +185,10 @@
       <screen x="1792" y="-12" width="1920" height="1057" />
     </state>
     <state x="2477" y="325" key="#com.intellij.fileTypes.FileTypeChooser/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1607369330702" />
-    <state x="1042" y="334" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607806732027">
+    <state x="1042" y="334" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610273689386">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="1042" y="334" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1607806732027" />
+    <state x="1042" y="334" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1610273689386" />
     <state x="2254" y="155" key="SettingsEditor" timestamp="1607363255846">
       <screen x="1792" y="-12" width="1920" height="1057" />
     </state>
@@ -195,29 +197,29 @@
       <screen x="1792" y="-12" width="1920" height="1057" />
     </state>
     <state x="1893" y="88" width="1720" height="857" key="com.intellij.history.integration.ui.views.FileHistoryDialog/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1607365451182" />
-    <state x="541" y="175" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607768487521">
+    <state x="541" y="175" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1609543011412">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="541" y="175" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1792.1097@0.23.1792.1097" timestamp="1607768487521" />
+    <state x="541" y="175" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1792.1097@0.23.1792.1097" timestamp="1609543011412" />
     <state x="2372" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1606944508221" />
     <state x="242" y="23" width="1294" height="788" key="dock-window-1" timestamp="1608398300324">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="242" y="23" width="1294" height="788" key="dock-window-1/0.23.1792.1097@0.23.1792.1097" timestamp="1608398300324" />
-    <state x="1005" y="327" width="598" height="582" key="find.popup" timestamp="1608482837296">
+    <state x="1005" y="327" width="629" height="582" key="find.popup" timestamp="1610278967387">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="1005" y="327" width="598" height="582" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1608482837296" />
+    <state x="1005" y="327" width="629" height="582" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610278967387" />
     <state x="2869" y="281" width="641" height="735" key="find.popup/1792.-12.1920.1057/3712.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1608317513785" />
     <state x="2869" y="281" width="641" height="529" key="find.popup/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1607365176829" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1607881893770">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1607881893770" />
-    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1608110484960">
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1610277746202">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1608110484960" />
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610277746202" />
     <state x="2393" y="224" width="718" height="652" key="search.everywhere.popup/1792.-12.1920.1057/3712.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1607101838635" />
     <state x="2393" y="224" width="718" height="652" key="search.everywhere.popup/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1607369329002" />
     <state x="624" y="480" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1607775105289">

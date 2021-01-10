@@ -303,7 +303,7 @@ svg.fa-times, svg.fa-bars {
         justify-content: space-between;
         height: 35px;
 
-          li {
+          li:first-child {
               margin-right: 40px;
           }
       }

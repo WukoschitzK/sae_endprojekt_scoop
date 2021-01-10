@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 
-    <title>@yield('title') - sae-laravel</title>
+    <title>@yield('title') - Scoop</title>
 
     <meta charset="UTF-8">
     <meta name="robots" content="noindex,nofollow">

@@ -81,6 +81,17 @@
 
                                     <h2>{{$recipe->title}}</h2>
                                     <p>{{$recipe->description}}</p>
+
+                                    <div class="recipe-card-profile-info">
+                                        @if($recipe->user->image_path)
+                                            <img class="profile-image" src="/storage/images/profile_images/{{ $recipe->user->image_path }}">
+                                        @else
+                                            <img class="profile-image" src="/images/avatar.png" alt="Profile Image" />
+                                        @endif
+                                        <div>
+                                            {{ $recipe->user->name }}
+                                        </div>
+                                    </div>
                                 </div>
                             </a>
                         </div>

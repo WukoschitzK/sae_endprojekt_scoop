@@ -96,6 +96,11 @@ a.heading-line:after {
   display: block;
 }
 
+.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
 /***************TABLET***************/
 
 @media (min-width: $Tablet) {

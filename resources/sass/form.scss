@@ -292,10 +292,10 @@ textarea,input {
     margin: 0 auto;
   }
     .cta-btn-wrapper {
-        max-width: 277px;
+        width: 277px;
     }
     .cta-btn-wrapper.cta-btn-small {
-        max-width: 150px;
+        width: 150px;
     }
 
   .form-edit-profile {
@@ -378,9 +378,9 @@ textarea,input {
     width: 50%;
   }
 
-  .form-recipe {
-    margin: 0;
-  }
+  //.form-recipe {
+  //  margin: 0;
+  //}
 }
 
 /***************DESKTOP LG***************/

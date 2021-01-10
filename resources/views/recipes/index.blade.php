@@ -7,7 +7,7 @@
     <div class="wrapper">
         <div class="h1 heading-line d-inline-block">All Recipes</div>
 
-        <div>
+        <div class="align-right">
             <a href="{{route('recipes.create')}}">
                 <div class="cta-btn-wrapper cta-btn-small">
                     <div class="cta-btn">
@@ -68,16 +68,16 @@
                                             <p>{{ $recipe->description }}</p>
 
 {{--                                            todo: cannot show user?--}}
-{{--                                            <div class="recipe-card-profile-info">--}}
-{{--                                                @if($recipe->user->image_path)--}}
-{{--                                                    <img class="profile-image" src="/storage/images/profile_images/{{ $user->image_path }}">--}}
-{{--                                                @else--}}
-{{--                                                    <img class="profile-image" src="/images/profile-image-placeholder.jpg" alt="Profile Image" />--}}
-{{--                                                @endif--}}
-{{--                                                <div>--}}
-{{--                                                    {{ $recipe->user->name }}--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                            <div class="recipe-card-profile-info">
+                                                @if($recipe->user->image_path)
+                                                    <img class="profile-image" src="/storage/images/profile_images/{{ $recipe->user->image_path }}">
+                                                @else
+                                                    <img class="profile-image" src="/images/avatar.png" alt="Profile Image" />
+                                                @endif
+                                                <div>
+                                                    {{ $recipe->user->name }}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </a>
