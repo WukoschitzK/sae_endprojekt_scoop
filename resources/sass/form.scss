@@ -205,7 +205,7 @@ textarea,input {
     //border-bottom-right-radius: 0;
     border-color: transparent;
     border: 1px solid transparent;
-    padding: 20px 0px;
+    padding: 20px 20px;
     background-color: $mainColorLightCyan;
     width: 100%;
     font-size: 18px;
@@ -375,7 +375,8 @@ textarea,input {
   }
 
   .search-form-relative {
-    width: 50%;
+    width: 70%;
+    margin: 0 auto;
   }
 
   //.form-recipe {
@@ -393,6 +394,6 @@ textarea,input {
   }
 
   .search-form-relative {
-    width: 35%;
+    width: 45%;
   }
 }

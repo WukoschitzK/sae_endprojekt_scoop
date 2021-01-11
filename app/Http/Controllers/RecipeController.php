@@ -36,9 +36,18 @@ class RecipeController extends Controller
 
 
         if(isset($request->cat)) {
-            $category_id = $request->cat;
+            if($request->cat === "4") {
 
-            $recipes = $recipes->where('category_id', $category_id );
+                $categoryIds = [];
+                foreach($categories as $category) {
+                    array_push($categoryIds, $category->id);
+                }
+//                $categoryIds = ["5","6","7","8"];
+                $recipes = $recipes->whereIn('category_id', $categoryIds );
+            } else {
+                $category_id = $request->cat;
+                $recipes = $recipes->where('category_id', $category_id );
+            }
         }
 
         if(isset($request->allergens)) {
@@ -603,15 +612,23 @@ class RecipeController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
+//        dd($request->get('search'));
+
+//        if($request->get('search') != null) {
+            $recipes = Recipe::where('title','like','%'.$search.'%')
+                ->orWhere('description','like','%'.$search.'%')
+                ->orWhere('ingredients','like','%'.$search.'%')->get();
 
 
 
-        $recipes = Recipe::where('title','like','%'.$search.'%')
-            ->orWhere('description','like','%'.$search.'%')
-            ->orWhere('ingredients','like','%'.$search.'%')->get();
+
+
+
+
 
 //
 //        $recipes->setPath('suche');
+//        dd($recipes);
 
         return view('recipes.search', compact('recipes'));
     }

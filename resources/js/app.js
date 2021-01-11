@@ -168,7 +168,7 @@ $(document).ready(function() {
     })
 
 
-    $('.category-item').children().first().addClass('active');
+    $('.js-categories-wrapper').children().first().addClass('active');
 
     //filter recipe category
     $('.js-select-category').click(function() {

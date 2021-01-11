@@ -19,6 +19,8 @@
 
 {{--                    todo: rating stars--}}
 {{--                    <div class="rating-stars"></div>--}}
+
+
                     @if($isAuthUser == true)
                         <div class="text-right">
                             <a href="{{ url('recipes/' . $recipe->id . '/edit') }}" class="font-14-px">

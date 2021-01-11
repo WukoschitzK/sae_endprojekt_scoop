@@ -38,7 +38,7 @@
         </div>
 
         <div class="categories-desktop margin-bottom-30">
-            <ul class="categories-wrapper">
+            <ul class="categories-wrapper js-categories-wrapper">
                 @foreach($categories as $category)
                 <li class="category-item">
                     <input type="radio" name="category" id="input_category_{{$category->id}}" value="{{$category->id}}" class="category-radio-btn js-select-category"/>

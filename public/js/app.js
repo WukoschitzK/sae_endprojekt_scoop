@@ -223,7 +223,7 @@ $(document).ready(function () {
 
     });
   });
-  $('.category-item').children().first().addClass('active'); //filter recipe category
+  $('.js-categories-wrapper').children().first().addClass('active'); //filter recipe category
 
   $('.js-select-category').click(function () {
     $('.js-select-category').each(function () {

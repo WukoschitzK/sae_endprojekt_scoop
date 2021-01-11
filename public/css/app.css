@@ -1672,7 +1672,7 @@ input {
   flex-grow: 2;
   border-color: transparent;
   border: 1px solid transparent;
-  padding: 20px 0px;
+  padding: 20px 20px;
   background-color: #E8FFFD;
   width: 100%;
   font-size: 18px;
@@ -1853,7 +1853,8 @@ input {
   }
 
   .search-form-relative {
-    width: 50%;
+    width: 70%;
+    margin: 0 auto;
   }
 }
 
@@ -1866,7 +1867,7 @@ input {
   }
 
   .search-form-relative {
-    width: 35%;
+    width: 45%;
   }
 }
 
