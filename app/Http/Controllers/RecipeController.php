@@ -228,7 +228,6 @@ class RecipeController extends Controller
 
         $isAuthUser = false;
 
-
         if(Auth::user() != null) {
             $authUser_id = Auth::user()->id;
 
@@ -240,9 +239,6 @@ class RecipeController extends Controller
         $reviews = $recipe->reviews()->get();
 
         $user = User::find($user_id);
-
-
-        //        todo: bugfixing
 
         $allergens = $recipe->allergens()->get();
 
@@ -273,6 +269,8 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         $recipe->fill($request->old());
 //        $allergens = Allergen::all();
+        $category =  $recipe->category()->get();
+        $categories = Category::all();
 
 
         $allergens = $recipe->allergens()->get();
@@ -291,7 +289,7 @@ class RecipeController extends Controller
         $allAllergens = $query->get();
 
 
-        return view('recipes.edit', compact('recipe','allergens','allAllergens'));
+        return view('recipes.edit', compact('recipe','allergens','allAllergens','categories'));
     }
 
     /**
@@ -315,7 +313,6 @@ class RecipeController extends Controller
         $recipe->fill($request->all());
         $recipe->is_public = $request->has('is_public');
 
-
 //        ------ingredients and steps------
 
         $recipe->steps = $request->get('steps'); //oder step?
@@ -323,8 +320,28 @@ class RecipeController extends Controller
 
         $recipe->save();
 
+//        ------categories------
+
+        $recipe->category_id = $request->get('category');
+
+
 //        ------allergens------
 
+        //todo: allergene sollen entfernt und hinzugefügt werden können
+
+        //aktuell ausgewählte allergene in ein array speichern
+        //überprüfen ob die neuen allergene mit den alten übereinstimmen
+        //wenn nicht, neu hinzufügen oder entfernen
+        //in allergen tabelle entfernen und hinzufügen
+
+
+        //neue allergene hinzufügen:
+//        foreach ($request->get('allergens') as $allergen) {
+//            DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+//        }
+
+
+        //1. aktuelle allergene holen und in ein array speichern
 
         $prevAllergens = $recipe->allergens()->get();
 
@@ -334,6 +351,7 @@ class RecipeController extends Controller
             array_push($prevAllergenArray, $prevAllergen->id);
         }
 
+        //2. alle allergene die noch nicht ausgewählt wurden in ein andres array speichern
         $query = DB::table("allergens");
         foreach($prevAllergenArray as $allergenArrayItem){
             $query->where("id",'!=',$allergenArrayItem);
@@ -341,203 +359,34 @@ class RecipeController extends Controller
 
         $leftAllergens = $query->get();
 
-//        dd($leftAllergens);
+        //allergen ids welche im request mitkommen in ein array speichern
+
+        $newAllergensArray = [];
+
+        foreach($request->get('allergens') as $id) {
+            $allergenId = (int)$id;
+            array_push($newAllergensArray, $allergenId);
+        }
 
 
+        //3. neue allergene aus request hinzufügen in DB:
+        //wenn ich wissen will was neu dazukommen is:
+        $differenceNew = array_diff($newAllergensArray, $prevAllergenArray);
 
+        foreach ($differenceNew as $allergen) {
+            DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+        }
 
+        //4. allergene aus DB entfernen:
+        // wenn ich wissen will was im neuen nicht mehr dabei is:
 
+        $differenceRemove = array_diff($prevAllergenArray, $newAllergensArray);
 
-        $allergen_ids = $request->get('allergens');
+        foreach ($differenceRemove as $allergen) {
+            DB::table('allergen_recipe')->where('allergen_id',$allergen)->where('recipe_id',$recipe->id)->delete();
+        }
 
-
-
-        //add new allergen to recipe
-//        if ($request->get('allergens') != null) {
-//
-//            foreach($request->get('allergens') as $id) {
-//
-//                foreach($leftAllergens as $leftAllergen) {
-////                    dd($leftAllergen);
-//                    if ($leftAllergen == $id) {
-////                        dd($prevAllergen->get('id'));
-//                        dd('noch nicht vorhanden');
-//                    } else {
-////                        dd($prevAllergen->id());
-//                        dd("altes allergen");
-//                        //                    DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
-//                    }
-//                }
-//                foreach($prevAllergens as $prevAllergen) {
-////                    dd($prevAllergen);
-//                    if ($prevAllergen->where('id', '=', $id)) {
-////                        dd($prevAllergen->get('id'));
-//                        dd('vorhanden');
-//                    } else {
-////                        dd($prevAllergen->id());
-//                        dd("neues allergen");
-//                        //                    DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
-//                    }
-//                }
-//
-//
-//            }
-//
-//
-//
-//
-//            foreach ($request->get('allergens') as $allergen) {
-////                dd($prevAllergens->get('allergen_id'));
-//                foreach($prevAllergens as $prevAllergen) {
-////                    dd($prevAllergen->get('id'));
-//                    if ($prevAllergen->whereIn('id','=', $allergen)) {
-////                        dd($prevAllergen);
-//                        dd('vorhanden');
-//                    } else {
-//                        dd("neues allergen");
-//                        //                    DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
-//                    }
-//                }
-//
-//            }
-//
-//        }
-
-
-
-
-
-
-
-
-//        if($request->get('allergens') != null) {
-
-//            dd($request->get('allergens'));
-//            dd($prevAllergens);
-
-//            foreach ($request->get('allergens') as $allergen) {
-//
-//                if($prevAllergens->where('allergen_id','=', $allergen)) {
-//                    dd('vorhanden');
-//                } else {
-//                    dd("neues allergen");
-//                }
-////                DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
-//            }
-//        }
-
-
-        //remove allergen
-
-
-
-//        $newIngredients = $request->get('ingredient');
-
-//        $oldIngredients = $recipe->ingredients;
-
-        //        $newArray = array_merge($oldIngredients, $newIngredients);
-
-//        $diff = array_diff($oldIngredients,$newIngredients);
-
-        //1. check if newIngredients is not null => new items added => merge arrays
-        //2. if old ingredients are not the same as before, but no more or less => change old items
-        //3. new ingredients and old one changed =>
-
-
-//       $oldRequest = $recipe->fill($request->old());
-
-//        $oldRecipe = DB::table('recipes')->where('id', $recipe->id)->get()->first();
-//
-//        $ingre = $oldRecipe->ingredients;
-//
-//        $ingre = ltrim($ingre, '[');
-//        $ingre = ltrim($ingre, ']');
-//
-//        $removeBracets = str_replace(array('[',']'), '',$ingre);
-//        $trimmedArray = str_replace(' ', '',$removeBracets);
-//        $noArray = str_replace(array('"','"'), '',$trimmedArray);
-//
-//        $ingreArray = explode(',', $noArray);
-
-
-//        $oldIngredients = $oldRecipe[0]->ingredients;
-//        $result = array_diff($ingreArray, $request->ingredients);
-//        dd(array_diff($ingreArray, $request->ingredients));
-
-//        $lengthOldArray = count($ingreArray);
-//        $lengthNewArray = count($request->ingredients);
-//        $newArray = $request->ingredients;
-
-//        dd($ingreArray, $newArray);
-
-//        if($newIngredients != null && $lengthOldArray != $lengthNewArray) {
-//
-////            dd($newArray);
-//            $newArray = array_merge($ingreArray, $newIngredients);
-//            $recipe->ingredients = $newArray;
-//
-//        } else if ($newIngredients == null && $lengthOldArray == $lengthNewArray) {
-//
-//            $recipe->ingredients = $newArray;
-//
-////            dd($recipe->ingredients);
-//
-////            for ($i = 0; $i < count($ingreArray); $i++) {
-//////                dd($ingreArray[$i] === $newArray[$i]);
-////
-////
-////
-////
-////                if(!($ingreArray[$i] === $newArray[$i])) {
-////                    dd("hiier");
-////
-////
-////                    $newArray = array_merge($ingreArray, $newIngredients);
-////                    $recipe->ingredients = $newArray;
-////                }
-////            }
-//        } else if ($newIngredients != null) {
-//
-//            for ($i = 0; $i < count($ingreArray); $i++) {
-////                dd($ingreArray[$i] === $newArray[$i]);
-//
-//                if(!($ingreArray[$i] === $newArray[$i])) {
-////                    dd("hiier");
-//
-//                    //newArray hat die geänderten Daten, aber keine neuen, $newIngredients hat die neuen
-////                    dd($newArray, $newIngredients);
-//
-//                    $finalArray = array_merge($newArray, $newIngredients);
-////                    dd($finalArray);
-//                    $recipe->ingredients = $finalArray;
-//                }
-//            }
-//
-////            $newArray = array_merge($ingreArray, $newIngredients);
-//
-////            $recipe->ingredients = $newArray;
-//
-//        }
-
-
-//
-//        $recipe->ingredients = $newArray;
-
-//        todo: remove specific item of array
-
-//        compare old with new
-
-//        $oldArray = $recipe->ingredients;
-//        $newArray = array_merge($oldIngredients, $newIngredients);
-//        $diff = array_intersect($oldArray,$newArray);
-////        dd($diff);
-
-
-//        $recipe->save();
-
-
-
-        return redirect()->route('recipes.show', $id)->with('success', 'Recipes updated!');
+        return redirect()->route('recipes.show', $recipe->id)->with('success', 'Recipes updated!');
     }
 
     /**

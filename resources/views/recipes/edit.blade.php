@@ -116,10 +116,21 @@
 
                         </ul>
                     </div>
+                </ul>
+            </div>
 
+            <div class="form-recipe-wrapper-input">
+                <div class="text-bold margin-bottom-10">Categories</div>
+                <ul class="allergen-tiles-wrapper">
+                    @foreach($categories as $category)
+                        <label for="{{$category->id}}">{{$category->name}}</label>
+                        <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" >
 
-
-
+{{--                    todo: current category should be checked--}}
+                        {{--            <li class="js-allergen-tile">--}}
+                        {{--                {{$category->name}}--}}
+                        {{--            </li>--}}
+                    @endforeach
                 </ul>
             </div>
 
