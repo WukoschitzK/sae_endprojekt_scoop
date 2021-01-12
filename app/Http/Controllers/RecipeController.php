@@ -271,6 +271,7 @@ class RecipeController extends Controller
 //        $allergens = Allergen::all();
         $category =  $recipe->category()->get();
         $categories = Category::all();
+        $categories = $categories->where('name','!=', 'All');
 
 
         $allergens = $recipe->allergens()->get();
@@ -327,20 +328,6 @@ class RecipeController extends Controller
 
 //        ------allergens------
 
-        //todo: allergene sollen entfernt und hinzugefügt werden können
-
-        //aktuell ausgewählte allergene in ein array speichern
-        //überprüfen ob die neuen allergene mit den alten übereinstimmen
-        //wenn nicht, neu hinzufügen oder entfernen
-        //in allergen tabelle entfernen und hinzufügen
-
-
-        //neue allergene hinzufügen:
-//        foreach ($request->get('allergens') as $allergen) {
-//            DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
-//        }
-
-
         //1. aktuelle allergene holen und in ein array speichern
 
         $prevAllergens = $recipe->allergens()->get();
@@ -363,23 +350,25 @@ class RecipeController extends Controller
 
         $newAllergensArray = [];
 
-        foreach($request->get('allergens') as $id) {
-            $allergenId = (int)$id;
-            array_push($newAllergensArray, $allergenId);
-        }
+        if($request->get('allergens') != null) {
+            foreach($request->get('allergens') as $id) {
+                $allergenId = (int)$id;
+                array_push($newAllergensArray, $allergenId);
+            }
 
+            //3. neue allergene aus request hinzufügen in DB:
 
-        //3. neue allergene aus request hinzufügen in DB:
-        //wenn ich wissen will was neu dazukommen is:
-        $differenceNew = array_diff($newAllergensArray, $prevAllergenArray);
+            //wenn ich wissen will was neu dazukommen is:
+            $differenceNew = array_diff($newAllergensArray, $prevAllergenArray);
 
-        foreach ($differenceNew as $allergen) {
-            DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+            foreach ($differenceNew as $allergen) {
+                DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+            }
         }
 
         //4. allergene aus DB entfernen:
-        // wenn ich wissen will was im neuen nicht mehr dabei is:
 
+        // wenn ich wissen will was im neuen nicht mehr dabei is:
         $differenceRemove = array_diff($prevAllergenArray, $newAllergensArray);
 
         foreach ($differenceRemove as $allergen) {
@@ -403,6 +392,12 @@ class RecipeController extends Controller
 
         if($recipe->image_path) {
             Storage::delete('public/images/recipe_images'.$recipe->image_path);
+        }
+
+        $allergens = $recipe->allergens()->get();
+
+        foreach ($allergens as $allergen) {
+            DB::table('allergen_recipe')->where('allergen_id',$allergen)->where('recipe_id',$recipe->id)->delete();
         }
 
         $recipe->delete();
@@ -467,13 +462,6 @@ class RecipeController extends Controller
             $recipes = Recipe::where('title','like','%'.$search.'%')
                 ->orWhere('description','like','%'.$search.'%')
                 ->orWhere('ingredients','like','%'.$search.'%')->get();
-
-
-
-
-
-
-
 
 //
 //        $recipes->setPath('suche');

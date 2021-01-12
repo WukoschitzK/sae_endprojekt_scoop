@@ -266,6 +266,23 @@ $(document).ready(function () {
     $('.js-list-ingr').hide();
     $('.js-list-steps').show();
     $(this).addClass('recipe-tab-active');
+  }); //edit allergens
+
+  $('.allergen-btn-editform').each(function () {
+    $('.allergen-btn-editform').click(function () {
+      if ($(this).is(":checked")) {
+        $(this).parent().addClass('active');
+      } else {
+        $(this).parent().removeClass('active');
+      } // if($(this).find('input').is(":checked")) {
+      //     $(this).removeClass('active');
+      //     // $(this).find('input').attr('checked', 'checked');
+      // } else {
+      //     $(this).addClass('active');
+      //     $(this).find('input').attr('checked', 'checked');
+      // }
+
+    });
   });
 });
 

@@ -73,44 +73,18 @@
             <div class="form-recipe-wrapper-input">
                 <div class="text-bold margin-bottom-10">Allergens</div>
                 <ul class="allergen-tiles-wrapper">
-{{--                    @foreach($allergens as $allergen)--}}
-{{--                        <li class="js-allergen-tile">--}}
-{{--                            <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>--}}
-{{--                            <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">--}}
-{{--                        </li>--}}
-{{--                    @endforeach--}}
-
-{{--                    todo: add / remove allergens--}}
-{{--                            @foreach($allAllergens as $allAllergen)--}}
-{{--                                <li>--}}
-{{--                                    {{ $allAllergen->name }}--}}
-{{--                                </li>--}}
-{{--                            @endforeach--}}
-
-{{--                            @foreach($allergens as $allergen)--}}
-{{--                                <li class="js-allergen-tile">--}}
-{{--                                    --}}{{--                                <input type="checkbox" value="">--}}
-{{--                                    <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>--}}
-{{--                                    <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">--}}
-{{--                                </li>--}}
-{{--                            @endforeach--}}
-
-
-
                     <div class="form-recipe-wrapper-input">
                         <ul class="allergen-tiles-wrapper">
                             @foreach($allergens as $allergen)
                                 <li class="active">
                                     <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>
-                                    <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">
-{{--                                    <div>{{ $allergen->name }}</div>--}}
+                                    <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="allergen-btn-editform" checked>
                                 </li>
                             @endforeach
                             @foreach($allAllergens as $allAllergen)
                                 <li>
                                     <label for="input_allergen_{{$allAllergen->id}}">{{$allAllergen->name}}</label>
-                                    <input type="checkbox" name="allergens[]" value="{{$allAllergen->id}}" id="input_allergen_{{$allAllergen->id}}" class="tryAllergen">
-{{--                                    {{ $allAllergen->name }}--}}
+                                    <input type="checkbox" name="allergens[]" value="{{$allAllergen->id}}" id="input_allergen_{{$allAllergen->id}}" class="allergen-btn-editform">
                                 </li>
                             @endforeach
 
@@ -123,32 +97,13 @@
                 <div class="text-bold margin-bottom-10">Categories</div>
                 <ul class="allergen-tiles-wrapper">
                     @foreach($categories as $category)
-                        <label for="{{$category->id}}">{{$category->name}}</label>
-                        <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" >
-
-{{--                    todo: current category should be checked--}}
-                        {{--            <li class="js-allergen-tile">--}}
-                        {{--                {{$category->name}}--}}
-                        {{--            </li>--}}
+                        <li>
+                            <label for="{{$category->id}}">{{$category->name}}</label>
+                            <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" {{ $recipe->category_id == $category->id ? "checked" : "" }}>
+                        </li>
                     @endforeach
                 </ul>
             </div>
-
-{{--                <div class="form-recipe-wrapper-input">--}}
-{{--                    <div class="text-bold margin-bottom-10">Categories</div>--}}
-{{--                    <ul class="allergen-tiles-wrapper">--}}
-{{--                        @foreach($categories as $category)--}}
-{{--                            <label for="{{$category->id}}">{{$category->name}}</label>--}}
-{{--                            <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}">--}}
-
-{{--                            <li class="js-allergen-tile">--}}
-{{--                                --}}{{--                                <input type="checkbox" value="">--}}
-{{--                                {{$category->name}}--}}
-{{--                            </li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-
 
             <div class="form-recipe-wrapper-input">
                 <div class="text-bold margin-bottom-10">Publish</div>
