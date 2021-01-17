@@ -63,7 +63,41 @@
                                                 <img class="recipe-detail-img" src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
                                             @endif
                                         </div>
+
                                         <div class="recipe-card-text">
+                                            <div class="rating-star-wrapper js-rating-star-wrapper">
+                                                @if($recipe->rating_average >= 1)
+                                                <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                                @else
+                                                <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                                @endif
+
+                                                @if($recipe->rating_average >= 2)
+                                                    <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                                @else
+                                                    <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                                @endif
+
+                                                @if($recipe->rating_average >= 3)
+                                                    <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                                @else
+                                                    <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                                @endif
+
+                                                @if($recipe->rating_average >= 4)
+                                                    <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                                @else
+                                                    <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                                @endif
+
+                                                @if($recipe->rating_average >= 5)
+                                                    <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                                @else
+                                                    <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                                @endif
+
+                                            </div>
+
                                             <h2>{{ $recipe->title }}</h2>
                                             <p>{{ $recipe->description }}</p>
 

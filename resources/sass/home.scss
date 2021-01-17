@@ -553,7 +553,7 @@ a.link:hover {
                     position: absolute;
                     top:0;
                     left: 100px;
-                    height: 20%;
+                    height: 17%;
                 }
 
                 .stachelbeerebowl {
@@ -562,13 +562,14 @@ a.link:hover {
                     position:absolute;
                     top: 100px;
                     left: 60px;
+                    display: block;
                 }
 
                 .stachelbeere-links-3 {
                     position:absolute;
                     bottom: 0;
-                    left: 330px;
-                    height: 20%;
+                    left: 360px;
+                    height: 17%;
                 }
 
                 .zitrone {
@@ -580,23 +581,23 @@ a.link:hover {
 
                 .heidelbeere-links-1 {
                     position:absolute;
-                    bottom: 0;
-                    left: 550px;
+                    bottom: 270px;
+                    left: 80px;
                     height: 10%;
                 }
 
                 .heidelbeere-links-2 {
                     position:absolute;
-                    bottom: 40px;
-                    left: 590px;
+                    bottom: 60px;
+                    left: 330px;
                     height: 12%;
                 }
 
                 .heidelbeere-links-3 {
                     position:absolute;
-                    bottom: 0;
-                    left: 620px;
-                    height: 10%;
+                    bottom: 70px;
+                    left: 390px;
+                    height: 25%;
                 }
 
             }
@@ -614,7 +615,8 @@ a.link:hover {
 
                 .salad-bowl {
                     position:absolute;
-                    bottom: 20px;
+                    //top:auto;
+                    top: 250px;
                     right: 100px;
                     height: 85%;
                 }
@@ -623,7 +625,7 @@ a.link:hover {
                     position:absolute;
                     bottom: 710px;
                     right: 300px;
-                    height:15%;
+                    height:10%;
                 }
 
                 .heidelbeere-rechts {
@@ -642,16 +644,16 @@ a.link:hover {
 
                 .stachelbeere-rechts-unten {
                     position:absolute;
-                    bottom: 570px;
-                    right: 150px;
-                    height: 10%;
+                    bottom: 590px;
+                    right: 200px;
+                    height: 8%;
                 }
 
                 .blatt-oben-rechts {
                     position:absolute;
-                    bottom: 630px;
+                    bottom: 650px;
                     right: 130px;
-                    height:15%;
+                    height:13%;
                 }
             }
         }

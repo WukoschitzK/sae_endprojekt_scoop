@@ -80,6 +80,7 @@
 
   h2 {
     font-size: 20px;
+      text-align:center;
   }
 }
 
@@ -124,7 +125,7 @@
   .recipe-cards-wrapper-flex {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    //justify-content: space-between;
     gap: 20px;
     //justify-content: space-between;
 
@@ -134,7 +135,7 @@
     }
 
     .recipe-card {
-      img {
+      img.recipe-detail-img {
         height: 180px;
       }
     }
@@ -153,7 +154,7 @@
     }
 
     .recipe-card {
-      img {
+      img.recipe-detail-img {
         height: 250px;
       }
     }
@@ -174,7 +175,7 @@
     }
 
     .recipe-card {
-      img {
+        img.recipe-detail-img {
         height: 250px;
       }
     }

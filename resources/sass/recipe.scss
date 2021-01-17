@@ -39,6 +39,20 @@
   }
 }
 
+.rating-star-wrapper {
+    display:flex;
+    justify-content: flex-end;
+
+    img.rating-star {
+        width:20px;
+        height:25px;
+    }
+    .rating-star.filled {
+        fill:yellow;
+    }
+}
+
+
 .add-favorite-btn {
     border:none;
     background-color: transparent;

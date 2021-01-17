@@ -1,13 +1,13 @@
 <div class="form-recipe-wrapper-input">
     <label for="input_title">Title:</label>
-    <input type="text" name="title" value="{{ $recipe->title }}" class="form-recipe-input" id="input_title">
-    <div class="form-character-counter text-right">max 35 characters</div>
+    <input type="text" name="title" value="{{ $recipe->title }}" class="form-recipe-input js-input-title" id="input_title">
+    <div class="form-character-counter text-right"><span class="js-count-title">35</span> characters remaining</div>
 </div>
 
 <div class="form-recipe-wrapper-input">
     <label for="input_description">Description:</label>
-    <textarea rows="6" cols="150" type="text" name="description" class="form-recipe-input" id="input_description">{{ $recipe->description }}</textarea>
-    <div class="form-character-counter text-right">max 150 characters</div>
+    <textarea rows="6" cols="150" type="text" name="description" class="form-recipe-input js-input-description" id="input_description">{{ $recipe->description }}</textarea>
+    <div class="form-character-counter text-right"><span class="js-count-description">150</span> characters</div>
 </div>
 
 <div class="form-recipe-wrapper-input">

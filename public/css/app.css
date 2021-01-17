@@ -1177,7 +1177,7 @@ a.link:hover {
     position: absolute;
     top: 0;
     left: 100px;
-    height: 20%;
+    height: 17%;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
@@ -1185,13 +1185,14 @@ a.link:hover {
     position: absolute;
     top: 100px;
     left: 60px;
+    display: block;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
     position: absolute;
     bottom: 0;
-    left: 330px;
-    height: 20%;
+    left: 360px;
+    height: 17%;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .zitrone {
@@ -1203,23 +1204,23 @@ a.link:hover {
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
     position: absolute;
-    bottom: 0;
-    left: 550px;
+    bottom: 270px;
+    left: 80px;
     height: 10%;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
     position: absolute;
-    bottom: 40px;
-    left: 590px;
+    bottom: 60px;
+    left: 330px;
     height: 12%;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
     position: absolute;
-    bottom: 0;
-    left: 620px;
-    height: 10%;
+    bottom: 70px;
+    left: 390px;
+    height: 25%;
   }
 
   .header-container .header-container-images-salad {
@@ -1236,7 +1237,7 @@ a.link:hover {
 
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
     position: absolute;
-    bottom: 20px;
+    top: 250px;
     right: 100px;
     height: 85%;
   }
@@ -1245,7 +1246,7 @@ a.link:hover {
     position: absolute;
     bottom: 710px;
     right: 300px;
-    height: 15%;
+    height: 10%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .heidelbeere-rechts {
@@ -1264,16 +1265,16 @@ a.link:hover {
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-unten {
     position: absolute;
-    bottom: 570px;
-    right: 150px;
-    height: 10%;
+    bottom: 590px;
+    right: 200px;
+    height: 8%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-rechts {
     position: absolute;
-    bottom: 630px;
+    bottom: 650px;
     right: 130px;
-    height: 15%;
+    height: 13%;
   }
 
   .home-recommended.recipe-cards-wrapper-flex {
@@ -1409,6 +1410,20 @@ a.link:hover {
   border-radius: 15%;
   content: "";
   display: block;
+}
+
+.rating-star-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rating-star-wrapper img.rating-star {
+  width: 20px;
+  height: 25px;
+}
+
+.rating-star-wrapper .rating-star.filled {
+  fill: yellow;
 }
 
 .add-favorite-btn {
@@ -1654,6 +1669,7 @@ a.link:hover {
 
 .recipe-card-text h2 {
   font-size: 20px;
+  text-align: center;
 }
 
 /***************TABLET***************/
@@ -1667,7 +1683,6 @@ a.link:hover {
   .recipe-cards-wrapper-flex {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 20px;
   }
 
@@ -1675,7 +1690,7 @@ a.link:hover {
     width: 48%;
   }
 
-  .recipe-cards-wrapper-flex .recipe-card img {
+  .recipe-cards-wrapper-flex .recipe-card img.recipe-detail-img {
     height: 180px;
   }
 }
@@ -1691,7 +1706,7 @@ a.link:hover {
     width: 30%;
   }
 
-  .recipe-cards-wrapper-flex .recipe-card img {
+  .recipe-cards-wrapper-flex .recipe-card img.recipe-detail-img {
     height: 250px;
   }
 }
@@ -1707,7 +1722,7 @@ a.link:hover {
     width: 22%;
   }
 
-  .recipe-cards-wrapper-flex .recipe-card img {
+  .recipe-cards-wrapper-flex .recipe-card img.recipe-detail-img {
     height: 250px;
   }
 }
@@ -2100,7 +2115,7 @@ input {
 
 .form-recipe .form-recipe-input {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 10px;
   font-size: 18px;
   border: 1px solid #776988;
   border-radius: 5px;
@@ -2297,7 +2312,7 @@ input {
 
   .form-recipe .form-recipe-input {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 10px;
     font-size: 18px;
     border: 1px solid #776988;
     border-radius: 5px;

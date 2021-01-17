@@ -55,7 +55,7 @@
                         <img class="zitrone" src="../images/home_header/Zitrone.png" alt="salad bowl">
                         <img class="heidelbeere-links-1" src="../images/home_header/Heidelbeere_links_1.png" alt="salad bowl">
                         <img class="heidelbeere-links-2" src="../images/home_header/Heidelbeere_links_2.png" alt="salad bowl">
-                        <img class="heidelbeere-links-3" src="../images/home_header/Heidelbeere_links_1.png" alt="salad bowl">
+                        <img class="heidelbeere-links-3 rotate-leaves-right" src="../images/home_header/Blatt_oben_rechts.png" alt="salad bowl">
                     </div>
                 </div>
 
@@ -131,7 +131,7 @@
                                 <div class="recipe-card-text">
 
                                     <h2>{{$recipe->title}}</h2>
-                                    <p>{{$recipe->description}}</p>
+{{--                                    <p>{{$recipe->description}}</p>--}}
 
                                     <div class="recipe-card-profile-info">
                                         @if($recipe->user->image_path)

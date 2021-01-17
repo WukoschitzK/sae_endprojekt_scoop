@@ -110,17 +110,24 @@ $(document).ready(function () {
 
   $("#imageUpload").change(function () {
     readURL(this);
-  });
-  $(window).scroll(function () {
-    $navigationDestkop = $('.navigation-desktop');
-    var scroll = $(window).scrollTop();
+  }); //sticky nav
 
-    if (scroll >= 1) {
-      $navigationDestkop.addClass("scrolled");
-    } else {
-      $navigationDestkop.removeClass("scrolled");
-    }
-  }); // mobilenav
+  $windowHeight = $(window).height();
+  $windowHeight += 80;
+
+  if ($(document).height() > $windowHeight) {
+    $(window).scroll(function () {
+      $navigationDestkop = $('.navigation-desktop');
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 5) {
+        $navigationDestkop.addClass("scrolled");
+      } else {
+        $navigationDestkop.removeClass("scrolled");
+      }
+    });
+  } // mobilenav
+
 
   $burgerMenuBtn = $('.js-menu-btn');
   $navigationPoints = $('.navigation-mobile-open-navpoints');
@@ -159,18 +166,39 @@ $(document).ready(function () {
     } else {
       $allergenWrapper.hide();
     }
-  }); // $allergenTile = $('.js-allergen-tile');
-  //
-  // $allergenTile.each(function() {
-  //     $(this).on("click", function(){
-  //         $(this).toggleClass('active');
+  }); // char counter title
+  // var max_length_title = 35;
+  // var counter_title = document.querySelector('.js-count-title');
+  // var inputTitle =  document.getElementsByClassName('js-input-title');
+  // if (typeof(inputTitle) != 'undefined' && inputTitle != null)
+  // {
+  //     document.querySelector('.js-input-title').addEventListener('keyup', function(event){
+  //         var text_title = event.target.value;
+  //         if(text_title.length > max_length_title) {
+  //             text_title = text_title.substr(0,max_length_title);
+  //             event.target.value = text_title;
+  //         }
+  //         counter_title.textContent = max_length_title - text_title.length;
   //     });
-  // });
+  // }
+  // char counter description
+  // var max_length_description = 150;
+  // var counter_description = document.querySelector('.js-count-description');
+  //
+  //
+  //     document.querySelector('.js-input-description').addEventListener('keyup', function (event) {
+  //         var text = event.target.value;
+  //         if (text.length > max_length_description) {
+  //             text = text.substr(0, max_length_description);
+  //             event.target.value = text;
+  //         }
+  //         counter_description.textContent = max_length_description - text.length;
+  //     });
   // add ingredient input field
 
   $('.add-ingredient').click(function () {
     $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" + "        <input name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" + "    </div>");
-  }); //remove ingredientw
+  }); //remove ingredients
 
   $('.js-remove-ingredient').click(function () {
     $(this).parent().remove();

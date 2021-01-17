@@ -17,8 +17,38 @@
                 @endif
                 <div class="recipe-detail-text wrapper">
 
-{{--                    todo: rating stars--}}
-{{--                    <div class="rating-stars"></div>--}}
+                    <div class="rating-star-wrapper js-rating-star-wrapper">
+                        @if($recipe->rating_average >= 1)
+                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                        @else
+                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                        @endif
+
+                        @if($recipe->rating_average >= 2)
+                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                        @else
+                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                        @endif
+
+                        @if($recipe->rating_average >= 3)
+                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                        @else
+                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                        @endif
+
+                        @if($recipe->rating_average >= 4)
+                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                        @else
+                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                        @endif
+
+                        @if($recipe->rating_average >= 5)
+                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                        @else
+                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                        @endif
+
+                    </div>
 
 
                     @if($isAuthUser == true)
@@ -223,12 +253,38 @@
                                     </a>
                                 </div>
 
-                                <div class="rating-stars margin-bottom-10">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                <div class="rating-star-wrapper margin-bottom-10">
+
+                                        @if($review->rating >= 1)
+                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                        @else
+                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                        @endif
+
+                                        @if($review->rating >= 2)
+                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                        @else
+                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                        @endif
+
+                                        @if($review->rating >= 3)
+                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                        @else
+                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                        @endif
+
+                                        @if($review->rating >= 4)
+                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                        @else
+                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                        @endif
+
+                                        @if($review->rating >= 5)
+                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                        @else
+                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                        @endif
+
                                 </div>
 
                                 <p>{{$review->comment}}</p>
