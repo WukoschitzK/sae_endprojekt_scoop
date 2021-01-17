@@ -28,8 +28,6 @@ class RecipeController extends Controller
         $allergens = Allergen::all();
 
 
-        // todo: es soll nach mehrerer Allergene und einer Kategorie filterbar sein,
-        // oder nur nach allergenen (category ist dann "all") oder nur nach kategorie (keine allergenfilter gesetzt)
 
 
         $recipes = Recipe::query();
@@ -61,7 +59,7 @@ class RecipeController extends Controller
                 });
             }
         }
-        $recipes = $recipes->get();
+        $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->get();
 
         response()->json($recipes); //return to ajax
         return view('recipes.index', compact('recipes','allergens','categories'));
@@ -205,11 +203,12 @@ class RecipeController extends Controller
 
         //        ------allergens------
 
-        foreach ($request->get('allergens') as $allergen) {
+        if($request->get('allergens') != null) {
+            foreach ($request->get('allergens') as $allergen) {
 
-            DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+                DB::insert("INSERT INTO allergen_recipe (allergen_id, recipe_id) VALUES ('". $allergen ."', '". $recipe->id ."'); ");
+            }
         }
-
 
         return redirect()->route('recipes.index')->with('success', 'Recipes created!!!');
 
@@ -319,12 +318,11 @@ class RecipeController extends Controller
         $recipe->steps = $request->get('steps'); //oder step?
         $recipe->ingredients = $request->get('ingredient');
 
+        //        ------categories------
+
+        $recipe->category_id = (int)$request->get('category');
+
         $recipe->save();
-
-//        ------categories------
-
-        $recipe->category_id = $request->get('category');
-
 
 //        ------allergens------
 
@@ -415,7 +413,7 @@ class RecipeController extends Controller
 
     public function showLatestRecipes() {
 
-        $recipes = Recipe::query()->orderBy('rating_average', 'desc')->take(3)->get();
+        $recipes = Recipe::query()->orderBy('rating_average', 'desc')->orderBy('created_at', 'desc')->take(3)->get();
 
         return view('welcome', compact('recipes'));
     }

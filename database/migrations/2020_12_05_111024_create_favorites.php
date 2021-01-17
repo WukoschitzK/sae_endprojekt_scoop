@@ -18,10 +18,10 @@ class CreateFavorites extends Migration
 //            $table->timestamps();
 
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
 
             $table->unsignedBigInteger('recipe_id')->nullable();
-            $table->foreign('recipe_id')->references('id')->on('recipes');
+            $table->foreign('recipe_id')->references('id')->on('recipes')->cascadeOnDelete();
 
             $table->primary(['user_id','recipe_id']);
         });

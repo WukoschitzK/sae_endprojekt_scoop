@@ -18,10 +18,10 @@ class CreateAllergenRecipe extends Migration
 //            $table->timestamps();
 
             $table->unsignedBigInteger('allergen_id')->nullable();
-            $table->foreign('allergen_id')->references('id')->on('allergens');
+            $table->foreign('allergen_id')->references('id')->on('allergens')->cascadeOnDelete();
 
             $table->unsignedBigInteger('recipe_id')->nullable();
-            $table->foreign('recipe_id')->references('id')->on('recipes');
+            $table->foreign('recipe_id')->references('id')->on('recipes')->cascadeOnDelete();
 
             $table->primary(['allergen_id','recipe_id']);
         });

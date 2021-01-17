@@ -18,10 +18,10 @@ class CreateFollowing extends Migration
 //            $table->timestamps();
 
             $table->unsignedBigInteger('leading_user_id')->nullable();
-            $table->foreign('leading_user_id')->references('id')->on('users');
+            $table->foreign('leading_user_id')->references('id')->on('users')->cascadeOnDelete();
 
             $table->unsignedBigInteger('following_user_id')->nullable();
-            $table->foreign('following_user_id')->references('id')->on('users');
+            $table->foreign('following_user_id')->references('id')->on('users')->cascadeOnDelete();
 
             $table->primary(['leading_user_id', 'following_user_id']);
         });

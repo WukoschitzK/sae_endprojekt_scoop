@@ -21,10 +21,10 @@ class CreateReviewsTable extends Migration
             $table->integer('rating');
 
             $table->unsignedBigInteger('recipe_id')->nullable()->unsigned();
-            $table->foreign('recipe_id')->references('id')->on('recipes');
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onUpdate('SET NULL')->cascadeOnDelete();
 
             $table->unsignedBigInteger('user_id')->nullable()->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('SET NULL')->cascadeOnDelete();
         });
     }
 

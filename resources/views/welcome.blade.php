@@ -5,10 +5,31 @@
 @section('container')
 
     <div>
-        <div class="wrapper margin-top-30px">
-            <div class="home-hero-section">
-                <img class="home-image" src="../images/home-image.png" alt="Image of Pancakes and Donuts" />
 
+{{--            <div class="home-hero-section">--}}
+{{--                <img class="home-image" src="../images/home-image.png" alt="Image of Pancakes and Donuts" />--}}
+
+{{--                <div class="home-hero-text-wrapper">--}}
+{{--                    <div class="home-hero-section-text margin-bottom-30">--}}
+{{--                        <p>Be part of an <span class="text-black">awesome</span> community</p>--}}
+{{--                        <p>Scoop out the latest recipes of your favorite foodie fellow.</p>--}}
+{{--                    </div>--}}
+
+{{--                    <a href="{{ route('auth.getRegistration') }}">--}}
+{{--                        <div class="cta-btn-wrapper cta-btn-small">--}}
+{{--                            <div class="cta-btn">--}}
+{{--                               sign up--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+
+
+{{--            new header--}}
+
+            <div class="header-container">
                 <div class="home-hero-text-wrapper">
                     <div class="home-hero-section-text margin-bottom-30">
                         <p>Be part of an <span class="text-black">awesome</span> community</p>
@@ -18,13 +39,43 @@
                     <a href="{{ route('auth.getRegistration') }}">
                         <div class="cta-btn-wrapper cta-btn-small">
                             <div class="cta-btn">
-                               sign up
+                                <div>sign up</div>
+
                             </div>
                         </div>
                     </a>
                 </div>
+
+                <div class="header-container-images-berries">
+                    <div class="images-berries-position-rel">
+                        <img class="stachelbeere-links-1" src="../images/home_header/Stachelbeere_links_1.png" alt="salad bowl">
+                        <img class="stachelbeere-links-2" src="../images/home_header/Stachelbeere_links_2.png" alt="salad bowl">
+                        <img class="stachelbeerebowl" src="../images/home_header/StachelbeerenBowl.png" alt="salad bowl">
+                        <img class="stachelbeere-links-3" src="../images/home_header/Stachelbeere_links_2.png" alt="salad bowl">
+                        <img class="zitrone" src="../images/home_header/Zitrone.png" alt="salad bowl">
+                        <img class="heidelbeere-links-1" src="../images/home_header/Heidelbeere_links_1.png" alt="salad bowl">
+                        <img class="heidelbeere-links-2" src="../images/home_header/Heidelbeere_links_2.png" alt="salad bowl">
+                        <img class="heidelbeere-links-3" src="../images/home_header/Heidelbeere_links_1.png" alt="salad bowl">
+                    </div>
+                </div>
+
+                <div class="header-container-images-salad">
+                    <div class="images-salad-position-rel">
+                        <img class="salad-bowl rotate" src="../images/home_header/Salat.png" alt="salad bowl">
+                        <img class="blatt-oben-links rotate-leaves-left" src="../images/home_header/Blatt_oben_links.png" alt="salad bowl">
+                        <img class="heidelbeere-rechts" src="../images/home_header/Heidelbeere_links_1.png" alt="salad bowl">
+                        <img class="stachelbeere-rechts-oben" src="../images/home_header/Stachelbeere_links_2.png" alt="salad bowl">
+                        <img class="stachelbeere-rechts-unten" src="../images/home_header/Stachelbeere_links_1.png" alt="salad bowl">
+                        <img class="blatt-oben-rechts rotate-leaves-right" src="../images/home_header/Blatt_oben_rechts.png" alt="salad bowl">
+                    </div>
+                </div>
+
+
             </div>
 
+{{--            end new header--}}
+
+        <div class="wrapper margin-top-30px">
             <h1 class="text-center heading-line margin-bottom-30 home-h1">How it Works</h1>
 
             <div>
@@ -45,10 +96,10 @@
             </div>
         </div>
 
-        <div class="how-it-works-video-section margin-bottom-30">
+{{--        <div class="how-it-works-video-section margin-bottom-30">--}}
 {{--            {isDesktop ? <img className="how-it-works-video-placeholder-desktop" src={howItWorksVideoPlaceholderDesktop} alt="Video Placeholder" /> : <img className="how-it-works-video-placeholder" src={howItWorksVideoPlaceholder} alt="Video Placeholder" />}--}}
-            <img src="../images/how-it-works-video-placeholer-desktop.png" alt="Video Placeholder" class="how-it-works-video-placeholder-desktop">
-        </div>
+{{--            <img src="../images/how-it-works-video-placeholer-desktop.png" alt="Video Placeholder" class="how-it-works-video-placeholder-desktop">--}}
+{{--        </div>--}}
 
         <div class="wrapper">
 

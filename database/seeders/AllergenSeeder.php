@@ -32,8 +32,5 @@ class AllergenSeeder extends Seeder
         Allergen::create(
             ['name' => 'vegan']
         );
-        Allergen::create(
-            ['name' => 'undefined']
-        );
     }
 }

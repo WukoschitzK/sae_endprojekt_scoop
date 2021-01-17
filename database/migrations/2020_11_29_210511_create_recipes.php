@@ -16,12 +16,12 @@ class CreateRecipes extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('SET NULL')->cascadeOnDelete();
 
             $table->string('title');
             $table->string('description');
-            $table->text('ingredients');
-            $table->text('steps');
+            $table->json('ingredients');
+            $table->json('steps');
             $table->boolean('is_public')->default(false)->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();

@@ -14,7 +14,7 @@ class AddRatingToRecipe extends Migration
     public function up()
     {
         Schema::table('recipes', function (Blueprint $table) {
-            $table->integer('rating_average');
+            $table->integer('rating_average')->default(0);
         });
     }
 

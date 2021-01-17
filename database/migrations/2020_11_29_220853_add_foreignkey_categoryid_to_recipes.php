@@ -15,7 +15,7 @@ class AddForeignkeyCategoryidToRecipes extends Migration
     {
         Schema::table('recipes', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->nullable()->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('SET NULL')->cascadeOnDelete();
         });
     }
 
