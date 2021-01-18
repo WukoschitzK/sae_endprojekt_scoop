@@ -3,20 +3,36 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8744ca60-b508-4560-a2d0-2fcbf54cc5a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/recipes/_recipecard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/svg/rating-star-unfilled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/svg/rating-star-unfilled.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/general.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/general.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/helpers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/helpers.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/home.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/recipe-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/recipe-card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/recipe.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/recipe.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recipes/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recipes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/recipes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recipes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,17 +181,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/resources/views/errors" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/recipes" />
       <recent name="$PROJECT_DIR$/resources/views/profile" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/resources/views/partials" />
       <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/resources/views/errors" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -194,12 +210,23 @@
       <updated>1606683472509</updated>
       <workItem from="1606683473631" duration="236302000" />
       <workItem from="1610785702485" duration="2133000" />
-      <workItem from="1610789292971" duration="21866000" />
+      <workItem from="1610789292971" duration="26542000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="2477" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607369330702">
@@ -227,10 +254,10 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="242" y="23" width="1294" height="788" key="dock-window-1/0.23.1792.1097@0.23.1792.1097" timestamp="1608398300324" />
-    <state x="1005" y="327" width="629" height="582" key="find.popup" timestamp="1610917975323">
+    <state x="1005" y="327" width="629" height="582" key="find.popup" timestamp="1611003875426">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="1005" y="327" width="629" height="582" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1610917975323" />
+    <state x="1005" y="327" width="629" height="582" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1611003875426" />
     <state x="2869" y="281" width="641" height="735" key="find.popup/1792.-12.1920.1057/3712.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1608317513785" />
     <state x="2869" y="281" width="641" height="529" key="find.popup/3712.-12.1920.1057/1792.-12.1920.1057/0.23.1792.1097@1792.-12.1920.1057" timestamp="1610713430709" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1610830765393">

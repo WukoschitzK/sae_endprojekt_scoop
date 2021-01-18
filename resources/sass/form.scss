@@ -115,6 +115,19 @@ textarea,input {
 
 //Recipe Form
 
+.delete-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: $mainColorDarkPurple;
+    font-family: "Lato", sans-serif;
+
+    i.fa-trash-alt {
+        margin-right: 15px;
+        color: $mainColorGrey;
+    }
+}
+
 .form-recipe {
 
   .form-recipe-input {
@@ -124,6 +137,7 @@ textarea,input {
     border: 1px solid $mainColorLightPurple;
     border-radius: 5px;
     margin-top: 10px;
+      color:#503d67;
   }
 
   .form-recipe-input:focus {
@@ -138,7 +152,7 @@ textarea,input {
   }
 
   label {
-    font-weight: 700;
+    //font-weight: 700;
   }
 
   label.publish {
@@ -260,7 +274,7 @@ textarea,input {
 
     label {
       font-size: 18px;
-      font-weight: 700;
+      //font-weight: 700;
     }
 
     input {
@@ -331,7 +345,7 @@ textarea,input {
     }
 
     label {
-      font-weight: 700;
+      //font-weight: 700;
     }
 
     label.publish {

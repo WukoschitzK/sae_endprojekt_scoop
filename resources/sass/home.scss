@@ -458,7 +458,7 @@ a.link:hover {
     }
 
   h1.home-h1 {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
   }
 
   .home-hero-section {
@@ -523,12 +523,24 @@ a.link:hover {
         background-size: cover;
         height: calc(100vh - 110px);
         z-index: -10;
+        margin-bottom: 120px;
 
         .home-hero-text-wrapper {
             width: 40%;
             padding: 120px 0 0 100px;
             padding-top: 120px;
             z-index: 2;
+
+            p {
+               font-size: 30px;
+                line-height: 40px;
+            }
+
+            p:first-child {
+                font-size: 65px;
+                line-height: 65px;
+                margin-bottom: 25px;
+            }
         }
 
         .header-container-images-berries {
@@ -632,7 +644,7 @@ a.link:hover {
                     position:absolute;
                     bottom: 630px;
                     right: 270px;
-                    height: 10%;
+                    height: 7%;
                 }
 
                 .stachelbeere-rechts-oben {
@@ -686,19 +698,20 @@ a.link:hover {
     }
   }
 
-  .home-hero-section-text {
-    margin-bottom: 60px;
-
-    p {
-      font-size: 35px;
-      line-height: 45px;
-    }
-    p:first-child {
-      font-size: 65px;
-      line-height: 65px;
-      margin-bottom: 25px;
-    }
-  }
+  //.home-hero-section-text {
+  //  margin-bottom: 60px;
+  //
+  //  p {
+  //    font-size: 35px;
+  //    line-height: 45px;
+  //  }
+  //
+  //  p:first-child {
+  //    font-size: 65 px;
+  //    line-height: 65px;
+  //    margin-bottom: 25px;
+  //  }
+  //}
 
   .home-list-how-it-works {
     margin-bottom: 50px;

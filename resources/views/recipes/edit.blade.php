@@ -5,14 +5,17 @@
 @section('container')
 
     <div class="wrapper">
+
+
+        <div class="h1 heading-line d-inline-block">Edit Recipe</div>
+
         <form method="post" action="{{ route('recipes.destroy', $recipe->id) }}" enctype="multipart/form-data">
             @method('delete')
             @csrf
 
-            <button type="submit">delete</button>
+            <button type="submit" class="delete-btn"><i class="fas fa-trash-alt"></i>delete</button>
         </form>
 
-        <div class="h1 heading-line d-inline-block">Edit Recipe</div>
         <form class="form-recipe" method="post" action="{{ route('recipes.update', $recipe->id) }}" enctype="multipart/form-data" autocomplete="off">
 
             @method('put')
