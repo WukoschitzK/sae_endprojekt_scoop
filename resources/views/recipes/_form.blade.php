@@ -52,14 +52,12 @@
 
 <div class="form-recipe-wrapper-input">
     <div class="text-bold margin-bottom-10">Categories</div>
-    <ul class="allergen-tiles-wrapper">
+    <ul class="category-selection-wrapper">
         @foreach($categories as $category)
-            <label for="{{$category->id}}">{{$category->name}}</label>
-            <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" >
-
-{{--            <li class="js-allergen-tile">--}}
-{{--                {{$category->name}}--}}
-{{--            </li>--}}
+            <div>
+                <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" >
+                <label for="{{$category->id}}">{{$category->name}}</label>
+            </div>
         @endforeach
     </ul>
 </div>

@@ -1717,10 +1717,6 @@ a.link:hover {
 }
 
 @media (min-width: 1900px) {
-  .recipe-cards-wrapper-flex div.recipe-element {
-    width: 22%;
-  }
-
   .recipe-cards-wrapper-flex .recipe-card img.recipe-detail-img {
     height: 250px;
   }
@@ -1996,6 +1992,10 @@ a.link:hover {
 
 /***************MOBILE***************/
 
+form .error {
+  color: #C42235;
+}
+
 textarea,
 input {
   font-family: "Lato", sans-serif;
@@ -2146,6 +2146,10 @@ input {
   margin-bottom: 30px;
 }
 
+.form-recipe .form-recipe-wrapper-input label {
+  font-weight: 700;
+}
+
 .form-recipe label.publish {
   font-weight: 400;
 }
@@ -2158,6 +2162,14 @@ input {
 .form-recipe .add-step {
   font-size: 30px;
   padding: 0 5px;
+}
+
+.form-recipe .category-selection-wrapper {
+  padding-left: 20px;
+}
+
+.form-recipe .category-selection-wrapper label {
+  font-weight: 400;
 }
 
 .steps-count {
@@ -2360,6 +2372,13 @@ input {
     text-align: center;
     font-weight: 700;
     margin-top: 15px;
+  }
+
+  .category-selection-wrapper {
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
   }
 }
 

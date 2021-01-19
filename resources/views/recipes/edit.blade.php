@@ -16,7 +16,7 @@
             <button type="submit" class="delete-btn"><i class="fas fa-trash-alt"></i>delete</button>
         </form>
 
-        <form class="form-recipe" method="post" action="{{ route('recipes.update', $recipe->id) }}" enctype="multipart/form-data" autocomplete="off">
+        <form class="form-recipe" name="recipe-form" method="post" action="{{ route('recipes.update', $recipe->id) }}" enctype="multipart/form-data" autocomplete="off">
 
             @method('put')
             @csrf

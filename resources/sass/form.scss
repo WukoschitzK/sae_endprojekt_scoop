@@ -1,6 +1,10 @@
 
 /***************MOBILE***************/
 
+form .error {
+    color: #C42235;
+}
+
 textarea,input {
   font-family: "Lato", sans-serif
 }
@@ -149,6 +153,10 @@ textarea,input {
 
   .form-recipe-wrapper-input {
     margin-bottom: 30px;
+
+      label {
+          font-weight: 700;
+      }
   }
 
   label {
@@ -168,6 +176,14 @@ textarea,input {
     font-size:30px;
     padding: 0 5px;
   }
+
+    .category-selection-wrapper {
+        padding-left: 20px;
+
+        label {
+            font-weight: 400;
+        }
+    }
 }
 
 .steps-count {
@@ -181,6 +197,8 @@ textarea,input {
   font-weight: 700;
   margin-top: 15px;
 }
+
+
 
 
 //Comment Form
@@ -372,6 +390,15 @@ textarea,input {
     font-weight: 700;
     margin-top: 15px;
   }
+
+    .category-selection-wrapper {
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+
 }
 
 

@@ -11,7 +11,7 @@
         <p class="text-center margin-bottom-30 font-20-px w-md-40">Create your <span class="text-black">scoop</span> account and be part of an awesome community</p>
 
         <div>
-            <form class="containers shadow form-edit-profile" method="post" action="{{ route('auth.postRegistration') }}" enctype="multipart/form-data" autocomplete="off">
+            <form class="containers shadow form-edit-profile" method="post" name="registration" action="{{ route('auth.postRegistration') }}" enctype="multipart/form-data" autocomplete="off">
                 @csrf
                 <div class="profile-image-upload">
                     <div class="profile-image-edit">

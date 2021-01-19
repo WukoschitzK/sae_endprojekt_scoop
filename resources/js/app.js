@@ -278,7 +278,68 @@ $(document).ready(function() {
         })
 
 
+    //form validation for registration page
 
+    $("form[name='registration']").validate({
+
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true
+            }
+        },
+
+        messages: {
+            name: "Please enter your name",
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            email: "Please enter a valid email address"
+        },
+
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+    //form validation for recipeform
+
+    $("form[name='recipe-form']").validate({
+
+        rules: {
+            title: {
+                required: true,
+                maxlength: 35
+            },
+            description: {
+                required: true,
+                maxlength: 150
+            },
+            'ingredient[]': {
+                required: true
+            },
+            'steps[]': {
+                required: true
+            },
+            category: "required",
+        },
+
+        messages: {
+            title: "The title is too long or empty",
+            description: "The description is too long or empty",
+            'ingredient[]': "Please enter an ingredient",
+            'steps[]': "Please enter a step",
+            category: "Please select a category for your recipe"
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 });
 
 

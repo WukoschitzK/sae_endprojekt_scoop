@@ -27,11 +27,7 @@ class RecipeController extends Controller
         $categories = Category::all();
         $allergens = Allergen::all();
 
-
-
-
         $recipes = Recipe::query();
-
 
         if(isset($request->cat)) {
             if($request->cat === "4") {
@@ -40,7 +36,7 @@ class RecipeController extends Controller
                 foreach($categories as $category) {
                     array_push($categoryIds, $category->id);
                 }
-//                $categoryIds = ["5","6","7","8"];
+
                 $recipes = $recipes->whereIn('category_id', $categoryIds );
             } else {
                 $category_id = $request->cat;
@@ -63,89 +59,7 @@ class RecipeController extends Controller
 
         response()->json($recipes); //return to ajax
         return view('recipes.index', compact('recipes','allergens','categories'));
-
-
-//        if (isset($request->cat) && isset($request->allergens)) {
-//
-//            $allergen_ids = $request->allergens;
-//            $category_id = $request->cat;
-//
-//            $recipesArray = [];
-//
-//
-////            $recipes = Recipe::where($recipesArray)->get();
-//
-////            $recipes = Recipe::where('allergens', function (Builder $query) use ($allergen_ids) {
-////                foreach($allergen_ids as $id) {
-////                    $query->where('allergen_id','=',  $id);
-////                }
-////            })->get();
-//
-//
-//            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
-//                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
-//            })->get();
-//
-//            $recipes->where('category_id', $category_id )->get();
-//
-//
-//            response()->json($recipes); //return to ajax
-//            return view('recipes.index', compact('recipes','allergens','categories'));
-//
-//        } else if (isset($request->cat)){
-//
-//
-//            if($request->cat === 4) {
-//                $recipes = Recipe::all();
-//
-//                response()->json($recipes); //return to ajax
-//                return view('recipes.index', compact('recipes'));
-//            }
-//
-//            $category_ids = $request->cat; //categories
-//
-//            $recipes = Recipe::whereIn('category_id', explode( ',', $category_ids ))->get();
-//
-//
-//            response()->json($recipes); //return to ajax
-//            return view('recipes.index', compact('recipes','allergens','categories'));
-//
-//        } else if (isset($request->allergens)){
-//
-////            if($request->allergen === 4) {
-////                $recipes = Recipe::all();
-////
-////                response()->json($recipes); //return to ajax
-////                return view('recipes.index', compact('recipes'));
-////            }
-//
-//             //allergens
-//
-//
-//
-//            $allergen_ids = $request->allergens;
-////
-////            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
-////                $query->whereIn('allergen_id',  explode(',', $allergen_ids));
-////            })->get();
-//
-//            $recipes = Recipe::whereHas('allergens', function (Builder $query) use ($allergen_ids) {
-//                foreach($allergen_ids as $id) {
-//                    $query = $query->where('allergen_id','=',  $id);
-//                }
-//                return $query;
-//            })->get();
-//
-//            response()->json($recipes); //return to ajax
-//            return view('recipes.index', compact('recipes','allergens','categories'));
-//        }
-
-
-
-//        return view('recipes.index', compact('recipes', 'categories', 'allergens'));
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -178,6 +92,7 @@ class RecipeController extends Controller
             'image' => 'nullable|mimes:jpeg,png',
             'ingredient' => 'required|min:1',
             'steps' => 'required|min:1',
+            'category' => 'required'
         ]);
 
         $recipe = new Recipe();
@@ -307,6 +222,7 @@ class RecipeController extends Controller
             'image' => 'nullable|mimes:jpeg,png',
             'ingredient' => 'required|min:1',
             'steps' => 'required|min:1',
+            'category' => 'required'
         ]);
 
         $recipe = Recipe::find($id);
