@@ -24,25 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8744ca60-b508-4560-a2d0-2fcbf54cc5a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecipeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecipeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/recipe-card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/recipe-card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/registration.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/registration.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/alerts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/alerts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/showOtherProfile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/showOtherProfile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recipes/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/_form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recipes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recipes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recipes/showMyFavorites.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/showMyFavorites.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recipes/showMyRecipes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recipes/showMyRecipes.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +204,7 @@
       <updated>1606683472509</updated>
       <workItem from="1606683473631" duration="236302000" />
       <workItem from="1610785702485" duration="2133000" />
-      <workItem from="1610789292971" duration="42608000" />
+      <workItem from="1610789292971" duration="42962000" />
     </task>
     <servers />
   </component>
