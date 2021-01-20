@@ -2,12 +2,14 @@
     <label for="input_title">Title:</label>
     <input type="text" name="title" value="{{ $recipe->title }}" class="form-recipe-input js-input-title" id="input_title">
     <div class="form-character-counter text-right"><span class="js-count-title">35</span> characters remaining</div>
+    <div class="error">{{ $errors->first('title') }}</div>
 </div>
 
 <div class="form-recipe-wrapper-input">
     <label for="input_description">Description:</label>
     <textarea rows="6" cols="150" type="text" name="description" class="form-recipe-input js-input-description" id="input_description">{{ $recipe->description }}</textarea>
     <div class="form-character-counter text-right"><span class="js-count-description">150</span> characters</div>
+    <div class="error">{{ $errors->first('description') }}</div>
 </div>
 
 <div class="form-recipe-wrapper-input">
@@ -15,6 +17,7 @@
         <div class="wrapper-ingredients">
             <label for="input_ingredient">Ingredients:</label>
             <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredient">
+            <div class="error">{{ $errors->first('ingredient') }}</div>
         </div>
     </div>
     <div class="text-right add-ingredient">+</div>
@@ -26,6 +29,7 @@
             <label for="input_steps">Steps:</label>
             <div class="steps-count">1</div>
             <input rows="6" cols="150" name="steps[]" value="{{ $recipe->steps }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+            <div class="error">{{ $errors->first('steps') }}</div>
         </div>
     </div>
     <div class="text-right add-step">+</div>
@@ -57,6 +61,7 @@
             <div>
                 <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" >
                 <label for="{{$category->id}}">{{$category->name}}</label>
+                <div class="error">{{ $errors->first('category') }}</div>
             </div>
         @endforeach
     </ul>

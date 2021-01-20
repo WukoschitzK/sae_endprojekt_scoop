@@ -1,3 +1,5 @@
+<div class="wrapper">
+
 
 @foreach(['error' => 'danger', 'warning' => 'warning', 'info' => 'info', 'status' => 'info', 'success' => 'success'] as $key => $cn)
 
@@ -24,3 +26,4 @@
 		</div>
 	@endif
 @endif
+</div>

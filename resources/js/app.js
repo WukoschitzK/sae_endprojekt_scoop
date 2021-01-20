@@ -309,37 +309,37 @@ $(document).ready(function() {
 
     //form validation for recipeform
 
-    $("form[name='recipe-form']").validate({
-
-        rules: {
-            title: {
-                required: true,
-                maxlength: 35
-            },
-            description: {
-                required: true,
-                maxlength: 150
-            },
-            'ingredient[]': {
-                required: true
-            },
-            'steps[]': {
-                required: true
-            },
-            category: "required",
-        },
-
-        messages: {
-            title: "The title is too long or empty",
-            description: "The description is too long or empty",
-            'ingredient[]': "Please enter an ingredient",
-            'steps[]': "Please enter a step",
-            category: "Please select a category for your recipe"
-        },
-        submitHandler: function(form) {
-            form.submit();
-        }
-    });
+    // $("form[name='recipe-form']").validate({
+    //
+    //     rules: {
+    //         title: {
+    //             required: true,
+    //             maxlength: 35
+    //         },
+    //         description: {
+    //             required: true,
+    //             maxlength: 150
+    //         },
+    //         'ingredient[]': {
+    //             required: true
+    //         },
+    //         'steps[]': {
+    //             required: true
+    //         },
+    //         category: "required",
+    //     },
+    //
+    //     messages: {
+    //         title: "The title is too long or empty",
+    //         description: "The description is too long or empty",
+    //         'ingredient[]': "Please enter an ingredient",
+    //         'steps[]': "Please enter a step",
+    //         category: "Please select a category for your recipe"
+    //     },
+    //     submitHandler: function(form) {
+    //         form.submit();
+    //     }
+    // });
 });
 
 

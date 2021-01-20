@@ -57,6 +57,8 @@ class RecipeController extends Controller
         }
         $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->get();
 
+//        dd($recipes);
+
         response()->json($recipes); //return to ajax
         return view('recipes.index', compact('recipes','allergens','categories'));
     }

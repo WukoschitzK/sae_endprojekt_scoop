@@ -14,7 +14,7 @@
                     <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">
 
                 @else
-                    <img class="profile-information-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
+                    <img class="profile-information-image" src="../images/avatar.png" alt="Profile Image" />
                 @endif
 
 
@@ -37,35 +37,38 @@
             </div>
 
 {{--            todo: if i follow this user, show unfollow btn--}}
-{{--            @if()--}}
-            <div class="margin-bottom-50 cta-btn-right">
-                <div class="cta-btn-wrapper-sm">
-                    <div class="cta-btn-sm">
-                        <form method="post" action="{{ route('profile.follow', $user->id) }}" autocomplete="off")">
-                        @csrf
+            @if(auth()->check())
+                @if( $user->id != auth()->user()->id && !$isAlreadyFollowing)
+                <div class="margin-bottom-50 cta-btn-right">
+                    <div class="cta-btn-wrapper cta-btn-small">
+                        <div class="cta-btn-sm">
+                            <form method="post" action="{{ route('profile.follow', $user->id) }}" autocomplete="off")">
+                            @csrf
 
-                            <button type="follow" class="btn btn-info mt-2">
-                                Follow
-                            </button>
+                                <button type="follow" class="btn btn-info mt-2">
+                                    Follow
+                                </button>
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-{{--            @else()--}}
-{{--                <div class="margin-bottom-50 cta-btn-right">--}}
-{{--                    <div class="cta-btn-wrapper-sm">--}}
-{{--                        <div class="cta-btn-sm">--}}
-{{--                            <form method="post" action="{{ route('profile.unfollow', $user->id) }}" autocomplete="off">--}}
-{{--                            @csrf--}}
-{{--                                <button type="unfollow" class="btn btn-warning mt-2">--}}
-{{--                                    Unfollow--}}
-{{--                                </button>--}}
-{{--                            </form>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endif--}}
+                @endif
+            @endif
+            @if($isAlreadyFollowing)
+                <div class="margin-bottom-50 cta-btn-right cta-btn-unfollow">
+                    <div class="cta-btn-wrapper cta-btn-small">
+                        <div class="cta-btn-sm">
+                            <form method="post" action="{{ route('profile.unfollow', $user->id) }}" autocomplete="off">
+                            @csrf
+                                <button type="unfollow" class="btn btn-warning mt-2">
+                                    Unfollow
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endif
 
         </div>
 

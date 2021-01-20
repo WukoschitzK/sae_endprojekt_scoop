@@ -25,12 +25,14 @@
                 <label for="input_title">Title:</label>
                 <input type="text" name="title" value="{{ $recipe->title }}" class="form-recipe-input" id="input_title">
                 <div class="form-character-counter text-right">max 35 characters</div>
+                <div class="error">{{ $errors->first('title') }}</div>
             </div>
 
             <div class="form-recipe-wrapper-input">
                 <label for="input_description">Description:</label>
                 <textarea rows="6" cols="150" type="text" name="description" class="form-recipe-input" id="input_description">{{ $recipe->description }}</textarea>
                 <div class="form-character-counter text-right">max 150 characters</div>
+                <div class="error">{{ $errors->first('description') }}</div>
             </div>
 
             <div class="form-recipe-wrapper-input">
@@ -42,9 +44,11 @@
                                 <input name="ingredient[]" value="{{ $ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">
                                 <div class="js-remove-ingredient">X</div>
                             </div>
+                            <div class="error">{{ $errors->first('ingredient') }}</div>
                         @endforeach
                     </div>
                 </div>
+
                 <div class="text-right add-ingredient">+</div>
             </div>
 
@@ -61,6 +65,7 @@
                             <div class="js-remove-step">X</div>
                         </div>
                     @endforeach
+                        <div class="error">{{ $errors->first('steps') }}</div>
                     </div>
                 </div>
                 <div class="text-right add-step">+</div>

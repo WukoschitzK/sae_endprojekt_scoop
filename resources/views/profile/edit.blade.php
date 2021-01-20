@@ -23,8 +23,16 @@
                             <label for="imageUpload"></label>
                         </div>
                         <div class="profile-image-preview">
-                            <div id="imagePreview" class="current-profile-image" style="background-image: url(/storage/images/profile_images/{{ $user->image_path }});">
-                            </div>
+                            @if($user->image_path)
+{{--                                <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">--}}
+                                <div id="imagePreview" class="current-profile-image" style="background-image: url(/storage/images/profile_images/{{ $user->image_path }});">
+                                </div>
+                            @else
+                                <div id="imagePreview" class="current-profile-image" style="background-image: url(/images/avatar.png{{ $user->image_path }});">
+                                </div>
+{{--                                <img class="profile-information-image" src="../images/avatar.png" alt="Profile Image" />--}}
+                            @endif
+
                         </div>
                     </div>
 
@@ -35,20 +43,23 @@
             <div class="form-edit-profile-wrapper-input">
                 <label for="input_name">Name:</label>
                 <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="input_name">
+                <div class="error">{{ $errors->first('name') }}</div>
             </div>
 
             <div class="form-edit-profile-wrapper-input">
                 <label for="input_email">Email:</label>
                 <input type="email" name="email" value="{{ $user->email }}" class="form-control" id="input_email">
+                <div class="error">{{ $errors->first('email') }}</div>
             </div>
 
             <div class="form-edit-profile-wrapper-input">
                 <label for="input_password">Password:</label>
-                <input type="password" name="password" value="" class="form-control" id="input_password">
+                <input type="password" name="password" value="{{ $user->password }}" class="form-control" id="input_password">
+                <div class="error">{{ $errors->first('password') }}</div>
             </div>
 
-            <div class="margin-bottom-30">
-                <h3>Preferred Content</h3>
+            <div class="margin-bottom-30 form-edit-profile-wrapper-input">
+                <div>Preferred Content</div>
 
                 <div class="form-recipe-wrapper-input">
                     <ul class="allergen-tiles-wrapper">

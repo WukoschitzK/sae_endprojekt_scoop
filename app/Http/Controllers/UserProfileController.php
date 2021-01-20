@@ -21,17 +21,24 @@ class UserProfileController extends Controller
 
         $followings = $user->leaders()->get();
 
-
-
         //get recipes from all the people i'm following
         $followingArray = [];
+
+        $recipes = Recipe::query();
 
         foreach($followings as $followingUser) {
             array_push($followingArray, $followingUser->id);
         }
 
-        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
+        foreach($followingArray as $id) {
+            $recipes = $recipes->whereHas('user', function ($query) use ($id) {
+                $query->where('user_id',  $id);
+            });
+        }
 
+        $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->get();
+
+//        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
 
         return view('profile.show', compact('recipes','user', 'followers','followings'));
 
@@ -66,13 +73,19 @@ class UserProfileController extends Controller
         $recipes = Recipe::where('user_id', $id)->where('is_public',true)->get();
         $followers = $user->followers();
 
-        $followings = $user->leaders()->get();
-
         $isAlreadyFollowing = false;
 
-//        dd($followings->leading_user_id);
-//
-        return view('profile.showOtherProfile', compact('user', 'recipes', 'followers'));
+        $auth_user = Auth::user();
+        $auth_user_followings = $auth_user->leaders()->get();
+
+
+        foreach($auth_user_followings as $following) {
+            if($following->id == $user->id) {
+                $isAlreadyFollowing = true;
+            }
+        }
+
+        return view('profile.showOtherProfile', compact('user', 'recipes', 'followers','isAlreadyFollowing'));
     }
 
     public function edit(Request $request, $id)

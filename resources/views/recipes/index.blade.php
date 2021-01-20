@@ -101,7 +101,6 @@
                                             <h2>{{ $recipe->title }}</h2>
                                             <p>{{ $recipe->description }}</p>
 
-{{--                                            todo: cannot show user?--}}
                                             <div class="recipe-card-profile-info">
                                                 @if($recipe->user->image_path)
                                                     <img class="profile-image" src="/storage/images/profile_images/{{ $recipe->user->image_path }}">

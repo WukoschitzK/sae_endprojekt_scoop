@@ -1670,7 +1670,6 @@ a.link:hover {
 
 .recipe-card-text h2 {
   font-size: 20px;
-  text-align: center;
 }
 
 /***************TABLET***************/
@@ -1994,6 +1993,7 @@ a.link:hover {
 
 form .error {
   color: #C42235;
+  font-weight: 700;
 }
 
 textarea,
@@ -2274,7 +2274,7 @@ input {
 }
 
 .form-edit-profile .form-edit-profile-wrapper-input {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .form-edit-profile .form-edit-profile-wrapper-input label {

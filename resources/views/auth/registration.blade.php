@@ -28,16 +28,19 @@
                 <div class="form-edit-profile-wrapper-input">
                     <label for="input_name">Name:</label>
                     <input type="text" name="name" value="" class="form-control" id="input_name">
+                    <div class="error">{{ $errors->first('name') }}</div>
                 </div>
 
                 <div class="form-edit-profile-wrapper-input">
                     <label for="input_email">Email:</label>
                     <input type="email" name="email" value="" class="form-control" id="input_email">
+                    <div class="error">{{ $errors->first('email') }}</div>
                 </div>
 
                 <div class="form-edit-profile-wrapper-input">
                     <label for="input_password">Password:</label>
                     <input type="password" name="password" value="" class="form-control" id="input_password">
+                    <div class="error">{{ $errors->first('password') }}</div>
                 </div>
 
                 <div class="cta-btn-wrapper margin-bottom-50">

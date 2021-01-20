@@ -60,7 +60,7 @@ class AuthController extends Controller
 
         if (auth()->attempt($credentials, $request->has('remember_me'))) {
 
-            return redirect()->route('recipes.index')->with('success', 'Welcome back.');
+            return redirect()->route('recipes.index');
 
         } else {
 
@@ -72,6 +72,6 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('auth.getLogin')->with('success', 'Bye, bye.');
+        return redirect()->route('auth.getLogin');
     }
 }
