@@ -914,11 +914,13 @@ ol.home-list-how-it-works li p {
 }
 
 a.link {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   border-bottom: 2px solid #FCA298;
-  width: 70px;
-  line-height: 25px;
+  width: 85px;
+  line-height: 35px;
+  font-size: 22px;
 }
 
 a.link:hover {
@@ -1704,7 +1706,7 @@ a.link:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .recipe-cards-wrapper-flex .recipe-card img.recipe-detail-img {
+  .recipe-cards-wrapper-flex div.recipe-element .recipe-card img.recipe-detail-img {
     height: 250px;
   }
 }
@@ -2182,6 +2184,21 @@ input {
   text-align: center;
   font-weight: 700;
   margin-top: 15px;
+}
+
+.input-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-flex .remove-icon {
+  width: 15px;
+  margin-left: 15px;
+}
+
+.add-icon {
+  width: 15px;
 }
 
 .rating-wrapper-flex {

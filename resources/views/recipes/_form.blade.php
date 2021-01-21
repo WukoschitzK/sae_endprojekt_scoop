@@ -13,26 +13,47 @@
 </div>
 
 <div class="form-recipe-wrapper-input">
+{{--    <div class="js-wrapper-ingredients-input">--}}
+{{--        <div class="wrapper-ingredients">--}}
+{{--            <label for="input_ingredient">Ingredients:</label>--}}
+{{--            <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredient">--}}
+{{--            <div class="error">{{ $errors->first('ingredient') }}</div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <div class="text-right add-ingredient">+</div>--}}
+
     <div class="js-wrapper-ingredients-input">
+        <label for="input_ingredients">Ingredients:</label>
+
         <div class="wrapper-ingredients">
-            <label for="input_ingredient">Ingredients:</label>
-            <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredient">
+            <div class="input-flex">
+                <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">
+                <div class="js-remove-ingredient"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
+            </div>
             <div class="error">{{ $errors->first('ingredient') }}</div>
         </div>
     </div>
-    <div class="text-right add-ingredient">+</div>
+    <div class="add-ingredient"><img class="add-icon" src="../../images/svg/add.svg" alt="add icon"></div>
 </div>
 
 <div class="form-recipe-wrapper-input">
     <div class="js-wrapper-steps-input">
+        <label for="input_steps">Steps:</label>
         <div class="wrapper-steps">
-            <label for="input_steps">Steps:</label>
-            <div class="steps-count">1</div>
-            <input rows="6" cols="150" name="steps[]" value="{{ $recipe->steps }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+
+            <div>
+                <div class="steps-count">1</div>
+                <div class="input-flex">
+                    <input name="steps[]" value="{{ $recipe->step }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+                    <div class="js-remove-step"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
+                </div>
+            </div>
             <div class="error">{{ $errors->first('steps') }}</div>
         </div>
     </div>
-    <div class="text-right add-step">+</div>
+    <div class="add-step"><img class="add-icon" src="../../images/svg/add.svg" alt="add icon"></div>
+
+
 </div>
 
 

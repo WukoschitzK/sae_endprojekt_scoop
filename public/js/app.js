@@ -195,23 +195,38 @@ $(document).ready(function () {
   //         counter_description.textContent = max_length_description - text.length;
   //     });
   // add ingredient input field
+  // $('.add-ingredient').click(function() {
+  //     $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" +
+  //         "<input name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" +
+  //         "</div>");
+  // });
 
   $('.add-ingredient').click(function () {
-    $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" + "        <input name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" + "    </div>");
+    $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" + "<div>\n" + "<div class=\"input-flex\">\n" + "<input rows=\"6\" cols=\"150\" name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" + "<div class=\"js-remove-ingredient\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
   }); //remove ingredients
+  // $('.js-remove-ingredient').click(function() {
+  //     $(this).parent().remove();
+  // })
 
-  $('.js-remove-ingredient').click(function () {
-    $(this).parent().remove();
+  $('.js-wrapper-ingredients-input').on('click', 'div.js-remove-ingredient', function () {
+    $(this).parent().parent().remove();
   }); // add step input field
 
-  var count = 1;
+  var count = 1; // $('.add-step').click(function() {
+  //     count+=1;
+  //     $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" +
+  //         "<div class=\"steps-count\">" + count + "</div>\n" +
+  //         "<input rows=\"6\" cols=\"150\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\">\n" +
+  //         "    </div>");
+  // });
+
   $('.add-step').click(function () {
     count += 1;
-    $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" + "<div class=\"steps-count\">" + count + "</div>\n" + "<input rows=\"6\" cols=\"150\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\">\n" + "    </div>");
+    $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" + "<div>\n" + "<div class=\"steps-count\">" + count + "</div>\n" + "<div class=\"input-flex\">\n" + "<input rows=\"6\" cols=\"150\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\">\n" + "<div class=\"js-remove-step\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
   }); //remove step
 
-  $('.js-remove-step').click(function () {
-    $(this).parent().remove();
+  $('.js-wrapper-steps-input').on('click', 'div.js-remove-step', function () {
+    $(this).parent().parent().parent().remove();
   });
   var category = "";
   var allergens = []; //filter recipe allergens

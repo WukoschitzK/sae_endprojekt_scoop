@@ -133,6 +133,8 @@ textarea,input {
     }
 }
 
+
+
 .form-recipe {
 
   .form-recipe-input {
@@ -199,6 +201,20 @@ textarea,input {
   margin-top: 15px;
 }
 
+.input-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .remove-icon {
+        width: 15px;
+        margin-left: 15px;
+    }
+}
+
+.add-icon {
+    width: 15px;
+}
 
 
 
