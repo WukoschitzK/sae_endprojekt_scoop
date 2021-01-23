@@ -23,7 +23,7 @@ class RecipeController extends Controller
      */
     public function index(Request $request)
     {
-        $recipes = Recipe::where('is_public', true)->orderBy('created_at','desc')->paginate(9); //;
+//        $recipes = Recipe::where('is_public', true)->orderBy('created_at','desc');
         $categories = Category::all();
         $allergens = Allergen::all();
 
@@ -55,7 +55,7 @@ class RecipeController extends Controller
                 });
             }
         }
-        $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->get();
+        $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->paginate(9);
 
 //        dd($recipes);
 
@@ -377,17 +377,12 @@ class RecipeController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-//        dd($request->get('search'));
 
-//        if($request->get('search') != null) {
-            $recipes = Recipe::where('title','like','%'.$search.'%')
-                ->where('is_public', true)
-                ->orWhere('description','like','%'.$search.'%')
-                ->orWhere('ingredients','like','%'.$search.'%')->get();
+        $recipes = Recipe::where('title','like','%'.$search.'%')
+            ->where('is_public', true)
+            ->orWhere('description','like','%'.$search.'%')
+            ->orWhere('ingredients','like','%'.$search.'%')->get();
 
-//
-//        $recipes->setPath('suche');
-//        dd($recipes);
 
         return view('recipes.search', compact('recipes'));
     }

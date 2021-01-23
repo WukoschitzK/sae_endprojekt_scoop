@@ -121,7 +121,6 @@ class UserProfileController extends Controller
         ]);
 
         $user = User::find($id);
-        //$user->fill($request->all());
         $user->name =$validatedData["name"];
         $user->email = $validatedData["email"];
 
@@ -139,7 +138,6 @@ class UserProfileController extends Controller
 
         return redirect()->route('profile.show', $id)->with('success', 'User updated!');
 
-//        return response()->json($recipe);
     }
 
     public function follow($id)

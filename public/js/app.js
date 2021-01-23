@@ -159,9 +159,9 @@ $(document).ready(function () {
   $allergenWrapper = $('.js-allergen-tiles-wrapper');
   $allergenWrapper.hide();
   $toggleShowAllergens.click(function () {
-    $toggleShowAllergens.toggleClass("fa-caret-up fa-caret-down");
+    $toggleShowAllergens.find("i").toggleClass("fa-caret-up fa-caret-down");
 
-    if ($toggleShowAllergens.hasClass("fa-caret-up")) {
+    if ($toggleShowAllergens.find("i").hasClass("fa-caret-up")) {
       $allergenWrapper.show();
     } else {
       $allergenWrapper.hide();

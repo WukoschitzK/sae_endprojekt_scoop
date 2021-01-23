@@ -152,7 +152,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00CFD6;
+  background: #7BD2D5;
   border-radius: 10px;
 }
 
@@ -744,7 +744,6 @@ svg.fa-bars {
 .header-container {
   position: relative;
   height: 90%;
-  z-index: -10;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -752,7 +751,6 @@ svg.fa-bars {
 
 .header-container .home-hero-text-wrapper {
   padding: 0px 20px 0 20px;
-  z-index: 2;
 }
 
 .header-container .home-hero-text-wrapper p {
@@ -949,14 +947,12 @@ a.link:hover {
     background-repeat: no-repeat;
     background-size: cover;
     height: calc(100vh - 82px);
-    z-index: -10;
     justify-content: flex-start;
   }
 
   .header-container .home-hero-text-wrapper {
     width: 60%;
     padding: 100px 0 0 100px;
-    z-index: 2;
   }
 
   .header-container .home-hero-text-wrapper p {
@@ -1163,25 +1159,37 @@ a.link:hover {
     background-repeat: no-repeat;
     background-size: cover;
     height: calc(100vh - 110px);
-    z-index: -10;
     margin-bottom: 120px;
   }
 
   .header-container .home-hero-text-wrapper {
-    width: 40%;
-    padding: 120px 0 0 100px;
-    padding-top: 120px;
-    z-index: 2;
+    width: 50%;
+    padding: 100px 0 0 100px;
   }
 
   .header-container .home-hero-text-wrapper p {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 35px;
+    line-height: 50px;
+    max-width: 30ch;
+  }
+
+  .header-container .home-hero-text-wrapper p a {
+    font-weight: 700;
+    border-bottom: 4px solid #280158;
+    padding-bottom: 5px;
+    transition: 0.4s ease;
+  }
+
+  .header-container .home-hero-text-wrapper p a:hover {
+    color: #FCA298;
+    border-bottom: 4px solid #FCA298;
+    transition: 0.4s ease;
   }
 
   .header-container .home-hero-text-wrapper p:first-child {
-    font-size: 65px;
-    line-height: 65px;
+    font-size: 90px;
+    line-height: 100px;
+    font-weight: 700;
     margin-bottom: 25px;
   }
 
@@ -1202,6 +1210,7 @@ a.link:hover {
     top: 80px;
     left: 20px;
     height: 10%;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
@@ -1209,12 +1218,13 @@ a.link:hover {
     top: 0;
     left: 100px;
     height: 17%;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-    height: 75%;
+    height: 85%;
     position: absolute;
-    top: 100px;
+    top: 40px;
     left: 60px;
     display: block;
   }
@@ -1236,8 +1246,9 @@ a.link:hover {
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
     position: absolute;
     bottom: 270px;
-    left: 80px;
+    left: 100px;
     height: 10%;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
@@ -1401,6 +1412,30 @@ a.link:hover {
 
 .hide-list {
   display: none;
+}
+
+.paginate {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.paginate div:first-child a {
+  text-decoration: underline;
+  margin: 0 15px;
+}
+
+.paginate div:first-child a:hover {
+  font-weight: 700;
+}
+
+.paginate div:last-child div {
+  display: flex;
+  align-items: center;
+}
+
+.paginate svg {
+  height: 25px;
 }
 
 .recipe-tabs {
@@ -2240,6 +2275,7 @@ input {
 .search-form-relative {
   position: relative;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .search-form .search-input {
@@ -2432,6 +2468,7 @@ input {
   .search-form-relative {
     width: 70%;
     margin: 0 auto;
+    margin-bottom: 50px;
   }
 }
 

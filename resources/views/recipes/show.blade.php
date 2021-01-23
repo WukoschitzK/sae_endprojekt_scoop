@@ -242,10 +242,10 @@
                                     <a href="{{ url('/user-profile/' . $review->user_id)}}">
                                         <div class="recipe-card-profile-info">
 
-                                            @if($review->user->image_url)
-                                                <img class="profile-image" alt="Profile Image" src="{{ $review->user->image_url }}">
+                                            @if($review->user->image_path != null)
+                                                <img class="profile-image" alt="Profile Image" src="/storage/images/profile_images/{{ $review->user->image_path }}">
                                             @else
-                                                <img class="profile-image" src="../images/profile-image-placeholder.jpg" alt="Profile Image" />
+                                                <img class="profile-image" src="/images/avatar.png" alt="Profile Image" />
                                             @endif
 
                                             <div class="font-14-px">{{ $review->user->name }}</div>

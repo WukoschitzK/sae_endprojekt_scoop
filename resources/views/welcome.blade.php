@@ -34,18 +34,18 @@
             <div class="header-container">
                 <div class="home-hero-text-wrapper">
                     <div class="home-hero-section-text margin-bottom-30">
-                        <p>Be part of an <span class="text-black">awesome</span> community</p>
-                        <p>Scoop out the latest recipes of your favorite foodie fellow.</p>
+                        <p>Be part of our community</p>
+                        <p>Scoop out the latest recipes of your favorite foodie fellow. Sign up <a href="{{ route('auth.getRegistration') }}">here!</a></p>
                     </div>
 
-                    <a href="{{ route('auth.getRegistration') }}">
-                        <div class="cta-btn-wrapper cta-btn-small">
-                            <div class="cta-btn">
-                                <div>sign up</div>
+{{--                    <a href="{{ route('auth.getRegistration') }}">--}}
+{{--                        <div class="cta-btn-wrapper cta-btn-small">--}}
+{{--                            <div class="cta-btn">--}}
+{{--                                <div>sign up</div>--}}
 
-                            </div>
-                        </div>
-                    </a>
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
                 </div>
 
                 <div class="header-container-images-berries">

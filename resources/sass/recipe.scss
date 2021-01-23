@@ -14,6 +14,34 @@
     display:none;
 }
 
+.paginate {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    div:first-child {
+        a {
+            text-decoration: underline;
+            margin: 0 15px;
+
+            &:hover {
+                font-weight: 700;
+            }
+        }
+    }
+
+    div:last-child div{
+        display: flex;
+        align-items: center;
+    }
+
+
+    svg{
+        height: 25px;
+    }
+}
+
 .recipe-tabs {
   display: flex;
   justify-content: center;

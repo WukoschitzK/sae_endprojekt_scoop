@@ -7,7 +7,7 @@
     <div class="wrapper">
         <div class="h1 heading-line d-inline-block">Search</div>
 
-        <div class="search-form-relative margin-bottom-30">
+        <div class="search-form-relative">
             <div class="search-form">
             {!! Form::open(['url' => 'search', 'method' => 'get']) !!}
             {!! Form::text('search', null, ['class' => 'search-input', 'placeholder' => 'e.g. Apple']) !!}
@@ -19,12 +19,10 @@
 
 
         @if($recipes->count() < 1)
-
             <p>Sorry, we can't find the recipe you're searching for!</p>
-
         @else()
 
-            <h2 class="margin-bottom-20">Results</h2>
+            <h2 class="margin-bottom-50">Results</h2>
 
             <div class="recipe-cards-wrapper-flex">
                 @foreach($recipes as $recipe)

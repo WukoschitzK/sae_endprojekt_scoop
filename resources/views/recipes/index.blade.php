@@ -19,8 +19,8 @@
 
         <div class="filter-desktop margin-bottom-30">
             <div>
-                <div class="wrapper-filter">
-                    <h3>Filter <i class="fas fa-caret-down js-toggle-show-allergens"></i></h3>
+                <div class="wrapper-filter js-toggle-show-allergens">
+                    <h2>Filter <i class="fas fa-caret-down js-caret-icon"></i></h2>
                 </div>
             </div>
 
@@ -119,8 +119,9 @@
                 @endforeach
         </div>
 
-{{--todo: paginate design--}}
-{{--        {{ $recipes->links() }}--}}
+        <div class="paginate">
+        {{ $recipes->links() }}
+        </div>
     </div>
 
 @endsection
