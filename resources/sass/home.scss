@@ -63,6 +63,10 @@
     }
 }
 
+//.header-container-wrapper {
+//    height: calc(100vh - 100px);
+//}
+
 .header-container {
     position:relative;
     //background-color: #f4e7e7;
@@ -70,9 +74,9 @@
     //background-image: url("/images/home_header/home-bg.svg");
     //background-repeat: no-repeat;
     //background-size: cover;
-    height: calc(100vh - 100px);
+    height: 90%;
     z-index: -10;
-    overflow: hidden;
+    //overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;

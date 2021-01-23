@@ -54,7 +54,7 @@
 
             <div class="form-edit-profile-wrapper-input">
                 <label for="input_password">Password:</label>
-                <input type="password" name="password" value="{{ $user->password }}" class="form-control" id="input_password">
+                <input type="password" name="password" class="form-control" id="input_password">
                 <div class="error">{{ $errors->first('password') }}</div>
             </div>
 

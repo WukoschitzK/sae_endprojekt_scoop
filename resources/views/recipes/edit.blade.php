@@ -42,7 +42,9 @@
                         @foreach($recipe->ingredients as $ingredient)
                         <div class="wrapper-ingredients">
                             <div class="input-flex">
-                                <input name="ingredient[]" value="{{ $ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">
+                                <div class="input-width-100">
+                                    <input name="ingredient[]" value="{{ $ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">
+                                </div>
                                 <div class="js-remove-ingredient"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
                             </div>
                             <div class="error">{{ $errors->first('ingredient') }}</div>
@@ -64,7 +66,9 @@
                         <div>
                             <div class="steps-count">1</div>
                             <div class="input-flex">
-                                <input name="steps[]" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+                                <div class="input-width-100">
+                                    <input name="steps[]" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+                                </div>
                                 <div class="js-remove-step"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
                             </div>
                         </div>

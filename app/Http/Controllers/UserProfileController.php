@@ -24,20 +24,28 @@ class UserProfileController extends Controller
         //get recipes from all the people i'm following
         $followingArray = [];
 
-        $recipes = Recipe::query();
+//        $recipes = Recipe::query();
 
         foreach($followings as $followingUser) {
             array_push($followingArray, $followingUser->id);
         }
 
-        foreach($followingArray as $id) {
-            $recipes = $recipes->whereHas('user', function ($query) use ($id) {
-                $query->where('user_id',  $id);
-            });
-        }
+        $recipes = Recipe::whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
 
-        $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->get();
+//        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
 
+
+
+//        foreach($followingArray as $id) {
+//            $recipes = $recipes->whereHas('user', function ($query) use ($id) {
+//                $query->where('user_id',  $id);
+//            });
+//        }
+//
+//        dd($followingArray);
+
+//        $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->get();
+//dd($recipes);
 //        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
 
         return view('profile.show', compact('recipes','user', 'followers','followings'));
@@ -106,14 +114,20 @@ class UserProfileController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $validatedData = $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'nullable|string|min:4',
         ]);
 
         $user = User::find($id);
-        $user->fill($request->all());
+        //$user->fill($request->all());
+        $user->name =$validatedData["name"];
+        $user->email = $validatedData["email"];
+
+        if (!empty($validatedData["password"])) {
+            $user->password = $validatedData["password"];
+        }
 
         if ($image = $request->file('image')) {
             $name = Str::random(16) . '.' . $image->getClientOriginalExtension();

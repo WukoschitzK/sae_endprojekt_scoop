@@ -133,7 +133,9 @@ $(document).ready(function() {
         $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" +
                 "<div>\n" +
                     "<div class=\"input-flex\">\n" +
-                        "<input rows=\"6\" cols=\"150\" name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" +
+                        "<div class=\"input-width-100\">\n" +
+                            "<input rows=\"6\" cols=\"150\" name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" +
+                        "</div>\n" +
                         "<div class=\"js-remove-ingredient\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" +
                     "</div>\n" +
                 "</div>\n" +
@@ -364,10 +366,19 @@ $(document).ready(function() {
             'steps[]': "Please enter a step",
             category: "Please select a category for your recipe"
         },
+        errorPlacement: function(error, element) {
+            if ( element.is(":radio") ) {
+                error.prependTo( element.parent().parent() );
+            }
+            else { // This is the default behavior of the script for all fields
+                error.insertAfter( element );
+            }
+        },
         submitHandler: function(form) {
             form.submit();
         }
     });
+
 });
 
 

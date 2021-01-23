@@ -28,6 +28,8 @@
 
 
 {{--            new header--}}
+            <div class="header-container-wrapper">
+
 
             <div class="header-container">
                 <div class="home-hero-text-wrapper">
@@ -71,6 +73,7 @@
                 </div>
 
 
+            </div>
             </div>
 
 {{--            end new header--}}

@@ -88,12 +88,15 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'title' => 'required|min:3|max:35',
             'description' => 'required|min:3|max:150',
             'image' => 'nullable|mimes:jpeg,png',
-            'ingredient' => 'required|min:1',
-            'steps' => 'required|min:1',
+            'ingredient' => 'array|required|min:1',
+            'ingredient.*' => 'required|string',
+            'steps' => 'array|filled|required|min:1',
+            'steps.*' => 'string|min:1',
             'category' => 'required'
         ]);
 
@@ -222,8 +225,10 @@ class RecipeController extends Controller
             'title' => 'required|min:3|max:35',
             'description' => 'required|min:3|max:150',
             'image' => 'nullable|mimes:jpeg,png',
-            'ingredient' => 'required|min:1',
-            'steps' => 'required|min:1',
+            'ingredient' => 'array|required|min:1',
+            'ingredient.*' => 'required|string',
+            'steps' => 'array|filled|required|min:1',
+            'steps.*' => 'string|min:1',
             'category' => 'required'
         ]);
 
@@ -331,7 +336,7 @@ class RecipeController extends Controller
 
     public function showLatestRecipes() {
 
-        $recipes = Recipe::query()->orderBy('rating_average', 'desc')->orderBy('created_at', 'desc')->take(3)->get();
+        $recipes = Recipe::query()->where('is_public', true)->orderBy('rating_average', 'desc')->orderBy('created_at', 'desc')->take(3)->get();
 
         return view('welcome', compact('recipes'));
     }
@@ -376,6 +381,7 @@ class RecipeController extends Controller
 
 //        if($request->get('search') != null) {
             $recipes = Recipe::where('title','like','%'.$search.'%')
+                ->where('is_public', true)
                 ->orWhere('description','like','%'.$search.'%')
                 ->orWhere('ingredients','like','%'.$search.'%')->get();
 
