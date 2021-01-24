@@ -37,7 +37,7 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('recipes.index')->with('success', 'Thank you for Registration.');
+        return redirect()->route('recipes.index')->with('success', 'Successfully registered');
     }
 
 
@@ -60,11 +60,11 @@ class AuthController extends Controller
 
         if (auth()->attempt($credentials, $request->has('remember_me'))) {
 
-            return redirect()->route('recipes.index');
+            return redirect()->route('recipes.index')->with('success', 'Logged in');
 
         } else {
 
-            return redirect()->route('auth.getLogin')->with('error', 'Invalid credentials.');
+            return redirect()->route('auth.getLogin')->with('error', 'Invalid credentials!');
         }
     }
 
@@ -72,6 +72,6 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('auth.getLogin');
+        return redirect()->route('auth.getLogin')->with('success', 'Logged out');
     }
 }

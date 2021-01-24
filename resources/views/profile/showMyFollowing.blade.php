@@ -5,6 +5,19 @@
 @section('container')
 
     <div class="wrapper">
+
+        @if(Session::has('success'))
+            <div class="notification-container">
+                <div class="notification-background">
+                    <div class="notification-text">
+
+                        <p class="success">{{ Session::get('success') }}</p>
+
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="h1 heading-line d-inline-block">Following</div>
 
         @if($followings->isEmpty())

@@ -31,6 +31,8 @@
 </head>
 <body>
 
+{{--<div class="spinner"></div>--}}
+
 @include('partials.navbar')
 
 <div class="content-wrapper main-wrapper">

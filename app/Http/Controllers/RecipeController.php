@@ -30,7 +30,7 @@ class RecipeController extends Controller
         $recipes = Recipe::query();
 
         if(isset($request->cat)) {
-            if($request->cat === "4") {
+            if($request->cat === "1") {
 
                 $categoryIds = [];
                 foreach($categories as $category) {
@@ -51,13 +51,10 @@ class RecipeController extends Controller
 
                 $recipes = $recipes->whereHas('allergens', function ($query) use ($id) {
                     $query->where('allergen_id',  $id);
-//                    return $query;
                 });
             }
         }
         $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->paginate(9);
-
-//        dd($recipes);
 
         response()->json($recipes); //return to ajax
         return view('recipes.index', compact('recipes','allergens','categories'));
@@ -105,7 +102,6 @@ class RecipeController extends Controller
         $recipe->is_public = $request->has('is_public');
         $recipe->user_id = auth()->id();
 
-
         $recipe->ingredients = $request->get('ingredient');
         $recipe->steps = $request->get('steps');
 
@@ -121,6 +117,8 @@ class RecipeController extends Controller
 
         $recipe->save();
 
+//        dd($recipe->id);
+
         //        ------allergens------
 
         if($request->get('allergens') != null) {
@@ -130,7 +128,7 @@ class RecipeController extends Controller
             }
         }
 
-        return redirect()->route('recipes.index')->with('success', 'Recipes created!!!');
+        return redirect()->route('recipes.index')->with('success', 'Recipe succesfully created');
 
     }
 
@@ -245,6 +243,14 @@ class RecipeController extends Controller
 
         $recipe->category_id = (int)$request->get('category');
 
+
+        if ($image = $request->file('image')) {
+
+            $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
+            $image->storePubliclyAs('public/images/recipe_images', $name);
+            $recipe->image_path = $name;
+        }
+
         $recipe->save();
 
 //        ------allergens------
@@ -296,7 +302,7 @@ class RecipeController extends Controller
             DB::table('allergen_recipe')->where('allergen_id',$allergen)->where('recipe_id',$recipe->id)->delete();
         }
 
-        return redirect()->route('recipes.show', $recipe->id)->with('success', 'Recipes updated!');
+        return redirect()->route('recipes.show', $recipe->id)->with('success', 'Recipes updated');
     }
 
     /**
@@ -323,7 +329,7 @@ class RecipeController extends Controller
 
         $recipe->delete();
 
-        return redirect()->route('recipes.index')->with('success', 'Recipes deleted!');
+        return redirect()->route('recipes.index')->with('success', 'Recipes deleted');
     }
 
     public function showMyRecipes($user_id) {
@@ -360,7 +366,7 @@ class RecipeController extends Controller
 
         $user_id->favoriteRecipe()->attach($recipe_id);
 
-        return redirect()->back()->with('success', 'Successfully added as Favorite!');
+        return redirect()->back()->with('success', 'Added as Favorite');
     }
 
     public function removeFavorite($id) {
@@ -371,7 +377,7 @@ class RecipeController extends Controller
 
         $user_id->favoriteRecipe()->detach($recipe_id);
 
-        return redirect()->back()->with('success', 'Successfully removed from Favorites!');
+        return redirect()->back()->with('success', 'Removed from Favorites');
     }
 
     public function search(Request $request)

@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::get('/', 'RecipeController@showLatestRecipes')->name('welcome');
 
+Route::get('/terms', function () {return view('terms');})->name('terms');
+Route::get('/privacy', function () {return view('privacy');})->name('privacy');
 
 // == Auth
 

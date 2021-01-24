@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
+  // $('.container-spinner').children().addClass('spinner');
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -113,9 +114,10 @@ $(document).ready(function () {
   }); //sticky nav
 
   $windowHeight = $(window).height();
-  $windowHeight += 80;
+  $windowHeight += 200;
 
   if ($(document).height() > $windowHeight) {
+    console.log("test");
     $(window).scroll(function () {
       $navigationDestkop = $('.navigation-desktop');
       var scroll = $(window).scrollTop();
@@ -389,7 +391,9 @@ $(document).ready(function () {
       form.submit();
     }
   });
-});
+}); // $(window).on("load", function() {
+//     $('.spinner').fadeOut('slow');
+// });
 
 /***/ }),
 

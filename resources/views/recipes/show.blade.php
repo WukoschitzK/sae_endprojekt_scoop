@@ -5,6 +5,18 @@
 @section('container')
 
     <div>
+
+        @if(Session::has('success'))
+            <div class="notification-container">
+                <div class="notification-background">
+                    <div class="notification-text">
+
+                        <p class="success">{{ Session::get('success') }}</p>
+
+                    </div>
+                </div>
+            </div>
+        @endif
         {{--desktop--}}
         <div class="recipe-detail-wrapper margin-bottom-50">
             <div class="recipe-detail-wrapper-flex">

@@ -136,7 +136,7 @@ class UserProfileController extends Controller
 
         $user->save();
 
-        return redirect()->route('profile.show', $id)->with('success', 'User updated!');
+        return redirect()->route('profile.show', $id)->with('success', 'Successfully updated');
 
     }
 
@@ -147,7 +147,7 @@ class UserProfileController extends Controller
 
         $leading_user->followers()->attach($following_user);
 
-        return redirect()->back()->with('success', 'Successfully followed!');
+        return redirect()->back()->with('success', 'Successfully followed');
     }
 
     public function unfollow($id)
@@ -157,7 +157,7 @@ class UserProfileController extends Controller
 
         $leading_user->followers()->detach($following_user);
 
-        return redirect()->back()->with('success', 'Successfully unfollowed!');
+        return redirect()->back()->with('success', 'Successfully unfollowed');
     }
 
 //    public function showFollower(int $userId)

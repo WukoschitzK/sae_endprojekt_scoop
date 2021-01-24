@@ -20,7 +20,17 @@
     justify-content: center;
     text-align: center;
 
+    [aria-current="page"] {
+        font-weight: 700;
+        color: $mainColorLightPurple;
+    }
+
+    span.relative.inline-flex {
+        margin-top:10px;
+    }
+
     div:first-child {
+        margin-bottom: 10px;
         a {
             text-decoration: underline;
             margin: 0 15px;
@@ -30,10 +40,19 @@
             }
         }
     }
+    //div:nth-child(2) div:nth-child(2){
+    //    width: 100px;
+    //    display: flex;
+    //    justify-content: space-between;
+    //    border: 1px solid fuchsia;
+    //
+    //}
 
     div:last-child div{
         display: flex;
-        align-items: center;
+        align-items: end;
+        justify-content: center;
+        line-height:40px;
     }
 
 

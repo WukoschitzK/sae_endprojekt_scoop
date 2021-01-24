@@ -37,15 +37,6 @@
                         <p>Be part of our community</p>
                         <p>Scoop out the latest recipes of your favorite foodie fellow. Sign up <a href="{{ route('auth.getRegistration') }}">here!</a></p>
                     </div>
-
-{{--                    <a href="{{ route('auth.getRegistration') }}">--}}
-{{--                        <div class="cta-btn-wrapper cta-btn-small">--}}
-{{--                            <div class="cta-btn">--}}
-{{--                                <div>sign up</div>--}}
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
                 </div>
 
                 <div class="header-container-images-berries">
@@ -136,43 +127,46 @@
                                 </div>
 
                                 <div class="recipe-card-text">
-                                    <div class="rating-star-wrapper js-rating-star-wrapper">
-                                        @if($recipe->rating_average >= 1)
-                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
-                                        @else
-                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
-                                        @endif
+                                    <div>
+                                        <div class="rating-star-wrapper js-rating-star-wrapper">
+                                            @if($recipe->rating_average >= 1)
+                                                <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                            @else
+                                                <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                            @endif
 
-                                        @if($recipe->rating_average >= 2)
-                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
-                                        @else
-                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
-                                        @endif
+                                            @if($recipe->rating_average >= 2)
+                                                <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                            @else
+                                                <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                            @endif
 
-                                        @if($recipe->rating_average >= 3)
-                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
-                                        @else
-                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
-                                        @endif
+                                            @if($recipe->rating_average >= 3)
+                                                <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                            @else
+                                                <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                            @endif
 
-                                        @if($recipe->rating_average >= 4)
-                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
-                                        @else
-                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
-                                        @endif
+                                            @if($recipe->rating_average >= 4)
+                                                <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                            @else
+                                                <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                            @endif
 
-                                        @if($recipe->rating_average >= 5)
-                                            <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
-                                        @else
-                                            <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
-                                        @endif
+                                            @if($recipe->rating_average >= 5)
+                                                <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
+                                            @else
+                                                <img class="rating-star" src="/images/svg/rating-star-unfilled.svg" alt="rating star">
+                                            @endif
 
+                                        </div>
+
+                                        <h2>{{ $recipe->title }}</h2>
+    {{--                                    @if($recipe->description)--}}
+                                        <p>{{ \Illuminate\Support\Str::limit($recipe->description, 75, $end='...') }}</p>
+    {{--                                    @endif()--}}
                                     </div>
 
-                                    <h2>{{ $recipe->title }}</h2>
-                                    <p>{{ $recipe->description }}</p>
-
-                                    {{--                                            todo: cannot show user?--}}
                                     <div class="recipe-card-profile-info">
                                         @if($recipe->user->image_path)
                                             <img class="profile-image" src="/storage/images/profile_images/{{ $recipe->user->image_path }}">

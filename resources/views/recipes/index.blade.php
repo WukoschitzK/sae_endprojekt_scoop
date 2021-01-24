@@ -5,6 +5,24 @@
 @section('container')
 
     <div class="wrapper">
+{{--        <div class="wrapper_success_message in-left">--}}
+{{--            @if(Session::has('success'))--}}
+{{--                <p class="success">{{ Session::get('success') }}</p>--}}
+{{--            @endif--}}
+{{--        </div>--}}
+        @if(Session::has('success'))
+        <div class="notification-container">
+            <div class="notification-background">
+                <div class="notification-text">
+
+                        <p class="success">{{ Session::get('success') }}</p>
+
+                </div>
+            </div>
+        </div>
+        @endif
+
+
         <div class="h1 heading-line d-inline-block">All Recipes</div>
 
         <div class="align-right">

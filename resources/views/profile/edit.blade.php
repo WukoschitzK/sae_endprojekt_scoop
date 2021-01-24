@@ -58,21 +58,21 @@
                 <div class="error">{{ $errors->first('password') }}</div>
             </div>
 
-            <div class="margin-bottom-30 form-edit-profile-wrapper-input">
-                <div>Preferred Content</div>
+{{--            <div class="margin-bottom-30 form-edit-profile-wrapper-input">--}}
+{{--                <div>Preferred Content</div>--}}
 
-                <div class="form-recipe-wrapper-input">
-                    <ul class="allergen-tiles-wrapper">
-                        @foreach($allergens as $allergen)
-                            <li class="js-allergen-tile">
-                                <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>
-                                <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
+{{--                <div class="form-recipe-wrapper-input">--}}
+{{--                    <ul class="allergen-tiles-wrapper">--}}
+{{--                        @foreach($allergens as $allergen)--}}
+{{--                            <li class="js-allergen-tile">--}}
+{{--                                <label for="input_allergen_{{$allergen->id}}">{{$allergen->name}}</label>--}}
+{{--                                <input type="checkbox" name="allergens[]" value="{{$allergen->id}}" id="input_allergen_{{$allergen->id}}" class="tryAllergen">--}}
+{{--                            </li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
 
             <div class="cta-btn-wrapper margin-bottom-50">
                 <div class="cta-btn">

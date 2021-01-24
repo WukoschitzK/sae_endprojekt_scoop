@@ -211,6 +211,10 @@ svg.fa-times, svg.fa-bars {
     .navigation-desktop-flex {
       width: 100%;
     }
+
+      ul li a {
+          font-size: 20px;
+      }
   }
 
   ul.navigation-desktop-profile-navigation-points-container {
@@ -235,12 +239,14 @@ svg.fa-times, svg.fa-bars {
     }
 
     ul li a {
-      transition: 0.2s;
+      transition: 0.5s ease;
+        font-size: 22px;
     }
 
     ul li a:hover {
-      font-weight: 700;
-      transition: 0.2s ease-in-out;
+      //font-weight: 700;
+        color: $mainColorDarkCyan;
+      transition: 0.5s ease;
     }
 
     ul li a img.search-icon {
@@ -248,7 +254,7 @@ svg.fa-times, svg.fa-bars {
     }
 
     ul li a img.search-icon:hover {
-      width: 28px;
+      width: 27px;
       transition: 0.3s ease-in-out;
     }
   }
@@ -285,8 +291,6 @@ svg.fa-times, svg.fa-bars {
     .navigation-desktop-flex-left {
       display: flex;
       align-items:center;
-
-
 
       .navigation-desktop-flex-left-links {
         display: flex;

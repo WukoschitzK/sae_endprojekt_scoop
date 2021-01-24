@@ -6,6 +6,18 @@
 
     <div class="wrapper">
 
+        @if(Session::has('success'))
+            <div class="notification-container">
+                <div class="notification-background">
+                    <div class="notification-text">
+
+                        <p class="success">{{ Session::get('success') }}</p>
+
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="margin-bottom-30 profile-information-section">
 
             <div class="profile-information-wrapper">
@@ -78,7 +90,6 @@
         <div class="recipe-cards-wrapper-flex">
             @foreach($recipes as $recipe)
                 <div class="margin-bottom-50 recipe-element">
-                    <div class="recipe-card-wrapper">
                         <a href="{{ route('recipes.show', $recipe->id) }}">
                             <div class="recipe-card">
                                 <div>
@@ -95,7 +106,6 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
                 </div>
             @endforeach
         </div>

@@ -43,6 +43,10 @@
   line-height: 17px;
 }
 
+.max-width-85ch {
+  max-width: 85ch;
+}
+
 .margin-bottom-10 {
   margin-bottom: 10px;
 }
@@ -142,6 +146,19 @@ body {
   margin: 0;
 }
 
+.spinner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-image: url("/images/spinner.gif");
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+}
+
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -152,7 +169,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #7BD2D5;
+  background: #C0DBDD;
   border-radius: 10px;
 }
 
@@ -216,6 +233,101 @@ h3 {
 a {
   text-decoration: none;
   color: #280158;
+}
+
+.notification-container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification-background {
+  width: 50px;
+  height: 50px;
+  background: #380848;
+  transform: scale(0);
+  border-radius: 70%;
+  color: white;
+  opacity: 0;
+  -webkit-animation: scale-in 0.4s ease-out forwards, expand 0.35s 0.25s ease-out forwards;
+          animation: scale-in 0.4s ease-out forwards, expand 0.35s 0.25s ease-out forwards;
+}
+
+.notification-text {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 5px;
+  font-family: "Lato", sans-serif;
+  -webkit-animation: fade-in 0.8s ease-in forwards;
+          animation: fade-in 0.8s ease-in forwards;
+}
+
+.notification-text p {
+  width: 100%;
+  text-align: center;
+}
+
+@-webkit-keyframes scale-in {
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes expand {
+  50% {
+    width: 300px;
+    border-radius: 6px;
+  }
+
+  100% {
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes expand {
+  50% {
+    width: 300px;
+    border-radius: 6px;
+  }
+
+  100% {
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
 }
 
 /***************TABLET***************/
@@ -523,6 +635,10 @@ svg.fa-bars {
     width: 100%;
   }
 
+  .navigation-desktop.scrolled ul li a {
+    font-size: 20px;
+  }
+
   ul.navigation-desktop-profile-navigation-points-container {
     background-color: white;
     padding-left: 5px;
@@ -546,12 +662,13 @@ svg.fa-bars {
   }
 
   .navigation-desktop ul li a {
-    transition: 0.2s;
+    transition: 0.5s ease;
+    font-size: 22px;
   }
 
   .navigation-desktop ul li a:hover {
-    font-weight: 700;
-    transition: 0.2s ease-in-out;
+    color: #32A9AD;
+    transition: 0.5s ease;
   }
 
   .navigation-desktop ul li a img.search-icon {
@@ -559,7 +676,7 @@ svg.fa-bars {
   }
 
   .navigation-desktop ul li a img.search-icon:hover {
-    width: 28px;
+    width: 27px;
     transition: 0.3s ease-in-out;
   }
 
@@ -620,7 +737,7 @@ svg.fa-bars {
   display: flex;
   justify-content: space-between;
   background-color: #280158;
-  background-color: #2b1b3e;
+  background-color: #1b1029;
   margin-top: 30px;
   padding: 25px;
 }
@@ -1181,8 +1298,8 @@ a.link:hover {
   }
 
   .header-container .home-hero-text-wrapper p a:hover {
-    color: #FCA298;
-    border-bottom: 4px solid #FCA298;
+    color: #32A9AD;
+    border-bottom: 4px solid #32A9AD;
     transition: 0.4s ease;
   }
 
@@ -1420,6 +1537,19 @@ a.link:hover {
   text-align: center;
 }
 
+.paginate [aria-current=page] {
+  font-weight: 700;
+  color: #776988;
+}
+
+.paginate span.relative.inline-flex {
+  margin-top: 10px;
+}
+
+.paginate div:first-child {
+  margin-bottom: 10px;
+}
+
 .paginate div:first-child a {
   text-decoration: underline;
   margin: 0 15px;
@@ -1431,7 +1561,9 @@ a.link:hover {
 
 .paginate div:last-child div {
   display: flex;
-  align-items: center;
+  align-items: end;
+  justify-content: center;
+  line-height: 40px;
 }
 
 .paginate svg {
@@ -1657,7 +1789,6 @@ a.link:hover {
 .recipe-card-profile-info {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
   height: 70px;
   margin-top: 20px;
 }
@@ -1688,6 +1819,8 @@ a.link:hover {
 
 .recipe-card {
   background-color: white;
+  display: flex;
+  flex-direction: column;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   transition: 0.3s;
@@ -1716,6 +1849,10 @@ a.link:hover {
 
 .recipe-card-text {
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 }
 
 .recipe-card-text h2 {

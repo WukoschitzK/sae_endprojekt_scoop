@@ -1,4 +1,8 @@
+
+
 $(document).ready(function() {
+
+    // $('.container-spinner').children().addClass('spinner');
 
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -18,9 +22,11 @@ $(document).ready(function() {
     //sticky nav
 
     $windowHeight = $(window).height();
-    $windowHeight += 80;
+    $windowHeight += 200;
 
     if ($(document).height() > $windowHeight) {
+
+        console.log("test");
 
         $(window).scroll(function() {
             $navigationDestkop = $('.navigation-desktop');
@@ -380,5 +386,10 @@ $(document).ready(function() {
     });
 
 });
+
+
+// $(window).on("load", function() {
+//     $('.spinner').fadeOut('slow');
+// });
 
 

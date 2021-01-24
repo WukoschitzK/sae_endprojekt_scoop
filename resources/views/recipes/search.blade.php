@@ -27,7 +27,7 @@
             <div class="recipe-cards-wrapper-flex">
                 @foreach($recipes as $recipe)
                     <div class="margin-bottom-50 recipe-element">
-                        <div class="recipe-card-wrapper">
+{{--                        <div class="recipe-card-wrapper">--}}
                             <a href="{{ route('recipes.show', $recipe->id) }}">
                                 <div class="recipe-card">
                                     <div>
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+{{--                        </div>--}}
                     </div>
                 @endforeach
             </div>
