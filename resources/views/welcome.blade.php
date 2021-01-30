@@ -74,15 +74,15 @@
 
             <div>
                 <ol class="home-list-how-it-works">
-                    <li class="margin-bottom-30">
+                    <li class="margin-bottom-50">
                         <h2>Sign up & <br/> be creative</h2>
                         <p>Create a user profile and give others a hint for your incoming recipes.</p>
                     </li>
-                    <li class="margin-bottom-30">
+                    <li class="margin-bottom-50">
                         <h2>Make the <br/> community alive!</h2>
                         <p>Create recipes & share it with your followers. Comment recipes …</p>
                     </li>
-                    <li class="margin-bottom-30">
+                    <li class="margin-bottom-50">
                         <h2>& don’t miss your <br/> besties new recipe! </h2>
                         <p>Your newsfeed will always be filled with the latest recipe-posts.</p>
                     </li>

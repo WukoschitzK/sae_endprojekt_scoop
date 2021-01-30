@@ -141,7 +141,7 @@ body {
   margin: 0;
   padding: 0px;
   color: #280158;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 25px;
   width: 100%;
 }
@@ -1011,6 +1011,10 @@ ol.home-list-how-it-works {
   counter-reset: how-it-works-counter;
 }
 
+ol.home-list-how-it-works p {
+  font-size: 22px;
+}
+
 ol.home-list-how-it-works li {
   counter-increment: how-it-works-counter;
 }
@@ -1676,6 +1680,10 @@ a.link:hover {
   display: none;
 }
 
+.h1-index-recipes {
+  margin-bottom: 0;
+}
+
 .paginate {
   display: flex;
   justify-content: center;
@@ -1829,14 +1837,6 @@ a.link:hover {
   }
 }
 
-.comments-flex-wrap {
-  max-width: 700px;
-}
-
-.comments-flex-wrap div.comment-wrapper {
-  width: 45%;
-}
-
 /***************TABLET***************/
 
 @media (min-width: 768px) {
@@ -1847,11 +1847,23 @@ a.link:hover {
        object-fit: cover;
     margin: 20px 0;
   }
+
+  .comments-flex-wrap {
+    max-width: 700px;
+  }
+
+  .comments-flex-wrap div.comment-wrapper {
+    width: 65%;
+  }
 }
 
 /***************DESKTOP***************/
 
 @media (min-width: 1020px) {
+  .comments-flex-wrap div.comment-wrapper {
+    width: 45%;
+  }
+
   .mobile-ingr-steps {
     display: none;
   }
@@ -2381,6 +2393,7 @@ input {
   font-weight: 700;
   transition: 0.3s;
   cursor: pointer;
+  font-size: 22px;
 }
 
 .cta-btn:before,
@@ -2516,7 +2529,7 @@ input {
 .form-recipe .form-recipe-input {
   width: 100%;
   padding: 10px 10px;
-  font-size: 22px;
+  font-size: 20px;
   border: 1px solid #776988;
   border-radius: 5px;
   margin-top: 10px;
@@ -2693,21 +2706,21 @@ input {
   padding: 20px 20px;
   background-color: #E8FFFD;
   width: 100%;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .search-form .search-input::-moz-placeholder {
-  font-size: 22px;
+  font-size: 20px;
   color: #776988;
 }
 
 .search-form .search-input:-ms-input-placeholder {
-  font-size: 22px;
+  font-size: 20px;
   color: #776988;
 }
 
 .search-form .search-input::placeholder {
-  font-size: 22px;
+  font-size: 20px;
   color: #776988;
 }
 
@@ -2763,7 +2776,7 @@ input {
   border: none;
   border-bottom: 1px solid #402661;
   padding: 10px 15px;
-  font-size: 22px;
+  font-size: 20px;
   color: #280158;
 }
 
@@ -2830,7 +2843,7 @@ input {
   .form-recipe .form-recipe-input {
     width: 100%;
     padding: 10px 10px;
-    font-size: 22px;
+    font-size: 20px;
     border: 1px solid #776988;
     border-radius: 5px;
     margin-top: 10px;

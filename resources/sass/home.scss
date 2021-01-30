@@ -245,6 +245,10 @@
 ol.home-list-how-it-works {
   list-style: none;
   counter-reset: how-it-works-counter;
+
+    p {
+        font-size:22px;
+    }
 }
 
 ol.home-list-how-it-works li {

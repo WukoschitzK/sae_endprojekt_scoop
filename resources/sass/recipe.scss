@@ -14,6 +14,10 @@
     display:none;
 }
 
+.h1-index-recipes {
+    margin-bottom: 0;
+}
+
 .paginate {
 
     display: flex;
@@ -178,13 +182,7 @@
     }
 }
 
-.comments-flex-wrap {
-    max-width:700px;
 
-    div.comment-wrapper {
-        width:45%;
-    }
-}
 
 
 /***************TABLET***************/
@@ -197,12 +195,29 @@
     object-fit: cover;
     margin: 20px 0;
   }
+
+    .comments-flex-wrap {
+        max-width:700px;
+
+        div.comment-wrapper {
+            width:65%;
+        }
+    }
+
+
 }
 
 
 /***************DESKTOP***************/
 
 @media (min-width: $Desktop) {
+
+    .comments-flex-wrap {
+
+        div.comment-wrapper {
+            width:45%;
+        }
+    }
 
     .mobile-ingr-steps {
         display: none;

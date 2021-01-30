@@ -19,9 +19,9 @@
         @endif
 
 
-        <div class="h1 heading-line d-inline-block">All Recipes</div>
+        <div class="h1 heading-line d-inline-block h1-index-recipes">All Recipes</div>
 
-        <div class="align-center align-right-md margin-bottom-30">
+        <div class="align-right margin-bottom-50">
             <a href="{{route('recipes.create')}}">
                 <div class="cta-btn-wrapper cta-btn-small">
                     <div class="cta-btn">

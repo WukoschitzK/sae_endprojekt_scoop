@@ -31,6 +31,7 @@ textarea,input {
   font-weight: 700;
   transition: 0.3s;
   cursor: pointer;
+    font-size: 22px;
 }
 
 .cta-btn:before {
@@ -167,7 +168,7 @@ textarea,input {
   .form-recipe-input {
     width: 100%;
     padding: 10px 10px;
-    font-size: 22px;
+    font-size: 20px;
     border: 1px solid $mainColorLightPurple;
     border-radius: 5px;
     margin-top: 10px;
@@ -355,10 +356,10 @@ textarea,input {
     padding: 20px 20px;
     background-color: $mainColorLightCyan;
     width: 100%;
-    font-size: 22px;
+    font-size: 20px;
   }
   .search-input::placeholder {
-    font-size: 22px;
+    font-size: 20px;
     color: $mainColorLightPurple;
   }
   .search-input:focus {
@@ -415,7 +416,7 @@ textarea,input {
       border: none;
       border-bottom: 1px solid $mainColorPurple;
       padding: 10px 15px;
-      font-size: 22px;
+      font-size: 20px;
       color:$mainColorDarkPurple;
     }
 
@@ -482,7 +483,7 @@ textarea,input {
     .form-recipe-input {
       width: 100%;
       padding: 10px 10px;
-      font-size: 22px;
+      font-size: 20px;
       border: 1px solid $mainColorLightPurple;
       border-radius: 5px;
       margin-top: 10px;
