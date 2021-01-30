@@ -1,28 +1,29 @@
 
 //hero-section
 
-.home-image {
-  width:100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
+//.home-image {
+//  width:100%;
+//  margin: 0 auto;
+//  display: flex;
+//  justify-content: center;
+//  margin-bottom: 30px;
+//}
+//
+//.home-hero-section {
+//  margin-bottom:50px;
+//}
 
-.home-hero-section {
-  margin-bottom:50px;
-}
-
-.home-hero-section-text {
-  p {
-    font-size: 23px;
-  }
-  p:first-child {
-    font-size: 34px;
-    line-height: 35px;
-    margin-bottom: 15px;
-  }
-}
+//.home-hero-section-text {
+//  p {
+//    font-size: 23px;
+//  }
+//  p:first-child {
+//    font-size: 45px;
+//    line-height: 45px;
+//      font-weight: 700;
+//    margin-bottom: 15px;
+//  }
+//}
 
 
 
@@ -70,28 +71,36 @@
 .header-container {
     position:relative;
     //background-color: #f4e7e7;
-    //background-color: #ffe4e4;
-    //background-image: url("/images/home_header/home-bg.svg");
-    //background-repeat: no-repeat;
-    //background-size: cover;
-    height: 90%;
+    //background-color: $mainColorLightCyan;
+    background-image: url("/images/home_header/background-image-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 90%, 70%;
+    background-position: right top;
+    height: 90vh;
     //z-index: -10;
     //overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    //justify-content: center;
 
     .home-hero-text-wrapper {
         padding: 0px 20px 0 20px;
         //z-index: 2;
+        margin-top: 50px;
 
         p {
+            font-size: 25px;
+            line-height: 35px;
             margin-bottom:50px;
+            max-width: 20ch;
         }
 
         p:first-child {
             margin-bottom:30px;
-            width: 50%;
+            width: 55%;
+            font-size: 45px;
+            line-height: 45px;
+            font-weight: 700;
         };
     }
 
@@ -124,11 +133,11 @@
 
             .stachelbeerebowl {
                 //wdith: 50%;
-                height: 75%;
+                height: 65%;
                 position:absolute;
-                top: 100px;
-                left: 60px;
-                display: none;
+                top: 93px;
+                left: 5px;
+                //display: none;
             }
 
             .stachelbeere-links-3 {
@@ -196,7 +205,7 @@
                 position:absolute;
                 top: 0;
                 right: 30px;
-                height:15%;
+                height:12%;
             }
 
             .heidelbeere-rechts {
@@ -230,11 +239,6 @@
         }
     }
 }
-
-
-
-
-
 
 //list how-it-works
 
@@ -290,6 +294,169 @@ a.link:hover {
   font-weight: 700;
 }
 
+
+/***************MOBILE MEDIUM***************/
+
+@media (min-width: $Mobile-Medium) {
+    .header-container {
+
+        .home-hero-text-wrapper {
+            margin-top: 80px;
+
+            p {
+                font-size: 30px;
+                line-height: 40px;
+                margin-bottom:50px;
+                max-width: 350px;
+            }
+
+            p:first-child {
+                width: 55%;
+                font-size: 50px;
+                line-height: 50px;
+            };
+        }
+
+        .header-container-images-berries {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            height: 45%;
+
+            .images-berries-position-rel {
+                position: relative;
+                //border: 5px solid fuchsia;
+                height: 100%;
+                //width: 1000px;
+
+                .stachelbeere-links-1 {
+                    //position: absolute;
+                    //top: 80px;
+                    //left: 20px;
+                    //height: 10%;
+                    display: none;
+                }
+                .stachelbeere-links-2 {
+                    position: absolute;
+                    top:0;
+                    left: 100px;
+                    height: 20%;
+                    display: none;
+                }
+
+                .stachelbeerebowl {
+                    //wdith: 50%;
+                    height: 65%;
+                    position:absolute;
+                    top: 93px;
+                    left: 5px;
+                    //display: none;
+                }
+
+                .stachelbeere-links-3 {
+                    position:absolute;
+                    bottom: 0;
+                    left: 330px;
+                    height: 20%;
+                    display: none;
+                }
+
+                .zitrone {
+                    position:absolute;
+                    bottom: 50px;
+                    left: 380px;
+                    height: 60%;
+                    display: none;
+                }
+
+                .heidelbeere-links-1 {
+                    position:absolute;
+                    bottom: 0;
+                    left: 550px;
+                    height: 10%;
+                    display: none;
+                }
+
+                .heidelbeere-links-2 {
+                    position:absolute;
+                    bottom: 40px;
+                    left: 590px;
+                    height: 12%;
+                    display: none;
+                }
+
+                .heidelbeere-links-3 {
+                    position:absolute;
+                    bottom: 0;
+                    left: 620px;
+                    height: 10%;
+                    display: none;
+                }
+
+            }
+        }
+
+        .header-container-images-salad {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 80%;
+
+            .images-salad-position-rel {
+                position: relative;
+                height: 100%;
+
+                .salad-bowl {
+                    position:absolute;
+                    bottom: 0;
+                    right: -50px;
+                    height: 65%;
+                    display: none;
+                }
+
+                .blatt-oben-links {
+                    position:absolute;
+                    top: 0;
+                    right: 30px;
+                    height:12%;
+                }
+
+                .heidelbeere-rechts {
+                    position:absolute;
+                    top: 70px;
+                    right: 60px;
+                    height: 8%;
+                }
+
+                .stachelbeere-rechts-oben {
+                    position:absolute;
+                    top: 40px;
+                    right: 10px;
+                    height: 10%;
+                    display: none;
+                }
+
+                .stachelbeere-rechts-unten {
+                    position:absolute;
+                    top:55px;
+                    right: 5px;
+                    height: 8%;
+                }
+
+                .blatt-oben-rechts {
+                    position:absolute;
+                    top: 90px;
+                    right: 20px;
+                    height:10%;
+                }
+            }
+        }
+    }
+
+}
+
+
+
 /***************TABLET***************/
 
 @media (min-width: $Tablet)  {
@@ -298,9 +465,9 @@ a.link:hover {
         position:relative;
         //background-color: #f4e7e7;
         //background-color: #ffe4e4;
-        background-image: url("/images/home_header/home-bg.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
+        //background-image: url("/images/home_header/home-bg.svg");
+        //background-repeat: no-repeat;
+        //background-size: cover;
         height: calc(100vh - 82px);
         //z-index: -10;
         justify-content: flex-start;
@@ -315,6 +482,7 @@ a.link:hover {
             p {
                 font-size: 25px;
                 line-height: 35px;
+                max-width:40ch;
             }
 
             p:first-child {

@@ -6,10 +6,6 @@
 
     <div class="wrapper">
 
-
-
-
-
         <div>
             <h1 class="text-center heading-line margin-bottom-50 home-h1">Terms and Conditions</h1>
 

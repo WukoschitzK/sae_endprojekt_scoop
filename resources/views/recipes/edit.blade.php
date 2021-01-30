@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Edit')
+@section('title', 'Edit Recipe')
 
 @section('container')
 
@@ -9,11 +9,11 @@
 
         <div class="h1 heading-line d-inline-block">Edit Recipe</div>
 
-        <form method="post" action="{{ route('recipes.destroy', $recipe->id) }}" enctype="multipart/form-data">
+        <form class="form-recipe-delete" method="post" action="{{ route('recipes.destroy', $recipe->id) }}" enctype="multipart/form-data">
             @method('delete')
             @csrf
 
-            <button type="submit" class="delete-btn"><i class="fas fa-trash-alt"></i>delete</button>
+            <button onclick="return confirm('Are you sure?')" type="submit" class="delete-btn"><i class="fas fa-trash-alt"></i>delete</button>
         </form>
 
         <form class="form-recipe" name="recipe-form" method="post" action="{{ route('recipes.update', $recipe->id) }}" enctype="multipart/form-data" autocomplete="off">
@@ -67,7 +67,7 @@
                             <div class="steps-count">1</div>
                             <div class="input-flex">
                                 <div class="input-width-100">
-                                    <input name="steps[]" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">
+                                    <textarea rows="6" cols="150" type="text" name="steps[]" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">{{ $step }}</textarea>
                                 </div>
                                 <div class="js-remove-step"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
                             </div>
@@ -80,11 +80,33 @@
             </div>
 
 
-            <div class="form-recipe-wrapper-input">
-                <label for="input_image" class="text-bold margin-bottom-10">Images</label>
-                <input type="file" name="image" class="form-control" id="input_image">
-                <div>+ Add Images</div>
+{{--            <div class="form-recipe-wrapper-input">--}}
+{{--                <label for="input_image" class="text-bold margin-bottom-10">Images</label>--}}
+{{--                <input type="file" name="image" class="form-control" id="input_image">--}}
+{{--                <div>+ Add Images</div>--}}
+{{--            </div>--}}
+
+
+
+            <div class="recipe-image-upload">
+                <div class="recipe-image-edit">
+                    <input name="image" type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                    <label for="imageUpload"></label>
+                </div>
+                <div class="recipe-image-preview">
+                    @if($recipe->image_path)
+                        {{--                                <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">--}}
+                        <div id="imagePreview" class="current-recipe-image" style="background-image: url(/storage/images/recipe_images/{{ $recipe->image_path }});">
+                        </div>
+                    @else
+                        <div id="imagePreview" class="current-recipe-image" style="background-image: url(/images/recipe-image-placeholder.jpg);">
+                        </div>
+                        {{--                                <img class="profile-information-image" src="../images/avatar.png" alt="Profile Image" />--}}
+                    @endif
+
+                </div>
             </div>
+
 
             <div class="form-recipe-wrapper-input">
                 <div class="text-bold margin-bottom-10">Allergens</div>
@@ -111,11 +133,11 @@
 
             <div class="form-recipe-wrapper-input">
                 <div class="text-bold margin-bottom-10">Categories</div>
-                <ul class="allergen-tiles-wrapper">
+                <ul class="category-selection-wrapper">
                     @foreach($categories as $category)
                         <li>
-                            <label for="{{$category->id}}">{{$category->name}}</label>
                             <input type="radio" name="category" value="{{$category->id}}" id="{{$category->id}}" {{ $recipe->category_id == $category->id ? "checked" : "" }}>
+                            <label for="{{$category->id}}">{{$category->name}}</label>
                         </li>
                     @endforeach
                 </ul>

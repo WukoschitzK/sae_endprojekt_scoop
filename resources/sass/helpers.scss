@@ -105,9 +105,20 @@ a.heading-line:after {
     justify-content: flex-end;
 }
 
+.align-center {
+    display: flex;
+    justify-content: center;
+}
+
+
 /***************TABLET***************/
 
 @media (min-width: $Tablet) {
+
+    .align-right-md {
+        display: flex;
+        justify-content: flex-end;
+    }
 
   .w-md-40 {
     width: 40%;

@@ -1,15 +1,11 @@
 @extends('layouts.master')
 
 {{--@section('title', trans('recipes.title'))--}}
+@section('title', 'Recipes')
 
 @section('container')
 
     <div class="wrapper">
-{{--        <div class="wrapper_success_message in-left">--}}
-{{--            @if(Session::has('success'))--}}
-{{--                <p class="success">{{ Session::get('success') }}</p>--}}
-{{--            @endif--}}
-{{--        </div>--}}
         @if(Session::has('success'))
         <div class="notification-container">
             <div class="notification-background">
@@ -25,7 +21,7 @@
 
         <div class="h1 heading-line d-inline-block">All Recipes</div>
 
-        <div class="align-right">
+        <div class="align-center align-right-md margin-bottom-30">
             <a href="{{route('recipes.create')}}">
                 <div class="cta-btn-wrapper cta-btn-small">
                     <div class="cta-btn">
@@ -38,7 +34,7 @@
         <div class="filter-desktop margin-bottom-30">
             <div>
                 <div class="wrapper-filter js-toggle-show-allergens">
-                    <h2>Filter <i class="fas fa-caret-down js-caret-icon"></i></h2>
+                    <h3>Allergens <i class="fas fa-caret-down js-caret-icon"></i></h3>
                 </div>
             </div>
 
@@ -55,16 +51,26 @@
             </div>
         </div>
 
-        <div class="categories-desktop margin-bottom-30">
-            <ul class="categories-wrapper js-categories-wrapper">
-                @foreach($categories as $category)
-                <li class="category-item">
-                    <input type="radio" name="category" id="input_category_{{$category->id}}" value="{{$category->id}}" class="category-radio-btn js-select-category"/>
-                    <label for="input_category_{{$category->id}}">{{$category->name}}</label>
-                </li>
-                @endforeach
-            </ul>
+        <div class="margin-top-30px">
+            <div>
+                <div class="wrapper-filter js-toggle-show-categories">
+                    <h3>Categories <i class="fas fa-caret-down js-caret-icon"></i></h3>
+                </div>
+            </div>
+
+            <div class="categories-desktop margin-bottom-30">
+                <ul class="categories-wrapper js-categories-wrapper">
+                    @foreach($categories as $category)
+                        <li class="category-item">
+                            <input type="radio" name="category" id="input_category_{{$category->id}}" value="{{$category->id}}" class="category-radio-btn js-select-category"/>
+                            <label for="input_category_{{$category->id}}">{{$category->name}}</label>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
+
+
 
         {{--        Recipe cards--}}
         <div class="recipe-cards-wrapper-flex">
@@ -83,6 +89,7 @@
                                         </div>
 
                                         <div class="recipe-card-text">
+                                            <div>
                                             <div class="rating-star-wrapper js-rating-star-wrapper">
                                                 @if($recipe->rating_average >= 1)
                                                 <img class="rating-star filled" src="/images/svg/rating-star-filled.svg" alt="rating star">
@@ -117,7 +124,8 @@
                                             </div>
 
                                             <h2>{{ $recipe->title }}</h2>
-                                            <p>{{ $recipe->description }}</p>
+                                                <p>{{ \Illuminate\Support\Str::limit($recipe->description, 75, $end='...') }}</p>
+                                            </div>
 
                                             <div class="recipe-card-profile-info">
                                                 @if($recipe->user->image_path)

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 {{--@section('search')--}}
+@section('title', 'Search')
 
 @section('container')
 

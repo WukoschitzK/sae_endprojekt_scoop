@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-{{--@section('title', $user->name)--}}
+@section('title', 'Following')
 
 @section('container')
 
@@ -50,7 +50,7 @@
                                 @if($following->image_path)
                                     <img class="profile-image following-list" src="/storage/images/profile_images/{{ $following->image_path }}">
                                 @else
-                                    <img class="profile-image following-list" src="/images/profile-image-placeholder.jpg" alt="Profile Image" />
+                                    <img class="profile-image following-list" src="/images/avatar.png" alt="Profile Image" />
                                 @endif
                                 <div>
                                     <div>{{$following->name}}</div>
@@ -62,7 +62,7 @@
                         <form method="post" action="{{ route('profile.unfollow', $following->id) }}" autocomplete="off")">
                             @csrf
                             <div class="margin-bottom-50 cta-btn-right cta-btn-unfollow">
-                                <div class="cta-btn-wrapper-sm">
+                                <div class="cta-btn-wrapper cta-btn-small">
                                     <div class="cta-btn-sm">
                                         <button type="unfollow" class="btn btn-warning mt-2">
                                             unfollow

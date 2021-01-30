@@ -118,11 +118,13 @@ class UserProfileController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'nullable|string|min:4',
+            'preferred_content' => 'required|min:1|max:50'
         ]);
 
         $user = User::find($id);
         $user->name =$validatedData["name"];
         $user->email = $validatedData["email"];
+        $user->preferred_content =$validatedData["preferred_content"];
 
         if (!empty($validatedData["password"])) {
             $user->password = $validatedData["password"];

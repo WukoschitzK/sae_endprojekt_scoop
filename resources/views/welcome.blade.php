@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Welcome')
+@section('title', 'Home')
 
 @section('container')
 
@@ -99,7 +99,7 @@
 
             <div class="margin-bottom-50 md-margin-bottom-80">
             <a href="{{ route('auth.getRegistration') }}">
-                <div class="cta-btn-wrapper cta-btn-small">
+                <div class="cta-btn-wrapper cta-btn-small text-center">
                     <div class="cta-btn">
                         sign up
                     </div>

@@ -116,31 +116,58 @@ textarea,input {
   .cta-btn-sm:after {
     background-color: $mainColorGrey;
   }
+
+    .cta-btn-sm:hover button{
+        color: $mainColorLightPurple;
+        transition: 0.3s;
+    }
+
+    .cta-btn-sm {
+        color: $mainColorLightPurple;
+
+        button {
+            color: $mainColorGrey;
+            transition: 0.3s;
+        }
+    }
+
+    .cta-btn-sm:hover::before {
+        background-color: $mainColorLightGrey;
+        transition: 0.3s;
+    }
+
+    .cta-btn-sm:hover::after {
+        background-color: $mainColorLightPurple;
+        transition: 0.3s;
+    }
 }
 
 //Recipe Form
 
-.delete-btn {
-    border: none;
-    background-color: transparent;
-    font-size: 18px;
-    color: $mainColorDarkPurple;
-    font-family: "Lato", sans-serif;
+.form-recipe-delete {
+    margin-bottom: 30px;
 
-    i.fa-trash-alt {
-        margin-right: 15px;
-        color: $mainColorGrey;
+    .delete-btn {
+        border: none;
+        background-color: transparent;
+        font-size: 20px;
+        color: $mainColorLightPurple;
+        font-family: "Lato", sans-serif;
+        transition: 0.5s ease;
+
+        i.fa-trash-alt {
+            margin-right: 15px;
+            color: $mainColorLightPurple;
+            transition: 0.5s ease;
+        }
     }
 }
 
-
-
 .form-recipe {
-
   .form-recipe-input {
     width: 100%;
     padding: 10px 10px;
-    font-size: 18px;
+    font-size: 22px;
     border: 1px solid $mainColorLightPurple;
     border-radius: 5px;
     margin-top: 10px;
@@ -162,16 +189,12 @@ textarea,input {
       }
   }
 
-  label {
-    //font-weight: 700;
-  }
-
   label.publish {
     font-weight: 400;
   }
 
   .form-character-counter {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 5px;
   }
 
@@ -183,17 +206,88 @@ textarea,input {
     .category-selection-wrapper {
         padding-left: 20px;
 
+        li {
+            margin-bottom: 15px;
+        }
+
         label {
             font-weight: 400;
         }
     }
 }
 
+//image upload
+
+.recipe-image-upload {
+    position: relative;
+    //max-width: 205px;
+    width:100%;
+    margin: 30px auto;
+    .recipe-image-edit {
+        position: absolute;
+        right: 12px;
+        z-index: 1;
+        top: 10px;
+        input {
+            display: none;
+            + label {
+                display: inline-block;
+                width: 34px;
+                height: 34px;
+                margin-bottom: 0;
+                border-radius: 100%;
+                background: #FFFFFF;
+                border: 1px solid transparent;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+                font-weight: normal;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    background: #f1f1f1;
+                    border-color: #d6d6d6;
+                }
+                &:after {
+                    content: "\f040";
+                    font-family: 'FontAwesome';
+                    color: #757575;
+                    position: absolute;
+                    top: 6px;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    margin: auto;
+                }
+            }
+        }
+    }
+    .recipe-image-preview {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        border-radius: 5px;
+        //border: 6px solid #F8F8F8;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        > div {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+
+
+
+
+
+
 .steps-count {
   background-color: $mainColorCyan;
   width:32px;
   height: 32px;
-  padding: 6px ;
+  padding: 4px ;
   border-radius: 50%;
   color: white;
   text-align: center;
@@ -219,7 +313,6 @@ textarea,input {
 .add-icon {
     width: 15px;
 }
-
 
 
 //Comment Form
@@ -262,10 +355,10 @@ textarea,input {
     padding: 20px 20px;
     background-color: $mainColorLightCyan;
     width: 100%;
-    font-size: 18px;
+    font-size: 22px;
   }
   .search-input::placeholder {
-    font-size: 18px;
+    font-size: 22px;
     color: $mainColorLightPurple;
   }
   .search-input:focus {
@@ -285,7 +378,7 @@ textarea,input {
     position: absolute;
     right: -2px;
     top: 0px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     cursor: pointer;
   }
@@ -313,7 +406,7 @@ textarea,input {
     margin-bottom: 50px;
 
     label {
-      font-size: 18px;
+      font-size: 22px;
       //font-weight: 700;
     }
 
@@ -322,7 +415,7 @@ textarea,input {
       border: none;
       border-bottom: 1px solid $mainColorPurple;
       padding: 10px 15px;
-      font-size: 18px;
+      font-size: 22px;
       color:$mainColorDarkPurple;
     }
 
@@ -339,6 +432,10 @@ textarea,input {
     flex-direction: column;
 }
 
+.cta-btn-wrapper.cta-btn-small {
+    width: 150px;
+}
+
 /***************TABLET***************/
 
 @media (min-width: $Tablet) {
@@ -348,9 +445,7 @@ textarea,input {
     .cta-btn-wrapper {
         width: 277px;
     }
-    .cta-btn-wrapper.cta-btn-small {
-        width: 150px;
-    }
+
 
   .form-edit-profile {
     width:80%;
@@ -358,6 +453,26 @@ textarea,input {
   }
 
   //RecipeForm
+
+
+    .form-recipe-delete {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto 30px auto;
+
+        .delete-btn {
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            color: $mainColorDarkPurple;
+            transition: 0.5s ease;
+            i.fa-trash-alt {
+                color: $mainColorDarkPurple;
+                transition: 0.5s ease;
+            }
+        }
+    }
 
   .form-recipe {
     width: 100%;
@@ -367,7 +482,7 @@ textarea,input {
     .form-recipe-input {
       width: 100%;
       padding: 10px 10px;
-      font-size: 18px;
+      font-size: 22px;
       border: 1px solid $mainColorLightPurple;
       border-radius: 5px;
       margin-top: 10px;
@@ -393,7 +508,7 @@ textarea,input {
     }
 
     .form-character-counter {
-      font-size: 12px;
+      font-size: 14px;
       margin-top: 5px;
     }
 
@@ -405,7 +520,7 @@ textarea,input {
 
   .steps-count {
     background-color: $mainColorCyan;
-    padding: 6px ;
+    padding: 4px ;
     border-radius: 50%;
     color: white;
     text-align: center;
@@ -419,8 +534,6 @@ textarea,input {
         justify-content: center;
         gap: 20px;
     }
-
-
 }
 
 

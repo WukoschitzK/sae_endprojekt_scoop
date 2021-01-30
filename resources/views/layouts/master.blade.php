@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 
-    <title>@yield('title')Scoop</title>
+    <title>@yield('title') Scoop</title>
 
     <meta charset="UTF-8">
     <meta name="robots" content="noindex,nofollow">
@@ -28,10 +28,11 @@
 
     <script type="text/javascript" src="/js/app.js"></script>
 
+
 </head>
 <body>
 
-{{--<div class="spinner"></div>--}}
+{{--<div class="showSpinner spinner"></div>--}}
 
 @include('partials.navbar')
 

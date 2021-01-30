@@ -34,7 +34,7 @@
                 <div class="profile-information-text-wrapper">
                     <div class="profile-information-user-name">{{ $user->name }}</div>
                     <div class="profile-information-allergens font-16-px margin-bottom-10">
-                        <div>preferred content</div>
+                        <div>{{ $user->preferred_content }}</div>
                     </div>
                     <div class="profile-information-details">
                         <div class="font-14-px">
@@ -139,6 +139,10 @@
                                         <div>
                                             {{ $recipe->user->name }}
                                         </div>
+                                    </div>
+
+                                    <div class="recipe-created-date">
+                                        {{$recipe->created_at->diffForHumans()}}
                                     </div>
                                 </div>
                             </div>

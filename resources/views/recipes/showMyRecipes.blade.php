@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-{{--@section('title', trans('recipes.title'))--}}
+@section('title', 'My Recipes')
 
 @section('container')
 

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-{{--@section('title', $recipe->title)--}}
+@section('title', $recipe->title)
 
 @section('container')
 
@@ -244,7 +244,7 @@
 
                 </div>
 
-                <div class="width-50 margin-bottom-50">
+                <div class="margin-bottom-50">
                     <h2 class="margin-bottom-30">Comments</h2>
                     <div class="comments-flex-wrap">
 

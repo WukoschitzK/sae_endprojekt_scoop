@@ -114,10 +114,11 @@ $(document).ready(function () {
   }); //sticky nav
 
   $windowHeight = $(window).height();
-  $windowHeight += 200;
+  $windowHeight += 220;
 
   if ($(document).height() > $windowHeight) {
-    console.log("test");
+    console.log('windowheight:', $windowHeight);
+    console.log('wdocheight:', $(document).height());
     $(window).scroll(function () {
       $navigationDestkop = $('.navigation-desktop');
       var scroll = $(window).scrollTop();
@@ -168,35 +169,19 @@ $(document).ready(function () {
     } else {
       $allergenWrapper.hide();
     }
-  }); // char counter title
-  // var max_length_title = 35;
-  // var counter_title = document.querySelector('.js-count-title');
-  // var inputTitle =  document.getElementsByClassName('js-input-title');
-  // if (typeof(inputTitle) != 'undefined' && inputTitle != null)
-  // {
-  //     document.querySelector('.js-input-title').addEventListener('keyup', function(event){
-  //         var text_title = event.target.value;
-  //         if(text_title.length > max_length_title) {
-  //             text_title = text_title.substr(0,max_length_title);
-  //             event.target.value = text_title;
-  //         }
-  //         counter_title.textContent = max_length_title - text_title.length;
-  //     });
-  // }
-  // char counter description
-  // var max_length_description = 150;
-  // var counter_description = document.querySelector('.js-count-description');
-  //
-  //
-  //     document.querySelector('.js-input-description').addEventListener('keyup', function (event) {
-  //         var text = event.target.value;
-  //         if (text.length > max_length_description) {
-  //             text = text.substr(0, max_length_description);
-  //             event.target.value = text;
-  //         }
-  //         counter_description.textContent = max_length_description - text.length;
-  //     });
-  // add ingredient input field
+  });
+  $toggleShowCategories = $('.js-toggle-show-categories');
+  $categoriesWrapper = $('.js-categories-wrapper');
+  $categoriesWrapper.hide();
+  $toggleShowCategories.click(function () {
+    $toggleShowCategories.find("i").toggleClass("fa-caret-up fa-caret-down");
+
+    if ($toggleShowCategories.find("i").hasClass("fa-caret-up")) {
+      $categoriesWrapper.show();
+    } else {
+      $categoriesWrapper.hide();
+    }
+  }); // add ingredient input field
   // $('.add-ingredient').click(function() {
   //     $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" +
   //         "<input name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" +
@@ -224,11 +209,12 @@ $(document).ready(function () {
 
   $('.add-step').click(function () {
     count += 1;
-    $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" + "<div>\n" + "<div class=\"steps-count\">" + count + "</div>\n" + "<div class=\"input-flex\">\n" + "<input rows=\"6\" cols=\"150\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\">\n" + "<div class=\"js-remove-step\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
+    $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" + "<div>\n" + "<div class=\"steps-count\">" + count + "</div>\n" + "<div class=\"input-flex\">\n" + "<textarea rows=\"6\" cols=\"150\" type=\"text\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\"></textarea>\n" + "<div class=\"js-remove-step\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
   }); //remove step
 
   $('.js-wrapper-steps-input').on('click', 'div.js-remove-step', function () {
-    $(this).parent().parent().parent().remove();
+    // console.log($(this).parent().parent());
+    $(this).parent().parent().remove();
   });
   var category = "";
   var allergens = []; //filter recipe allergens
@@ -381,7 +367,7 @@ $(document).ready(function () {
     },
     errorPlacement: function errorPlacement(error, element) {
       if (element.is(":radio")) {
-        error.prependTo(element.parent().parent());
+        error.appendTo(element.parent().parent().parent());
       } else {
         // This is the default behavior of the script for all fields
         error.insertAfter(element);
@@ -390,9 +376,44 @@ $(document).ready(function () {
     submitHandler: function submitHandler(form) {
       form.submit();
     }
+  }); // char counter title
+
+  var max_length_title = 35;
+  var counter_title = document.querySelector('.js-count-title');
+  var inputTitle = document.getElementsByClassName('js-input-title');
+
+  if (typeof inputTitle != 'undefined' && inputTitle != null) {
+    document.querySelector('.js-input-title').addEventListener('keyup', function (event) {
+      var text_title = event.target.value;
+
+      if (text_title.length > max_length_title) {
+        text_title = text_title.substr(0, max_length_title);
+        event.target.value = text_title;
+      }
+
+      counter_title.textContent = max_length_title - text_title.length;
+    });
+  } // char counter description
+
+
+  var max_length_description = 150;
+  var counter_description = document.querySelector('.js-count-description');
+  document.querySelector('.js-input-description').addEventListener('keyup', function (event) {
+    var text = event.target.value;
+
+    if (text.length > max_length_description) {
+      text = text.substr(0, max_length_description);
+      event.target.value = text;
+    }
+
+    counter_description.textContent = max_length_description - text.length;
   });
-}); // $(window).on("load", function() {
-//     $('.spinner').fadeOut('slow');
+}); //
+// $(window).on("load", function() {
+//     setTimeout(function () {
+//         $('.spinner').addClass('showSpinner');
+//     },1000)
+//     $('.spinner').removeClass('showSpinner');
 // });
 
 /***/ }),

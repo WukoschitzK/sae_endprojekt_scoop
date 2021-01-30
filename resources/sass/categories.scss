@@ -3,7 +3,6 @@
 
   li {
     margin-bottom: 10px;
-    cursor: pointer;
   }
 
   li.active {
@@ -21,15 +20,19 @@
 
 .categories-desktop {
   .categories-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width:50%;
-    margin: 0 auto;
+    margin: 10px 0 0 40px;
     font-size: 22px;
-    height:42px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
 
     li {
-      transition: 0.3s ease-in-out;
+        align-self: flex-start;
+        label {
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
     }
 
     li.active {
@@ -39,8 +42,10 @@
     }
 
     li:hover {
-      font-weight: 700;
-      transition: 0.3s ease-in-out;
+        label {
+            font-weight: 700;
+            transition: 0.5s ease;
+        }
     }
   }
 }
@@ -53,4 +58,26 @@
   .wrapper-filter {
 
   }
+}
+
+@media (min-width: $Tablet) {
+    .categories-desktop {
+        .categories-wrapper {
+            flex-direction: row;
+            justify-content: space-between;
+            width:70%;
+            margin: 0 auto;
+            height:42px;
+        }
+    }
+
+}
+
+@media (min-width: $Desktop) {
+    .categories-desktop {
+        .categories-wrapper {
+            width:50%;
+        }
+    }
+
 }

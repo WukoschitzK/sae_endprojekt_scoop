@@ -90,9 +90,9 @@ class RecipeController extends Controller
             'title' => 'required|min:3|max:35',
             'description' => 'required|min:3|max:150',
             'image' => 'nullable|mimes:jpeg,png',
-            'ingredient' => 'array|required|min:1',
+            'ingredient' => 'array|required|min:1|max:150',
             'ingredient.*' => 'required|string',
-            'steps' => 'array|filled|required|min:1',
+            'steps' => 'array|filled|required|min:1|max:150',
             'steps.*' => 'string|min:1',
             'category' => 'required'
         ]);

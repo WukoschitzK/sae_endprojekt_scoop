@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Edit')
+@section('title', 'Edit Profile')
 
 @section('container')
 
@@ -41,21 +41,27 @@
 
 
             <div class="form-edit-profile-wrapper-input">
-                <label for="input_name">Name:</label>
+                <label for="input_name">Name <span class="required-star">*</span></label>
                 <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="input_name">
                 <div class="error">{{ $errors->first('name') }}</div>
             </div>
 
             <div class="form-edit-profile-wrapper-input">
-                <label for="input_email">Email:</label>
+                <label for="input_email">Email <span class="required-star">*</span></label>
                 <input type="email" name="email" value="{{ $user->email }}" class="form-control" id="input_email">
                 <div class="error">{{ $errors->first('email') }}</div>
             </div>
 
             <div class="form-edit-profile-wrapper-input">
-                <label for="input_password">Password:</label>
+                <label for="input_password">Password <span class="required-star">*</span></label>
                 <input type="password" name="password" class="form-control" id="input_password">
                 <div class="error">{{ $errors->first('password') }}</div>
+            </div>
+
+            <div class="form-edit-profile-wrapper-input">
+                <label for="input_preferred_content">What are your recipes about <span class="required-star">*</span></label>
+                <input type="text" name="preferred_content" value="{{ $user->preferred_content }}" class="form-control" id="input_preferred_content">
+                <div class="error">{{ $errors->first('preferred_content') }}</div>
             </div>
 
 {{--            <div class="margin-bottom-30 form-edit-profile-wrapper-input">--}}

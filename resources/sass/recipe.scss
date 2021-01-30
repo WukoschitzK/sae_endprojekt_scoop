@@ -89,6 +89,7 @@
 .rating-star-wrapper {
     display:flex;
     justify-content: flex-end;
+    margin-bottom: 15px;
 
     img.rating-star {
         width:20px;
@@ -177,6 +178,14 @@
     }
 }
 
+.comments-flex-wrap {
+    max-width:700px;
+
+    div.comment-wrapper {
+        width:45%;
+    }
+}
+
 
 /***************TABLET***************/
 
@@ -254,15 +263,7 @@
     }
   }
 
-  .comments-flex-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 
-    div.comment-wrapper {
-      width:45%;
-    }
-  }
 
   //.step-list-item {
     .steps-count {

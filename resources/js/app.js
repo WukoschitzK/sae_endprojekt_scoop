@@ -22,11 +22,12 @@ $(document).ready(function() {
     //sticky nav
 
     $windowHeight = $(window).height();
-    $windowHeight += 200;
+    $windowHeight += 220;
 
     if ($(document).height() > $windowHeight) {
 
-        console.log("test");
+        console.log('windowheight:', $windowHeight);
+        console.log('wdocheight:', $(document).height());
 
         $(window).scroll(function() {
             $navigationDestkop = $('.navigation-desktop');
@@ -89,41 +90,22 @@ $(document).ready(function() {
         }
     });
 
+    $toggleShowCategories = $('.js-toggle-show-categories');
+    $categoriesWrapper = $('.js-categories-wrapper');
 
-    // char counter title
+    $categoriesWrapper.hide();
 
-    // var max_length_title = 35;
-    // var counter_title = document.querySelector('.js-count-title');
-
-    // var inputTitle =  document.getElementsByClassName('js-input-title');
-    // if (typeof(inputTitle) != 'undefined' && inputTitle != null)
-    // {
-    //     document.querySelector('.js-input-title').addEventListener('keyup', function(event){
-    //         var text_title = event.target.value;
-    //         if(text_title.length > max_length_title) {
-    //             text_title = text_title.substr(0,max_length_title);
-    //             event.target.value = text_title;
-    //         }
-    //         counter_title.textContent = max_length_title - text_title.length;
-    //     });
-    // }
+    $toggleShowCategories.click(function() {
+        $toggleShowCategories.find("i").toggleClass("fa-caret-up fa-caret-down");
+        if($toggleShowCategories.find("i").hasClass("fa-caret-up")) {
+            $categoriesWrapper.show();
+        } else {
+            $categoriesWrapper.hide();
+        }
+    });
 
 
 
-    // char counter description
-
-    // var max_length_description = 150;
-    // var counter_description = document.querySelector('.js-count-description');
-    //
-    //
-    //     document.querySelector('.js-input-description').addEventListener('keyup', function (event) {
-    //         var text = event.target.value;
-    //         if (text.length > max_length_description) {
-    //             text = text.substr(0, max_length_description);
-    //             event.target.value = text;
-    //         }
-    //         counter_description.textContent = max_length_description - text.length;
-    //     });
 
 
 
@@ -176,7 +158,7 @@ $(document).ready(function() {
             "<div>\n" +
                 "<div class=\"steps-count\">" + count + "</div>\n" +
                 "<div class=\"input-flex\">\n" +
-                    "<input rows=\"6\" cols=\"150\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\">\n" +
+                    "<textarea rows=\"6\" cols=\"150\" type=\"text\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\"></textarea>\n" +
                     "<div class=\"js-remove-step\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" +
                 "</div>\n" +
             "</div>\n" +
@@ -185,7 +167,8 @@ $(document).ready(function() {
 
     //remove step
     $('.js-wrapper-steps-input').on('click', 'div.js-remove-step', function() {
-        $(this).parent().parent().parent().remove();
+        // console.log($(this).parent().parent());
+        $(this).parent().parent().remove();
     });
 
 
@@ -374,7 +357,7 @@ $(document).ready(function() {
         },
         errorPlacement: function(error, element) {
             if ( element.is(":radio") ) {
-                error.prependTo( element.parent().parent() );
+                error.appendTo( element.parent().parent().parent() );
             }
             else { // This is the default behavior of the script for all fields
                 error.insertAfter( element );
@@ -385,11 +368,51 @@ $(document).ready(function() {
         }
     });
 
+
+    // char counter title
+
+    var max_length_title = 35;
+    var counter_title = document.querySelector('.js-count-title');
+
+    var inputTitle =  document.getElementsByClassName('js-input-title');
+    if (typeof(inputTitle) != 'undefined' && inputTitle != null)
+    {
+        document.querySelector('.js-input-title').addEventListener('keyup', function(event){
+            var text_title = event.target.value;
+            if(text_title.length > max_length_title) {
+                text_title = text_title.substr(0,max_length_title);
+                event.target.value = text_title;
+            }
+            counter_title.textContent = max_length_title - text_title.length;
+        });
+    }
+
+
+
+// char counter description
+
+    var max_length_description = 150;
+    var counter_description = document.querySelector('.js-count-description');
+
+
+    document.querySelector('.js-input-description').addEventListener('keyup', function (event) {
+        var text = event.target.value;
+        if (text.length > max_length_description) {
+            text = text.substr(0, max_length_description);
+            event.target.value = text;
+        }
+        counter_description.textContent = max_length_description - text.length;
+    });
+
+
 });
 
-
+//
 // $(window).on("load", function() {
-//     $('.spinner').fadeOut('slow');
+//     setTimeout(function () {
+//         $('.spinner').addClass('showSpinner');
+//     },1000)
+//     $('.spinner').removeClass('showSpinner');
 // });
 
 
