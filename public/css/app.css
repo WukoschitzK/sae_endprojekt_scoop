@@ -476,6 +476,7 @@ svg.fa-bars {
 .navigation-mobile-flex {
   display: flex;
   justify-content: space-between;
+  align-content: center;
 }
 
 .navigation-mobile.scrolled {
@@ -483,7 +484,7 @@ svg.fa-bars {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 25px 10px 25px;
+  padding: 10px 25px 10px 25px;
   transition: 0.3s ease;
   box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.15);
   z-index: 1;
@@ -491,6 +492,7 @@ svg.fa-bars {
 
 .navigation-mobile.scrolled .logo {
   transition: 0.3s ease-in-out;
+  width: 90px;
 }
 
 .navigation-mobile.scrolled .navigation-mobile-flex {
