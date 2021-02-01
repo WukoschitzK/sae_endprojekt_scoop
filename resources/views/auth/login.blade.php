@@ -17,11 +17,13 @@
                 <div class="form-edit-profile-wrapper-input">
                     <label for="input_email">Email:</label>
                     <input type="email" name="email" value="" id="input_email" placeholder="Enter email">
+                    <div class="error">{{ $errors->first('email') }}</div>
                 </div>
 
                 <div class="form-edit-profile-wrapper-input">
                     <label for="input_password">Password:</label>
                     <input type="password" name="password" value="" id="input_password" placeholder="Enter password">
+                    <div class="error">{{ $errors->first('password') }}</div>
                 </div>
 
 
