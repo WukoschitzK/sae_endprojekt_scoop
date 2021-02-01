@@ -25,7 +25,7 @@
                 @if($recipe->image_path)
                     <img class="recipe-detail-img" src="/storage/images/recipe_images/{{ $recipe->image_path }}" alt="Picture of Recipe" />
                 @else
-                    <img class="recipe-detail-img" src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
+                    <img class="recipe-detail-img" src="../images/recipe-image-placeholder.svg" alt="Placeholderimage of Recipe" />
                 @endif
                 <div class="recipe-detail-text wrapper">
 
@@ -124,7 +124,7 @@
         </div>
 
 
-        <div class="wrapper">
+        <div class="wrapper wrapper-recipe-show">
 {{--            desktop--}}
             <div class="recipe-detail-ingredient-step-flex margin-bottom-50 desktop-ingr-steps">
                 <div class="recipe-detail-ingredient-step-item">
@@ -210,11 +210,11 @@
 
 
                 <div class="margin-bottom-50">
-                    <h2 class="margin-bottom-30">Leave a Reply</h2>
+                    <h2 class="margin-bottom-30">Rate & leave a Reply</h2>
                     <div class="txt-center">
-                        <form class="form-recipe" action="{{route('recipes.postReview', $recipe->id)}}" method="post">
+                        <form class="form-comment" action="{{route('recipes.postReview', $recipe->id)}}" method="post">
                             @csrf
-                            <div class="rating">
+                            <div class="rating margin-bottom-20">
                                 <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
                                 <label for="star5">☆</label>
                                 <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
@@ -227,7 +227,7 @@
                                 <label for="star1" >☆</label>
                             </div>
 
-                            <div>
+                            <div class="margin-bottom-30">
                                 <label for="input_comment">Comment:</label>
                                 <textarea rows="6" cols="150" type="text" class="form-recipe-input" name="comment" value="" id="input_comment"></textarea>
                             </div>

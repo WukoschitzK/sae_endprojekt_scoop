@@ -7,6 +7,15 @@
     <div class="wrapper">
         <div class="h1 heading-line d-inline-block">My Recipes</div>
 
+        <div class="align-right margin-bottom-50">
+            <a href="{{route('recipes.create')}}">
+                <div class="cta-btn-wrapper cta-btn-small">
+                    <div class="cta-btn">
+                        new recipe!
+                    </div>
+                </div>
+            </a>
+        </div>
 
 
         @if($recipes->isEmpty())
@@ -40,7 +49,7 @@
                                     @if($recipe->image_path)
                                         <img class="recipe-detail-img" src="/storage/images/recipe_images/{{ $recipe->image_path }}" alt="Picture of Recipe" />
                                     @else
-                                        <img class="recipe-detail-img" src="/images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
+                                        <img class="recipe-detail-img" src="/images/recipe-image-placeholder.svg" alt="Placeholderimage of Recipe" />
                                     @endif
                                 </div>
                                 <div class="recipe-card-text">

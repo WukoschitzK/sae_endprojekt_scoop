@@ -189,7 +189,7 @@ $(document).ready(function () {
   // });
 
   $('.add-ingredient').click(function () {
-    $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" + "<div>\n" + "<div class=\"input-flex\">\n" + "<div class=\"input-width-100\">\n" + "<input rows=\"6\" cols=\"150\" name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" + "</div>\n" + "<div class=\"js-remove-ingredient\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
+    $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" + "<div>\n" + "<div>\n" + "<div class=\"input-width-100\">\n" + "<input rows=\"6\" cols=\"150\" name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" + "</div>\n" + "<div class=\"js-remove-ingredient text-right\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
   }); //remove ingredients
   // $('.js-remove-ingredient').click(function() {
   //     $(this).parent().remove();
@@ -209,7 +209,7 @@ $(document).ready(function () {
 
   $('.add-step').click(function () {
     count += 1;
-    $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" + "<div>\n" + "<div class=\"steps-count\">" + count + "</div>\n" + "<div class=\"input-flex\">\n" + "<textarea rows=\"6\" cols=\"150\" type=\"text\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\"></textarea>\n" + "<div class=\"js-remove-step\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
+    $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" + "<div>\n" + "<div class=\"steps-count\">" + count + "</div>\n" + "<div>\n" + "<textarea rows=\"6\" cols=\"150\" type=\"text\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\"></textarea>\n" + "<div class=\"js-remove-step text-right\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
   }); //remove step
 
   $('.js-wrapper-steps-input').on('click', 'div.js-remove-step', function () {

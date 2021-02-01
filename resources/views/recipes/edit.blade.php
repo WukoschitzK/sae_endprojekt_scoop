@@ -22,14 +22,14 @@
             @csrf
 
             <div class="form-recipe-wrapper-input">
-                <label for="input_title">Title:</label>
+                <label for="input_title">Title <span class="required-star">*</span></label>
                 <input type="text" name="title" value="{{ $recipe->title }}" class="form-recipe-input" id="input_title">
                 <div class="form-character-counter text-right">max 35 characters</div>
                 <div class="error">{{ $errors->first('title') }}</div>
             </div>
 
             <div class="form-recipe-wrapper-input">
-                <label for="input_description">Description:</label>
+                <label for="input_description">Description <span class="required-star">*</span></label>
                 <textarea rows="6" cols="150" type="text" name="description" class="form-recipe-input" id="input_description">{{ $recipe->description }}</textarea>
                 <div class="form-character-counter text-right">max 150 characters</div>
                 <div class="error">{{ $errors->first('description') }}</div>
@@ -37,15 +37,15 @@
 
             <div class="form-recipe-wrapper-input">
                 <div class="js-wrapper-ingredients-input">
-                    <label for="input_ingredients">Ingredients:</label>
+                    <label for="input_ingredients">Ingredients <span class="required-star">*</span></label>
 
                         @foreach($recipe->ingredients as $ingredient)
                         <div class="wrapper-ingredients">
-                            <div class="input-flex">
+                            <div>
                                 <div class="input-width-100">
                                     <input name="ingredient[]" value="{{ $ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">
                                 </div>
-                                <div class="js-remove-ingredient"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
+                                <div class="js-remove-ingredient text-right"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
                             </div>
                             <div class="error">{{ $errors->first('ingredient') }}</div>
                         </div>
@@ -59,17 +59,17 @@
 
             <div class="form-recipe-wrapper-input">
                 <div class="js-wrapper-steps-input">
-                    <label for="input_steps">Steps:</label>
+                    <label for="input_steps">Steps <span class="required-star">*</span></label>
                     <div class="wrapper-steps">
 
                     @foreach($recipe->steps as $step)
                         <div>
                             <div class="steps-count">1</div>
-                            <div class="input-flex">
+                            <div>
                                 <div class="input-width-100">
                                     <textarea rows="6" cols="150" type="text" name="steps[]" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">{{ $step }}</textarea>
                                 </div>
-                                <div class="js-remove-step"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
+                                <div class="js-remove-step text-right"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
                             </div>
                         </div>
                     @endforeach
@@ -99,7 +99,7 @@
                         <div id="imagePreview" class="current-recipe-image" style="background-image: url(/storage/images/recipe_images/{{ $recipe->image_path }});">
                         </div>
                     @else
-                        <div id="imagePreview" class="current-recipe-image" style="background-image: url(/images/recipe-image-placeholder.jpg);">
+                        <div id="imagePreview" class="current-recipe-image" style="background-image: url(/images/recipe-image-placeholder.svg);">
                         </div>
                         {{--                                <img class="profile-information-image" src="../images/avatar.png" alt="Profile Image" />--}}
                     @endif
@@ -132,7 +132,7 @@
             </div>
 
             <div class="form-recipe-wrapper-input">
-                <div class="text-bold margin-bottom-10">Categories</div>
+                <div class="text-bold margin-bottom-10">Category <span class="required-star">*</span></div>
                 <ul class="category-selection-wrapper">
                     @foreach($categories as $category)
                         <li>

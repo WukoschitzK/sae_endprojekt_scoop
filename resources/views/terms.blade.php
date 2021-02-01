@@ -104,6 +104,11 @@
 
                 <p>These Terms will be governed by and interpreted in accordance with the laws of the State of at, and you submit to the non-exclusive jurisdiction of the state and federal courts located in at for the resolution of any disputes.</p>
             </div>
+
+            <div>
+                <h2>Credits</h2>
+                <p><a href="https://www.freepik.com/vectors/food">Food vector created by eightonesix - www.freepik.com</a></p>
+            </div>
         </div>
     </div>
 

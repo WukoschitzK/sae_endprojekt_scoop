@@ -279,11 +279,6 @@ textarea,input {
     }
 }
 
-
-
-
-
-
 .steps-count {
   background-color: $mainColorCyan;
   width:32px;
@@ -305,16 +300,22 @@ textarea,input {
     justify-content: center;
     align-items: center;
 
-    .remove-icon {
-        width: 15px;
-        margin-left: 15px;
-    }
+
+}
+
+.remove-icon {
+    width: 15px;
+    //margin-left: 15px;
+
 }
 
 .add-icon {
     width: 15px;
 }
 
+.required-star {
+    color: $mainColorPink;
+}
 
 //Comment Form
 
@@ -535,6 +536,11 @@ textarea,input {
         justify-content: center;
         gap: 20px;
     }
+}
+
+.form-comment {
+    @extend .form-recipe;
+    margin: 0;
 }
 
 

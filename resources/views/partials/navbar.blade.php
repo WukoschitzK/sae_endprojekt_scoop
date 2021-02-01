@@ -87,7 +87,7 @@
                     @else()
                     <li>
                         <a href="{{ url('/profile/' . auth()->user()->id) }}"
-                        class="navigation-desktop-profile-navigation-points">{{auth()->user()->name}}</a><i class="fas fa-caret-down js-toggle-icon"></i>
+                        class="navigation-desktop-profile-navigation-points">{{auth()->user()->name}}</a>
 
                         <ul class="open-user-navigation-points">
                             <li>

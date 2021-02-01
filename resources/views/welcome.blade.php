@@ -76,24 +76,20 @@
                 <ol class="home-list-how-it-works">
                     <li class="margin-bottom-50">
                         <h2>Sign up & <br/> be creative</h2>
-                        <p>Create a user profile and give others a hint for your incoming recipes.</p>
+                        <p>Create your user profile and can give a short introduction of what's your taste and upcoming recipes about.</p>
                     </li>
                     <li class="margin-bottom-50">
                         <h2>Make the <br/> community alive!</h2>
-                        <p>Create recipes & share it with your followers. Comment recipes …</p>
+                        <p>Your friends and family love your cooking skills? Great! Now you can share your well-loved creations with your friends and faithful followers.</p>
                     </li>
                     <li class="margin-bottom-50">
                         <h2>& don’t miss your <br/> besties new recipe! </h2>
-                        <p>Your newsfeed will always be filled with the latest recipe-posts.</p>
+                        <p>Follow your friends and your favorite foodie fellow! Your newsfeed will always be filled with the latest recipe-posts.</p>
                     </li>
                 </ol>
             </div>
         </div>
 
-{{--        <div class="how-it-works-video-section margin-bottom-30">--}}
-{{--            {isDesktop ? <img className="how-it-works-video-placeholder-desktop" src={howItWorksVideoPlaceholderDesktop} alt="Video Placeholder" /> : <img className="how-it-works-video-placeholder" src={howItWorksVideoPlaceholder} alt="Video Placeholder" />}--}}
-{{--            <img src="../images/how-it-works-video-placeholer-desktop.png" alt="Video Placeholder" class="how-it-works-video-placeholder-desktop">--}}
-{{--        </div>--}}
 
         <div class="wrapper">
 
@@ -122,7 +118,7 @@
                                     @if($recipe->image_path)
                                         <img class="recipe-detail-img" src="/storage/images/recipe_images/{{ $recipe->image_path }}" alt="Picture of Recipe" />
                                     @else
-                                        <img class="recipe-detail-img" src="../images/recipe-image-placeholder.jpg" alt="Placeholderimage of Recipe" />
+                                        <img class="recipe-detail-img" src="../images/recipe-image-placeholder.svg" alt="Placeholderimage of Recipe" />
                                     @endif
                                 </div>
 
