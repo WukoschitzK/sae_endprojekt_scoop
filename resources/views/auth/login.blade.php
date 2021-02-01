@@ -11,7 +11,7 @@
 
 
         <div>
-            <form class="containers form-edit-profile" method="post" action="{{ route('auth.postLogin') }}" autocomplete="off">
+            <form class="containers form-edit-profile" method="post" name="login" action="{{ route('auth.postLogin') }}" autocomplete="off">
                 @csrf
 
                 <div class="form-edit-profile-wrapper-input">

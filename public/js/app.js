@@ -328,10 +328,36 @@ $(document).ready(function () {
       },
       password: {
         required: true
+      },
+      preferred_content: {
+        required: true
       }
     },
     messages: {
       name: "Please enter your name",
+      password: {
+        required: "Please provide a password",
+        minlength: "Your password must be at least 5 characters long"
+      },
+      email: "Please enter a valid email address",
+      preferred_content: "Please give us a short hint of your content"
+    },
+    submitHandler: function submitHandler(form) {
+      form.submit();
+    }
+  }); //form validation for login page
+
+  $("form[name='login']").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true
+      },
+      password: {
+        required: true
+      }
+    },
+    messages: {
       password: {
         required: "Please provide a password",
         minlength: "Your password must be at least 5 characters long"
