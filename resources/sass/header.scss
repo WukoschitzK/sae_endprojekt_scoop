@@ -2,127 +2,126 @@
 /***************MOBILE***************/
 
 .header-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navigation-mobile {
-  transition: 0.3s ease-in-out;
-  padding: 20px 25px;
+    transition: 0.3s ease;
+    padding: 20px 25px;
+    background-color: white;
 }
 
 .logo {
-  width:120px;
-  transition: 0.3s ease-in-out;
+    width:120px;
+    transition: 0.3s ease-in-out;
 }
 
 svg.fa-times, svg.fa-bars {
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 .icon {
-  width:25px;
+    width:25px;
 }
 
 .navigation-desktop {
-  display: none;
+    display: none;
 }
 
 .navigation-mobile-flex {
-  display:flex;
-  justify-content: space-between;
+    display:flex;
+    justify-content: space-between;
 }
 
 .navigation-mobile.scrolled{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width:100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px 25px 10px 25px;
-  transition: 0.3s ease-in-out;
-  box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.15);
-  z-index:1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    padding: 20px 25px 10px 25px;
+    transition: 0.3s ease;
+    box-shadow: 2px 2px 15px 0px rgba(0,0,0,0.15);
+    z-index:1;
 
   .logo {
-    width:80px;
     transition: 0.3s ease-in-out;
   }
 
   .navigation-mobile-flex {
-    width:85%;
+    width:100%;
   }
 }
 
 //Click Nav
 
 .menu-btn {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: all .5s ease-in-out;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
 }
 .menu-btn__burger {
-  width: 30px;
-  height: 4px;
-  background: $mainColorPurple;
-  border-radius: 5px;
-  transition: all .5s ease-in-out;
+    width: 30px;
+    height: 4px;
+    background: $mainColorPurple;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
 }
 .menu-btn__burger::before,
 .menu-btn__burger::after {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 4px;
-  background: $mainColorPurple;
-  border-radius: 5px;
-  transition: all .5s ease-in-out;
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background: $mainColorPurple;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
 }
 .menu-btn__burger::before {
-  transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 .menu-btn__burger::after {
-  transform: translateY(10px);
+    transform: translateY(10px);
 }
 
 //Click Nav Animation
 
 .menu-btn.open .menu-btn__burger {
-  transform: translateX(-50px);
-  background: transparent;
+    transform: translateX(-50px);
+    background: transparent;
 }
 .menu-btn.open .menu-btn__burger::before {
-  transform: rotate(45deg) translate(35px, -35px);
+    transform: rotate(45deg) translate(35px, -35px);
 }
 .menu-btn.open .menu-btn__burger::after {
-  transform: rotate(-45deg) translate(35px, 35px);
+    transform: rotate(-45deg) translate(35px, 35px);
 }
 
 .navigation-mobile.open {
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 1);
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 1);
 
-  .navigation-mobile-open-navpoints {
-    ul {
-      margin-top: 30px;
-      margin-left: 40px;
+    .navigation-mobile-open-navpoints {
+        ul {
+            margin-top: 30px;
+            margin-left: 40px;
 
-      li {
-        padding-bottom: 20px;
+          li {
+            padding-bottom: 20px;
 
-        a {
-          font-size: 25px;
+            a {
+                font-size: 25px;
+            }
+          }
         }
-      }
     }
-  }
 }
 
 /***************TABLET***************/
@@ -154,7 +153,6 @@ svg.fa-times, svg.fa-bars {
       width: 85%;
     }
   }
-
 
   .navigation-mobile.open {
 
@@ -221,7 +219,6 @@ svg.fa-times, svg.fa-bars {
     background-color: white;
     padding-left: 5px;
     li {
-      //background-color: rgba(255, 255, 255, 1);
       transition: 0.3s ease-in-out;
       background-color: white;
     }
@@ -230,6 +227,7 @@ svg.fa-times, svg.fa-bars {
   .navigation-desktop {
     display: block;
     padding: 30px 100px;
+    background-color: white;
     transition: 0.3s ease-in-out;
 
     .logo {
@@ -244,9 +242,8 @@ svg.fa-times, svg.fa-bars {
     }
 
     ul li a:hover {
-      //font-weight: 700;
         color: $mainColorDarkCyan;
-      transition: 0.5s ease;
+        transition: 0.5s ease;
     }
 
     ul li a img.search-icon {

@@ -121,12 +121,15 @@ $(document).ready(function () {
     console.log('wdocheight:', $(document).height());
     $(window).scroll(function () {
       $navigationDestkop = $('.navigation-desktop');
+      $navigationMobile = $('.navigation-mobile');
       var scroll = $(window).scrollTop();
 
       if (scroll >= 5) {
         $navigationDestkop.addClass("scrolled");
+        $navigationMobile.addClass("scrolled");
       } else {
         $navigationDestkop.removeClass("scrolled");
+        $navigationMobile.removeClass("scrolled");
       }
     });
   } // mobilenav

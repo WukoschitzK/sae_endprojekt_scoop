@@ -1,38 +1,4 @@
 
-//hero-section
-
-//.home-image {
-//  width:100%;
-//  margin: 0 auto;
-//  display: flex;
-//  justify-content: center;
-//  margin-bottom: 30px;
-//}
-//
-//.home-hero-section {
-//  margin-bottom:50px;
-//}
-
-//.home-hero-section-text {
-//  p {
-//    font-size: 23px;
-//  }
-//  p:first-child {
-//    font-size: 45px;
-//    line-height: 45px;
-//      font-weight: 700;
-//    margin-bottom: 15px;
-//  }
-//}
-
-
-
-//new header section
-
-//.rotate {
-//    animation: rotation 80s infinite linear;
-//}
-
 .rotate-leaves-left {
     animation: rotation-leaves 6s infinite linear;
     transform-origin: bottom right;
@@ -481,7 +447,7 @@ a.link:hover {
 
         .home-hero-text-wrapper {
             width: 60%;
-            padding: 100px 0 0 100px;
+            padding: 0 0 0 50px;
             //z-index: 2;
 
             p {
@@ -706,9 +672,6 @@ a.link:hover {
 
         .home-hero-text-wrapper {
             width: 50%;
-            padding: 100px 0 0 100px;
-            //padding-top: 120px;
-            //z-index: 2;
 
             p {
                font-size: 35px;
@@ -717,7 +680,6 @@ a.link:hover {
 
                 a {
                     font-weight: 700;
-                    //text-decoration: underline;
                     border-bottom: 4px solid $mainColorDarkPurple;
                     padding-bottom: 5px;
                     transition: 0.4s ease;
@@ -730,8 +692,8 @@ a.link:hover {
             }
 
             p:first-child {
-                font-size: 90px;
-                line-height: 100px;
+                font-size: 80px;
+                line-height: 75px;
                 font-weight:700;
                 margin-bottom: 25px;
             }
@@ -827,7 +789,7 @@ a.link:hover {
                     //top:auto;
                     top: 250px;
                     right: 100px;
-                    height: 85%;
+                    height: 75%;
                     display: block;
                 }
 
@@ -930,7 +892,78 @@ a.link:hover {
 }
 
 
-@media (min-width: 1900px) {
+@media (min-width: $Desktop-Lg) {
+
+    .header-container {
+
+        .home-hero-text-wrapper {
+            padding: 50px 0 0 100px;
+            p {
+                font-size: 40px;
+                line-height: 55px;
+                max-width: 30ch;
+            }
+
+            p:first-child {
+                font-size: 95px;
+                line-height: 100px;
+            }
+        }
+
+        .header-container-images-salad {
+
+            .images-salad-position-rel {
+
+                .salad-bowl {
+                    position: absolute;
+                    top: 250px;
+                    right: 100px;
+                    height: 85%;
+                    display: block;
+                }
+
+                .blatt-oben-links {
+                    position: absolute;
+                    bottom: 710px;
+                    right: 300px;
+                    height: 10%;
+                }
+
+                .heidelbeere-rechts {
+                    position: absolute;
+                    bottom: 630px;
+                    right: 270px;
+                    height: 7%;
+                }
+
+                .stachelbeere-rechts-oben {
+                    position: absolute;
+                    bottom: 670px;
+                    right: 210px;
+                    height: 10%;
+                }
+
+                .stachelbeere-rechts-unten {
+                    position: absolute;
+                    bottom: 590px;
+                    right: 200px;
+                    height: 8%;
+                }
+
+                .blatt-oben-rechts {
+                    position: absolute;
+                    bottom: 650px;
+                    right: 130px;
+                    height: 13%;
+                }
+            }
+        }
+    }
+
+}
+
+
+@media (min-width: $Desktop-Xl) {
 
   .how-it-works-video-placeholder-desktop {
     width: 60%;

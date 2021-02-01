@@ -13,14 +13,6 @@
 </div>
 
 <div class="form-recipe-wrapper-input">
-{{--    <div class="js-wrapper-ingredients-input">--}}
-{{--        <div class="wrapper-ingredients">--}}
-{{--            <label for="input_ingredient">Ingredients:</label>--}}
-{{--            <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredient">--}}
-{{--            <div class="error">{{ $errors->first('ingredient') }}</div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="text-right add-ingredient">+</div>--}}
 
     <div class="js-wrapper-ingredients-input">
         <label for="input_ingredients">Ingredients <span class="required-star">*</span></label>
@@ -62,16 +54,6 @@
 </div>
 
 
-{{--<div class="form-recipe-wrapper-input">--}}
-{{--    <label for="input_image" class="text-bold margin-bottom-10">Images</label>--}}
-{{--    <input type="file" name="image" class="form-control" id="input_image">--}}
-{{--    <div>+ Add Images</div>--}}
-{{--</div>--}}
-
-
-
-
-
 {{--imageupload with preview--}}
 <div class="text-bold">Image</div>
 <div class="recipe-image-upload">
@@ -85,8 +67,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <div class="form-recipe-wrapper-input">

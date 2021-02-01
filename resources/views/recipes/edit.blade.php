@@ -64,7 +64,7 @@
 
                     @foreach($recipe->steps as $step)
                         <div>
-                            <div class="steps-count">1</div>
+                            <div class="steps-count">{{ $loop->iteration}}</div>
                             <div>
                                 <div class="input-width-100">
                                     <textarea rows="6" cols="150" type="text" name="steps[]" value="{{ $step }}" class="form-recipe-input margin-bottom-10" id="input_steps">{{ $step }}</textarea>
