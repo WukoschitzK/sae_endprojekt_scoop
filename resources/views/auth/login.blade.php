@@ -7,7 +7,7 @@
     <div class="wrapper">
 
         <div class="h1 heading-line d-inline-block">Login</div>
-        <p class="text-center margin-bottom-30 font-20-px w-md-40">Login to your <span className="text-black">scoop</span> account</p>
+        <p class="text-center margin-bottom-30 font-20-px w-md-40">Login to your <span class="text-black">scoop</span> account</p>
 
 
         <div>

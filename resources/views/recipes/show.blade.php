@@ -229,7 +229,7 @@
 
                             <div class="margin-bottom-30">
                                 <label for="input_comment">Comment:</label>
-                                <textarea rows="6" cols="150" type="text" class="form-recipe-input" name="comment" value="" id="input_comment"></textarea>
+                                <textarea rows="6" cols="150" class="form-recipe-input" name="comment" id="input_comment"></textarea>
                             </div>
 
                             <div class="cta-btn-wrapper cta-btn-small margin-bottom-50">

@@ -7,7 +7,7 @@
 
 <div class="form-recipe-wrapper-input">
     <label for="input_description">Description <span class="required-star">*</span></label>
-    <textarea rows="6" cols="150" type="text" name="description" class="form-recipe-input js-input-description" id="input_description">{{ $recipe->description }}</textarea>
+    <textarea rows="6" cols="150" name="description" class="form-recipe-input js-input-description" id="input_description">{{ $recipe->description }}</textarea>
     <div class="form-character-counter text-right"><span class="js-count-description">150</span> characters</div>
     <div class="error">{{ $errors->first('description') }}</div>
 </div>
@@ -41,7 +41,7 @@
                 <div class="steps-count">1</div>
                 <div>
                     <div class="input-width-100">
-                        <textarea rows="6" cols="150" type="text" name="steps[]" value="{{ $recipe->step }}" class="form-recipe-input margin-bottom-10" id="input_steps"></textarea>
+                        <textarea rows="6" cols="150" name="steps[]" class="form-recipe-input margin-bottom-10" id="input_steps">{{ $recipe->step }}</textarea>
                     </div>
                     <div class="js-remove-step text-right"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
                 </div>
@@ -98,7 +98,7 @@
 <div class="form-recipe-wrapper-input">
     <div class="text-bold margin-bottom-20">Publish</div>
     <div>
-        <input type="checkbox" name="is_public" id="input_featured" {{ $recipe->is_public ? 'checked' : '' }}>
+        <input type="checkbox" name="is_public" id="input_public" {{ $recipe->is_public ? 'checked' : '' }}>
         <label for="input_public" class="padding-left-10 publish">Make it publish</label>
     </div>
 </div>

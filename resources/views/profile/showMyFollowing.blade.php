@@ -59,12 +59,12 @@
                             </div>
                         </a>
 
-                        <form method="post" action="{{ route('profile.unfollow', $following->id) }}" autocomplete="off")">
+                        <form method="post" action="{{ route('profile.unfollow', $following->id) }}" autocomplete="off">
                             @csrf
                             <div class="margin-bottom-50 cta-btn-right cta-btn-unfollow">
                                 <div class="cta-btn-wrapper cta-btn-small">
                                     <div class="cta-btn-sm">
-                                        <button type="unfollow" class="btn btn-warning mt-2">
+                                        <button type="submit" class="btn btn-warning mt-2">
                                             unfollow
                                         </button>
                                     </div>
