@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-//use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -27,6 +26,8 @@ class AuthController extends Controller
 
         $user = new User();
         $user->fill($request->all());
+
+        //profile-image upload
 
         if ($image = $request->file('image')) {
             $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
@@ -58,7 +59,7 @@ class AuthController extends Controller
 
         $credentials = $request->only(['email','password']);
 
-        if (auth()->attempt($credentials, $request->has('remember_me'))) {
+        if (auth()->attempt($credentials)) {
 
             return redirect()->route('recipes.index')->with('success', 'Logged in');
 

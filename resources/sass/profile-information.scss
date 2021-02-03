@@ -88,16 +88,16 @@
     div {
       margin-right: 20px;
     }
-    //justify-content: space-between;
-
   }
 }
 
 .profile-information-image {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius:50%;
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
+    object-fit: cover;
+    border-radius:50%;
 }
 
 .edit-profile-link {
@@ -122,6 +122,13 @@
 
 @media (min-width: $Tablet) {
 
+    .profile-information-image {
+        min-width: 180px;
+        max-width: 180px;
+        min-height: 180px;
+        max-height: 180px;
+    }
+
   .profile-information-section {
     width: 50%;
     margin: 0 auto;
@@ -132,12 +139,8 @@
     }
   }
 
-  .profile-information-wrapper {
-  margin-bottom: 0;
-    img {
-      width: 180px;
-      height: 180px;
-    }
+      .profile-information-wrapper {
+      margin-bottom: 0;
 
     .profile-information-text-wrapper {
       margin-left: 40px;

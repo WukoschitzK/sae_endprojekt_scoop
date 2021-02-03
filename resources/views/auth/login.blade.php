@@ -9,7 +9,6 @@
         <div class="h1 heading-line d-inline-block">Login</div>
         <p class="text-center margin-bottom-30 font-20-px w-md-40">Login to your <span class="text-black">scoop</span> account</p>
 
-
         <div>
             <form class="containers form-edit-profile" method="post" name="login" action="{{ route('auth.postLogin') }}" autocomplete="off">
                 @csrf

@@ -6,7 +6,6 @@
 
     <div class="wrapper">
 
-
         <div class="h1 heading-line d-inline-block">Edit Recipe</div>
 
         <form class="form-recipe-delete" method="post" action="{{ route('recipes.destroy', $recipe->id) }}" enctype="multipart/form-data">
@@ -56,7 +55,6 @@
                 <div class="add-ingredient"><img class="add-icon" src="../../images/svg/add.svg" alt="add icon"></div>
             </div>
 
-
             <div class="form-recipe-wrapper-input">
                 <div class="js-wrapper-steps-input">
                     <div>Steps <span class="required-star">*</span></div>
@@ -79,15 +77,6 @@
                 <div class="add-step"><img class="add-icon" src="../../images/svg/add.svg" alt="add icon"></div>
             </div>
 
-
-{{--            <div class="form-recipe-wrapper-input">--}}
-{{--                <label for="input_image" class="text-bold margin-bottom-10">Images</label>--}}
-{{--                <input type="file" name="image" class="form-control" id="input_image">--}}
-{{--                <div>+ Add Images</div>--}}
-{{--            </div>--}}
-
-
-
             <div class="recipe-image-upload">
                 <div class="recipe-image-edit">
                     <input name="image" type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
@@ -95,18 +84,14 @@
                 </div>
                 <div class="recipe-image-preview">
                     @if($recipe->image_path)
-                        {{--                                <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">--}}
                         <div id="imagePreview" class="current-recipe-image" style="background-image: url(/storage/images/recipe_images/{{ $recipe->image_path }});">
                         </div>
                     @else
                         <div id="imagePreview" class="current-recipe-image" style="background-image: url(/images/recipe-image-placeholder.svg);">
                         </div>
-                        {{--                                <img class="profile-information-image" src="../images/avatar.png" alt="Profile Image" />--}}
                     @endif
-
                 </div>
             </div>
-
 
             <div class="form-recipe-wrapper-input">
                 <div class="text-bold margin-bottom-10">Allergens</div>
@@ -124,7 +109,6 @@
                                     <input type="checkbox" name="allergens[]" value="{{$allAllergen->id}}" id="input_allergen_{{$allAllergen->id}}" class="allergen-btn-editform">
                                 </li>
                             @endforeach
-
                         </ul>
                     </div>
             </div>

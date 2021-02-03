@@ -190,6 +190,10 @@ textarea,input {
       }
   }
 
+    .allergen-tiles-wrapper label {
+        font-weight: 400;
+    }
+
   label.publish {
     font-weight: 400;
   }
@@ -563,9 +567,10 @@ textarea,input {
       margin-bottom: 50px;
   }
 
-  //.form-recipe {
-  //  margin: 0;
-  //}
+    .steps-count {
+        font-size: 22px;
+        padding: 8px;
+    }
 }
 
 /***************DESKTOP LG***************/

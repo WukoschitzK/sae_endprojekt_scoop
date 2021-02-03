@@ -59,6 +59,18 @@
             line-height: 35px;
             margin-bottom:50px;
             max-width: 20ch;
+
+            a {
+                font-weight: 700;
+                border-bottom: 4px solid $mainColorDarkPurple;
+                padding-bottom: 5px;
+                transition: 0.4s ease;
+                &:hover {
+                    color: #32A9AD;
+                    border-bottom: 4px solid $mainColorDarkCyan;
+                    transition: 0.4s ease;
+                }
+            }
         }
 
         p:first-child {
@@ -83,66 +95,32 @@
             //width: 1000px;
 
             .stachelbeere-links-1 {
-                //position: absolute;
-                //top: 80px;
-                //left: 20px;
-                //height: 10%;
                 display: none;
             }
             .stachelbeere-links-2 {
-                position: absolute;
-                top:0;
-                left: 100px;
-                height: 20%;
                 display: none;
             }
 
             .stachelbeerebowl {
-                //wdith: 50%;
                 height: 65%;
                 position:absolute;
-                top: 93px;
-                left: 5px;
-                //display: none;
+                bottom: 0;
+                left: 200px;
             }
 
             .stachelbeere-links-3 {
-                position:absolute;
-                bottom: 0;
-                left: 330px;
-                height: 20%;
-                display: none;
-            }
-
-            .zitrone {
-                position:absolute;
-                bottom: 50px;
-                left: 380px;
-                height: 60%;
                 display: none;
             }
 
             .heidelbeere-links-1 {
-                position:absolute;
-                bottom: 0;
-                left: 550px;
-                height: 10%;
                 display: none;
             }
 
             .heidelbeere-links-2 {
-                position:absolute;
-                bottom: 40px;
-                left: 590px;
-                height: 12%;
                 display: none;
             }
 
             .heidelbeere-links-3 {
-                position:absolute;
-                bottom: 0;
-                left: 620px;
-                height: 10%;
                 display: none;
             }
 
@@ -235,18 +213,18 @@ ol.home-list-how-it-works li p{
   padding-left: 30px;
 }
 
-.how-it-works-video-section {
-  background-color: $mainColorBgGrey;
-  padding: 30px;
-}
+//.how-it-works-video-section {
+//  background-color: $mainColorBgGrey;
+//  padding: 30px;
+//}
 
-.how-it-works-video-placeholder {
-  //width: 80%;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  box-shadow: 8px 8px 15px 0px rgba(119,105,136,0.27);
-}
+//.how-it-works-video-placeholder {
+//  //width: 80%;
+//  display: flex;
+//  justify-content: center;
+//  margin: 0 auto;
+//  box-shadow: 8px 8px 15px 0px rgba(119,105,136,0.27);
+//}
 
 a.link {
   //display: flex;
@@ -317,11 +295,11 @@ a.link:hover {
 
                 .stachelbeerebowl {
                     //wdith: 50%;
-                    height: 65%;
-                    position:absolute;
-                    top: 93px;
-                    left: 5px;
-                    //display: none;
+                    height: 75%;
+                    //position:absolute;
+                    //top: 93px;
+                    //left: 200px;
+                    display: none;
                 }
 
                 .stachelbeere-links-3 {
@@ -329,14 +307,6 @@ a.link:hover {
                     bottom: 0;
                     left: 330px;
                     height: 20%;
-                    display: none;
-                }
-
-                .zitrone {
-                    position:absolute;
-                    bottom: 50px;
-                    left: 380px;
-                    height: 60%;
                     display: none;
                 }
 
@@ -380,9 +350,9 @@ a.link:hover {
                 .salad-bowl {
                     position:absolute;
                     bottom: 0;
-                    right: -50px;
-                    height: 65%;
-                    display: none;
+                    right: 0;
+                    height: 50%;
+                    display: block;
                 }
 
                 .blatt-oben-links {
@@ -434,32 +404,23 @@ a.link:hover {
 
     .header-container {
         position:relative;
-        //background-color: #f4e7e7;
-        //background-color: #ffe4e4;
-        //background-image: url("/images/home_header/home-bg.svg");
-        //background-repeat: no-repeat;
-        //background-size: cover;
         height: calc(100vh - 82px);
-        //z-index: -10;
         justify-content: flex-start;
-
-
 
         .home-hero-text-wrapper {
             width: 60%;
             padding: 0 0 0 50px;
-            //z-index: 2;
 
             p {
-                font-size: 25px;
-                line-height: 35px;
+                font-size: 40px;
+                line-height: 50px;
                 max-width:40ch;
             }
 
             p:first-child {
                 width:100%;
-                font-size: 50px;
-                line-height: 50px;
+                font-size: 65px;
+                line-height: 65px;
             }
 
             .cta-btn-wrapper.cta-btn-small{
@@ -475,71 +436,49 @@ a.link:hover {
 
             .images-berries-position-rel {
                 position: relative;
-                //border: 5px solid fuchsia;
                 height: 100%;
-                //width: 1000px;
 
                 .stachelbeere-links-1 {
-                    position: absolute;
-                    top: 80px;
-                    left: 20px;
-                    height: 10%;
-                    display: block;
+                    display: none;
                 }
                 .stachelbeere-links-2 {
-                    position: absolute;
-                    top:0;
-                    left: 100px;
-                    height: 20%;
-                    display: block;
+                    display: none;
                 }
 
                 .stachelbeerebowl {
-                    //wdith: 50%;
-                    height: 75%;
+                    height: 85%;
                     position:absolute;
-                    top: 100px;
+                    top: 80px;
                     left: 60px;
-                    //display: block;
+                    display: none;
                 }
 
                 .stachelbeere-links-3 {
                     position:absolute;
                     bottom: 0;
-                    left: 330px;
-                    height: 20%;
-                    display: block;
-                }
-
-                .zitrone {
-                    position:absolute;
-                    bottom: 50px;
-                    left: 380px;
-                    height: 60%;
+                    left: 360px;
+                    height: 17%;
+                    display: none;
                 }
 
                 .heidelbeere-links-1 {
-                    position:absolute;
-                    bottom: 0;
-                    left: 550px;
-                    height: 10%;
-                    display: block;
+                    display: none;
                 }
 
                 .heidelbeere-links-2 {
                     position:absolute;
-                    bottom: 40px;
-                    left: 590px;
+                    bottom: 60px;
+                    left: 330px;
                     height: 12%;
-                    display: block;
+                    display: none;
                 }
 
                 .heidelbeere-links-3 {
                     position:absolute;
-                    bottom: 0;
-                    left: 620px;
-                    height: 10%;
-                    display: block;
+                    bottom: 70px;
+                    left: 390px;
+                    height: 25%;
+                    display: none;
                 }
 
             }
@@ -549,7 +488,7 @@ a.link:hover {
             position: absolute;
             bottom: 0;
             right: 0;
-            height: 90%;
+            height: 100%;
 
             .images-salad-position-rel {
                 position: relative;
@@ -557,10 +496,10 @@ a.link:hover {
 
                 .salad-bowl {
                     position:absolute;
-                    bottom: 20px;
-                    right: 50px;
-                    height: 55%;
-                    //display: block;
+                    bottom: 0px;
+                    right: 100px;
+                    height: 45%;
+                    display: block;
                 }
 
                 .blatt-oben-links {
@@ -638,9 +577,9 @@ a.link:hover {
     justify-content: space-between;
   }
 
-  .how-it-works-video-section {
-    padding: 50px 100px;
-  }
+  //.how-it-works-video-section {
+  //  padding: 50px 100px;
+  //}
 
   .list-recipe-cards {
     display: flex;
@@ -661,13 +600,10 @@ a.link:hover {
 
     .header-container {
         position:relative;
-        //background-color: #f4e7e7;
-        //background-color: #ffe4e4;
         background-image: url("/images/home_header/home-bg.svg");
         background-repeat: no-repeat;
         background-size: cover;
         height: calc(100vh - 110px);
-        //z-index: -10;
         margin-bottom: 120px;
 
         .home-hero-text-wrapper {
@@ -677,18 +613,6 @@ a.link:hover {
                font-size: 35px;
                 line-height: 50px;
                 max-width: 30ch;
-
-                a {
-                    font-weight: 700;
-                    border-bottom: 4px solid $mainColorDarkPurple;
-                    padding-bottom: 5px;
-                    transition: 0.4s ease;
-                     &:hover {
-                        color: #32A9AD;
-                         border-bottom: 4px solid $mainColorDarkCyan;
-                         transition: 0.4s ease;
-                     }
-                }
             }
 
             p:first-child {
@@ -740,13 +664,7 @@ a.link:hover {
                     bottom: 0;
                     left: 360px;
                     height: 17%;
-                }
-
-                .zitrone {
-                    position:absolute;
-                    bottom: 50px;
-                    left: 380px;
-                    height: 60%;
+                    display: block;
                 }
 
                 .heidelbeere-links-1 {
@@ -762,6 +680,7 @@ a.link:hover {
                     bottom: 60px;
                     left: 330px;
                     height: 12%;
+                    display: block;
                 }
 
                 .heidelbeere-links-3 {
@@ -769,6 +688,7 @@ a.link:hover {
                     bottom: 70px;
                     left: 390px;
                     height: 25%;
+                    display: block;
                 }
 
             }
@@ -787,9 +707,9 @@ a.link:hover {
                 .salad-bowl {
                     position:absolute;
                     //top:auto;
-                    top: 250px;
+                    top: 300px;
                     right: 100px;
-                    height: 75%;
+                    height: 70%;
                     display: block;
                 }
 
@@ -835,11 +755,11 @@ a.link:hover {
     justify-content: center;
   }
 
-  .how-it-works-video-placeholder-desktop {
-    width: 75%;
-    display: flex;
-    margin: 0 auto;
-  }
+  //.how-it-works-video-placeholder-desktop {
+  //  width: 75%;
+  //  display: flex;
+  //  margin: 0 auto;
+  //}
 
   .home-hero-section {
     margin-bottom:100px;
@@ -965,11 +885,11 @@ a.link:hover {
 
 @media (min-width: $Desktop-Xl) {
 
-  .how-it-works-video-placeholder-desktop {
-    width: 60%;
-    display: flex;
-    margin: 0 auto;
-  }
+  //.how-it-works-video-placeholder-desktop {
+  //  width: 60%;
+  //  display: flex;
+  //  margin: 0 auto;
+  //}
 
   .home-list-how-it-works {
     max-width: 75%;

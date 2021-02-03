@@ -14,17 +14,19 @@ use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
 {
+
+    /*Show user profile*/
+
     public function show($id)
     {
         $user = Auth::user();
         $followers = $user->followers();
-
         $followings = $user->leaders()->get();
 
-        //get recipes from all the people i'm following
-        $followingArray = [];
 
-//        $recipes = Recipe::query();
+        //get the latest recipes from all the people i'm following
+
+        $followingArray = [];
 
         foreach($followings as $followingUser) {
             array_push($followingArray, $followingUser->id);
@@ -32,60 +34,25 @@ class UserProfileController extends Controller
 
         $recipes = Recipe::whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
 
-//        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
-
-
-
-//        foreach($followingArray as $id) {
-//            $recipes = $recipes->whereHas('user', function ($query) use ($id) {
-//                $query->where('user_id',  $id);
-//            });
-//        }
-//
-//        dd($followingArray);
-
-//        $recipes = $recipes->where('is_public', true)->orderBy('created_at','desc')->get();
-//dd($recipes);
-//        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
-
         return view('profile.show', compact('recipes','user', 'followers','followings'));
-
-
-//        $user = User::find($id);
-//
-////        $recipes = Recipe::where('user_id', $id)->get();
-//        $followers = $user->followers();
-//
-//
-//
-//        $followings = $user->leaders()->get();
-//
-//
-//        //get recipes from all the people i'm following
-//
-//        $followingArray = [];
-//
-//        foreach($followings as $followingUser) {
-//            array_push($followingArray, $followingUser->id);
-//        }
-//
-//        $recipes = DB::table('recipes')->whereIn('user_id', $followingArray)->orderBy('created_at', 'desc')->get();
-//
-//
-//        return view('profile.show', compact('user', 'recipes', 'followers'));
     }
 
-    public function showOtherProfile($id) {
-        $user = User::find($id);
 
+    /*Show other user profile*/
+
+    public function showOtherProfile($id) {
+
+        $user = User::find($id);
         $recipes = Recipe::where('user_id', $id)->where('is_public',true)->get();
         $followers = $user->followers();
+
+
+        //we need to know if the auth user is already following to this user, to show the correct btn (follow / unfollow)
 
         $isAlreadyFollowing = false;
 
         $auth_user = Auth::user();
         $auth_user_followings = $auth_user->leaders()->get();
-
 
         foreach($auth_user_followings as $following) {
             if($following->id == $user->id) {
@@ -95,6 +62,8 @@ class UserProfileController extends Controller
 
         return view('profile.showOtherProfile', compact('user', 'recipes', 'followers','isAlreadyFollowing'));
     }
+
+    /*Form for edit user profile*/
 
     public function edit(Request $request, $id)
     {
@@ -112,8 +81,13 @@ class UserProfileController extends Controller
         return view('profile.edit', compact('user', 'allergens'));
     }
 
+
+    /*Update user profile*/
+
     public function update(Request $request, $id)
     {
+        //validation
+
         $validatedData = $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
@@ -125,6 +99,10 @@ class UserProfileController extends Controller
         $user->name =$validatedData["name"];
         $user->email = $validatedData["email"];
         $user->preferred_content =$validatedData["preferred_content"];
+
+
+        //the password must not be declared when the user wants to change his profile
+        //for that, the password will only be overwritten if the user has filled the password input field
 
         if (!empty($validatedData["password"])) {
             $user->password = $validatedData["password"];
@@ -142,6 +120,9 @@ class UserProfileController extends Controller
 
     }
 
+
+    /*Follow user*/
+
     public function follow($id)
     {
         $leading_user = User::find($id);
@@ -151,6 +132,9 @@ class UserProfileController extends Controller
 
         return redirect()->back()->with('success', 'Successfully followed');
     }
+
+
+    /*Unfollow user*/
 
     public function unfollow($id)
     {
@@ -162,13 +146,8 @@ class UserProfileController extends Controller
         return redirect()->back()->with('success', 'Successfully unfollowed');
     }
 
-//    public function showFollower(int $userId)
-//    {
-//        $user = User::find($userId);
-//        $followers = $user->followers;
-//        $followings = $user->followings;
-//        return view('user.showFollower', compact('user', 'followers' , 'followings');
-//    }
+
+    /*Get all the followings from current user*/
 
     public function showMyFollowing($userId) {
 

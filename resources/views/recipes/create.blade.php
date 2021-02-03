@@ -8,12 +8,10 @@
 
         <div class="h1 heading-line d-inline-block">New Recipe</div>
 
-
         <form class="form-recipe" name="recipe-form" method="post" action="{{ route('recipes.store') }}" enctype="multipart/form-data" autocomplete="off">
             @csrf
 
             @include('recipes._form')
-
         </form>
     </div>
 

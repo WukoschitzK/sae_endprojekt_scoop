@@ -184,11 +184,11 @@ body {
 }
 
 .content-wrapper.main-wrapper {
-  min-height: calc(100% - 216px);
+  min-height: calc(100% - 185px);
 }
 
 .align-content-center {
-  min-height: calc(100vh - 216px);
+  min-height: calc(100vh - 185px);
   display: flex;
   align-items: center;
 }
@@ -205,7 +205,7 @@ ul {
 }
 
 p {
-  line-height: 30px;
+  line-height: 35px;
   margin: 0;
   padding: 0;
 }
@@ -351,11 +351,11 @@ a {
   }
 
   .content-wrapper.main-wrapper {
-    min-height: calc(100% - 261px);
+    min-height: calc(100% - 210px);
   }
 
   .align-content-center {
-    min-height: calc(100vh - 261px);
+    min-height: calc(100vh - 210px);
     display: flex;
     align-items: center;
   }
@@ -399,11 +399,11 @@ a {
   }
 
   .content-wrapper.main-wrapper {
-    min-height: calc(100% - 240px);
+    min-height: calc(100% - 239px);
   }
 
   .align-content-center {
-    min-height: calc(100vh - 240px);
+    min-height: calc(100vh - 239px);
     display: flex;
     align-items: center;
   }
@@ -874,6 +874,19 @@ svg.fa-bars {
   max-width: 20ch;
 }
 
+.header-container .home-hero-text-wrapper p a {
+  font-weight: 700;
+  border-bottom: 4px solid #280158;
+  padding-bottom: 5px;
+  transition: 0.4s ease;
+}
+
+.header-container .home-hero-text-wrapper p a:hover {
+  color: #32A9AD;
+  border-bottom: 4px solid #32A9AD;
+  transition: 0.4s ease;
+}
+
 .header-container .home-hero-text-wrapper p:first-child {
   margin-bottom: 30px;
   width: 55%;
@@ -899,57 +912,29 @@ svg.fa-bars {
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
-  position: absolute;
-  top: 0;
-  left: 100px;
-  height: 20%;
   display: none;
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
   height: 65%;
   position: absolute;
-  top: 93px;
-  left: 5px;
+  bottom: 0;
+  left: 200px;
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
-  position: absolute;
-  bottom: 0;
-  left: 330px;
-  height: 20%;
-  display: none;
-}
-
-.header-container .header-container-images-berries .images-berries-position-rel .zitrone {
-  position: absolute;
-  bottom: 50px;
-  left: 380px;
-  height: 60%;
   display: none;
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
-  position: absolute;
-  bottom: 0;
-  left: 550px;
-  height: 10%;
   display: none;
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
-  position: absolute;
-  bottom: 40px;
-  left: 590px;
-  height: 12%;
   display: none;
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
-  position: absolute;
-  bottom: 0;
-  left: 620px;
-  height: 10%;
   display: none;
 }
 
@@ -1036,18 +1021,6 @@ ol.home-list-how-it-works li p {
   padding-left: 30px;
 }
 
-.how-it-works-video-section {
-  background-color: #F7FCFC;
-  padding: 30px;
-}
-
-.how-it-works-video-placeholder {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  box-shadow: 8px 8px 15px 0px rgba(119, 105, 136, 0.27);
-}
-
 a.link {
   display: flex;
   justify-content: center;
@@ -1107,10 +1080,8 @@ a.link:hover {
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-    height: 65%;
-    position: absolute;
-    top: 93px;
-    left: 5px;
+    height: 75%;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
@@ -1118,14 +1089,6 @@ a.link:hover {
     bottom: 0;
     left: 330px;
     height: 20%;
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .zitrone {
-    position: absolute;
-    bottom: 50px;
-    left: 380px;
-    height: 60%;
     display: none;
   }
 
@@ -1168,9 +1131,9 @@ a.link:hover {
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
     position: absolute;
     bottom: 0;
-    right: -50px;
-    height: 65%;
-    display: none;
+    right: 0;
+    height: 50%;
+    display: block;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-links {
@@ -1225,15 +1188,15 @@ a.link:hover {
   }
 
   .header-container .home-hero-text-wrapper p {
-    font-size: 25px;
-    line-height: 35px;
+    font-size: 40px;
+    line-height: 50px;
     max-width: 40ch;
   }
 
   .header-container .home-hero-text-wrapper p:first-child {
     width: 100%;
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 65px;
+    line-height: 65px;
   }
 
   .header-container .home-hero-text-wrapper .cta-btn-wrapper.cta-btn-small,
@@ -1254,72 +1217,54 @@ a.link:hover {
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-1 {
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    height: 10%;
-    display: block;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
-    position: absolute;
-    top: 0;
-    left: 100px;
-    height: 20%;
-    display: block;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-    height: 75%;
+    height: 85%;
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 60px;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
     position: absolute;
     bottom: 0;
-    left: 330px;
-    height: 20%;
-    display: block;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .zitrone {
-    position: absolute;
-    bottom: 50px;
-    left: 380px;
-    height: 60%;
+    left: 360px;
+    height: 17%;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
-    position: absolute;
-    bottom: 0;
-    left: 550px;
-    height: 10%;
-    display: block;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
     position: absolute;
-    bottom: 40px;
-    left: 590px;
+    bottom: 60px;
+    left: 330px;
     height: 12%;
-    display: block;
+    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
     position: absolute;
-    bottom: 0;
-    left: 620px;
-    height: 10%;
-    display: block;
+    bottom: 70px;
+    left: 390px;
+    height: 25%;
+    display: none;
   }
 
   .header-container .header-container-images-salad {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 90%;
+    height: 100%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel {
@@ -1329,9 +1274,10 @@ a.link:hover {
 
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
     position: absolute;
-    bottom: 20px;
-    right: 50px;
-    height: 55%;
+    bottom: 0px;
+    right: 100px;
+    height: 45%;
+    display: block;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-links {
@@ -1404,10 +1350,6 @@ a.link:hover {
     justify-content: space-between;
   }
 
-  .how-it-works-video-section {
-    padding: 50px 100px;
-  }
-
   .list-recipe-cards {
     display: flex;
     flex-wrap: wrap;
@@ -1439,19 +1381,6 @@ a.link:hover {
     font-size: 35px;
     line-height: 50px;
     max-width: 30ch;
-  }
-
-  .header-container .home-hero-text-wrapper p a {
-    font-weight: 700;
-    border-bottom: 4px solid #280158;
-    padding-bottom: 5px;
-    transition: 0.4s ease;
-  }
-
-  .header-container .home-hero-text-wrapper p a:hover {
-    color: #32A9AD;
-    border-bottom: 4px solid #32A9AD;
-    transition: 0.4s ease;
   }
 
   .header-container .home-hero-text-wrapper p:first-child {
@@ -1502,13 +1431,7 @@ a.link:hover {
     bottom: 0;
     left: 360px;
     height: 17%;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .zitrone {
-    position: absolute;
-    bottom: 50px;
-    left: 380px;
-    height: 60%;
+    display: block;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
@@ -1524,6 +1447,7 @@ a.link:hover {
     bottom: 60px;
     left: 330px;
     height: 12%;
+    display: block;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
@@ -1531,6 +1455,7 @@ a.link:hover {
     bottom: 70px;
     left: 390px;
     height: 25%;
+    display: block;
   }
 
   .header-container .header-container-images-salad {
@@ -1547,9 +1472,9 @@ a.link:hover {
 
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
     position: absolute;
-    top: 250px;
+    top: 300px;
     right: 100px;
-    height: 75%;
+    height: 70%;
     display: block;
   }
 
@@ -1592,12 +1517,6 @@ a.link:hover {
     justify-content: center;
   }
 
-  .how-it-works-video-placeholder-desktop {
-    width: 75%;
-    display: flex;
-    margin: 0 auto;
-  }
-
   .home-hero-section {
     margin-bottom: 100px;
   }
@@ -1633,7 +1552,7 @@ a.link:hover {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1700px) {
   .header-container .home-hero-text-wrapper {
     padding: 50px 0 0 100px;
   }
@@ -1694,12 +1613,6 @@ a.link:hover {
 }
 
 @media (min-width: 1900px) {
-  .how-it-works-video-placeholder-desktop {
-    width: 60%;
-    display: flex;
-    margin: 0 auto;
-  }
-
   .home-list-how-it-works {
     max-width: 75%;
     margin: 0 auto;
@@ -1916,7 +1829,8 @@ a.link:hover {
   }
 
   .comments-flex-wrap div.comment-wrapper {
-    width: 65%;
+    width: 100%;
+    max-width: 600px;
   }
 }
 
@@ -1929,7 +1843,7 @@ a.link:hover {
   }
 
   .comments-flex-wrap div.comment-wrapper {
-    width: 45%;
+    width: 100%;
   }
 
   .mobile-ingr-steps {
@@ -2021,6 +1935,7 @@ a.link:hover {
 .recipe-card-profile-info div {
   padding-left: 15px;
   font-size: 18px;
+  color: #776988;
 }
 
 .recipe-card-profile-info img {
@@ -2033,14 +1948,13 @@ a.link:hover {
 }
 
 .recipe-card-profile-info:hover img {
-  width: 70px;
+  width: 65px;
   height: 70px;
   transition: 0.3s;
 }
 
 .recipe-card-profile-info:hover div {
-  font-weight: 700;
-  color: #776988;
+  color: #280158;
 }
 
 .recipe-card {
@@ -2129,7 +2043,7 @@ a.link:hover {
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1700px) {
   .recipe-cards-wrapper-flex {
     gap: 60px;
   }
@@ -2336,8 +2250,10 @@ a.link:hover {
 }
 
 .profile-information-image {
-  width: 120px;
-  height: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  min-height: 120px;
+  max-height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -2364,6 +2280,13 @@ a.link:hover {
 /***************TABLET***************/
 
 @media (min-width: 768px) {
+  .profile-information-image {
+    min-width: 180px;
+    max-width: 180px;
+    min-height: 180px;
+    max-height: 180px;
+  }
+
   .profile-information-section {
     width: 50%;
     margin: 0 auto;
@@ -2377,11 +2300,6 @@ a.link:hover {
 
   .profile-information-wrapper {
     margin-bottom: 0;
-  }
-
-  .profile-information-wrapper img {
-    width: 180px;
-    height: 180px;
   }
 
   .profile-information-wrapper .profile-information-text-wrapper {
@@ -2422,7 +2340,7 @@ a.link:hover {
 
 /***************Desktop LG***************/
 
-@media (min-width: 1440px) {
+@media (min-width: 1700px) {
   .profile-information-section {
     width: 30%;
   }
@@ -2622,6 +2540,11 @@ input {
 .form-recipe .form-recipe-wrapper-input label,
 .form-comment .form-recipe-wrapper-input label {
   font-weight: 700;
+}
+
+.form-recipe .allergen-tiles-wrapper label,
+.form-comment .allergen-tiles-wrapper label {
+  font-weight: 400;
 }
 
 .form-recipe label.publish,
@@ -3003,11 +2926,16 @@ input {
     margin: 0 auto;
     margin-bottom: 50px;
   }
+
+  .steps-count {
+    font-size: 22px;
+    padding: 8px;
+  }
 }
 
 /***************DESKTOP LG***************/
 
-@media (min-width: 1440px) {
+@media (min-width: 1700px) {
   .form-edit-profile {
     width: 40%;
     margin: 0 auto;

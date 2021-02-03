@@ -4,9 +4,6 @@
 
 @section('container')
 
-
-
-
     <div class="wrapper align-content-center">
         <div class="home-hero-section">
             <img class="home-image" src="/images/404_vektor.svg" alt="illustration for 404 error (page not found)">
@@ -27,6 +24,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

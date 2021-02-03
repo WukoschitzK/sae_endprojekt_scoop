@@ -13,43 +13,46 @@
 </div>
 
 <div class="form-recipe-wrapper-input">
-
     <div class="js-wrapper-ingredients-input">
         <label for="input_ingredients">Ingredients <span class="required-star">*</span></label>
 
         <div class="wrapper-ingredients">
+
             <div>
                 <div class="input-width-100">
                     <input name="ingredient[]" value="{{ $recipe->ingredient }}" class="form-recipe-input margin-bottom-10" id="input_ingredients">
                 </div>
                 <div class="js-remove-ingredient text-right"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
             </div>
-            <div class="error">{{ $errors->first('ingredient.0') }}</div>
 
+            <div class="error">{{ $errors->first('ingredient.0') }}</div>
 
         </div>
     </div>
+
     <div class="add-ingredient"><img class="add-icon" src="../../images/svg/add.svg" alt="add icon"></div>
 </div>
 
 <div class="form-recipe-wrapper-input">
     <div class="js-wrapper-steps-input">
         <label for="input_steps">Steps <span class="required-star">*</span></label>
-        <div class="wrapper-steps">
 
+        <div class="wrapper-steps">
             <div>
                 <div class="steps-count">1</div>
+
                 <div>
                     <div class="input-width-100">
                         <textarea rows="6" cols="150" name="steps[]" class="form-recipe-input margin-bottom-10" id="input_steps">{{ $recipe->step }}</textarea>
                     </div>
                     <div class="js-remove-step text-right"><img class="remove-icon" src="../../images/svg/cross.svg" alt="delete icon"></div>
                 </div>
+
                 <div class="error">{{ $errors->first('steps.0') }}</div>
             </div>
-
         </div>
     </div>
+
     <div class="add-step"><img class="add-icon" src="../../images/svg/add.svg" alt="add icon"></div>
 </div>
 
@@ -71,6 +74,7 @@
 
 <div class="form-recipe-wrapper-input">
     <div class="text-bold margin-bottom-20">Allergens</div>
+
     <ul class="allergen-tiles-wrapper">
         @foreach($allergens as $allergen)
             <li class="js-allergen-tile">
@@ -97,6 +101,7 @@
 
 <div class="form-recipe-wrapper-input">
     <div class="text-bold margin-bottom-20">Publish</div>
+
     <div>
         <input type="checkbox" name="is_public" id="input_public" {{ $recipe->is_public ? 'checked' : '' }}>
         <label for="input_public" class="padding-left-10 publish">Make it publish</label>

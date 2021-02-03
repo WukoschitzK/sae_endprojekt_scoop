@@ -21,17 +21,22 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /*All Recipes Page inclusive Filter for Allergens and Categories*/
+
     public function index(Request $request)
     {
-//        $recipes = Recipe::where('is_public', true)->orderBy('created_at','desc');
         $categories = Category::all();
         $allergens = Allergen::all();
 
         $recipes = Recipe::query();
 
-        if(isset($request->cat)) {
-            if($request->cat === "1") {
+        //show recipes for selected category, or if category is "all"-category show all recipes
 
+        if(isset($request->cat)) {
+            $requestedCategoryName = $categories->where('id',$request->cat)->where('name', 'All');
+
+            if(!$requestedCategoryName->isEmpty()) {
                 $categoryIds = [];
                 foreach($categories as $category) {
                     array_push($categoryIds, $category->id);
@@ -43,6 +48,8 @@ class RecipeController extends Controller
                 $recipes = $recipes->where('category_id', $category_id );
             }
         }
+
+        //show recipes for selected allergens (and category)
 
         if(isset($request->allergens)) {
             $allergen_ids = $request->get('allergens');
@@ -65,6 +72,9 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /*View for new recipe form*/
+
     public function create(Request $request)
     {
         $recipe = new Recipe();
@@ -83,8 +93,12 @@ class RecipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    /*Store function for new recipes*/
+
     public function store(Request $request)
     {
+        //validate input fields
 
         $this->validate($request, [
             'title' => 'required|min:3|max:35',
@@ -97,6 +111,8 @@ class RecipeController extends Controller
             'category' => 'required'
         ]);
 
+        //create recipe
+
         $recipe = new Recipe();
         $recipe->fill($request->all());
         $recipe->is_public = $request->has('is_public');
@@ -107,6 +123,7 @@ class RecipeController extends Controller
 
         $recipe->category_id = $request->get('category');
 
+        //image upload
 
         if ($image = $request->file('image')) {
 
@@ -117,9 +134,8 @@ class RecipeController extends Controller
 
         $recipe->save();
 
-//        dd($recipe->id);
 
-        //        ------allergens------
+        //if the recipes has allergens selected, new entry for allergens table
 
         if($request->get('allergens') != null) {
             foreach ($request->get('allergens') as $allergen) {
@@ -138,10 +154,15 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /*Show all information from a specific recipe*/
+
     public function show($id)
     {
         $recipe = Recipe::find($id);
         $user_id = $recipe->user_id;
+
+        //if the recipe is from the current (logged in) user, show edit btn
 
         $isAuthUser = false;
 
@@ -156,6 +177,9 @@ class RecipeController extends Controller
         $reviews = $recipe->reviews()->get();
 
         $user = User::find($user_id);
+
+        //for the view, we need to highlight the selected allergens (color filled)
+        //for that, we need two arrays for the allergens: on for the selected allergens of the recipe and one for all possible allergens
 
         $allergens = $recipe->allergens()->get();
 
@@ -181,15 +205,20 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /*Form for edit recipe*/
+
     public function edit(Request $request, $id)
     {
         $recipe = Recipe::find($id);
         $recipe->fill($request->old());
-//        $allergens = Allergen::all();
-        $category =  $recipe->category()->get();
+//        $category =  $recipe->category()->get();
         $categories = Category::all();
         $categories = $categories->where('name','!=', 'All');
 
+
+        //for the view, we need to highlight the selected allergens (color filled)
+        //for that, we need two arrays for the allergens: on for the selected allergens of the recipe and one for all possible allergens
 
         $allergens = $recipe->allergens()->get();
 
@@ -206,7 +235,6 @@ class RecipeController extends Controller
 
         $allAllergens = $query->get();
 
-
         return view('recipes.edit', compact('recipe','allergens','allAllergens','categories'));
     }
 
@@ -217,8 +245,13 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /*Function for update the edited recipe*/
+
     public function update(Request $request, $id)
     {
+        //validation
+
         $this->validate($request, [
             'title' => 'required|min:3|max:35',
             'description' => 'required|min:3|max:150',
@@ -233,17 +266,11 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         $recipe->fill($request->all());
         $recipe->is_public = $request->has('is_public');
-
-//        ------ingredients and steps------
-
         $recipe->steps = $request->get('steps'); //oder step?
         $recipe->ingredients = $request->get('ingredient');
-
-        //        ------categories------
-
         $recipe->category_id = (int)$request->get('category');
 
-
+        //image upload
         if ($image = $request->file('image')) {
 
             $name = Str::random(16) . '.' . $image->getClientOriginalExtension();
@@ -253,9 +280,9 @@ class RecipeController extends Controller
 
         $recipe->save();
 
-//        ------allergens------
+        //add or remove allergens
 
-        //1. aktuelle allergene holen und in ein array speichern
+        //1. get the currently selected allergens
 
         $prevAllergens = $recipe->allergens()->get();
 
@@ -265,7 +292,8 @@ class RecipeController extends Controller
             array_push($prevAllergenArray, $prevAllergen->id);
         }
 
-        //2. alle allergene die noch nicht ausgewählt wurden in ein andres array speichern
+        //2. get all the allergens which are not selected
+
         $query = DB::table("allergens");
         foreach($prevAllergenArray as $allergenArrayItem){
             $query->where("id",'!=',$allergenArrayItem);
@@ -273,7 +301,7 @@ class RecipeController extends Controller
 
         $leftAllergens = $query->get();
 
-        //allergen ids welche im request mitkommen in ein array speichern
+        //get the new selected allergens from request
 
         $newAllergensArray = [];
 
@@ -283,9 +311,9 @@ class RecipeController extends Controller
                 array_push($newAllergensArray, $allergenId);
             }
 
-            //3. neue allergene aus request hinzufügen in DB:
+            //3. insert the new allergens in allergens-table
 
-            //wenn ich wissen will was neu dazukommen is:
+            //shows the new allergens
             $differenceNew = array_diff($newAllergensArray, $prevAllergenArray);
 
             foreach ($differenceNew as $allergen) {
@@ -293,9 +321,9 @@ class RecipeController extends Controller
             }
         }
 
-        //4. allergene aus DB entfernen:
+        //4. remove allergens from allergens-table
 
-        // wenn ich wissen will was im neuen nicht mehr dabei is:
+        // shows the removed allergens
         $differenceRemove = array_diff($prevAllergenArray, $newAllergensArray);
 
         foreach ($differenceRemove as $allergen) {
@@ -311,15 +339,20 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /*Delete recipe*/
+
     public function destroy($id)
     {
-//        todo: bugfixing
-
         $recipe = Recipe::find($id);
+
+        //delete entry for image in storage
 
         if($recipe->image_path) {
             Storage::delete('public/images/recipe_images'.$recipe->image_path);
         }
+
+        //delete entry in allergens-table
 
         $allergens = $recipe->allergens()->get();
 
@@ -332,6 +365,9 @@ class RecipeController extends Controller
         return redirect()->route('recipes.index')->with('success', 'Recipes deleted');
     }
 
+
+    /*Show all recipes from currently logged in user*/
+
     public function showMyRecipes($user_id) {
 
         $recipes = Recipe::query()->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
@@ -340,12 +376,18 @@ class RecipeController extends Controller
 
     }
 
+
+    /*Show latest recipes*/
+
     public function showLatestRecipes() {
 
         $recipes = Recipe::query()->where('is_public', true)->orderBy('rating_average', 'desc')->orderBy('created_at', 'desc')->take(3)->get();
 
         return view('welcome', compact('recipes'));
     }
+
+
+    /*Show favorite recipes from currently logged in user*/
 
     public function showMyFavorites($user_id) {
 
@@ -355,6 +397,8 @@ class RecipeController extends Controller
         return view('recipes.showMyFavorites', compact('recipes'));
     }
 
+
+    /*Save recipe to favorites*/
 
     public function addFavorite($id) {
         $user = auth()->user()->id;
@@ -369,6 +413,9 @@ class RecipeController extends Controller
         return redirect()->back()->with('success', 'Added as Favorite');
     }
 
+
+    /*Remove recipe to favorites*/
+
     public function removeFavorite($id) {
         $user_id = Auth::user();
 
@@ -379,6 +426,9 @@ class RecipeController extends Controller
 
         return redirect()->back()->with('success', 'Removed from Favorites');
     }
+
+
+    /*Search for recipes*/
 
     public function search(Request $request)
     {

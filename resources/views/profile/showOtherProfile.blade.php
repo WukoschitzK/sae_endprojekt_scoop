@@ -21,7 +21,6 @@
         <div class="margin-bottom-30 profile-information-section">
 
             <div class="profile-information-wrapper">
-
                 @if($user->image_path)
                     <img class="profile-information-image" src="/storage/images/profile_images/{{ $user->image_path }}">
 
@@ -48,7 +47,6 @@
                 </div>
             </div>
 
-{{--            todo: if i follow this user, show unfollow btn--}}
             @if(auth()->check())
                 @if( $user->id != auth()->user()->id && !$isAlreadyFollowing)
                 <div class="margin-bottom-50 cta-btn-right">
@@ -67,6 +65,7 @@
                 </div>
                 @endif
             @endif
+
             @if($isAlreadyFollowing)
                 <div class="margin-bottom-50 cta-btn-right cta-btn-unfollow">
                     <div class="cta-btn-wrapper cta-btn-small">
@@ -109,5 +108,6 @@
                 </div>
             @endforeach
         </div>
+
     </div>
 @endsection

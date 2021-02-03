@@ -16,6 +16,7 @@
   div {
     padding-left: 15px;
       font-size:18px;
+      color: $mainColorLightPurple;
   }
 
   img {
@@ -31,13 +32,13 @@
 .recipe-card-profile-info:hover {
 
   img {
-    width:70px;
+    width:65px;
     height:70px;
     transition:0.3s;
   }
   div {
-    font-weight: 700;
-    color: $mainColorLightPurple;
+    //font-weight: 700;
+    color: $mainColorDarkPurple;
   }
 }
 
