@@ -903,10 +903,7 @@ svg.fa-bars {
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-  height: 65%;
-  position: absolute;
-  bottom: 0;
-  left: 80px;
+  display: none;
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
@@ -1034,55 +1031,11 @@ a.link:hover {
     line-height: 50px;
   }
 
-  .header-container .header-container-images-berries {
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    height: 45%;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel {
-    position: relative;
-    height: 100%;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-1 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
-    display: none;
-  }
-
   .header-container .header-container-images-salad {
-    position: absolute;
-    top: 0;
-    right: 0;
     height: 100%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel {
-    position: relative;
     height: 100%;
   }
 
@@ -1090,7 +1043,7 @@ a.link:hover {
     position: absolute;
     bottom: 20px;
     right: 10px;
-    height: 30%;
+    height: 40%;
     display: block;
   }
 
@@ -1106,14 +1059,6 @@ a.link:hover {
     top: 70px;
     right: 60px;
     height: 6%;
-  }
-
-  .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-oben {
-    position: absolute;
-    top: 40px;
-    right: 10px;
-    height: 8%;
-    display: none;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-unten {
@@ -1162,60 +1107,15 @@ a.link:hover {
     margin: 0;
   }
 
-  .header-container .header-container-images-berries {
-    position: absolute;
-    bottom: 30px;
-    left: 0;
-    height: 45%;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel {
-    position: relative;
-    height: 100%;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-1 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
-    display: none;
-  }
-
   .header-container .header-container-images-salad {
-    position: absolute;
-    bottom: 0;
-    right: 0;
     height: 100%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel {
-    position: relative;
     height: 100%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
-    position: absolute;
     bottom: 0px;
     right: 100px;
     height: 45%;
@@ -1223,14 +1123,12 @@ a.link:hover {
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-links {
-    position: absolute;
     top: 50px;
     right: 170px;
     height: 10%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .heidelbeere-rechts {
-    position: absolute;
     top: 130px;
     right: 170px;
     height: 5%;
@@ -1245,14 +1143,12 @@ a.link:hover {
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-unten {
-    position: absolute;
     top: 200px;
     right: 130px;
     height: 6%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-rechts {
-    position: absolute;
     top: 150px;
     right: 40px;
     height: 12%;
@@ -1344,14 +1240,6 @@ a.link:hover {
     height: 100%;
   }
 
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-1 {
-    display: none;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
-    display: none;
-  }
-
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
     height: 75%;
     position: absolute;
@@ -1366,10 +1254,6 @@ a.link:hover {
     left: 360px;
     height: 17%;
     display: block;
-  }
-
-  .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
-    display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
@@ -1401,7 +1285,6 @@ a.link:hover {
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
-    position: absolute;
     top: 300px;
     right: 100px;
     height: 70%;
@@ -1409,35 +1292,30 @@ a.link:hover {
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-links {
-    position: absolute;
     bottom: 710px;
     right: 300px;
     height: 10%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .heidelbeere-rechts {
-    position: absolute;
     bottom: 630px;
     right: 270px;
     height: 7%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-oben {
-    position: absolute;
     bottom: 670px;
     right: 210px;
     height: 10%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-unten {
-    position: absolute;
     bottom: 590px;
     right: 200px;
     height: 8%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-rechts {
-    position: absolute;
     top: 120px;
     right: 175px;
     height: 13%;
@@ -1499,7 +1377,6 @@ a.link:hover {
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
-    position: absolute;
     top: 250px;
     right: 100px;
     height: 85%;
@@ -1507,35 +1384,30 @@ a.link:hover {
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-links {
-    position: absolute;
     bottom: 710px;
     right: 300px;
     height: 10%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .heidelbeere-rechts {
-    position: absolute;
     bottom: 630px;
     right: 270px;
     height: 7%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-oben {
-    position: absolute;
     bottom: 670px;
     right: 210px;
     height: 10%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-unten {
-    position: absolute;
     bottom: 590px;
     right: 200px;
     height: 8%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-rechts {
-    position: absolute;
     bottom: 650px;
     right: 130px;
     height: 13%;
@@ -1547,6 +1419,11 @@ a.link:hover {
     max-width: 75%;
     margin: 0 auto;
     margin-bottom: 50px;
+  }
+
+  .header-container {
+    background-image: none;
+    background-color: #F7FCFC;
   }
 }
 

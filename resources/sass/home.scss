@@ -92,10 +92,7 @@
             }
 
             .stachelbeerebowl {
-                height: 65%;
-                position:absolute;
-                bottom: 0;
-                left: 80px;
+                display: none;
             }
 
             .stachelbeere-links-3 {
@@ -127,10 +124,6 @@
             height: 100%;
 
             .salad-bowl {
-                //position:absolute;
-                //bottom: 0;
-                //right: -50px;
-                //height: 65%;
                 display: none;
             }
 
@@ -149,10 +142,6 @@
             }
 
             .stachelbeere-rechts-oben {
-                //position:absolute;
-                //top: 40px;
-                //right: 10px;
-                //height: 10%;
                 display: none;
             }
 
@@ -238,90 +227,17 @@ a.link:hover {
             };
         }
 
-        .header-container-images-berries {
-            position: absolute;
-            bottom: 30px;
-            left: 0;
-            height: 45%;
-
-            .images-berries-position-rel {
-                position: relative;
-                height: 100%;
-
-                .stachelbeere-links-1 {
-                    //position: absolute;
-                    //top: 80px;
-                    //left: 20px;
-                    //height: 10%;
-                    display: none;
-                }
-                .stachelbeere-links-2 {
-                    //position: absolute;
-                    //top:0;
-                    //left: 100px;
-                    //height: 20%;
-                    display: none;
-                }
-
-                .stachelbeerebowl {
-                    //wdith: 50%;
-                    //height: 75%;
-                    //position:absolute;
-                    //top: 93px;
-                    //left: 200px;
-                    display: none;
-                }
-
-                .stachelbeere-links-3 {
-                    //position:absolute;
-                    //bottom: 0;
-                    //left: 330px;
-                    //height: 20%;
-                    display: none;
-                }
-
-                .heidelbeere-links-1 {
-                    //position:absolute;
-                    //bottom: 0;
-                    //left: 550px;
-                    //height: 10%;
-                    display: none;
-                }
-
-                .heidelbeere-links-2 {
-                    //position:absolute;
-                    //bottom: 40px;
-                    //left: 590px;
-                    //height: 12%;
-                    display: none;
-                }
-
-                .heidelbeere-links-3 {
-                    //position:absolute;
-                    //bottom: 0;
-                    //left: 620px;
-                    //height: 10%;
-                    display: none;
-                }
-
-            }
-        }
-
         .header-container-images-salad {
-            position: absolute;
-            top: 0;
-            right: 0;
             height: 100%;
 
             .images-salad-position-rel {
-                position: relative;
                 height: 100%;
 
                 .salad-bowl {
                     position:absolute;
                     bottom: 20px;
                     right: 10px;
-                    height: 30%;
+                    height: 40%;
                     display: block;
                 }
 
@@ -337,14 +253,6 @@ a.link:hover {
                     top: 70px;
                     right: 60px;
                     height: 6%;
-                }
-
-                .stachelbeere-rechts-oben {
-                    position:absolute;
-                    top: 40px;
-                    right: 10px;
-                    height: 8%;
-                    display: none;
                 }
 
                 .stachelbeere-rechts-unten {
@@ -365,8 +273,6 @@ a.link:hover {
     }
 
 }
-
-
 
 /***************TABLET***************/
 
@@ -398,74 +304,13 @@ a.link:hover {
             }
         }
 
-        .header-container-images-berries {
-            position: absolute;
-            bottom: 30px;
-            left: 0;
-            height: 45%;
-
-            .images-berries-position-rel {
-                position: relative;
-                height: 100%;
-
-                .stachelbeere-links-1 {
-                    display: none;
-                }
-                .stachelbeere-links-2 {
-                    display: none;
-                }
-
-                .stachelbeerebowl {
-                    //height: 85%;
-                    //position:absolute;
-                    //top: 80px;
-                    //left: 60px;
-                    display: none;
-                }
-
-                .stachelbeere-links-3 {
-                    //position:absolute;
-                    //bottom: 0;
-                    //left: 360px;
-                    //height: 17%;
-                    display: none;
-                }
-
-                .heidelbeere-links-1 {
-                    display: none;
-                }
-
-                .heidelbeere-links-2 {
-                    //position:absolute;
-                    //bottom: 60px;
-                    //left: 330px;
-                    //height: 12%;
-                    display: none;
-                }
-
-                .heidelbeere-links-3 {
-                    //position:absolute;
-                    //bottom: 70px;
-                    //left: 390px;
-                    //height: 25%;
-                    display: none;
-                }
-
-            }
-        }
-
         .header-container-images-salad {
-            position: absolute;
-            bottom: 0;
-            right: 0;
             height: 100%;
 
             .images-salad-position-rel {
-                position: relative;
                 height: 100%;
 
                 .salad-bowl {
-                    position:absolute;
                     bottom: 0px;
                     right: 100px;
                     height: 45%;
@@ -473,14 +318,12 @@ a.link:hover {
                 }
 
                 .blatt-oben-links {
-                    position:absolute;
                     top: 50px;
                     right: 170px;
                     height:10%;
                 }
 
                 .heidelbeere-rechts {
-                    position:absolute;
                     top: 130px;
                     right: 170px;
                     height: 5%;
@@ -495,14 +338,12 @@ a.link:hover {
                 }
 
                 .stachelbeere-rechts-unten {
-                    position: absolute;
                     top: 200px;
                     right: 130px;
                     height: 6%;
                 }
 
                 .blatt-oben-rechts {
-                    position:absolute;
                     top: 150px;
                     right: 40px;
                     height:12%;
@@ -597,23 +438,7 @@ a.link:hover {
                 position: relative;
                 height: 100%;
 
-                .stachelbeere-links-1 {
-                    //position: absolute;
-                    //top: 80px;
-                    //left: 20px;
-                    //height: 10%;
-                    display: none;
-                }
-                .stachelbeere-links-2 {
-                    //position: absolute;
-                    //top:0;
-                    //left: 100px;
-                    //height: 17%;
-                    display: none;
-                }
-
                 .stachelbeerebowl {
-                    //wdith: 50%;
                     height: 75%;
                     position:absolute;
                     top: 80px;
@@ -627,14 +452,6 @@ a.link:hover {
                     left: 360px;
                     height: 17%;
                     display: block;
-                }
-
-                .heidelbeere-links-1 {
-                    //position:absolute;
-                    //bottom: 270px;
-                    //left: 100px;
-                    //height: 10%;
-                    display: none;
                 }
 
                 .heidelbeere-links-2 {
@@ -666,8 +483,6 @@ a.link:hover {
                 height: 100%;
 
                 .salad-bowl {
-                    position:absolute;
-                    //top:auto;
                     top: 300px;
                     right: 100px;
                     height: 70%;
@@ -675,35 +490,30 @@ a.link:hover {
                 }
 
                 .blatt-oben-links {
-                    position:absolute;
                     bottom: 710px;
                     right: 300px;
                     height:10%;
                 }
 
                 .heidelbeere-rechts {
-                    position:absolute;
                     bottom: 630px;
                     right: 270px;
                     height: 7%;
                 }
 
                 .stachelbeere-rechts-oben {
-                    position:absolute;
                     bottom: 670px;
                     right: 210px;
                     height: 10%;
                 }
 
                 .stachelbeere-rechts-unten {
-                    position:absolute;
                     bottom: 590px;
                     right: 200px;
                     height: 8%;
                 }
 
                 .blatt-oben-rechts {
-                    position:absolute;
                     top:120px;
                     right: 175px;
                     height:13%;
@@ -715,7 +525,6 @@ a.link:hover {
     .home-recommended.recipe-cards-wrapper-flex {
         justify-content: center;
     }
-
 
     .home-hero-section {
         margin-bottom:100px;
@@ -754,7 +563,6 @@ a.link:hover {
 
 @media (min-width: $Desktop-Lg) {
     .header-container {
-
         .home-hero-text-wrapper {
             padding: 50px 0 0 100px;
             p {
@@ -770,11 +578,8 @@ a.link:hover {
         }
 
         .header-container-images-salad {
-
             .images-salad-position-rel {
-
                 .salad-bowl {
-                    position: absolute;
                     top: 250px;
                     right: 100px;
                     height: 85%;
@@ -782,35 +587,30 @@ a.link:hover {
                 }
 
                 .blatt-oben-links {
-                    position: absolute;
                     bottom: 710px;
                     right: 300px;
                     height: 10%;
                 }
 
                 .heidelbeere-rechts {
-                    position: absolute;
                     bottom: 630px;
                     right: 270px;
                     height: 7%;
                 }
 
                 .stachelbeere-rechts-oben {
-                    position: absolute;
                     bottom: 670px;
                     right: 210px;
                     height: 10%;
                 }
 
                 .stachelbeere-rechts-unten {
-                    position: absolute;
                     bottom: 590px;
                     right: 200px;
                     height: 8%;
                 }
 
                 .blatt-oben-rechts {
-                    position: absolute;
                     bottom: 650px;
                     right: 130px;
                     height: 13%;
@@ -826,5 +626,10 @@ a.link:hover {
         max-width: 75%;
         margin: 0 auto;
         margin-bottom: 50px;
+    }
+
+    .header-container {
+        background-image: none;
+        background-color: $mainColorBgGrey;
     }
 }
