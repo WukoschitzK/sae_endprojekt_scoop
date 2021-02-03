@@ -26,7 +26,6 @@
       flex-direction: column;
       align-items: flex-start;
 
-
     li {
         align-self: flex-start;
         label {
@@ -51,14 +50,10 @@
 }
 
 .filter-desktop {
-  //width:30%;
-  //margin: 0 auto;
   margin-bottom: 20px;
-
-  .wrapper-filter {
-
-  }
 }
+
+/***************TABLET***************/
 
 @media (min-width: $Tablet) {
     .categories-desktop {
@@ -70,8 +65,9 @@
             height:42px;
         }
     }
-
 }
+
+/***************DESKTOP***************/
 
 @media (min-width: $Desktop) {
     .categories-desktop {
@@ -79,5 +75,4 @@
             width:50%;
         }
     }
-
 }

@@ -7,19 +7,16 @@ Email: kerstin@test.at
 PW: password123
 
 
-##Datenbank
+##Datenbank Lokal
 (siehe auch .env file)
 
 DB Name: scoop_webapp_db
 PW: secret
 
 
-##Login auf Produktivumgebung 
+##Produktivumgebung 
 
 https://scoop-recipes.at
-
-Email: 
-PW: 
 
 
 ##SQL Dump

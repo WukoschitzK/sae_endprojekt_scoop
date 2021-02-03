@@ -7,13 +7,13 @@ form .error {
 }
 
 textarea,input {
-  font-family: "Lato", sans-serif
+    font-family: "Lato", sans-serif
 }
 
 //Cta Button
 
 .cta-btn-wrapper {
-  position:relative;
+    position:relative;
 
     button {
         border: none;
@@ -25,42 +25,42 @@ textarea,input {
 }
 
 .cta-btn {
-  text-align:center;
-  padding-top: 13px;
-  color: $mainColorPurple;
-  font-weight: 700;
-  transition: 0.3s;
-  cursor: pointer;
+    text-align:center;
+    padding-top: 13px;
+    color: $mainColorPurple;
+    font-weight: 700;
+    transition: 0.3s;
+    cursor: pointer;
     font-size: 22px;
 }
 
 .cta-btn:before {
-  content:'';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 30px;
-  background-color: $mainColorLightCyan;
-  z-index: -1;
-  height: 50px;
-  transition: 0.3s;
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background-color: $mainColorLightCyan;
+    z-index: -1;
+    height: 50px;
+    transition: 0.3s;
 }
 
 .cta-btn:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 5px;
-  left: 0;
-  border-radius: 30px;
-  background-color: $mainColorCyan;
-  transition: .3s;
-  z-index: -2;
-  pointer-events: none;
-  height: 50px;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 5px;
+    left: 0;
+    border-radius: 30px;
+    background-color: $mainColorCyan;
+    transition: .3s;
+    z-index: -2;
+    pointer-events: none;
+    height: 50px;
 }
 
 .cta-btn:hover::before {
@@ -69,8 +69,8 @@ textarea,input {
 }
 
 .cta-btn:hover::after {
-  background-color: $mainColorPurple;
-  transition: 0.3s;
+    background-color: $mainColorPurple;
+    transition: 0.3s;
 }
 
 .cta-btn:hover {
@@ -83,40 +83,40 @@ textarea,input {
 }
 
 .cta-btn-wrapper-sm {
-  @extend .cta-btn-wrapper;
-  width: 45%;
+    @extend .cta-btn-wrapper;
+    width: 45%;
 }
 
 .cta-btn-sm {
-  @extend .cta-btn;
-  padding-top: 8px;
-
+    @extend .cta-btn;
+    padding-top: 8px;
 }
+
 .cta-btn-sm:before {
-  height: 40px;
+    height: 40px;
 }
 
 .cta-btn-sm:after {
-  height: 40px;
+    height: 40px;
 }
 
 .cta-btn-right {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 
-  div {
-    margin: 0;
-  }
+    div {
+        margin: 0;
+    }
 }
 
 .cta-btn-unfollow{
-  .cta-btn-sm:before {
-    background-color: $mainColorLightGrey;
-  }
+    .cta-btn-sm:before {
+        background-color: $mainColorLightGrey;
+    }
 
-  .cta-btn-sm:after {
-    background-color: $mainColorGrey;
-  }
+    .cta-btn-sm:after {
+        background-color: $mainColorGrey;
+    }
 
     .cta-btn-sm:hover button{
         color: $mainColorLightPurple;
@@ -165,48 +165,48 @@ textarea,input {
 }
 
 .form-recipe {
-  .form-recipe-input {
-    width: 100%;
-    padding: 10px 10px;
-    font-size: 20px;
-    border: 1px solid $mainColorLightPurple;
-    border-radius: 5px;
-    margin-top: 10px;
-      color:#503d67;
-  }
+    .form-recipe-input {
+        width: 100%;
+        padding: 10px 10px;
+        font-size: 20px;
+        border: 1px solid $mainColorLightPurple;
+        border-radius: 5px;
+        margin-top: 10px;
+        color:#503d67;
+    }
 
-  .form-recipe-input:focus {
-    border: 0.5px solid $mainColorLightPurple;
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-    outline: none;
-    transition: 0.2s;
-  }
+    .form-recipe-input:focus {
+        border: 0.5px solid $mainColorLightPurple;
+        box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+        outline: none;
+        transition: 0.2s;
+    }
 
-  .form-recipe-wrapper-input {
-    margin-bottom: 30px;
+    .form-recipe-wrapper-input {
+        margin-bottom: 30px;
 
-      label {
-          font-weight: 700;
-      }
-  }
+        label {
+            font-weight: 700;
+        }
+    }
 
     .allergen-tiles-wrapper label {
         font-weight: 400;
     }
 
-  label.publish {
-    font-weight: 400;
-  }
+    label.publish {
+        font-weight: 400;
+    }
 
-  .form-character-counter {
-    font-size: 14px;
-    margin-top: 5px;
-  }
+    .form-character-counter {
+        font-size: 14px;
+        margin-top: 5px;
+    }
 
-  .add-step {
-    font-size:30px;
-    padding: 0 5px;
-  }
+    .add-step {
+        font-size:30px;
+        padding: 0 5px;
+    }
 
     .category-selection-wrapper {
         padding-left: 20px;
@@ -225,9 +225,9 @@ textarea,input {
 
 .recipe-image-upload {
     position: relative;
-    //max-width: 205px;
     width:100%;
     margin: 30px auto;
+
     .recipe-image-edit {
         position: absolute;
         right: 12px;
@@ -270,7 +270,6 @@ textarea,input {
         height: 250px;
         position: relative;
         border-radius: 5px;
-        //border: 6px solid #F8F8F8;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
         > div {
             width: 100%;
@@ -284,33 +283,29 @@ textarea,input {
 }
 
 .steps-count {
-  background-color: $mainColorCyan;
-  width:32px;
-  height: 32px;
-  padding: 4px ;
-  border-radius: 50%;
-  color: white;
-  text-align: center;
-  font-weight: 700;
-  margin-top: 15px;
+    background-color: $mainColorCyan;
+    width:32px;
+    height: 32px;
+    padding: 4px ;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 15px;
 }
 
 .input-flex {
-
     div.input-width-100 {
         width:100%;
     }
+
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
 
 .remove-icon {
     width: 15px;
-    //margin-left: 15px;
-
 }
 
 .add-icon {
@@ -324,113 +319,108 @@ textarea,input {
 //Comment Form
 
 .rating-wrapper-flex {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .rating-stars {
-  color: $mainColorYellow;
-  svg {
-    margin-left: 5px;
-    width: 15px;
-    height: 15px;
-  }
-  svg:first-child{
-    margin-left: 0;
-  }
+    color: $mainColorYellow;
+    svg {
+        margin-left: 5px;
+        width: 15px;
+        height: 15px;
+    }
+    svg:first-child{
+        margin-left: 0;
+    }
 }
 
 //Search Form
 
 .search-form-relative {
-  position:relative;
-  width: 100%;
+    position:relative;
+    width: 100%;
     margin-bottom: 30px;
 }
 
 .search-form {
+    .search-input {
+        border-radius: 30px;
+        flex-grow: 2;
+        border-color: transparent;
+        border: 1px solid transparent;
+        padding: 20px 20px;
+        background-color: $mainColorLightCyan;
+        width: 100%;
+        font-size: 20px;
+    }
+    .search-input::placeholder {
+        font-size: 20px;
+        color: $mainColorLightPurple;
+    }
+    .search-input:focus {
+        box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+        outline: none;
+    }
 
-  .search-input {
-    border-radius: 30px;
-    flex-grow: 2;
-    //border-right-width: 0;
-    //border-top-right-radius: 0;
-    //border-bottom-right-radius: 0;
-    border-color: transparent;
-    border: 1px solid transparent;
-    padding: 20px 20px;
-    background-color: $mainColorLightCyan;
-    width: 100%;
-    font-size: 20px;
-  }
-  .search-input::placeholder {
-    font-size: 20px;
-    color: $mainColorLightPurple;
-  }
-  .search-input:focus {
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-    outline: none;
-  }
+    button {
+        border-radius: 30px;
+        border-left-width: 0;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        background-color: $mainColorPink;
+        color: white;
+        padding:18px 20px;
+        border-color: transparent;
+        position: absolute;
+        right: -2px;
+        top: 0px;
+        font-size: 22px;
+        font-weight: 700;
+        cursor: pointer;
+    }
 
-  button {
-    border-radius: 30px;
-    border-left-width: 0;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    background-color: $mainColorPink;
-    color: white;
-    padding:18px 20px;
-    border-color: transparent;
-    position: absolute;
-    right: -2px;
-    top: 0px;
-    font-size: 22px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  button:focus {
-    outline: none;
-  }
+    button:focus {
+        outline: none;
+    }
 }
 
 //Edit Profile Form
 
 .wrapper-edit-profile-image {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
-  .edit-profile-image {
-    margin-left: 20px;
-  }
+    .edit-profile-image {
+        margin-left: 20px;
+    }
 }
 
 .form-edit-profile {
-  width: 100%;
+    width: 100%;
 
-  .form-edit-profile-wrapper-input {
-    margin-bottom: 50px;
+    .form-edit-profile-wrapper-input {
+        margin-bottom: 50px;
 
-    label {
-      font-size: 22px;
-      //font-weight: 700;
+        label {
+            font-size: 22px;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid $mainColorPurple;
+            padding: 10px 15px;
+            font-size: 20px;
+            color:$mainColorDarkPurple;
+        }
+
+        input:focus {
+            outline: none;
+            border-bottom: 2px solid $mainColorDarkPurple;
+            transition: 0.2s;
+        }
     }
-
-    input {
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid $mainColorPurple;
-      padding: 10px 15px;
-      font-size: 20px;
-      color:$mainColorDarkPurple;
-    }
-
-    input:focus {
-      outline: none;
-      border-bottom: 2px solid $mainColorDarkPurple;
-      transition: 0.2s;
-    }
-  }
 }
 
 .form-edit-profile-wrapper-flex {
@@ -445,21 +435,19 @@ textarea,input {
 /***************TABLET***************/
 
 @media (min-width: $Tablet) {
-  .cta-btn-wrapper {
-    margin: 0 auto;
-  }
+    .cta-btn-wrapper {
+        margin: 0 auto;
+    }
     .cta-btn-wrapper {
         width: 277px;
     }
 
-
-  .form-edit-profile {
-    width:80%;
-    margin: 0 auto;
-  }
+    .form-edit-profile {
+        width:80%;
+        margin: 0 auto;
+    }
 
   //RecipeForm
-
 
     .form-recipe-delete {
         width: 100%;
@@ -480,59 +468,55 @@ textarea,input {
         }
     }
 
-  .form-recipe {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    .form-recipe {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
 
-    .form-recipe-input {
-      width: 100%;
-      padding: 10px 10px;
-      font-size: 20px;
-      border: 1px solid $mainColorLightPurple;
-      border-radius: 5px;
-      margin-top: 10px;
+        .form-recipe-input {
+          width: 100%;
+          padding: 10px 10px;
+          font-size: 20px;
+          border: 1px solid $mainColorLightPurple;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        .form-recipe-input:focus {
+          border: 0.5px solid $mainColorLightPurple;
+          box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+          outline: none;
+          transition: 0.2s;
+        }
+
+        .form-recipe-wrapper-input {
+          margin-bottom: 30px;
+        }
+
+        label.publish {
+          font-weight: 400;
+        }
+
+        .form-character-counter {
+          font-size: 14px;
+          margin-top: 5px;
+        }
+
+        .add-step {
+          font-size:30px;
+          padding: 0 5px;
+        }
     }
 
-    .form-recipe-input:focus {
-      border: 0.5px solid $mainColorLightPurple;
-      box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
-      outline: none;
-      transition: 0.2s;
+    .steps-count {
+        background-color: $mainColorCyan;
+        padding: 4px ;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        font-weight: 700;
+        margin-top: 15px;
     }
-
-    .form-recipe-wrapper-input {
-      margin-bottom: 30px;
-    }
-
-    label {
-      //font-weight: 700;
-    }
-
-    label.publish {
-      font-weight: 400;
-    }
-
-    .form-character-counter {
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    .add-step {
-      font-size:30px;
-      padding: 0 5px;
-    }
-  }
-
-  .steps-count {
-    background-color: $mainColorCyan;
-    padding: 4px ;
-    border-radius: 50%;
-    color: white;
-    text-align: center;
-    font-weight: 700;
-    margin-top: 15px;
-  }
 
     .category-selection-wrapper {
         padding-left: 0;
@@ -552,20 +536,20 @@ textarea,input {
 
 @media (min-width: $Desktop) {
 
-  .form-edit-profile {
+    .form-edit-profile {
     width:60%;
     margin: 0 auto;
-  }
+    }
 
-  .cta-btn {
+    .cta-btn {
     font-size: 22px;
-  }
+    }
 
-  .search-form-relative {
+    .search-form-relative {
     width: 70%;
     margin: 0 auto;
       margin-bottom: 50px;
-  }
+    }
 
     .steps-count {
         font-size: 22px;
@@ -577,12 +561,12 @@ textarea,input {
 
 @media (min-width: $Desktop-Lg) {
 
-  .form-edit-profile {
-    width:40%;
-    margin: 0 auto;
-  }
+    .form-edit-profile {
+        width:40%;
+        margin: 0 auto;
+    }
 
-  .search-form-relative {
-    width: 45%;
-  }
+    .search-form-relative {
+        width: 45%;
+    }
 }

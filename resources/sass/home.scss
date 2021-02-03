@@ -1,4 +1,6 @@
 
+//Animation Leaves - Home Header
+
 .rotate-leaves-left {
     animation: rotation-leaves 6s infinite linear;
     transform-origin: bottom right;
@@ -30,28 +32,18 @@
     }
 }
 
-//.header-container-wrapper {
-//    height: calc(100vh - 100px);
-//}
-
 .header-container {
     position:relative;
-    //background-color: #f4e7e7;
-    //background-color: $mainColorLightCyan;
     background-image: url("/images/home_header/background-image-mobile.svg");
     background-repeat: no-repeat;
     background-size: 90%, 70%;
     background-position: right top;
     height: 90vh;
-    //z-index: -10;
-    //overflow: hidden;
     display: flex;
     flex-direction: column;
-    //justify-content: center;
 
     .home-hero-text-wrapper {
         padding: 0px 20px 0 20px;
-        //z-index: 2;
         margin-top: 50px;
 
         p {
@@ -90,9 +82,7 @@
 
         .images-berries-position-rel {
             position: relative;
-            //border: 5px solid fuchsia;
             height: 100%;
-            //width: 1000px;
 
             .stachelbeere-links-1 {
                 display: none;
@@ -105,7 +95,7 @@
                 height: 65%;
                 position:absolute;
                 bottom: 0;
-                left: 200px;
+                left: 80px;
             }
 
             .stachelbeere-links-3 {
@@ -123,7 +113,6 @@
             .heidelbeere-links-3 {
                 display: none;
             }
-
         }
     }
 
@@ -138,10 +127,10 @@
             height: 100%;
 
             .salad-bowl {
-                position:absolute;
-                bottom: 0;
-                right: -50px;
-                height: 65%;
+                //position:absolute;
+                //bottom: 0;
+                //right: -50px;
+                //height: 65%;
                 display: none;
             }
 
@@ -160,10 +149,10 @@
             }
 
             .stachelbeere-rechts-oben {
-                position:absolute;
-                top: 40px;
-                right: 10px;
-                height: 10%;
+                //position:absolute;
+                //top: 40px;
+                //right: 10px;
+                //height: 10%;
                 display: none;
             }
 
@@ -187,8 +176,8 @@
 //list how-it-works
 
 ol.home-list-how-it-works {
-  list-style: none;
-  counter-reset: how-it-works-counter;
+    list-style: none;
+    counter-reset: how-it-works-counter;
 
     p {
         font-size:22px;
@@ -197,52 +186,35 @@ ol.home-list-how-it-works {
 }
 
 ol.home-list-how-it-works li {
-  counter-increment: how-it-works-counter;
+    counter-increment: how-it-works-counter;
 }
 
 ol.home-list-how-it-works li::before {
-  content: counter(how-it-works-counter);
-  color: $mainColorCyan;
-  font-weight: bold;
-  font-size: 50px;
-  padding-left:0;
+    content: counter(how-it-works-counter);
+    color: $mainColorCyan;
+    font-weight: bold;
+    font-size: 50px;
+    padding-left:0;
 }
 
 ol.home-list-how-it-works li h2,
 ol.home-list-how-it-works li p{
-  padding-left: 30px;
+    padding-left: 30px;
 }
 
-//.how-it-works-video-section {
-//  background-color: $mainColorBgGrey;
-//  padding: 30px;
-//}
-
-//.how-it-works-video-placeholder {
-//  //width: 80%;
-//  display: flex;
-//  justify-content: center;
-//  margin: 0 auto;
-//  box-shadow: 8px 8px 15px 0px rgba(119,105,136,0.27);
-//}
-
 a.link {
-  //display: flex;
-  //justify-content: center;
-  //display:inline-block;
-  display: flex;
+    display: flex;
     justify-content: center;
     margin: 0 auto;
-  border-bottom: 2px solid $mainColorPink;
-  width:85px;
-  line-height: 35px;
+    border-bottom: 2px solid $mainColorPink;
+    width:85px;
+    line-height: 35px;
     font-size:22px;
 }
 
 a.link:hover {
-  font-weight: 700;
+    font-weight: 700;
 }
-
 
 /***************MOBILE MEDIUM***************/
 
@@ -274,9 +246,7 @@ a.link:hover {
 
             .images-berries-position-rel {
                 position: relative;
-                //border: 5px solid fuchsia;
                 height: 100%;
-                //width: 1000px;
 
                 .stachelbeere-links-1 {
                     //position: absolute;
@@ -286,16 +256,16 @@ a.link:hover {
                     display: none;
                 }
                 .stachelbeere-links-2 {
-                    position: absolute;
-                    top:0;
-                    left: 100px;
-                    height: 20%;
+                    //position: absolute;
+                    //top:0;
+                    //left: 100px;
+                    //height: 20%;
                     display: none;
                 }
 
                 .stachelbeerebowl {
                     //wdith: 50%;
-                    height: 75%;
+                    //height: 75%;
                     //position:absolute;
                     //top: 93px;
                     //left: 200px;
@@ -303,34 +273,34 @@ a.link:hover {
                 }
 
                 .stachelbeere-links-3 {
-                    position:absolute;
-                    bottom: 0;
-                    left: 330px;
-                    height: 20%;
+                    //position:absolute;
+                    //bottom: 0;
+                    //left: 330px;
+                    //height: 20%;
                     display: none;
                 }
 
                 .heidelbeere-links-1 {
-                    position:absolute;
-                    bottom: 0;
-                    left: 550px;
-                    height: 10%;
+                    //position:absolute;
+                    //bottom: 0;
+                    //left: 550px;
+                    //height: 10%;
                     display: none;
                 }
 
                 .heidelbeere-links-2 {
-                    position:absolute;
-                    bottom: 40px;
-                    left: 590px;
-                    height: 12%;
+                    //position:absolute;
+                    //bottom: 40px;
+                    //left: 590px;
+                    //height: 12%;
                     display: none;
                 }
 
                 .heidelbeere-links-3 {
-                    position:absolute;
-                    bottom: 0;
-                    left: 620px;
-                    height: 10%;
+                    //position:absolute;
+                    //bottom: 0;
+                    //left: 620px;
+                    //height: 10%;
                     display: none;
                 }
 
@@ -341,7 +311,7 @@ a.link:hover {
             position: absolute;
             top: 0;
             right: 0;
-            height: 80%;
+            height: 100%;
 
             .images-salad-position-rel {
                 position: relative;
@@ -349,9 +319,9 @@ a.link:hover {
 
                 .salad-bowl {
                     position:absolute;
-                    bottom: 0;
-                    right: 0;
-                    height: 50%;
+                    bottom: 20px;
+                    right: 10px;
+                    height: 30%;
                     display: block;
                 }
 
@@ -359,21 +329,21 @@ a.link:hover {
                     position:absolute;
                     top: 0;
                     right: 30px;
-                    height:12%;
+                    height:10%;
                 }
 
                 .heidelbeere-rechts {
                     position:absolute;
                     top: 70px;
                     right: 60px;
-                    height: 8%;
+                    height: 6%;
                 }
 
                 .stachelbeere-rechts-oben {
                     position:absolute;
                     top: 40px;
                     right: 10px;
-                    height: 10%;
+                    height: 8%;
                     display: none;
                 }
 
@@ -381,14 +351,14 @@ a.link:hover {
                     position:absolute;
                     top:55px;
                     right: 5px;
-                    height: 8%;
+                    height: 6%;
                 }
 
                 .blatt-oben-rechts {
                     position:absolute;
                     top: 90px;
                     right: 20px;
-                    height:10%;
+                    height:8%;
                 }
             }
         }
@@ -446,18 +416,18 @@ a.link:hover {
                 }
 
                 .stachelbeerebowl {
-                    height: 85%;
-                    position:absolute;
-                    top: 80px;
-                    left: 60px;
+                    //height: 85%;
+                    //position:absolute;
+                    //top: 80px;
+                    //left: 60px;
                     display: none;
                 }
 
                 .stachelbeere-links-3 {
-                    position:absolute;
-                    bottom: 0;
-                    left: 360px;
-                    height: 17%;
+                    //position:absolute;
+                    //bottom: 0;
+                    //left: 360px;
+                    //height: 17%;
                     display: none;
                 }
 
@@ -466,18 +436,18 @@ a.link:hover {
                 }
 
                 .heidelbeere-links-2 {
-                    position:absolute;
-                    bottom: 60px;
-                    left: 330px;
-                    height: 12%;
+                    //position:absolute;
+                    //bottom: 60px;
+                    //left: 330px;
+                    //height: 12%;
                     display: none;
                 }
 
                 .heidelbeere-links-3 {
-                    position:absolute;
-                    bottom: 70px;
-                    left: 390px;
-                    height: 25%;
+                    //position:absolute;
+                    //bottom: 70px;
+                    //left: 390px;
+                    //height: 25%;
                     display: none;
                 }
 
@@ -541,56 +511,50 @@ a.link:hover {
         }
     }
 
-  h1.home-h1 {
-    margin-bottom: 80px;
-  }
-
-  .home-hero-section {
-    display:flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom:50px;
-
-    .home-hero-text-wrapper {
-      width: 40%;
+    h1.home-h1 {
+        margin-bottom: 80px;
     }
 
-    img {
-      width:50%;
-      margin: 0;
+    .home-hero-section {
+        display:flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom:50px;
+
+        .home-hero-text-wrapper {
+            width: 40%;
+        }
+
+        img {
+            width:50%;
+            margin: 0;
+        }
     }
-  }
 
-  .home-hero-section-text {
-    p {
-      font-size:21px;
+    .home-hero-section-text {
+        p {
+            font-size:21px;
+        }
+        p:first-child {
+            font-size:35px;
+        }
     }
-    p:first-child {
-      font-size:35px;
 
+    .home-list-how-it-works {
+        display: flex;
+        justify-content: space-between;
     }
-  }
 
-  .home-list-how-it-works {
-    display: flex;
-    justify-content: space-between;
-  }
+    .list-recipe-cards {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-  //.how-it-works-video-section {
-  //  padding: 50px 100px;
-  //}
-
-  .list-recipe-cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  a.link {
-    //width: 80px;
-    display:flex;
-    justify-content: center;
-  }
+    a.link {
+        display:flex;
+        justify-content: center;
+    }
 }
 
 
@@ -631,22 +595,20 @@ a.link:hover {
 
             .images-berries-position-rel {
                 position: relative;
-                //border: 5px solid fuchsia;
                 height: 100%;
-                //width: 1000px;
 
                 .stachelbeere-links-1 {
-                    position: absolute;
-                    top: 80px;
-                    left: 20px;
-                    height: 10%;
+                    //position: absolute;
+                    //top: 80px;
+                    //left: 20px;
+                    //height: 10%;
                     display: none;
                 }
                 .stachelbeere-links-2 {
-                    position: absolute;
-                    top:0;
-                    left: 100px;
-                    height: 17%;
+                    //position: absolute;
+                    //top:0;
+                    //left: 100px;
+                    //height: 17%;
                     display: none;
                 }
 
@@ -668,10 +630,10 @@ a.link:hover {
                 }
 
                 .heidelbeere-links-1 {
-                    position:absolute;
-                    bottom: 270px;
-                    left: 100px;
-                    height: 10%;
+                    //position:absolute;
+                    //bottom: 270px;
+                    //left: 100px;
+                    //height: 10%;
                     display: none;
                 }
 
@@ -690,7 +652,6 @@ a.link:hover {
                     height: 25%;
                     display: block;
                 }
-
             }
         }
 
@@ -743,77 +704,55 @@ a.link:hover {
 
                 .blatt-oben-rechts {
                     position:absolute;
-                    bottom: 650px;
-                    right: 130px;
+                    top:120px;
+                    right: 175px;
                     height:13%;
                 }
             }
         }
     }
 
-  .home-recommended.recipe-cards-wrapper-flex {
-    justify-content: center;
-  }
-
-  //.how-it-works-video-placeholder-desktop {
-  //  width: 75%;
-  //  display: flex;
-  //  margin: 0 auto;
-  //}
-
-  .home-hero-section {
-    margin-bottom:100px;
-
-    .home-hero-text-wrapper {
-      width: 43%;
-
-
-      .cta-btn-wrapper {
-        margin:0;
-      }
+    .home-recommended.recipe-cards-wrapper-flex {
+        justify-content: center;
     }
 
-    img {
-      width:50%;
+
+    .home-hero-section {
+        margin-bottom:100px;
+
+        .home-hero-text-wrapper {
+            width: 43%;
+
+            .cta-btn-wrapper {
+            margin:0;
+            }
+        }
+
+        img {
+            width:50%;
+        }
     }
-  }
 
-  //.home-hero-section-text {
-  //  margin-bottom: 60px;
-  //
-  //  p {
-  //    font-size: 35px;
-  //    line-height: 45px;
-  //  }
-  //
-  //  p:first-child {
-  //    font-size: 65 px;
-  //    line-height: 65px;
-  //    margin-bottom: 25px;
-  //  }
-  //}
+    .home-list-how-it-works {
+        margin-bottom: 50px;
+    }
 
-  .home-list-how-it-works {
-    margin-bottom: 50px;
-  }
+    ol.home-list-how-it-works li {
+        width: 30%;
+    }
 
-  ol.home-list-how-it-works li {
-    width: 30%;
-  }
+    ol.home-list-how-it-works li::before {
+        line-height:60px;
+    }
 
-  ol.home-list-how-it-works li::before {
-    line-height:60px;
-  }
-
-  ol.home-list-how-it-works li h2,
-  ol.home-list-how-it-works li p {
-    padding-left: 45px;
-  }
+    ol.home-list-how-it-works li h2,
+    ol.home-list-how-it-works li p {
+        padding-left: 45px;
+    }
 }
 
 
 @media (min-width: $Desktop-Lg) {
-
     .header-container {
 
         .home-hero-text-wrapper {
@@ -879,25 +818,13 @@ a.link:hover {
             }
         }
     }
-
 }
-
 
 @media (min-width: $Desktop-Xl) {
 
-  //.how-it-works-video-placeholder-desktop {
-  //  width: 60%;
-  //  display: flex;
-  //  margin: 0 auto;
-  //}
-
-  .home-list-how-it-works {
-    max-width: 75%;
-    margin: 0 auto;
-    margin-bottom: 50px;
-  }
-
-    //todo: new svg background for header
-
-
+    .home-list-how-it-works {
+        max-width: 75%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
 }

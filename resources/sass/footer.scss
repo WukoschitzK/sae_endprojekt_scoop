@@ -1,52 +1,46 @@
 
 /***************MOBILE***************/
 
-
-footer {
-
-}
-
-
 .footer {
-  display: flex;
-  justify-content: space-between;
-  background-color: $mainColorDarkPurple;
+    display: flex;
+    justify-content: space-between;
+    background-color: $mainColorDarkPurple;
     background-color: #1b1029;
-    //background-color:red;
-  margin-top: 30px;
-  padding: 25px;
+    margin-top: 30px;
+    padding: 25px;
 
-  li {
-    font-size: 14px;
+    li {
+        font-size: 14px;
 
-    a {
-      color: white;
+        a {
+          color: white;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
     }
-    a:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 /***************TABLET***************/
 
 @media (min-width: 768px) {
-  .footer {
-    justify-content: center;
-    margin-top: 50px;
-    padding-top: 30px;
+    .footer {
+        justify-content: center;
+        margin-top: 50px;
+        padding-top: 30px;
 
-    li:nth-child(2) {
-      margin: 0 30px;
+        li:nth-child(2) {
+          margin: 0 30px;
+        }
     }
-  }
 }
 
 /***************DESKTOP***************/
 
 
 @media (min-width: $Desktop) {
-  .footer {
-    padding-top: 30px;
-  }
+    .footer {
+        padding-top: 30px;
+    }
 }

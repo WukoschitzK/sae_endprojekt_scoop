@@ -1,43 +1,43 @@
 //helper css classes
 
 .d-none {
-  display: none;
+    display: none;
 }
 
 .d-block {
-  display: block;
+    display: block;
 }
 
 .d-inline-block {
-  display: inline-block;
+    display: inline-block;
 }
 
 .text-black {
-  font-weight: 900;
+    font-weight: 900;
 }
 
 .text-bold {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .text-center {
-  text-align: center;
-  margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .text-right {
-  text-align: right;
+    text-align: right;
 }
 
 .font-20-px {
-  font-size: 20px;
+    font-size: 20px;
 }
 .font-16-px {
-  font-size: 16px;
+    font-size: 16px;
 }
 .font-14-px {
-  font-size: 14px;
-  line-height: 17px;
+    font-size: 14px;
+    line-height: 17px;
 }
 
 .max-width-85ch {
@@ -45,59 +45,58 @@
 }
 
 .margin-bottom-10 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .margin-bottom-20 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .margin-bottom-30 {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 .margin-bottom-50 {
-  margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .margin-top-30px {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .width-50 {
-  width: 50%;
+    width: 50%;
 }
 
 .margin-0 {
-  margin: 0;
+    margin: 0;
 }
 
 .padding-left-10 {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 .heading-line:after {
-  margin: 20px auto 20px auto;
-  width: 100px;
-  border-bottom: 6px solid $mainColorPink;
-  border-radius: 15%;
-  content: '';
-  display: block;
+    margin: 20px auto 20px auto;
+    width: 100px;
+    border-bottom: 6px solid $mainColorPink;
+    border-radius: 15%;
+    content: '';
+    display: block;
 }
 
 h2.heading-line:after {
-  margin: 10px auto 10px auto;
-  width: 80px;
-  border-bottom: 4px solid $mainColorPink;
-  border-radius: 15%;
-  content: '';
-  display: block;
+    margin: 10px auto 10px auto;
+    width: 80px;
+    border-bottom: 4px solid $mainColorPink;
+    border-radius: 15%;
+    content: '';
+    display: block;
 }
 
 a.heading-line:after {
-  //margin: 10px auto 10px auto;
-  width: 40px;
-  border-bottom: 4px solid $mainColorPink;
-  border-radius: 15%;
-  content: '';
-  display: block;
+    width: 40px;
+    border-bottom: 4px solid $mainColorPink;
+    border-radius: 15%;
+    content: '';
+    display: block;
 }
 
 .align-right {
@@ -120,20 +119,15 @@ a.heading-line:after {
         justify-content: flex-end;
     }
 
-  .w-md-40 {
-    width: 40%;
-  }
+    .w-md-40 {
+        width: 40%;
+    }
 
-  .md-margin-bottom-80 {
-    margin-bottom: 80px;
-  }
+    .md-margin-bottom-80 {
+        margin-bottom: 80px;
+    }
 
     .md-margin-bottom-50 {
         margin-bottom: 50px;
     }
-}
-
-@media (min-width: $Desktop) {
-
-
 }

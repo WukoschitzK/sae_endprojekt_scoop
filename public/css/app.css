@@ -139,7 +139,7 @@ a.heading-line:after {
 body {
   font-family: "Lato", sans-serif;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   color: #280158;
   font-size: 20px;
   line-height: 25px;
@@ -154,19 +154,6 @@ html,
 body {
   height: 100%;
   margin: 0;
-}
-
-.showSpinner {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background-image: url("/images/spinner.gif");
-  background-repeat: no-repeat;
-  background-color: white;
-  background-position: center;
 }
 
 ::-webkit-scrollbar {
@@ -919,7 +906,7 @@ svg.fa-bars {
   height: 65%;
   position: absolute;
   bottom: 0;
-  left: 200px;
+  left: 80px;
 }
 
 .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
@@ -951,10 +938,6 @@ svg.fa-bars {
 }
 
 .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
-  position: absolute;
-  bottom: 0;
-  right: -50px;
-  height: 65%;
   display: none;
 }
 
@@ -973,10 +956,6 @@ svg.fa-bars {
 }
 
 .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-oben {
-  position: absolute;
-  top: 40px;
-  right: 10px;
-  height: 10%;
   display: none;
 }
 
@@ -1072,47 +1051,26 @@ a.link:hover {
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
-    position: absolute;
-    top: 0;
-    left: 100px;
-    height: 20%;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-    height: 75%;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
-    position: absolute;
-    bottom: 0;
-    left: 330px;
-    height: 20%;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
-    position: absolute;
-    bottom: 0;
-    left: 550px;
-    height: 10%;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
-    position: absolute;
-    bottom: 40px;
-    left: 590px;
-    height: 12%;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
-    position: absolute;
-    bottom: 0;
-    left: 620px;
-    height: 10%;
     display: none;
   }
 
@@ -1120,7 +1078,7 @@ a.link:hover {
     position: absolute;
     top: 0;
     right: 0;
-    height: 80%;
+    height: 100%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel {
@@ -1130,9 +1088,9 @@ a.link:hover {
 
   .header-container .header-container-images-salad .images-salad-position-rel .salad-bowl {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 50%;
+    bottom: 20px;
+    right: 10px;
+    height: 30%;
     display: block;
   }
 
@@ -1140,21 +1098,21 @@ a.link:hover {
     position: absolute;
     top: 0;
     right: 30px;
-    height: 12%;
+    height: 10%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .heidelbeere-rechts {
     position: absolute;
     top: 70px;
     right: 60px;
-    height: 8%;
+    height: 6%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .stachelbeere-rechts-oben {
     position: absolute;
     top: 40px;
     right: 10px;
-    height: 10%;
+    height: 8%;
     display: none;
   }
 
@@ -1162,14 +1120,14 @@ a.link:hover {
     position: absolute;
     top: 55px;
     right: 5px;
-    height: 8%;
+    height: 6%;
   }
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-rechts {
     position: absolute;
     top: 90px;
     right: 20px;
-    height: 10%;
+    height: 8%;
   }
 }
 
@@ -1225,18 +1183,10 @@ a.link:hover {
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeerebowl {
-    height: 85%;
-    position: absolute;
-    top: 80px;
-    left: 60px;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-3 {
-    position: absolute;
-    bottom: 0;
-    left: 360px;
-    height: 17%;
     display: none;
   }
 
@@ -1245,18 +1195,10 @@ a.link:hover {
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-2 {
-    position: absolute;
-    bottom: 60px;
-    left: 330px;
-    height: 12%;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-3 {
-    position: absolute;
-    bottom: 70px;
-    left: 390px;
-    height: 25%;
     display: none;
   }
 
@@ -1403,18 +1345,10 @@ a.link:hover {
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-1 {
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    height: 10%;
     display: none;
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .stachelbeere-links-2 {
-    position: absolute;
-    top: 0;
-    left: 100px;
-    height: 17%;
     display: none;
   }
 
@@ -1435,10 +1369,6 @@ a.link:hover {
   }
 
   .header-container .header-container-images-berries .images-berries-position-rel .heidelbeere-links-1 {
-    position: absolute;
-    bottom: 270px;
-    left: 100px;
-    height: 10%;
     display: none;
   }
 
@@ -1508,8 +1438,8 @@ a.link:hover {
 
   .header-container .header-container-images-salad .images-salad-position-rel .blatt-oben-rechts {
     position: absolute;
-    bottom: 650px;
-    right: 130px;
+    top: 120px;
+    right: 175px;
     height: 13%;
   }
 
@@ -2135,6 +2065,8 @@ a.link:hover {
   margin-bottom: 20px;
 }
 
+/***************TABLET***************/
+
 @media (min-width: 768px) {
   .categories-desktop .categories-wrapper {
     flex-direction: row;
@@ -2144,6 +2076,8 @@ a.link:hover {
     height: 42px;
   }
 }
+
+/***************DESKTOP***************/
 
 @media (min-width: 1020px) {
   .categories-desktop .categories-wrapper {
