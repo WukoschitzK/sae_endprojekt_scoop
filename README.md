@@ -10,11 +10,12 @@ PW: password123
 ##Datenbank Lokal
 (siehe auch .env file)
 
+Benutzer: homestead
 DB Name: scoop_webapp_db
 PW: secret
 
 
-##Produktivumgebung 
+##Produktivumgebung
 
 https://scoop-recipes.at
 
@@ -23,6 +24,7 @@ https://scoop-recipes.at
 
 beim SQL Dump müssen auch die Testdaten importiert werden, 
 da sonst die Kategorien und Allergene nicht vorhanden sind.
+
 Außerdem wurden schon Testuser mit Rezepten erstellt, zur besseren
 visuellen Veranschaulichung.
 

@@ -94,7 +94,7 @@
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  // $('.container-spinner').children().addClass('spinner');
+  //image preview
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -117,8 +117,6 @@ $(document).ready(function () {
   $windowHeight += 220;
 
   if ($(document).height() > $windowHeight) {
-    console.log('windowheight:', $windowHeight);
-    console.log('wdocheight:', $(document).height());
     $(window).scroll(function () {
       $navigationDestkop = $('.navigation-desktop');
       $navigationMobile = $('.navigation-mobile');
@@ -132,7 +130,7 @@ $(document).ready(function () {
         $navigationMobile.removeClass("scrolled");
       }
     });
-  } // mobilenav
+  } // mobile-nav burger menu
 
 
   $burgerMenuBtn = $('.js-menu-btn');
@@ -148,7 +146,8 @@ $(document).ready(function () {
     } else {
       $navigationPoints.hide();
     }
-  });
+  }); //navigation toggle icon
+
   $toggleIcon = $('.js-toggle-icon');
   $openNavigationPoints = $('.js-open-navigation-points');
   $openNavigationPoints.hide();
@@ -160,7 +159,8 @@ $(document).ready(function () {
     } else {
       $openNavigationPoints.hide();
     }
-  });
+  }); //show allergens and toggle icon
+
   $toggleShowAllergens = $('.js-toggle-show-allergens');
   $allergenWrapper = $('.js-allergen-tiles-wrapper');
   $allergenWrapper.hide();
@@ -172,7 +172,8 @@ $(document).ready(function () {
     } else {
       $allergenWrapper.hide();
     }
-  });
+  }); //show categories and toggle icon
+
   $toggleShowCategories = $('.js-toggle-show-categories');
   $categoriesWrapper = $('.js-categories-wrapper');
   $categoriesWrapper.hide();
@@ -184,53 +185,38 @@ $(document).ready(function () {
     } else {
       $categoriesWrapper.hide();
     }
-  }); // add ingredient input field
-  // $('.add-ingredient').click(function() {
-  //     $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" +
-  //         "<input name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" +
-  //         "</div>");
-  // });
+  }); // add input field for new ingredient
 
   $('.add-ingredient').click(function () {
     $('.js-wrapper-ingredients-input').append("<div class=\"wrapper-ingredients\">\n" + "<div>\n" + "<div>\n" + "<div class=\"input-width-100\">\n" + "<input rows=\"6\" cols=\"150\" name=\"ingredient[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_ingredient\">\n" + "</div>\n" + "<div class=\"js-remove-ingredient text-right\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
-  }); //remove ingredients
-  // $('.js-remove-ingredient').click(function() {
-  //     $(this).parent().remove();
-  // })
+  }); //remove ingredients input field
 
   $('.js-wrapper-ingredients-input').on('click', 'div.js-remove-ingredient', function () {
     $(this).parent().parent().remove();
-  }); // add step input field
+  }); // add input field for new step
 
-  var count = 1; // $('.add-step').click(function() {
-  //     count+=1;
-  //     $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" +
-  //         "<div class=\"steps-count\">" + count + "</div>\n" +
-  //         "<input rows=\"6\" cols=\"150\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\">\n" +
-  //         "    </div>");
-  // });
-
+  var count = 1;
   $('.add-step').click(function () {
     count += 1;
     $('.js-wrapper-steps-input').append("<div class=\"wrapper-steps\">\n" + "<div>\n" + "<div class=\"steps-count\">" + count + "</div>\n" + "<div>\n" + "<textarea rows=\"6\" cols=\"150\" type=\"text\" name=\"steps[]\" value=\"\" class=\"form-recipe-input margin-bottom-10\" id=\"input_steps\"></textarea>\n" + "<div class=\"js-remove-step text-right\"><img class=\"remove-icon\" src=\"../../images/svg/cross.svg\" alt=\"delete icon\"></div>\n" + "</div>\n" + "</div>\n" + "</div>");
-  }); //remove step
+  }); //remove step input field
 
   $('.js-wrapper-steps-input').on('click', 'div.js-remove-step', function () {
-    // console.log($(this).parent().parent());
     $(this).parent().parent().remove();
-  });
-  var category = "";
-  var allergens = []; //filter recipe allergens
+  }); //filter recipe from allergens with ajax request
 
+  var category = "";
+  var allergens = [];
   $('.tryAllergen').click(function () {
     $('.tryAllergen').each(function () {
       if ($(this).is(":checked")) {
-        //add allergen only if it's not already in array
+        //add allergen only if it's not already in array + add active class
         if (allergens.indexOf($(this).val()) < 0) {
           allergens.push($(this).val());
           $(this).parent().addClass('active');
         }
       } else {
+        //remove active class
         $(this).parent().removeClass('active');
         var index = allergens.indexOf($(this).val()); //remove unchecked items from array
 
@@ -238,9 +224,7 @@ $(document).ready(function () {
           allergens.splice(index, 1);
         }
       }
-    }); // console.log(category);
-    // console.log(allergens);
-
+    });
     $.ajax({
       type: 'GET',
       dataType: 'html',
@@ -249,16 +233,12 @@ $(document).ready(function () {
       success: function success(data) {
         var result = $('<div />').append(data).find('.recipe-cards-wrapper-flex').html();
         $('.recipe-cards-wrapper-flex').html(result);
-      } // success: function(response) {
-      //     console.log(response);
-      //     return;
-      //     $('#updateDiv').append(response);
-      // }
-
+      }
     });
-  });
-  $('.js-categories-wrapper').children().first().addClass('active'); //filter recipe category
+  }); //filter recipes from categories with ajax request
+  //before choosing a category, the All-Category should be active
 
+  $('.js-categories-wrapper').children().first().addClass('active');
   $('.js-select-category').click(function () {
     $('.js-select-category').each(function () {
       if ($(this).is(":checked")) {
@@ -269,8 +249,6 @@ $(document).ready(function () {
       }
     });
     var finalcategories = category;
-    console.log(finalcategories);
-    console.log(allergens);
     $.ajax({
       type: 'GET',
       dataType: 'html',
@@ -279,13 +257,10 @@ $(document).ready(function () {
       success: function success(data) {
         var result = $('<div />').append(data).find('.recipe-cards-wrapper-flex').html();
         $('.recipe-cards-wrapper-flex').html(result);
-      } // success: function(response) {
-      //     console.log(response);
-      //     $('#updateDiv').append(response);
-      // }
-
+      }
     });
-  });
+  }); //recipe detail view on mobile (toggle steps and ingredients)
+
   $('.js-list-steps').hide(); //show ingredients (mobile)
 
   $('#js-tab-ingr').click(function () {
@@ -300,7 +275,7 @@ $(document).ready(function () {
     $('.js-list-ingr').hide();
     $('.js-list-steps').show();
     $(this).addClass('recipe-tab-active');
-  }); //edit allergens
+  }); //recipe form - edit allergens
 
   $('.allergen-btn-editform').each(function () {
     $('.allergen-btn-editform').click(function () {
@@ -308,14 +283,7 @@ $(document).ready(function () {
         $(this).parent().addClass('active');
       } else {
         $(this).parent().removeClass('active');
-      } // if($(this).find('input').is(":checked")) {
-      //     $(this).removeClass('active');
-      //     // $(this).find('input').attr('checked', 'checked');
-      // } else {
-      //     $(this).addClass('active');
-      //     $(this).find('input').attr('checked', 'checked');
-      // }
-
+      }
     });
   }); //form validation for registration page
 
@@ -367,7 +335,7 @@ $(document).ready(function () {
     submitHandler: function submitHandler(form) {
       form.submit();
     }
-  }); //form validation for recipeform
+  }); //form validation for recipe form
 
   $("form[name='recipe-form']").validate({
     rules: {
@@ -405,7 +373,7 @@ $(document).ready(function () {
     submitHandler: function submitHandler(form) {
       form.submit();
     }
-  }); // char counter title
+  }); // recipe form - char counter for title
 
   var max_length_title = 35;
   var counter_title = document.querySelector('.js-count-title');
@@ -422,7 +390,7 @@ $(document).ready(function () {
 
       counter_title.textContent = max_length_title - text_title.length;
     });
-  } // char counter description
+  } // recipe form - char counter for description
 
 
   var max_length_description = 150;
@@ -437,8 +405,7 @@ $(document).ready(function () {
 
     counter_description.textContent = max_length_description - text.length;
   });
-}); //
-// $(window).on("load", function() {
+}); // $(window).on("load", function() {
 //     setTimeout(function () {
 //         $('.spinner').addClass('showSpinner');
 //     },1000)
