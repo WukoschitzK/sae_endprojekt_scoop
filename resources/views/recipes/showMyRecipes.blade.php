@@ -7,6 +7,28 @@
     <div class="wrapper">
         <div class="h1 heading-line d-inline-block">My Recipes</div>
 
+
+
+        @if($recipes->isEmpty())
+        <div class="empty-section">
+            <img src="/images/vektor_no_recipes_yet.svg" alt="illustration of an women choosing between healty and unhealthy ingredients">
+
+            <div class="empty-section-text-wrapper">
+                <div class="empty-section-text margin-bottom-30">
+                    <p>There are no recipes yet.</p>
+                </div>
+
+                <a href="{{route('recipes.create')}}">
+                    <div class="cta-btn-wrapper cta-btn-small">
+                        <div class="cta-btn">
+                            new recipe
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        @else
+
         <div class="align-right margin-bottom-50">
             <a href="{{route('recipes.create')}}">
                 <div class="cta-btn-wrapper cta-btn-small">
@@ -16,26 +38,6 @@
                 </div>
             </a>
         </div>
-
-        @if($recipes->isEmpty())
-            <div class="home-hero-section">
-                <img class="home-image" src="/images/vektor_no_recipes_yet.svg" alt="illustration of an women choosing between healty and unhealthy ingredients">
-
-                <div class="home-hero-text-wrapper">
-                    <div class="home-hero-section-text margin-bottom-30">
-                        <p>There are no recipes yet.</p>
-                    </div>
-
-                    <a href="{{route('recipes.create')}}">
-                        <div class="cta-btn-wrapper cta-btn-small">
-                            <div class="cta-btn">
-                                new recipe
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        @else
 
         <div class="recipe-cards-wrapper-flex">
             @foreach($recipes as $recipe)

@@ -21,11 +21,11 @@
         <div class="h1 heading-line d-inline-block">Following</div>
 
         @if($followings->isEmpty())
-            <div class="home-hero-section">
-                <img class="home-image" src="/images/vektor_follow.svg" alt="illustration of an women choosing between healty and unhealthy ingredients">
+            <div class="empty-section">
+                <img src="/images/vektor_follow.svg" alt="illustration of an women choosing between healty and unhealthy ingredients">
 
-                <div class="home-hero-text-wrapper">
-                    <div class="home-hero-section-text margin-bottom-30">
+                <div class="empty-section-text-wrapper">
+                    <div class="empty-section-text margin-bottom-30">
                         <p>There are no recipes yet.</p>
                     </div>
 

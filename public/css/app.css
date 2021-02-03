@@ -2211,6 +2211,34 @@ a.link:hover {
   padding-left: 25px;
 }
 
+.empty-section img {
+  margin-bottom: 30px;
+}
+
+.empty-section .empty-section-text-wrapper {
+  text-align: center;
+}
+
+.empty-section p {
+  font-size: 25px;
+}
+
+.empty-section .cta-btn-wrapper,
+.empty-section .cta-btn-wrapper-sm {
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media (min-width: 400px) {
+  .empty-section {
+    text-align: center;
+  }
+
+  .empty-section img {
+    width: 90%;
+  }
+}
+
 /***************TABLET***************/
 
 @media (min-width: 768px) {
@@ -2238,6 +2266,15 @@ a.link:hover {
 
   .profile-information-wrapper .profile-information-text-wrapper {
     margin-left: 40px;
+  }
+
+  .empty-section {
+    text-align: center;
+  }
+
+  .empty-section img {
+    width: 80%;
+    max-width: 500px;
   }
 }
 
@@ -2270,6 +2307,31 @@ a.link:hover {
   .profile-information-wrapper .profile-information-user-name {
     font-size: 22px;
   }
+
+  .empty-section {
+    text-align: left;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .empty-section img {
+    width: 55%;
+    max-width: 650px;
+    margin-bottom: 0;
+  }
+
+  .empty-section .empty-section-text-wrapper {
+    text-align: left;
+    max-width: 35ch;
+    align-self: center;
+  }
+
+  .empty-section p {
+    font-size: 30px;
+    line-height: 45px;
+  }
 }
 
 /***************Desktop LG***************/
@@ -2277,6 +2339,15 @@ a.link:hover {
 @media (min-width: 1700px) {
   .profile-information-section {
     width: 30%;
+  }
+
+  .empty-section {
+    padding: 0 50px;
+  }
+
+  .empty-section p {
+    font-size: 35px;
+    line-height: 50px;
   }
 }
 
